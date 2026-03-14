@@ -1,7 +1,7 @@
 import { colorTokens } from './color-tokens';
 import { spacingTokens } from './spacing-tokens';
 import { roundedTokens } from './rounded-tokens';
-import { fontTokens } from './font-tokens';
+import { fontTokens } from './font-tokens/index';
 
 export const tokens = {
   colors: colorTokens,
@@ -12,14 +12,7 @@ export const tokens = {
 
 export type TTokens = typeof tokens;
 
-export { colorTokens } from './color-tokens';
-export type { TColorToken } from './color-tokens';
-
-export { spacingTokens } from './spacing-tokens';
-export type { TSpacingToken } from './spacing-tokens';
-
-export { roundedTokens } from './rounded-tokens';
-export type { TRoundedToken } from './rounded-tokens';
-
-export { fontTokens } from './font-tokens';
-export type { TFontToken, TFontVariant } from './font-tokens';
+export * from './color-tokens';
+export * from './spacing-tokens';
+export * from './rounded-tokens';
+export * from './font-tokens/index';

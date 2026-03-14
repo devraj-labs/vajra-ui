@@ -21,7 +21,7 @@ Instead of shipping hundreds of prebuilt components, Vajra UI focuses on **found
 * 🧱 **Minimal styling primitives**
 * 🧩 **Variant-based styling**
 * 📱 **React Native first**
-* 🔍 **Predictable `$` prop based styling API**
+* 🔍 **Predictable prop-based styling API**
 
 ---
 

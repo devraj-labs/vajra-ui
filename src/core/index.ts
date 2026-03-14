@@ -1,3 +1,6 @@
+export * from './absolute-center';
 export * from './box';
-export * from './row';
+export * from './center';
 export * from './col';
+export * from './row';
+export * from './spacer';

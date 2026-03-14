@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { useTheme } from '../../theme';
 import { TBoxProps } from './box-types';
 
-const BoxComponent: React.FC<TBoxProps> = ({
+export const Box = memo(function Box({
   style,
   children,
   w,
@@ -45,7 +45,7 @@ const BoxComponent: React.FC<TBoxProps> = ({
   pl,
   pr,
   ...rest
-}) => {
+}: TBoxProps) {
   const { spacing, rounded: r, colors } = useTheme();
 
   const allColors = {
@@ -111,6 +111,5 @@ const BoxComponent: React.FC<TBoxProps> = ({
       {children}
     </View>
   );
-};
-
-export const Box = memo(BoxComponent);
+});
+Box.displayName = 'Box';

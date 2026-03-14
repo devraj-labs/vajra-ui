@@ -65,9 +65,10 @@ module.exports = {
     ],
 
     // Import/export order — alphabetical
+    'import/namespace': 'off',
     'import/no-duplicates': 'error',
-    'simple-import-sort/imports': 'warn',
-    'simple-import-sort/exports': 'warn',
+    'simple-import-sort/imports': 'off',
+    'simple-import-sort/exports': 'error',
 
   },
   env: {

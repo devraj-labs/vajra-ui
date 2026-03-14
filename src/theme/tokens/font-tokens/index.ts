@@ -17,6 +17,7 @@ export const fontTokens = (Object.keys(fontSizeTokens) as TScale[]).reduce(
       lineHeight: lineHeightTokens[scale],
       fontWeight: fontWeightTokens[scale],
     };
+
     return acc;
   },
   {} as Record<TScale, TFontVariant>,

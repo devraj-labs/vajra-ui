@@ -8,7 +8,12 @@
     "lint": "eslint src --ext .ts,.tsx",
     "format": "prettier --write 'src/**/*.{ts,tsx}'"
   },
-  "keywords": ["react-native", "ui", "design-system", "theming"],
+  "keywords": [
+    "react-native",
+    "ui",
+    "design-system",
+    "theming"
+  ],
   "license": "MIT",
   "peerDependencies": {
     "react": ">=18.0.0",
@@ -21,8 +26,11 @@
     "@typescript-eslint/parser": "^7.0.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
+    "eslint-import-resolver-typescript": "^4.4.4",
+    "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-react": "^7.34.0",
     "eslint-plugin-react-native": "^4.1.0",
+    "eslint-plugin-sort-keys": "^2.3.5",
     "prettier": "^3.2.5",
     "react": "18.2.0",
     "react-native": "0.73.0",

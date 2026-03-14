@@ -1,0 +1,68 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+lib/
+build/
+
+# TypeScript
+*.tsbuildinfo
+
+# Logs
+npm-debug.log*
+yarn-error.log
+*.log
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment
+.env
+.env.local
+
+# Coverage
+coverage/
+
+# Yarn
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# Example app — platform build artifacts
+examples/app/android/.gradle/
+examples/app/android/build/
+examples/app/android/.cxx/
+examples/app/android/local.properties
+examples/app/android/.kotlin/
+examples/app/ios/build/
+examples/app/ios/DerivedData/
+examples/app/ios/Pods/
+examples/app/ios/**/*.xcuserstate
+examples/app/ios/**/.xcode.env.local
+examples/app/vendor/bundle/
+
+# Example app — Metro
+examples/app/.metro-health-check*
+examples/app/*.jsbundle
+
+# Example app — Xcode
+examples/app/ios/*.pbxuser
+examples/app/ios/*.mode1v3
+examples/app/ios/*.mode2v3
+examples/app/ios/*.perspectivev3
+examples/app/ios/xcuserdata/
+examples/app/ios/*.xccheckout
+examples/app/ios/*.moved-aside
+examples/app/ios/*.hmap
+examples/app/ios/*.ipa

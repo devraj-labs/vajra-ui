@@ -22,7 +22,8 @@
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
       "prettier --write",
-      "prettier --check"
+      "prettier --check",
+      "eslint --max-warnings=0"
     ]
   },
   "license": "MIT",

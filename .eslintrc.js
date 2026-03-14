@@ -38,6 +38,13 @@ module.exports = {
       { blankLine: 'always', prev: '*', next: 'return' },
     ],
 
+    // Every file must end with a newline
+    'eol-last': ['error', 'always'],
+
+    // No function keyword — use arrow functions only
+    'prefer-arrow-callback': 'error',
+    'func-style': ['error', 'expression', { allowArrowFunctions: true }],
+
     // Type names must start with T
     '@typescript-eslint/naming-convention': [
       'error',

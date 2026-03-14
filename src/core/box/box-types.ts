@@ -11,7 +11,7 @@ type TDimensionProps = {
 };
 
 type TColorProps = {
-  bg?: TSurfaceColorTokens;
+  bg?: keyof TSurfaceColorTokens;
 };
 
 type TBorderProps = {
@@ -20,7 +20,7 @@ type TBorderProps = {
   borderBottomWidth?: number;
   borderLeftWidth?: number;
   borderRightWidth?: number;
-  borderColor?: TBorderColorTokens;
+  borderColor?: keyof TBorderColorTokens;
 };
 
 type TRoundedProps = {

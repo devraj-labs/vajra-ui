@@ -36,10 +36,14 @@ export type TFeedbackColorTokens = {
   infoMuted: string;
 };
 
-export type TColorTheme = {
+export type TColorTokens = {
   brand: TBrandColorTokens;
   surface: TSurfaceColorTokens;
   text: TTextColorTokens;
   border: TBorderColorTokens;
   feedback: TFeedbackColorTokens;
+};
+
+export type TColorTheme = {
+  colors: TColorTokens;
 };

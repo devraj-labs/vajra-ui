@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { View } from 'react-native';
-import { useTheme, staticTokens } from '../../theme';
+import { useTheme } from '../../theme';
 import { TBoxProps } from './box-types';
 
 const BoxComponent: React.FC<TBoxProps> = ({
@@ -46,8 +46,7 @@ const BoxComponent: React.FC<TBoxProps> = ({
   pr,
   ...rest
 }) => {
-  const colors = useColors();
-  const { spacing, rounded: r } = useTokens();
+  const { spacing, rounded: r, colors } = useTheme();
 
   const allColors = {
     ...colors.brand,

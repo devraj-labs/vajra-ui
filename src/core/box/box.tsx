@@ -6,22 +6,30 @@ import { TBoxProps } from './box-types';
 const BoxComponent: React.FC<TBoxProps> = ({
   style,
   children,
-  width,
-  height,
-  minWidth,
-  maxWidth,
-  minHeight,
-  maxHeight,
-  backgroundColor,
-  borderColor,
+  w,
+  h,
+  minW,
+  maxW,
+  minH,
+  maxH,
+  bg,
   borderWidth,
-  br,
+  borderTopWidth,
+  borderBottomWidth,
+  borderLeftWidth,
+  borderRightWidth,
+  borderColor,
+  rounded,
+  roundedT,
+  roundedB,
+  roundedL,
+  roundedR,
   align,
   justify,
   gap,
   flex,
-  flexDirection,
-  flexWrap,
+  direction,
+  wrap,
   m,
   mx,
   my,
@@ -39,28 +47,41 @@ const BoxComponent: React.FC<TBoxProps> = ({
   ...rest
 }) => {
   const { tokens } = useTheme();
-  const { colors, spacing, rounded } = tokens;
+  const { colors, spacing, rounded: r } = tokens;
+
+  const borderTopLeftRadius = roundedT ? r[roundedT] : roundedL ? r[roundedL] : undefined;
+  const borderTopRightRadius = roundedT ? r[roundedT] : roundedR ? r[roundedR] : undefined;
+  const borderBottomLeftRadius = roundedB ? r[roundedB] : roundedL ? r[roundedL] : undefined;
+  const borderBottomRightRadius = roundedB ? r[roundedB] : roundedR ? r[roundedR] : undefined;
 
   return (
     <View
       style={[
         {
-          width,
-          height,
-          minWidth,
-          maxWidth,
-          minHeight,
-          maxHeight,
-          backgroundColor: backgroundColor ? colors[backgroundColor] : undefined,
+          width: w,
+          height: h,
+          minWidth: minW,
+          maxWidth: maxW,
+          minHeight: minH,
+          maxHeight: maxH,
+          backgroundColor: bg ? colors[bg] : undefined,
           borderColor: borderColor ? colors[borderColor] : undefined,
           borderWidth,
-          borderRadius: br ? rounded[br] : undefined,
-          flexDirection,
+          borderTopWidth,
+          borderBottomWidth,
+          borderLeftWidth,
+          borderRightWidth,
+          borderRadius: rounded ? r[rounded] : undefined,
+          borderTopLeftRadius,
+          borderTopRightRadius,
+          borderBottomLeftRadius,
+          borderBottomRightRadius,
+          flexDirection: direction,
           alignItems: align,
           justifyContent: justify,
           gap: gap ? spacing[gap] : undefined,
           flex,
-          flexWrap,
+          flexWrap: wrap,
           margin: m ? spacing[m] : undefined,
           marginHorizontal: mx ? spacing[mx] : undefined,
           marginVertical: my ? spacing[my] : undefined,
@@ -78,7 +99,8 @@ const BoxComponent: React.FC<TBoxProps> = ({
         },
         style,
       ]}
-      {...rest}>
+      {...rest}
+    >
       {children}
     </View>
   );

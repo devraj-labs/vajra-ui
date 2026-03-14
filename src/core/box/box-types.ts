@@ -1,30 +1,46 @@
-import { DimensionValue, FlexAlignType, ViewStyle } from 'react-native';
-import { TColorToken, TSpacingToken, TRoundedToken } from '../../theme';
+import { DimensionValue, ViewProps, ViewStyle } from 'react-native';
+import { TColorToken, TRoundedToken, TSpacingToken } from '../../theme';
 
-export type TBoxProps = {
-  style?: ViewStyle | ViewStyle[];
-  children?: React.ReactNode;
-  // dimensions
-  width?: DimensionValue;
-  height?: DimensionValue;
-  minWidth?: DimensionValue;
-  maxWidth?: DimensionValue;
-  minHeight?: DimensionValue;
-  maxHeight?: DimensionValue;
-  // colors
-  backgroundColor?: TColorToken;
-  borderColor?: TColorToken;
+type TDimensionProps = {
+  w?: DimensionValue;
+  h?: DimensionValue;
+  minW?: DimensionValue;
+  maxW?: DimensionValue;
+  minH?: DimensionValue;
+  maxH?: DimensionValue;
+};
+
+type TColorProps = {
+  bg?: TColorToken;
+};
+
+type TBorderProps = {
   borderWidth?: number;
-  // rounded
-  br?: TRoundedToken;
-  // flex
-  align?: FlexAlignType;
-  justify?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around' | 'space-evenly';
+  borderTopWidth?: number;
+  borderBottomWidth?: number;
+  borderLeftWidth?: number;
+  borderRightWidth?: number;
+  borderColor?: TColorToken;
+};
+
+type TRoundedProps = {
+  rounded?: TRoundedToken;
+  roundedT?: TRoundedToken;
+  roundedB?: TRoundedToken;
+  roundedL?: TRoundedToken;
+  roundedR?: TRoundedToken;
+};
+
+type TFlexProps = {
   gap?: TSpacingToken;
   flex?: number;
-  flexDirection?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
-  flexWrap?: 'wrap' | 'nowrap' | 'wrap-reverse';
-  // margin
+  justify?: ViewStyle['justifyContent'];
+  align?: ViewStyle['alignItems'];
+  direction?: ViewStyle['flexDirection'];
+  wrap?: ViewStyle['flexWrap'];
+};
+
+type TMarginProps = {
   m?: TSpacingToken;
   mx?: TSpacingToken;
   my?: TSpacingToken;
@@ -32,7 +48,9 @@ export type TBoxProps = {
   mb?: TSpacingToken;
   ml?: TSpacingToken;
   mr?: TSpacingToken;
-  // padding
+};
+
+type TPaddingProps = {
   p?: TSpacingToken;
   px?: TSpacingToken;
   py?: TSpacingToken;
@@ -41,3 +59,15 @@ export type TBoxProps = {
   pl?: TSpacingToken;
   pr?: TSpacingToken;
 };
+
+export type TBoxProps = Omit<ViewProps, 'style'> &
+  TDimensionProps &
+  TColorProps &
+  TBorderProps &
+  TRoundedProps &
+  TFlexProps &
+  TMarginProps &
+  TPaddingProps & {
+    style?: ViewStyle | ViewStyle[];
+    children?: React.ReactNode;
+  };

@@ -1,12 +1,5 @@
-export { tokens } from './tokens/index';
-export type {
-  TTokens,
-  TColorToken,
-  TSpacingToken,
-  TRoundedToken,
-  TFontToken,
-  TFontVariant,
-} from './tokens/index';
-export { createTheme, defaultTheme } from './create-theme';
-export type { TTheme } from './create-theme';
+export { staticTokens } from './tokens/index';
+export type * from './tokens/index';
 export { ThemeProvider, useTheme } from './provider';
+export type { TThemeProviderProps } from './provider-types';
+export { lightColors, darkColors } from './themes/index';

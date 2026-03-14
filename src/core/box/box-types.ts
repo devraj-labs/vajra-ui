@@ -1,5 +1,5 @@
 import { DimensionValue, ViewProps, ViewStyle } from 'react-native';
-import { TColorToken, TRoundedToken, TSpacingToken } from '../../theme';
+import { TBorderColorTokens, TRoundedToken, TSpacingToken, TSurfaceColorTokens } from '../../theme';
 
 type TDimensionProps = {
   w?: DimensionValue;
@@ -11,7 +11,7 @@ type TDimensionProps = {
 };
 
 type TColorProps = {
-  bg?: TColorToken;
+  bg?: TSurfaceColorTokens;
 };
 
 type TBorderProps = {
@@ -20,7 +20,7 @@ type TBorderProps = {
   borderBottomWidth?: number;
   borderLeftWidth?: number;
   borderRightWidth?: number;
-  borderColor?: TColorToken;
+  borderColor?: TBorderColorTokens;
 };
 
 type TRoundedProps = {

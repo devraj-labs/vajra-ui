@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { View } from 'react-native';
-import { useTheme } from '../../theme';
+import { useTheme, staticTokens } from '../../theme';
 import { TBoxProps } from './box-types';
 
 const BoxComponent: React.FC<TBoxProps> = ({
@@ -46,8 +46,16 @@ const BoxComponent: React.FC<TBoxProps> = ({
   pr,
   ...rest
 }) => {
-  const { tokens } = useTheme();
-  const { colors, spacing, rounded: r } = tokens;
+  const colors = useColors();
+  const { spacing, rounded: r } = useTokens();
+
+  const allColors = {
+    ...colors.brand,
+    ...colors.surface,
+    ...colors.text,
+    ...colors.border,
+    ...colors.feedback,
+  };
 
   const borderTopLeftRadius = roundedT ? r[roundedT] : roundedL ? r[roundedL] : undefined;
   const borderTopRightRadius = roundedT ? r[roundedT] : roundedR ? r[roundedR] : undefined;
@@ -64,8 +72,8 @@ const BoxComponent: React.FC<TBoxProps> = ({
           maxWidth: maxW,
           minHeight: minH,
           maxHeight: maxH,
-          backgroundColor: bg ? colors[bg] : undefined,
-          borderColor: borderColor ? colors[borderColor] : undefined,
+          backgroundColor: bg ? allColors[bg] : undefined,
+          borderColor: borderColor ? allColors[borderColor] : undefined,
           borderWidth,
           borderTopWidth,
           borderBottomWidth,

@@ -1,18 +1,22 @@
 import React, { createContext, useContext } from 'react';
-import { TTheme, defaultTheme } from './create-theme';
+import { useColorScheme } from 'react-native';
 
-const ThemeContext = createContext<TTheme>(defaultTheme);
+import type { TTheme, TThemeProviderProps } from './provider-types';
 
-export function ThemeProvider({
-  theme = defaultTheme,
-  children,
-}: {
-  theme?: TTheme;
-  children: React.ReactNode;
-}) {
+import { darkColors } from './themes/dark';
+import { lightColors } from './themes/light';
+
+const ThemeContext = createContext<TTheme | null>(null);
+
+export function ThemeProvider({ children }: TThemeProviderProps) {
+  const colorScheme = useColorScheme();
+  const theme = colorScheme === 'dark' ? darkColors : lightColors;
+
   return <ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>;
 }
 
 export function useTheme(): TTheme {
-  return useContext(ThemeContext);
+  const theme = useContext(ThemeContext);
+  if (!theme) throw new Error('useTheme must be used within a ThemeProvider');
+  return theme;
 }

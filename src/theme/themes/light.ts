@@ -1,8 +1,8 @@
 import { colorPrimitives } from '../primitives/colors';
 import { staticTokens } from '../tokens';
-import type { TTheme } from '../provider-types';
+import type { TVajraTheme } from '../provider-types';
 
-export const lightColors: TTheme = {
+export const lightColors: TVajraTheme = {
   ...staticTokens,
   brand: {
     primary: colorPrimitives.blue500,

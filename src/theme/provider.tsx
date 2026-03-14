@@ -1,22 +1,30 @@
-import React, { createContext, useContext } from 'react';
+import React, { createContext, useContext, useMemo } from 'react';
 import { useColorScheme } from 'react-native';
 
-import type { TTheme, TThemeProviderProps } from './provider-types';
+import type { TVajraTheme, TVajraThemeProviderProps } from './provider-types';
 
 import { darkColors } from './themes/dark';
 import { lightColors } from './themes/light';
+import { deepMerge } from '../utils/deep-merge';
 
-const ThemeContext = createContext<TTheme | null>(null);
+const VajraThemeContext = createContext<TVajraTheme | null>(null);
 
-export function ThemeProvider({ children }: TThemeProviderProps) {
+export function ThemeProvider({ theme: overrides, children }: TVajraThemeProviderProps) {
   const colorScheme = useColorScheme();
-  const theme = colorScheme === 'dark' ? darkColors : lightColors;
+  const baseMap = { dark: darkColors, light: lightColors };
+  const scheme = colorScheme ?? 'light';
+  const base = baseMap[scheme];
+  const schemeOverrides = overrides?.[scheme];
+  const theme = useMemo(
+    () => (schemeOverrides ? deepMerge(base, schemeOverrides) : base),
+    [base, schemeOverrides],
+  );
 
-  return <ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>;
+  return <VajraThemeContext.Provider value={theme}>{children}</VajraThemeContext.Provider>;
 }
 
-export function useTheme(): TTheme {
-  const theme = useContext(ThemeContext);
+export function useTheme(): TVajraTheme {
+  const theme = useContext(VajraThemeContext);
   if (!theme) throw new Error('useTheme must be used within a ThemeProvider');
   return theme;
 }

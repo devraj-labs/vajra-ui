@@ -3,8 +3,16 @@ import React from 'react';
 import type { TColorTheme } from './tokens/colors';
 import type { TStaticTokens } from './tokens';
 
-export type TTheme = TColorTheme & TStaticTokens;
+export type TVajraTheme = TColorTheme & TStaticTokens;
 
-export type TThemeProviderProps = {
+export type TDeepPartial<T> = {
+  [K in keyof T]?: T[K] extends object ? TDeepPartial<T[K]> : T[K];
+};
+
+export type TVajraThemeProviderProps = {
+  theme?: {
+    light?: TDeepPartial<TVajraTheme>;
+    dark?: TDeepPartial<TVajraTheme>;
+  };
   children: React.ReactNode;
 };

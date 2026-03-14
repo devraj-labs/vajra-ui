@@ -6,15 +6,19 @@ export const lightColors: TVajraTheme = {
   ...staticTokens,
   colors: {
     brand: {
-      primary: colorPrimitives.blue500,
-      primaryMuted: colorPrimitives.blue400,
-      secondary: colorPrimitives.purple600,
-      secondaryMuted: colorPrimitives.purple400,
+      primary: colorPrimitives.saffron500,
+      primaryMuted: colorPrimitives.saffron400,
+      primarySubtle: colorPrimitives.saffron50,
+      secondary: colorPrimitives.crimson500,
+      secondaryMuted: colorPrimitives.crimson400,
+      secondarySubtle: colorPrimitives.crimson50,
     },
     surface: {
       background: colorPrimitives.white,
+      surfaceSunken: colorPrimitives.gray50,
       surface: colorPrimitives.gray100,
       surfaceRaised: colorPrimitives.gray200,
+      surfaceOverlay: colorPrimitives.gray300,
       overlay: colorPrimitives.blackAlpha40,
     },
     text: {
@@ -31,12 +35,16 @@ export const lightColors: TVajraTheme = {
     feedback: {
       error: colorPrimitives.red500,
       errorMuted: colorPrimitives.red100,
+      errorSubtle: colorPrimitives.red50,
       success: colorPrimitives.green500,
       successMuted: colorPrimitives.green100,
+      successSubtle: colorPrimitives.green50,
       warning: colorPrimitives.yellow500,
       warningMuted: colorPrimitives.yellow100,
+      warningSubtle: colorPrimitives.yellow50,
       info: colorPrimitives.blue400,
       infoMuted: colorPrimitives.blue100,
+      infoSubtle: colorPrimitives.blue50,
     },
   },
 };

@@ -1,14 +1,18 @@
 export type TBrandColorTokens = {
   primary: string;
   primaryMuted: string;
+  primarySubtle: string;
   secondary: string;
   secondaryMuted: string;
+  secondarySubtle: string;
 };
 
 export type TSurfaceColorTokens = {
   background: string;
+  surfaceSunken: string;
   surface: string;
   surfaceRaised: string;
+  surfaceOverlay: string;
   overlay: string;
 };
 
@@ -28,12 +32,16 @@ export type TBorderColorTokens = {
 export type TFeedbackColorTokens = {
   error: string;
   errorMuted: string;
+  errorSubtle: string;
   success: string;
   successMuted: string;
+  successSubtle: string;
   warning: string;
   warningMuted: string;
+  warningSubtle: string;
   info: string;
   infoMuted: string;
+  infoSubtle: string;
 };
 
 export type TColorTokens = {

@@ -14,5 +14,6 @@ export type TVajraThemeProviderProps = {
     light?: TDeepPartial<TVajraTheme>;
     dark?: TDeepPartial<TVajraTheme>;
   };
+  colorScheme?: 'light' | 'dark' | 'unspecified' | null;
   children: React.ReactNode;
 };

@@ -1,5 +1,4 @@
-import React, { createContext, useContext, useMemo } from 'react';
-import { useColorScheme } from 'react-native';
+import React, { createContext, useContext } from 'react';
 
 import type { TVajraTheme, TVajraThemeProviderProps } from './provider-types';
 
@@ -9,16 +8,12 @@ import { deepMerge } from '../utils/deep-merge';
 
 const VajraThemeContext = createContext<TVajraTheme | null>(null);
 
-export function ThemeProvider({ theme: overrides, children }: TVajraThemeProviderProps) {
-  const colorScheme = useColorScheme();
-  const baseMap = { dark: darkColors, light: lightColors };
-  const scheme = colorScheme ?? 'light';
+export function ThemeProvider({ theme: overrides, colorScheme, children }: TVajraThemeProviderProps) {
+  const baseMap: Record<'light' | 'dark', typeof lightColors> = { dark: darkColors, light: lightColors };
+  const scheme = (colorScheme === 'dark' ? 'dark' : 'light');
   const base = baseMap[scheme];
   const schemeOverrides = overrides?.[scheme];
-  const theme = useMemo(
-    () => (schemeOverrides ? deepMerge(base, schemeOverrides) : base),
-    [base, schemeOverrides],
-  );
+  const theme = schemeOverrides ? deepMerge(base, schemeOverrides) : base;
 
   return <VajraThemeContext.Provider value={theme}>{children}</VajraThemeContext.Provider>;
 }

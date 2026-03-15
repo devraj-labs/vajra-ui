@@ -44,12 +44,22 @@ export type TFeedbackColorTokens = {
   infoSubtle: string;
 };
 
-export type TColorTokens = {
+export type TFlatColorTokens = TBrandColorTokens &
+  TSurfaceColorTokens &
+  TTextColorTokens &
+  TBorderColorTokens &
+  TFeedbackColorTokens;
+
+export type TColorTokensBase = {
   brand: TBrandColorTokens;
   surface: TSurfaceColorTokens;
-  text: TTextColorTokens;
+  typography: TTextColorTokens;
   border: TBorderColorTokens;
   feedback: TFeedbackColorTokens;
+};
+
+export type TColorTokens = TColorTokensBase & {
+  flat: TFlatColorTokens;
 };
 
 export type TColorTheme = {

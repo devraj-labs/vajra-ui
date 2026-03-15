@@ -7,18 +7,12 @@ export const Text = memo(
   ({ style, children, variant, color, align, decoration, transform, ...rest }: TTextProps) => {
     const { font: fontTokens, colors } = useTheme();
 
-    const allColors = {
-      ...colors.text,
-      ...colors.brand,
-      ...colors.feedback,
-    };
-
     return (
       <RNText
         style={[
           variant && fontTokens[variant],
           {
-            color: color ? allColors[color] : colors.text.text,
+            color: color ? colors.flat[color] : colors.typography.text,
             textAlign: align,
             textDecorationLine: decoration,
             textTransform: transform,

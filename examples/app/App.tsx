@@ -1,21 +1,27 @@
-import { ScrollView, useColorScheme } from 'react-native';
-import { Box, Center, Text, ThemeProvider } from 'vajra-ui';
+import { ScrollView } from 'react-native';
+
+import { Box, Text, ThemeProvider } from 'vajra-ui';
+
+import { theme, useAppTheme } from './src/theme';
+
+function Screen() {
+  const { colors, spacing, rounded, typography } = useAppTheme();
+
+  return (
+    <Box flex={1} bg={colors.background} p={spacing.md}>
+      <Box bg={colors.surface} p={spacing.lg} rounded={rounded.md}>
+        <Text {...typography.xxl} color={colors.text}>Hello Vajra</Text>
+        <Text {...typography.sm} color={colors.textMuted}>Subtext goes here</Text>
+      </Box>
+    </Box>
+  );
+}
 
 function App() {
-  const colorScheme = useColorScheme();
   return (
-    <ThemeProvider colorScheme={colorScheme ?? 'light'}>
+    <ThemeProvider theme={theme}>
       <ScrollView contentContainerStyle={{ flex: 1 }}>
-        <Box flex={1} bg='background'>
-          <Center h={500}>
-            <Text variant="xs">Example Text 6</Text>
-            <Text variant="sm">Example Text 1</Text>
-            <Text variant="md">Example Text 2</Text>
-            <Text variant="lg">Example Text 3</Text>
-            <Text variant="xl">Example Text 4</Text>
-            <Text variant="xxl">Example Text 5</Text>
-          </Center>
-        </Box>
+        <Screen />
       </ScrollView>
     </ThemeProvider>
   );

@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { View } from 'react-native';
-import { useTheme } from '../../theme';
+
 import { TBoxProps } from './box-types';
 
 export const Box = memo(
@@ -47,12 +47,10 @@ export const Box = memo(
     pr,
     ...rest
   }: TBoxProps) => {
-    const { spacing, rounded: r, colors } = useTheme();
-
-    const borderTopLeftRadius = roundedT ? r[roundedT] : roundedL ? r[roundedL] : undefined;
-    const borderTopRightRadius = roundedT ? r[roundedT] : roundedR ? r[roundedR] : undefined;
-    const borderBottomLeftRadius = roundedB ? r[roundedB] : roundedL ? r[roundedL] : undefined;
-    const borderBottomRightRadius = roundedB ? r[roundedB] : roundedR ? r[roundedR] : undefined;
+    const borderTopLeftRadius = roundedT ?? roundedL;
+    const borderTopRightRadius = roundedT ?? roundedR;
+    const borderBottomLeftRadius = roundedB ?? roundedL;
+    const borderBottomRightRadius = roundedB ?? roundedR;
 
     return (
       <View
@@ -64,14 +62,14 @@ export const Box = memo(
             maxWidth: maxW,
             minHeight: minH,
             maxHeight: maxH,
-            backgroundColor: bg ? colors.flat[bg] : undefined,
-            borderColor: borderColor ? colors.flat[borderColor] : undefined,
+            backgroundColor: bg,
+            borderColor,
             borderWidth,
             borderTopWidth,
             borderBottomWidth,
             borderLeftWidth,
             borderRightWidth,
-            borderRadius: rounded ? r[rounded] : undefined,
+            borderRadius: rounded,
             borderTopLeftRadius,
             borderTopRightRadius,
             borderBottomLeftRadius,
@@ -79,23 +77,23 @@ export const Box = memo(
             flexDirection: direction,
             alignItems: align,
             justifyContent: justify,
-            gap: gap ? spacing[gap] : undefined,
+            gap,
             flex,
             flexWrap: wrap,
-            margin: m ? spacing[m] : undefined,
-            marginHorizontal: mx ? spacing[mx] : undefined,
-            marginVertical: my ? spacing[my] : undefined,
-            marginTop: mt ? spacing[mt] : undefined,
-            marginBottom: mb ? spacing[mb] : undefined,
-            marginLeft: ml ? spacing[ml] : undefined,
-            marginRight: mr ? spacing[mr] : undefined,
-            padding: p ? spacing[p] : undefined,
-            paddingHorizontal: px ? spacing[px] : undefined,
-            paddingVertical: py ? spacing[py] : undefined,
-            paddingTop: pt ? spacing[pt] : undefined,
-            paddingBottom: pb ? spacing[pb] : undefined,
-            paddingLeft: pl ? spacing[pl] : undefined,
-            paddingRight: pr ? spacing[pr] : undefined,
+            margin: m,
+            marginHorizontal: mx,
+            marginVertical: my,
+            marginTop: mt,
+            marginBottom: mb,
+            marginLeft: ml,
+            marginRight: mr,
+            padding: p,
+            paddingHorizontal: px,
+            paddingVertical: py,
+            paddingTop: pt,
+            paddingBottom: pb,
+            paddingLeft: pl,
+            paddingRight: pr,
           },
           style,
         ]}

@@ -1,24 +1,19 @@
 import { Dimensions } from 'react-native';
-import { useTheme } from '../theme';
 
-export const useDimensions = () => {
-  const { layout } = useTheme();
+export const useDimensions = (screenPadding = 0) => {
   const { fontScale, height, scale, width: screenWidth } = Dimensions.get('window');
 
-  const contentWidth = screenWidth - layout.screenPadding * 2;
+  const contentWidth = screenWidth - screenPadding * 2;
 
-  const getItemWidth = (numColumns: number, gap?: number) => {
-    const resolvedGap = gap ?? layout.gap;
-    const totalGap = resolvedGap * (numColumns - 1);
+  const getItemWidth = (numColumns: number, gap = 0) => {
+    const totalGap = gap * (numColumns - 1);
 
     return (contentWidth - totalGap) / numColumns;
   };
 
-  const getCustomWidth = (numCols: number, marginHorizontal?: number, gap?: number) => {
-    const resolvedMargin = marginHorizontal ?? layout.screenPadding;
-    const resolvedGap = gap ?? layout.gap;
-    const availContentWidth = screenWidth - resolvedMargin * 2;
-    const totalGap = resolvedGap * (numCols - 1);
+  const getCustomWidth = (numCols: number, marginHorizontal = screenPadding, gap = 0) => {
+    const availContentWidth = screenWidth - marginHorizontal * 2;
+    const totalGap = gap * (numCols - 1);
 
     return (availContentWidth - totalGap) / numCols;
   };

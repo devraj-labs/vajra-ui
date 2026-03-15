@@ -1,157 +1,114 @@
 # Vajra UI
 
-**Vajra UI - A minimal zero dependency React Native styling and theming library**
-
-Vajra UI is a lightweight styling and theming system designed for **React Native** applications.
-It provides a small set of **layout primitives, theme tokens, and styling utilities** to help you build consistent interfaces without the complexity of large UI frameworks.
-
-The philosophy behind Vajra UI is simple:
-
-> Minimal primitives. Zero dependencies. Maximum flexibility.
-
-Instead of shipping hundreds of prebuilt components, Vajra UI focuses on **foundational styling primitives** that allow developers to build their own components with a clean and predictable API.
+A minimal React Native component library and theming system.
 
 ---
 
-# ✨ Features
+## Philosophy
 
-* ⚡ **Zero dependencies**
-* 📦 **Tiny bundle size**
-* 🎨 **Theme-driven design**
-* 🧱 **Minimal styling primitives**
-* 🧩 **Variant-based styling**
-* 📱 **React Native first**
-* 🔍 **Predictable prop-based styling API**
+Vajra UI does not ship opinions about your design. No preset color palettes, no enforced token names, no light/dark logic baked in.
 
----
+You bring your theme. The library maps it to styles.
 
-# Philosophy
+```ts
+const theme = {
+  colors: { background: '#fff', primary: '#ff6b00' },
+  spacing: { sm: 8, md: 16, lg: 24 },
+  rounded: { md: 8, full: 9999 },
+  typography: {
+    body: { fontSize: 15, lineHeight: 22, fontWeight: '400' },
+    heading: { fontSize: 22, lineHeight: 30, fontWeight: '700' },
+  },
+};
 
-Vajra UI follows three core principles.
+<ThemeProvider theme={theme}>
+  <App />
+</ThemeProvider>
+```
 
-## 1. Minimalism
-
-Most UI frameworks grow large over time and introduce unnecessary abstractions.
-
-Vajra UI focuses on **only the essentials**:
-
-* Layout primitives
-* Styling props
-* Theme tokens
-
-Everything else can be built on top.
+Components resolve token keys to values at render time. Token names are yours.
 
 ---
 
-## 2. Zero Dependencies
+## Theme contract
 
-External dependencies increase:
+For components to work, your theme must satisfy `TVajraThemeContract`:
 
-* bundle size
-* maintenance burden
-* version conflicts
+```ts
+type TVajraThemeContract = {
+  colors: Record<string, string>;
+  spacing: Record<string, number>;
+  rounded: Record<string, number>;
+  typography: Record<string, TextStyle>;
+};
+```
 
-Vajra UI avoids this by being **completely dependency-free**.
-
----
-
-## 3. Explicit Over Magic
-
-No hidden styling layers or complex runtime transformations.
-
-Vajra UI prioritizes **clarity and predictability**.
+Shape is enforced. Key names are not.
 
 ---
 
-# Installation
+## Autocomplete
+
+Pass your theme type to `useTheme` to get full autocomplete:
+
+```ts
+type MyTheme = typeof theme;
+const { colors } = useTheme<MyTheme>();
+colors.primary; // ✅
+```
+
+Same pattern as styled-components — the library stays generic, you own the types.
+
+---
+
+## What's included
+
+- `ThemeProvider` + `useTheme`
+- Core primitives: `Box`, `Text`, `Grid`, `Center`, `Separator`
+- A default theme for quick starts (optional)
+- UI kit components built on the default theme (buttons, inputs, cards — in progress)
+
+UI kit components require the default theme's token names. Core primitives work with any theme.
+
+---
+
+## Structure
+
+```
+src/
+├── theme/
+│   ├── provider.tsx          # ThemeProvider + useTheme
+│   ├── provider-types.ts     # TVajraThemeContract, TFontVariant
+│   └── index.ts
+│
+├── core/                     # Theme-agnostic layout primitives
+│   ├── box/
+│   ├── text/
+│   ├── row/
+│   ├── col/
+│   ├── grid/
+│   ├── center/
+│   ├── absolute-center/
+│   ├── separator/
+│   ├── spacer/
+│   └── index.ts
+│
+├── hooks/
+│   └── use-dimensions.ts
+│
+└── index.ts
+```
+
+---
+
+## Installation
 
 ```bash
 npm install vajra-ui
 ```
 
-or
-
-```bash
-yarn add vajra-ui
-```
-
 ---
 
-# Project Structure
+## License
 
-The repository is structured as a monorepo with the core library and an example app for development and testing.
-
-```
-vajra-ui/
-│
-├─ examples/
-│   └─ app/                 # Example React Native app
-│       ├─ app.tsx
-│       ├─ screens/
-│       └─ components/
-│
-├─ src/
-│   │
-│   ├─ core/                # Core primitives and layout components
-│   │   ├─ box.tsx
-│   │   ├─ stack.tsx
-│   │   ├─ row.tsx
-│   │   ├─ text.tsx
-│   │   └─ index.ts
-│   │
-│   ├─ theme/               # Theme system
-│   │   ├─ createTheme.ts
-│   │   ├─ tokens.ts
-│   │   ├─ provider.tsx
-│   │   └─ index.ts
-│   │
-│   └─ index.ts             # Public exports
-│
-├─ package.json
-├─ tsconfig.json
-├─ README.md
-└─ LICENSE
-```
-
----
-
-# Roadmap
-
-Planned improvements for Vajra UI:
-
-* Core styling primitives
-* Token-based theme system
-* Variants support
-* Devtools for inspecting tokens
-* Optional component layer
-* Potential web support
-
----
-
-# Contributing
-
-Contributions are welcome.
-
-Steps to contribute:
-
-1. Fork the repository
-2. Create a feature branch
-3. Submit a pull request
-
----
-
-# License
-
-MIT License.
-
----
-
-# Inspiration
-
-Vajra UI is inspired by ideas from several modern UI systems while maintaining a strong focus on **minimalism and performance**.
-
----
-
-# Author
-
-Created with ⚡ to make React Native styling simpler.
+MIT

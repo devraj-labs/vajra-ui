@@ -10,4 +10,5 @@ export type TGridItemProps = TBoxProps & {
   span?: TGridColumns;
   columns?: TGridColumns;
   colGap?: number;
+  screenPadding?: number;
 };

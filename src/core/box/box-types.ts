@@ -1,5 +1,4 @@
 import { DimensionValue, ViewProps, ViewStyle } from 'react-native';
-import { TBorderColorTokens, TRoundedToken, TSpacingToken, TSurfaceColorTokens } from '../../theme';
 
 type TDimensionProps = {
   w?: DimensionValue;
@@ -11,7 +10,8 @@ type TDimensionProps = {
 };
 
 type TColorProps = {
-  bg?: keyof TSurfaceColorTokens;
+  bg?: string;
+  borderColor?: string;
 };
 
 type TBorderProps = {
@@ -20,44 +20,40 @@ type TBorderProps = {
   borderBottomWidth?: number;
   borderLeftWidth?: number;
   borderRightWidth?: number;
-  borderColor?: keyof TBorderColorTokens;
 };
 
 type TRoundedProps = {
-  rounded?: TRoundedToken;
-  roundedT?: TRoundedToken;
-  roundedB?: TRoundedToken;
-  roundedL?: TRoundedToken;
-  roundedR?: TRoundedToken;
+  rounded?: number;
+  roundedT?: number;
+  roundedB?: number;
+  roundedL?: number;
+  roundedR?: number;
 };
 
 type TFlexProps = {
-  gap?: TSpacingToken;
   flex?: number;
+  gap?: number;
   justify?: ViewStyle['justifyContent'];
   align?: ViewStyle['alignItems'];
   direction?: ViewStyle['flexDirection'];
   wrap?: ViewStyle['flexWrap'];
 };
 
-type TMarginProps = {
-  m?: TSpacingToken;
-  mx?: TSpacingToken;
-  my?: TSpacingToken;
-  mt?: TSpacingToken;
-  mb?: TSpacingToken;
-  ml?: TSpacingToken;
-  mr?: TSpacingToken;
-};
-
-type TPaddingProps = {
-  p?: TSpacingToken;
-  px?: TSpacingToken;
-  py?: TSpacingToken;
-  pt?: TSpacingToken;
-  pb?: TSpacingToken;
-  pl?: TSpacingToken;
-  pr?: TSpacingToken;
+type TSpacingProps = {
+  m?: number;
+  mx?: number;
+  my?: number;
+  mt?: number;
+  mb?: number;
+  ml?: number;
+  mr?: number;
+  p?: number;
+  px?: number;
+  py?: number;
+  pt?: number;
+  pb?: number;
+  pl?: number;
+  pr?: number;
 };
 
 export type TBoxProps = Omit<ViewProps, 'style'> &
@@ -66,8 +62,7 @@ export type TBoxProps = Omit<ViewProps, 'style'> &
   TBorderProps &
   TRoundedProps &
   TFlexProps &
-  TMarginProps &
-  TPaddingProps & {
+  TSpacingProps & {
     style?: ViewStyle | ViewStyle[];
     children?: React.ReactNode;
   };

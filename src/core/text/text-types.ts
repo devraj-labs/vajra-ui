@@ -1,11 +1,12 @@
 import { TextProps, TextStyle } from 'react-native';
-import { TBrandColorTokens, TFeedbackColorTokens, TFontToken, TTextColorTokens } from '../../theme';
-
-type TAllColorTokens = TTextColorTokens & TBrandColorTokens & TFeedbackColorTokens;
 
 export type TTextProps = Omit<TextProps, 'style'> & {
-  variant: TFontToken;
-  color?: keyof TAllColorTokens;
+  fontSize?: number;
+  lineHeight?: number;
+  fontWeight?: TextStyle['fontWeight'];
+  fontFamily?: string;
+  letterSpacing?: number;
+  color?: string;
   align?: TextStyle['textAlign'];
   decoration?: TextStyle['textDecorationLine'];
   transform?: TextStyle['textTransform'];

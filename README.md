@@ -1,89 +1,124 @@
 # Vajra UI
 
-A minimal React Native component library and theming system.
+A minimal zero-dependency **React Native design system** built around composable primitives and flexible theming.
 
 ---
 
 ## Philosophy
 
-Vajra UI does not ship opinions about your design. No preset color palettes, no enforced token names, no light/dark logic baked in.
+Vajra UI separates **primitives, theming, and UI components**.
 
-You bring your theme. The library maps it to styles.
+The goal is to keep the foundation minimal and predictable while allowing opinionated UI components to be built on top.
+
+The library does **not enforce design opinions** like color palettes or token names. There is no required theme shape — you define your theme, pass it to the provider, and tell `useTheme` what type to expect.
+
+---
+
+## Usage
+
+### 1. Define your theme
 
 ```ts
-const theme = {
-  colors: { background: '#fff', primary: '#ff6b00' },
-  spacing: { sm: 8, md: 16, lg: 24 },
-  rounded: { md: 8, full: 9999 },
+export const theme = {
+  colors: {
+    background: '#ffffff',
+    surface: '#f5f5f5',
+    text: '#111111',
+    textMuted: '#888888',
+    primary: '#ff6b00',
+    border: '#e0e0e0',
+  },
+  spacing: { none: 0, xs: 4, sm: 8, md: 16, lg: 24, xl: 32 },
+  rounded: { none: 0, sm: 4, md: 8, lg: 16, full: 9999 },
   typography: {
-    body: { fontSize: 15, lineHeight: 22, fontWeight: '400' },
-    heading: { fontSize: 22, lineHeight: 30, fontWeight: '700' },
+    xs: { fontSize: 11, lineHeight: 16, fontWeight: '400' as const },
+    sm: { fontSize: 13, lineHeight: 18, fontWeight: '400' as const },
+    md: { fontSize: 15, lineHeight: 22, fontWeight: '400' as const },
+    lg: { fontSize: 18, lineHeight: 26, fontWeight: '500' as const },
+    xl: { fontSize: 22, lineHeight: 30, fontWeight: '600' as const },
+    xxl: { fontSize: 28, lineHeight: 36, fontWeight: '700' as const },
   },
 };
+```
+
+### 2. Wrap your app
+
+```tsx
+import { ThemeProvider } from 'vajra-ui';
+import { theme } from './theme';
 
 <ThemeProvider theme={theme}>
   <App />
 </ThemeProvider>
 ```
 
-Components resolve token keys to values at render time. Token names are yours.
-
----
-
-## Theme contract
-
-For components to work, your theme must satisfy `TVajraThemeContract`:
+### 3. Create a typed hook
 
 ```ts
-type TVajraThemeContract = {
-  colors: Record<string, string>;
-  spacing: Record<string, number>;
-  rounded: Record<string, number>;
-  typography: Record<string, TextStyle>;
-};
+import { useTheme } from 'vajra-ui';
+import { theme } from './theme';
+
+export type TAppTheme = typeof theme;
+
+export const useAppTheme = () => useTheme<TAppTheme>();
 ```
 
-Shape is enforced. Key names are not.
+Use `useAppTheme()` anywhere in your app for full autocomplete against your token keys.
 
----
+### Built-in themes
 
-## Autocomplete
-
-Pass your theme type to `useTheme` to get full autocomplete:
+Vajra ships optional light and dark themes you can use directly.
 
 ```ts
-type MyTheme = typeof theme;
-const { colors } = useTheme<MyTheme>();
-colors.primary; // ✅
+import { ThemeProvider, lightColors, darkColors } from 'vajra-ui';
+
+<ThemeProvider theme={lightColors}>
+  <App />
+</ThemeProvider>
 ```
 
-Same pattern as styled-components — the library stays generic, you own the types.
+---
+
+## Architecture
+
+Vajra UI is structured in two layers.
+
+### Core Primitives
+
+Low-level, unstyled building blocks. Theme-agnostic — they do not depend on tokens.
+
+- `Box`
+- `Row`
+- `Col`
+- `Grid`
+- `Text`
+- `Center`
+- `AbsoluteCenter`
+- `Spacer`
+- `Separator`
+
+### UI Kit Components
+
+Opinionated components built on top of core primitives (planned — see Roadmap).
+
+- `Button`
+- `Card`
+- `Input`
+- `Badge`
+- `Avatar`
+- `Modal`
+- `BottomSheet`
+
+UI kit components are optional. Core primitives can be used independently.
 
 ---
 
-## What's included
-
-- `ThemeProvider` + `useTheme`
-- Core primitives: `Box`, `Text`, `Grid`, `Center`, `Separator`
-- A default theme for quick starts (optional)
-- UI kit components built on the default theme (buttons, inputs, cards — in progress)
-
-UI kit components require the default theme's token names. Core primitives work with any theme.
-
----
-
-## Structure
+## Project Structure
 
 ```
 src/
-├── theme/
-│   ├── provider.tsx          # ThemeProvider + useTheme
-│   ├── provider-types.ts     # TVajraThemeContract, TFontVariant
-│   └── index.ts
-│
-├── core/                     # Theme-agnostic layout primitives
+├── core/                     # Unstyled primitives
 │   ├── box/
-│   ├── text/
 │   ├── row/
 │   ├── col/
 │   ├── grid/
@@ -91,19 +126,69 @@ src/
 │   ├── absolute-center/
 │   ├── separator/
 │   ├── spacer/
+│   └── text/
+│
+├── theme/                    # Theme provider + context
+│   ├── provider.tsx
+│   ├── provider-types.ts
 │   └── index.ts
 │
 ├── hooks/
 │   └── use-dimensions.ts
+│
+├── vajra-theme/              # Default light/dark themes (optional)
+│   ├── colors/
+│   ├── tokens/
+│   ├── themes/
+│   └── primitives/
 │
 └── index.ts
 ```
 
 ---
 
+## Roadmap
+
+### Phase 1 — Foundations
+
+- `Box`
+- `Row`
+- `Col`
+- `Grid`
+- `Text`
+- `Center`
+- `AbsoluteCenter`
+- `Spacer`
+- `Separator`
+
+### Phase 2 — Basic UI Components
+
+- `Button`
+- `Card`
+- `Badge`
+- `Avatar`
+- `Input`
+
+### Phase 3 — Interactive Components
+
+- `Modal`
+- `Drawer`
+- `BottomSheet`
+- `Tabs`
+- `Popover`
+- `Toast`
+
+### Phase 4 — Advanced Layout
+
+- Animated layouts
+- Complex lists
+- Interactive containers
+
+---
+
 ## Installation
 
-```bash
+```sh
 npm install vajra-ui
 ```
 

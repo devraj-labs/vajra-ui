@@ -1,26 +1,15 @@
 import React from 'react';
 
-import { TextStyle } from 'react-native';
-
 /**
- * Extend this interface in your app to get autocomplete across all components.
+ * Pass your theme type to `useTheme` to get full autocomplete in your app.
  *
  * @example
- * declare module 'vajra-ui' {
- *   interface VajraTheme extends typeof myTheme {}
- * }
+ * export const theme = { colors: { primary: '#ff6b00' }, spacing: { sm: 8 } };
+ * export type TAppTheme = typeof theme;
+ * export const useAppTheme = () => useTheme<TAppTheme>();
  */
-// eslint-disable-next-line @typescript-eslint/consistent-type-definitions
-export interface VajraTheme {
-  colors: Record<string, string>;
-  spacing: Record<string, number>;
-  rounded: Record<string, number>;
-  typography: Record<string, TextStyle>;
-  layout: {
-    screenPadding: number;
-    gap: number;
-  };
-}
+// eslint-disable-next-line @typescript-eslint/no-empty-interface, @typescript-eslint/consistent-type-definitions
+export interface VajraTheme {}
 
 export type TVajraThemeProviderProps = {
   theme: VajraTheme;

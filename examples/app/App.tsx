@@ -10,8 +10,12 @@ function Screen() {
   return (
     <Box flex={1} bg={colors.background} p={spacing.md}>
       <Box bg={colors.surface} p={spacing.lg} rounded={rounded.md}>
-        <Text {...typography.xxl} color={colors.text}>Hello Vajra</Text>
-        <Text {...typography.sm} color={colors.textMuted}>Subtext goes here</Text>
+        <Text {...typography.xxl} color={colors.text}>
+          Hello Vajra
+        </Text>
+        <Text {...typography.sm} color={colors.textMuted}>
+          Subtext goes here
+        </Text>
       </Box>
     </Box>
   );

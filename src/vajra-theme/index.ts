@@ -1,1 +1,2 @@
-export { vajraTheme } from './themes';
+export * from './vajra-theme';
+export * from './vajra-theme-types';

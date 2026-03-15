@@ -6,3 +6,4 @@ export * from './grid';
 export * from './row';
 export * from './separator';
 export * from './spacer';
+export * from './text';

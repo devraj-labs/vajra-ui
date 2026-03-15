@@ -2,6 +2,7 @@ const { getDefaultConfig, mergeConfig } = require('@react-native/metro-config');
 const path = require('path');
 
 const root = path.resolve(__dirname, '../..');
+const appNodeModules = path.resolve(__dirname, 'node_modules');
 
 /**
  * Metro configuration
@@ -12,13 +13,14 @@ const root = path.resolve(__dirname, '../..');
 const config = {
   watchFolders: [root],
   resolver: {
-    nodeModulesPaths: [
-      path.resolve(__dirname, 'node_modules'),
-    ],
-    extraNodeModules: {
-      react: path.resolve(__dirname, 'node_modules/react'),
-      'react-native': path.resolve(__dirname, 'node_modules/react-native'),
-    },
+    nodeModulesPaths: [appNodeModules],
+    disableHierarchicalLookup: true,
+    extraNodeModules: new Proxy(
+      {},
+      {
+        get: (_, name) => path.resolve(appNodeModules, name),
+      }
+    ),
   },
 };
 

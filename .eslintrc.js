@@ -8,7 +8,7 @@ module.exports = {
       jsx: true,
     },
   },
-  plugins: ['@typescript-eslint', 'react', 'react-native', 'import', 'simple-import-sort'],
+  plugins: ['@typescript-eslint', 'react', 'react-native', 'import', 'simple-import-sort', 'check-file'],
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
@@ -69,6 +69,12 @@ module.exports = {
     'import/no-duplicates': 'error',
     'simple-import-sort/imports': 'off',
     'simple-import-sort/exports': 'error',
+
+    // Enforce kebab-case filenames
+    'check-file/filename-naming-convention': [
+      'error',
+      { '**/*.{ts,tsx}': 'KEBAB_CASE' },
+    ],
 
   },
   env: {

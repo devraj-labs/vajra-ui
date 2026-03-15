@@ -9,9 +9,12 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "outDir": "./dist",
-    "declaration": true,
-    "declarationDir": "./dist"
+    "noEmit": true,
+    "baseUrl": ".",
+    "paths": {
+      "react-native": ["./examples/app/node_modules/react-native"],
+      "react-native/*": ["./examples/app/node_modules/react-native/*"]
+    }
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist", "examples"]

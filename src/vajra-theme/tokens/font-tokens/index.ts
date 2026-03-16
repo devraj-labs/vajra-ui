@@ -10,17 +10,39 @@ export type TFontVariant = {
 
 type TScale = keyof typeof fontSizeTokens;
 
-export const fontTokens = (Object.keys(fontSizeTokens) as TScale[]).reduce(
+// Default weight per scale step
+const scaleWeightMap: Record<TScale, keyof typeof fontWeightTokens> = {
+  'f-1': 'f-400',
+  'f-2': 'f-400',
+  'f-3': 'f-400',
+  'f-4': 'f-500',
+  'f-5': 'f-600',
+  'f-6': 'f-700',
+};
+
+const fontScale = (Object.keys(fontSizeTokens) as TScale[]).reduce(
   (acc, scale) => {
     acc[scale] = {
       fontSize: fontSizeTokens[scale],
       lineHeight: lineHeightTokens[scale],
-      fontWeight: fontWeightTokens[scale],
+      fontWeight: fontWeightTokens[scaleWeightMap[scale]],
     };
 
     return acc;
   },
   {} as Record<TScale, TFontVariant>,
-) as Record<TScale, TFontVariant>;
+);
 
-export type TFontToken = TScale;
+export const fontTokens = {
+  ...fontScale,
+
+  // Semantic aliases
+  caption: fontScale['f-1'],
+  bodySmall: fontScale['f-2'],
+  body: fontScale['f-3'],
+  subheading: fontScale['f-4'],
+  heading: fontScale['f-5'],
+  display: fontScale['f-6'],
+} satisfies Record<string, TFontVariant>;
+
+export type TFontToken = keyof typeof fontTokens;

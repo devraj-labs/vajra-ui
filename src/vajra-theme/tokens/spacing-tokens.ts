@@ -1,11 +1,16 @@
 export const spacingTokens = {
-  none: 0,
-  xs: 4,
-  sm: 8,
-  md: 16,
-  lg: 24,
-  xl: 32,
-  xxl: 48,
+  // Scale tokens
+  's-0': 0,
+  's-1': 4,
+  's-2': 8,
+  's-3': 12,
+  's-4': 16,
+  's-5': 20,
+  's-6': 24,
+  's-8': 32,
+  's-10': 40,
+  's-12': 48,
+  's-16': 64,
 } as const;
 
 export type TSpacingToken = keyof typeof spacingTokens;

@@ -2,10 +2,10 @@ import { useTheme } from 'vajra-ui';
 
 export const theme = {
   colors: {
-    background: '#ffffff',
-    surface: '#f5f5f5',
-    text: '#111111',
-    textMuted: '#888888',
+    background: '#eeecee',
+    surface: '#ffffff',
+    text: '#0d0d0d',
+    textMuted: '#838383',
     primary: '#ff6b00',
     border: '#e0e0e0',
   },

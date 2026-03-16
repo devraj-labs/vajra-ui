@@ -1,6 +1,7 @@
 export const layoutTokens = {
-  screenPadding: 21,
-  gap: 8,
+  screenPadding: 20,
+  sectionGap: 24,
+  componentGap: 12,
 } as const;
 
-export type TLayoutTokens = typeof layoutTokens;
+export type TLayoutToken = keyof typeof layoutTokens;

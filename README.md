@@ -16,7 +16,84 @@ The library does **not enforce design opinions** like color palettes or token na
 
 ## Usage
 
-### 1. Define your theme
+There are two ways to use Vajra UI depending on how much control you want.
+
+---
+
+### Path 1 — Zero config with Vajra theme (recommended)
+
+Use `VajraProvider` and get started immediately. Built-in light and dark themes included.
+
+#### 1. Wrap your app
+
+```tsx
+import { VajraProvider } from 'vajra-ui';
+
+<VajraProvider colorScheme="light">
+  <App />
+</VajraProvider>
+```
+
+#### 2. Use UI kit components directly
+
+```tsx
+import { Button, Card } from 'vajra-ui';
+
+<Card>
+  <Button label="Submit" />
+</Card>
+```
+
+Components pull tokens from `VajraProvider` automatically — colors, spacing, rounded, typography.
+
+#### 3. Or build your own components using `useVajraTheme()`
+
+```tsx
+import React, { memo } from 'react';
+import { Pressable } from 'react-native';
+import { Box, Text, useVajraTheme } from 'vajra-ui';
+
+export const MyButton = memo(({ label }: { label: string }) => {
+  const theme = useVajraTheme();
+
+  return (
+    <Box bg={theme.colors.primary} px={theme.spacing.lg} py={theme.spacing.sm} rounded={theme.rounded.md}>
+      <Text color={theme.colors.onPrimary} fontSize={theme.typography.md.fontSize}>
+        {label}
+      </Text>
+    </Box>
+  );
+});
+
+MyButton.displayName = 'MyButton';
+```
+
+Full autocomplete against all vajra tokens.
+
+#### Overriding tokens
+
+Spread the defaults and override what you need.
+
+```tsx
+import { VajraProvider, defaultVajraTheme } from 'vajra-ui';
+
+const myTheme = {
+  ...defaultVajraTheme.light,
+  colors: { ...defaultVajraTheme.light.colors, primary: '#0055ff' },
+};
+
+<VajraProvider theme={myTheme}>
+  <App />
+</VajraProvider>
+```
+
+---
+
+### Path 2 — Fully custom theme
+
+Bring your own token shape. Use `ThemeProvider` directly — no vajra tokens required.
+
+#### 1. Define your theme
 
 ```ts
 export const theme = {
@@ -24,24 +101,15 @@ export const theme = {
     background: '#ffffff',
     surface: '#f5f5f5',
     text: '#111111',
-    textMuted: '#888888',
     primary: '#ff6b00',
     border: '#e0e0e0',
   },
   spacing: { none: 0, xs: 4, sm: 8, md: 16, lg: 24, xl: 32 },
   rounded: { none: 0, sm: 4, md: 8, lg: 16, full: 9999 },
-  typography: {
-    xs: { fontSize: 11, lineHeight: 16, fontWeight: '400' as const },
-    sm: { fontSize: 13, lineHeight: 18, fontWeight: '400' as const },
-    md: { fontSize: 15, lineHeight: 22, fontWeight: '400' as const },
-    lg: { fontSize: 18, lineHeight: 26, fontWeight: '500' as const },
-    xl: { fontSize: 22, lineHeight: 30, fontWeight: '600' as const },
-    xxl: { fontSize: 28, lineHeight: 36, fontWeight: '700' as const },
-  },
 };
 ```
 
-### 2. Wrap your app
+#### 2. Wrap your app
 
 ```tsx
 import { ThemeProvider } from 'vajra-ui';
@@ -52,7 +120,7 @@ import { theme } from './theme';
 </ThemeProvider>
 ```
 
-### 3. Create a typed hook
+#### 3. Create a typed hook
 
 ```ts
 import { useTheme } from 'vajra-ui';
@@ -63,19 +131,32 @@ export type TAppTheme = typeof theme;
 export const useAppTheme = () => useTheme<TAppTheme>();
 ```
 
-Use `useAppTheme()` anywhere in your app for full autocomplete against your token keys.
+#### 4. Build components on top of core primitives
 
-### Built-in themes
+Follow the same pattern as vajra's own core components — wrap primitives, pull tokens via your hook.
 
-Vajra ships optional light and dark themes you can use directly.
+```tsx
+import React, { memo } from 'react';
+import { Pressable } from 'react-native';
+import { Box, Text } from 'vajra-ui';
+import { useAppTheme } from './hooks/use-app-theme';
 
-```ts
-import { ThemeProvider, lightColors, darkColors } from 'vajra-ui';
+export const MyButton = memo(({ label }: { label: string }) => {
+  const theme = useAppTheme();
 
-<ThemeProvider theme={lightColors}>
-  <App />
-</ThemeProvider>
+  return (
+    <Box bg={theme.colors.primary} px={theme.spacing.lg} py={theme.spacing.sm} rounded={theme.rounded.md}>
+      <Text color={theme.colors.text} fontSize={14}>
+        {label}
+      </Text>
+    </Box>
+  );
+});
+
+MyButton.displayName = 'MyButton';
 ```
+
+Core primitives (`Box`, `Row`, `Col`, `Text`, etc.) are theme-agnostic — they work with any token shape.
 
 ---
 

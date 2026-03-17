@@ -1,48 +1,41 @@
-import { fontSizeTokens } from './font-size-tokens';
-import { fontWeightTokens } from './font-weight-tokens';
+import { fontSizeTokens, TFontSizeToken } from './font-size-tokens';
+import { fontWeightTokens, TFontWeightToken } from './font-weight-tokens';
 import { lineHeightTokens } from './line-height-tokens';
 
-export type TFontVariant = {
+export type TFontVariantProps = {
   fontSize: number;
   lineHeight: number;
   fontWeight: '400' | '500' | '600' | '700';
 };
 
-type TScale = keyof typeof fontSizeTokens;
+const f = (scale: TFontSizeToken, weight: TFontWeightToken): TFontVariantProps => ({
+  fontSize: fontSizeTokens[scale],
+  lineHeight: lineHeightTokens[scale],
+  fontWeight: fontWeightTokens[weight],
+});
 
-// Default weight per scale step
-const scaleWeightMap: Record<TScale, keyof typeof fontWeightTokens> = {
-  'f-1': 'f-400',
-  'f-2': 'f-400',
-  'f-3': 'f-400',
-  'f-4': 'f-500',
-  'f-5': 'f-600',
-  'f-6': 'f-700',
-};
+export const fontVariants = {
+  // Labels & captions
+  label: f('f-1', 'f-400'),
+  labelMedium: f('f-1', 'f-500'),
+  caption: f('f-1.5', 'f-400'),
 
-const fontScale = (Object.keys(fontSizeTokens) as TScale[]).reduce(
-  (acc, scale) => {
-    acc[scale] = {
-      fontSize: fontSizeTokens[scale],
-      lineHeight: lineHeightTokens[scale],
-      fontWeight: fontWeightTokens[scaleWeightMap[scale]],
-    };
+  // Body copy
+  bodySmall: f('f-1.5', 'f-400'),
+  body: f('f-2', 'f-400'),
+  bodyMedium: f('f-2', 'f-500'),
 
-    return acc;
-  },
-  {} as Record<TScale, TFontVariant>,
-);
+  // UI chrome
+  button: f('f-2', 'f-600'),
+  subheading: f('f-3', 'f-500'),
 
-export const fontTokens = {
-  ...fontScale,
+  // Headings
+  h3: f('f-3', 'f-600'),
+  h2: f('f-4', 'f-600'),
+  h1: f('f-5', 'f-700'),
 
-  // Semantic aliases
-  caption: fontScale['f-1'],
-  bodySmall: fontScale['f-2'],
-  body: fontScale['f-3'],
-  subheading: fontScale['f-4'],
-  heading: fontScale['f-5'],
-  display: fontScale['f-6'],
-} satisfies Record<string, TFontVariant>;
+  // Display
+  display: f('f-6', 'f-700'),
+} satisfies Record<string, TFontVariantProps>;
 
-export type TFontToken = keyof typeof fontTokens;
+export type TFontVariant = keyof typeof fontVariants;

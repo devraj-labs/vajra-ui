@@ -1,13 +1,13 @@
 import { lightColorTokens, darkColorTokens } from './colors';
 import { spacingTokens } from './tokens/spacing-tokens';
 import { roundedTokens } from './tokens/rounded-tokens';
-import { fontTokens } from './tokens/font-tokens/index';
+import { fontVariants } from './tokens/font-tokens/index';
 import { layoutTokens } from './tokens/layout-tokens';
 
 const staticTokens = {
   spacing: spacingTokens,
   rounded: roundedTokens,
-  typography: fontTokens,
+  typography: fontVariants,
   layout: layoutTokens,
 };
 

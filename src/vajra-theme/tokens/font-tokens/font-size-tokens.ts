@@ -1,5 +1,6 @@
 export const fontSizeTokens = {
   'f-1': 12,
+  'f-1.5': 14,
   'f-2': 16,
   'f-3': 20,
   'f-4': 24,

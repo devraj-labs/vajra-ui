@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 
 import { Text } from '../../core/text';
 import { useVajraTheme } from '../../vajra-theme/use-vajra-theme';
-import { TTextVariantProps } from './text-variants-types';
+import { TTextVariantProps } from './text-types';
 
 export const TextVariant = memo(({ variant = 'body', color, ...rest }: TTextVariantProps) => {
   const theme = useVajraTheme();

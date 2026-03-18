@@ -44,11 +44,16 @@ export type TFeedbackColorTokens = {
   infoSubtle: string;
 };
 
+export type TBaseColorTokens = {
+  transparent: 'transparent';
+};
+
 export type TFlatColorTokens = TBrandColorTokens &
   TSurfaceColorTokens &
   TTextColorTokens &
   TBorderColorTokens &
-  TFeedbackColorTokens;
+  TFeedbackColorTokens &
+  TBaseColorTokens;
 
 export type TColorToken = keyof TFlatColorTokens;
 

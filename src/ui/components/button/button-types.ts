@@ -1,20 +1,13 @@
 import React from 'react';
 import { TouchableOpacityProps } from 'react-native';
 
+import { TColorPalette } from '../../utils/palette';
+
 export type TButtonVariant = 'solid' | 'subtle' | 'surface' | 'outline' | 'ghost' | 'plain';
 
 export type TButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
-export type TButtonColorPalette =
-  | 'gray'
-  | 'blue'
-  | 'purple'
-  | 'red'
-  | 'green'
-  | 'yellow'
-  | 'orange'
-  | 'teal'
-  | 'pink';
+export type TButtonColorPalette = TColorPalette;
 
 export type TButtonLoadingPosition = 'start' | 'end';
 

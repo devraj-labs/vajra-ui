@@ -1,5 +1,5 @@
 import { TButtonSize } from '../button/button-types';
-import { TRoundedToken } from '../../vajra-theme/tokens/rounded-tokens';
+import { TRoundedToken } from '../../../vajra-theme/tokens/rounded-tokens';
 
 export type TIconButtonSizeStyle = {
   size: number;

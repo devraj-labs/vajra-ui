@@ -5,6 +5,7 @@ import { Box, Text } from 'vajra-ui';
 
 import { ButtonExample } from './examples/button-example';
 import { IconButtonExample } from './examples/icon-button-example';
+import { InputExample } from './examples/input-example';
 import { TextExample } from './examples/text-example';
 
 type TTabScreen = {
@@ -15,6 +16,7 @@ type TTabScreen = {
 const TABS = {
   button: { label: 'Button', component: ButtonExample },
   iconButton: { label: 'IconButton', component: IconButtonExample },
+  input: { label: 'Input', component: InputExample },
   text: { label: 'Text', component: TextExample },
 } satisfies Record<string, TTabScreen>;
 

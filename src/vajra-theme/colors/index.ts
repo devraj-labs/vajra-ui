@@ -10,6 +10,7 @@ export const lightColorTokens = {
   ...textLight,
   ...borderLight,
   ...feedbackLight,
+  transparent: 'transparent' as const,
 };
 
 export const darkColorTokens = {
@@ -18,4 +19,5 @@ export const darkColorTokens = {
   ...textDark,
   ...borderDark,
   ...feedbackDark,
+  transparent: 'transparent' as const,
 };

@@ -22,4 +22,6 @@ import { defaultVajraTheme } from './vajra-theme';
 
 export type TVajraTheme = typeof defaultVajraTheme.light;
 
+export type TVajraColor = keyof TVajraTheme['colors'];
+
 export const useVajraTheme = (): TVajraTheme => useTheme<TVajraTheme>();

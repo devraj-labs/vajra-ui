@@ -1,7 +1,7 @@
 import { TCorePressableProps } from '../../../core/pressable/pressable-types';
 import { TColorToken } from '../../../vajra-theme/tokens/colors/types';
 import { TRoundedToken } from '../../../vajra-theme/tokens/rounded-tokens';
-import { TSpacingToken } from '../../../vajra-theme/tokens/spacing-tokens';
+import { TSpacingProps } from '../../utils/spacing-props';
 
 export type TUiPressableProps = Omit<
   TCorePressableProps,
@@ -12,7 +12,6 @@ export type TUiPressableProps = Omit<
   | 'roundedB'
   | 'roundedL'
   | 'roundedR'
-  | 'gap'
   | 'm'
   | 'mx'
   | 'my'
@@ -27,27 +26,14 @@ export type TUiPressableProps = Omit<
   | 'pb'
   | 'pl'
   | 'pr'
-> & {
-  bg?: TColorToken;
-  borderColor?: TColorToken;
-  rounded?: TRoundedToken;
-  roundedT?: TRoundedToken;
-  roundedB?: TRoundedToken;
-  roundedL?: TRoundedToken;
-  roundedR?: TRoundedToken;
-  gap?: TSpacingToken;
-  m?: TSpacingToken;
-  mx?: TSpacingToken;
-  my?: TSpacingToken;
-  mt?: TSpacingToken;
-  mb?: TSpacingToken;
-  ml?: TSpacingToken;
-  mr?: TSpacingToken;
-  p?: TSpacingToken;
-  px?: TSpacingToken;
-  py?: TSpacingToken;
-  pt?: TSpacingToken;
-  pb?: TSpacingToken;
-  pl?: TSpacingToken;
-  pr?: TSpacingToken;
-};
+  | 'gap'
+> &
+  TSpacingProps & {
+    bg?: TColorToken;
+    borderColor?: TColorToken;
+    rounded?: TRoundedToken;
+    roundedT?: TRoundedToken;
+    roundedB?: TRoundedToken;
+    roundedL?: TRoundedToken;
+    roundedR?: TRoundedToken;
+  };

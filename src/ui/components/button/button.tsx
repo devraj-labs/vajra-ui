@@ -1,9 +1,9 @@
 import React, { memo } from 'react';
 import { ActivityIndicator } from 'react-native';
 
-import { useVajraTheme } from '../../vajra-theme/use-vajra-theme';
-import { Pressable } from '../core/pressable';
-import { Text } from '../core/text';
+import { useVajraTheme } from '../../../vajra-theme/use-vajra-theme';
+import { Pressable } from '../../core/pressable';
+import { Text } from '../../core/text';
 import { TButtonProps } from './button-types';
 import { getButtonSizeStyle, getButtonVariantStyle } from './button-variants';
 
@@ -48,7 +48,7 @@ const ButtonComponent: React.FC<TButtonProps> = ({
       {...rest}
     >
       {isLoading && loadingPosition === 'start' && spinner}
-      <Text variant={sizeStyle.fontVariant} color={variantStyle.textColor}>
+      <Text variant={sizeStyle.fontVariant} style={{ color: variantStyle.textColor }}>
         {displayLabel}
       </Text>
       {isLoading && loadingPosition === 'end' && spinner}

@@ -2,9 +2,9 @@ import React from 'react';
 import { ScrollView } from 'react-native';
 
 import { Box, Text } from 'vajra-ui';
-import type { TTextVariantProps } from 'vajra-ui';
+import type { TTextProps } from 'vajra-ui';
 
-const VARIANTS: NonNullable<TTextVariantProps['variant']>[] = [
+const VARIANTS: NonNullable<TTextProps['variant']>[] = [
   'display',
   'h1',
   'h2',

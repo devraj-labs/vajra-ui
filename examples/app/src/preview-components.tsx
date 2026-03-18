@@ -1,7 +1,8 @@
+import { ArrowLeft, ChevronRight } from 'lucide-react-native';
 import React, { useState } from 'react';
 import { ScrollView, TouchableOpacity } from 'react-native';
 
-import { Box, Button, Card, Text } from 'vajra-ui';
+import { Box, Card, Text } from 'vajra-ui';
 
 import { ButtonExample } from './examples/button-example';
 import { CardExample } from './examples/card-example';
@@ -48,7 +49,9 @@ export function PreviewComponents() {
           borderBottomWidth={1}
           borderColor="border"
         >
-          <Button variant="ghost" size="sm" label="← Back" onPress={() => setActiveTab(null)} />
+          <TouchableOpacity onPress={() => setActiveTab(null)}>
+            <ArrowLeft size={20} />
+          </TouchableOpacity>
           <Text variant="subheading">{TABS[activeTab].label}</Text>
         </Box>
         <Box flex={1}>
@@ -73,7 +76,7 @@ export function PreviewComponents() {
                     <Text variant="subheading">{TABS[key].label}</Text>
                     <Text variant="caption" color="textMuted">{TABS[key].description}</Text>
                   </Box>
-                  <Text variant="body" color="textMuted">→</Text>
+                  <ChevronRight size={18} />
                 </Box>
               </Card>
             </TouchableOpacity>

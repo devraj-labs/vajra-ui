@@ -10,6 +10,7 @@ import { CheckboxExample } from './examples/checkbox-example';
 import { IconButtonExample } from './examples/icon-button-example';
 import { InputExample } from './examples/input-example';
 import { RadioExample } from './examples/radio-example';
+import { SwitchExample } from './examples/switch-example';
 import { TextExample } from './examples/text-example';
 
 type TTabScreen = {
@@ -48,6 +49,11 @@ const TABS = {
     label: 'Radio',
     description: 'Single-select with color tokens',
     component: RadioExample,
+  },
+  switch: {
+    label: 'Switch',
+    description: 'Toggle with animation & color tokens',
+    component: SwitchExample,
   },
   text: {
     label: 'Text',

@@ -30,6 +30,14 @@ type TRoundedProps = {
   roundedR?: number;
 };
 
+type TPositionProps = {
+  position?: ViewStyle['position'];
+  top?: DimensionValue;
+  bottom?: DimensionValue;
+  left?: DimensionValue;
+  right?: DimensionValue;
+};
+
 type TFlexProps = {
   flex?: number;
   gap?: number;
@@ -62,7 +70,8 @@ export type TBoxProps = Omit<ViewProps, 'style'> &
   TBorderProps &
   TRoundedProps &
   TFlexProps &
-  TSpacingProps & {
+  TSpacingProps &
+  TPositionProps & {
     style?: ViewStyle | ViewStyle[];
     children?: React.ReactNode;
   };

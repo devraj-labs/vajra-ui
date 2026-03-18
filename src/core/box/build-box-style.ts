@@ -44,6 +44,11 @@ export const buildBoxStyle = (props: TBoxStyleProps): ViewStyle => {
     pb,
     pl,
     pr,
+    position,
+    top,
+    bottom,
+    left,
+    right,
   } = props;
 
   return {
@@ -85,5 +90,10 @@ export const buildBoxStyle = (props: TBoxStyleProps): ViewStyle => {
     paddingBottom: pb,
     paddingLeft: pl,
     paddingRight: pr,
+    position,
+    top,
+    bottom,
+    left,
+    right,
   };
 };

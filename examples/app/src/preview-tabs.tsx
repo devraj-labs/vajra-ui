@@ -5,8 +5,10 @@ import { Box, Text } from 'vajra-ui';
 
 import { ButtonExample } from './examples/button-example';
 import { CardExample } from './examples/card-example';
+import { CheckboxExample } from './examples/checkbox-example';
 import { IconButtonExample } from './examples/icon-button-example';
 import { InputExample } from './examples/input-example';
+import { RadioExample } from './examples/radio-example';
 import { TextExample } from './examples/text-example';
 
 type TTabScreen = {
@@ -17,8 +19,10 @@ type TTabScreen = {
 const TABS = {
   button: { label: 'Button', component: ButtonExample },
   card: { label: 'Card', component: CardExample },
+  checkbox: { label: 'Checkbox', component: CheckboxExample },
   iconButton: { label: 'IconButton', component: IconButtonExample },
   input: { label: 'Input', component: InputExample },
+  radio: { label: 'Radio', component: RadioExample },
   text: { label: 'Text', component: TextExample },
 } satisfies Record<string, TTabScreen>;
 

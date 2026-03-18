@@ -1,15 +1,15 @@
 import React, { memo } from 'react';
 
-import { Text } from '../../core/text';
 import { useVajraTheme } from '../../vajra-theme/use-vajra-theme';
 import { TTextVariantProps } from './text-types';
+import { CoreText } from '../../core/core-text';
 
-export const TextVariant = memo(({ variant = 'body', color, ...rest }: TTextVariantProps) => {
+export const Text = memo(({ variant = 'body', color, ...rest }: TTextVariantProps) => {
   const theme = useVajraTheme();
   const fontStyle = theme.typography[variant];
 
   return (
-    <Text
+    <CoreText
       fontSize={fontStyle.fontSize}
       lineHeight={fontStyle.lineHeight}
       fontWeight={fontStyle.fontWeight}
@@ -19,4 +19,4 @@ export const TextVariant = memo(({ variant = 'body', color, ...rest }: TTextVari
   );
 });
 
-TextVariant.displayName = 'TextVariant';
+Text.displayName = 'TextVariant';

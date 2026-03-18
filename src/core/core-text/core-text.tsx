@@ -1,9 +1,9 @@
 import React, { memo } from 'react';
 import { Text as RNText } from 'react-native';
 
-import { TTextProps } from './text-types';
+import { TTextProps } from './core-text-types';
 
-export const Text = memo(
+export const CoreText = memo(
   ({
     style,
     children,
@@ -40,4 +40,4 @@ export const Text = memo(
   ),
 );
 
-Text.displayName = 'Text';
+CoreText.displayName = 'CoreText';

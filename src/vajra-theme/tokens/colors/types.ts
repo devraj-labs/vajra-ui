@@ -50,6 +50,8 @@ export type TFlatColorTokens = TBrandColorTokens &
   TBorderColorTokens &
   TFeedbackColorTokens;
 
+export type TColorToken = keyof TFlatColorTokens;
+
 export type TColorTokensBase = {
   brand: TBrandColorTokens;
   surface: TSurfaceColorTokens;

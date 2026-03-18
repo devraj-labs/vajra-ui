@@ -1,6 +1,7 @@
 import React, { memo } from 'react';
 import { View } from 'react-native';
 
+import { buildBoxStyle } from './build-box-style';
 import { TBoxProps } from './box-types';
 
 export const Box = memo(
@@ -14,12 +15,12 @@ export const Box = memo(
     minH,
     maxH,
     bg,
+    borderColor,
     borderWidth,
     borderTopWidth,
     borderBottomWidth,
     borderLeftWidth,
     borderRightWidth,
-    borderColor,
     rounded,
     roundedT,
     roundedB,
@@ -47,54 +48,49 @@ export const Box = memo(
     pr,
     ...rest
   }: TBoxProps) => {
-    const borderTopLeftRadius = roundedT ?? roundedL;
-    const borderTopRightRadius = roundedT ?? roundedR;
-    const borderBottomLeftRadius = roundedB ?? roundedL;
-    const borderBottomRightRadius = roundedB ?? roundedR;
-
     return (
       <View
         style={[
-          {
-            width: w,
-            height: h,
-            minWidth: minW,
-            maxWidth: maxW,
-            minHeight: minH,
-            maxHeight: maxH,
-            backgroundColor: bg,
+          buildBoxStyle({
+            w,
+            h,
+            minW,
+            maxW,
+            minH,
+            maxH,
+            bg,
             borderColor,
             borderWidth,
             borderTopWidth,
             borderBottomWidth,
             borderLeftWidth,
             borderRightWidth,
-            borderRadius: rounded,
-            borderTopLeftRadius,
-            borderTopRightRadius,
-            borderBottomLeftRadius,
-            borderBottomRightRadius,
-            flexDirection: direction,
-            alignItems: align,
-            justifyContent: justify,
+            rounded,
+            roundedT,
+            roundedB,
+            roundedL,
+            roundedR,
+            align,
+            justify,
             gap,
             flex,
-            flexWrap: wrap,
-            margin: m,
-            marginHorizontal: mx,
-            marginVertical: my,
-            marginTop: mt,
-            marginBottom: mb,
-            marginLeft: ml,
-            marginRight: mr,
-            padding: p,
-            paddingHorizontal: px,
-            paddingVertical: py,
-            paddingTop: pt,
-            paddingBottom: pb,
-            paddingLeft: pl,
-            paddingRight: pr,
-          },
+            direction,
+            wrap,
+            m,
+            mx,
+            my,
+            mt,
+            mb,
+            ml,
+            mr,
+            p,
+            px,
+            py,
+            pt,
+            pb,
+            pl,
+            pr,
+          }),
           style,
         ]}
         {...rest}

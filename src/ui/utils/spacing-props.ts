@@ -1,4 +1,4 @@
-import { TSpacingToken, spacingTokens } from '../../vajra-theme/tokens/spacing-tokens';
+import { TSpacingToken, spacingTokens } from '../vajra-theme/tokens/spacing-tokens';
 
 export type TSpacingProps = {
   m?: TSpacingToken;

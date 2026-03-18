@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 
 import { Separator as CoreSeparator } from '../../../core/separator';
-import { useVajraTheme } from '../../../vajra-theme/use-vajra-theme';
+import { useVajraTheme } from '../../vajra-theme/use-vajra-theme';
 import { TUiSeparatorProps } from './separator-types';
 
 const SeparatorComponent: React.FC<TUiSeparatorProps> = ({ color = 'border', ...rest }) => {

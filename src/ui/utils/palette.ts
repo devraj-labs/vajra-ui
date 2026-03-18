@@ -1,4 +1,4 @@
-import { colorPrimitives } from '../../vajra-theme/primitives/colors';
+import { colorPrimitives } from '../vajra-theme/primitives/colors';
 
 export type TPaletteColorSlots = {
   solid: string;

@@ -1,6 +1,6 @@
-import { TRoundedToken } from '../../../vajra-theme/tokens/rounded-tokens';
-import { TSpacingToken } from '../../../vajra-theme/tokens/spacing-tokens';
-import type { TVajraTheme } from '../../../vajra-theme/use-vajra-theme';
+import { TRoundedToken } from '../../vajra-theme/tokens/rounded-tokens';
+import { TSpacingToken } from '../../vajra-theme/tokens/spacing-tokens';
+import type { TVajraTheme } from '../../vajra-theme/use-vajra-theme';
 import { paletteMap } from '../../utils/palette';
 import { TButtonColorPalette, TButtonSize, TButtonVariant } from './button-types';
 

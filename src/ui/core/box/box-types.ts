@@ -1,7 +1,7 @@
 import { DimensionValue, ViewProps, ViewStyle } from 'react-native';
 
-import { TColorToken } from '../../../vajra-theme/tokens/colors/types';
-import { TRoundedToken } from '../../../vajra-theme/tokens/rounded-tokens';
+import { TColorToken } from '../../vajra-theme/tokens/colors/types';
+import { TRoundedToken } from '../../vajra-theme/tokens/rounded-tokens';
 import { TSpacingProps } from '../../utils/spacing-props';
 
 export type TUiBoxProps = Omit<ViewProps, 'style'> &

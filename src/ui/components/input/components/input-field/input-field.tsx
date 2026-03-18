@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 import { TextInput as RNTextInput, TextInputProps } from 'react-native';
 
-import { fontVariants, TFontVariant } from '../../../../../vajra-theme/tokens/font-tokens';
+import { fontVariants, TFontVariant } from '../../../../vajra-theme/tokens/font-tokens';
 import { TextInput } from '../../../../core/text-input';
 import { TUiTextInputProps } from '../../../../core/text-input/text-input-types';
 import { useInputContext } from '../../input-context';

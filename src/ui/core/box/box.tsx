@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 
 import { Box as CoreBox } from '../../../core/box';
-import { useVajraTheme } from '../../../vajra-theme/use-vajra-theme';
+import { useVajraTheme } from '../../vajra-theme/use-vajra-theme';
 import { resolveSpacing } from '../../utils/spacing-props';
 import { TUiBoxProps } from './box-types';
 

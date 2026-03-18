@@ -2,7 +2,7 @@ import React, { forwardRef, memo } from 'react';
 import { TextInput as RNTextInput } from 'react-native';
 
 import { CoreTextInput } from '../../../core/core-text-input';
-import { useVajraTheme } from '../../../vajra-theme/use-vajra-theme';
+import { useVajraTheme } from '../../vajra-theme/use-vajra-theme';
 import { resolveSpacing } from '../../utils/spacing-props';
 import { TUiTextInputProps } from './text-input-types';
 

@@ -17,7 +17,7 @@
  *   );
  * };
  */
-import { useTheme } from '../theme';
+import { useTheme } from '../../theme';
 import { defaultVajraTheme } from './vajra-theme';
 
 export type TVajraTheme = typeof defaultVajraTheme.light;

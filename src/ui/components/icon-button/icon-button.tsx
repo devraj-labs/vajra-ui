@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { ActivityIndicator } from 'react-native';
 
-import { useVajraTheme } from '../../../vajra-theme/use-vajra-theme';
+import { useVajraTheme } from '../../vajra-theme/use-vajra-theme';
 import { Pressable } from '../../core/pressable';
 import { getButtonVariantStyle } from '../button/button-variants';
 import { TIconButtonProps } from './icon-button-types';

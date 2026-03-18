@@ -1,8 +1,8 @@
 import React, { forwardRef, useEffect, useRef, useState } from 'react';
 import { Animated, TextInput as RNTextInput, View } from 'react-native';
 
-import { useVajraTheme } from '../../../../../vajra-theme/use-vajra-theme';
-import { fontVariants, TFontVariant } from '../../../../../vajra-theme/tokens/font-tokens';
+import { useVajraTheme } from '../../../../vajra-theme/use-vajra-theme';
+import { fontVariants, TFontVariant } from '../../../../vajra-theme/tokens/font-tokens';
 import { Row } from '../../../../core/row';
 import { TextInput } from '../../../../core/text-input';
 import { InputError } from '../../components/input-error/input-error';

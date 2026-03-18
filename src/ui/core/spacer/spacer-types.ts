@@ -1,4 +1,4 @@
-import { TSpacingToken } from '../../../vajra-theme/tokens/spacing-tokens';
+import { TSpacingToken } from '../../vajra-theme/tokens/spacing-tokens';
 
 export type TUiSpacerProps = {
   w?: TSpacingToken;

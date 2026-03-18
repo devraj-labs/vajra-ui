@@ -1,6 +1,6 @@
 import { TCoreTextInputProps } from '../../../core/core-text-input/core-text-input-types';
-import { TColorToken } from '../../../vajra-theme/tokens/colors/types';
-import { TRoundedToken } from '../../../vajra-theme/tokens/rounded-tokens';
+import { TColorToken } from '../../vajra-theme/tokens/colors/types';
+import { TRoundedToken } from '../../vajra-theme/tokens/rounded-tokens';
 import { TSpacingProps } from '../../utils/spacing-props';
 
 export type TUiTextInputProps = Omit<

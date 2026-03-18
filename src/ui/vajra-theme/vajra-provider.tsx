@@ -30,7 +30,7 @@
  */
 import React from 'react';
 
-import { ThemeProvider } from '../theme';
+import { ThemeProvider } from '../../theme';
 import { defaultVajraTheme } from './vajra-theme';
 import type { TDefaultVajraTheme } from './vajra-theme-types';
 

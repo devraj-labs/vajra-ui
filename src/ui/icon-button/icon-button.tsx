@@ -1,8 +1,8 @@
 import React, { memo } from 'react';
-import { ActivityIndicator, TouchableOpacity } from 'react-native';
+import { ActivityIndicator } from 'react-native';
 
 import { useVajraTheme } from '../../vajra-theme/use-vajra-theme';
-import { Box } from '../box';
+import { Pressable } from '../core/pressable';
 import { getButtonVariantStyle } from '../button/button-variants';
 import { TIconButtonProps } from './icon-button-types';
 import { getIconButtonSizeStyle } from './icon-button-variants';
@@ -28,23 +28,23 @@ const IconButtonComponent: React.FC<TIconButtonProps> = ({
   );
 
   return (
-    <TouchableOpacity disabled={isInteractionDisabled} {...rest}>
-      <Box
-        style={{
-          backgroundColor: variantStyle.bg,
-          borderColor: variantStyle.borderColor,
-          opacity: isDisabled ? 0.4 : 1,
-          width: sizeStyle.size,
-          height: sizeStyle.size,
-        }}
-        borderWidth={variantStyle.borderWidth}
-        rounded={sizeStyle.rounded}
-        align="center"
-        justify="center"
-      >
-        {isLoading ? spinner : <Icon size={sizeStyle.iconSize} color={variantStyle.textColor} />}
-      </Box>
-    </TouchableOpacity>
+    <Pressable
+      disabled={isInteractionDisabled}
+      style={{
+        backgroundColor: variantStyle.bg,
+        borderColor: variantStyle.borderColor,
+        opacity: isDisabled ? 0.4 : 1,
+        width: sizeStyle.size,
+        height: sizeStyle.size,
+      }}
+      borderWidth={variantStyle.borderWidth}
+      rounded={sizeStyle.rounded}
+      align="center"
+      justify="center"
+      {...rest}
+    >
+      {isLoading ? spinner : <Icon size={sizeStyle.iconSize} color={variantStyle.textColor} />}
+    </Pressable>
   );
 };
 

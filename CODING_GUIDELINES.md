@@ -40,12 +40,46 @@ Every component lives in its own folder. The folder name uses kebab-case and mat
 
 ```
 foobar/
-├── foobar.tsx            # UI of the component
-├── foobar-types.ts       # All types for this component
-├── foobar-constants.ts   # Constants scoped to this component
-├── foobar-variants.ts    # Variant definitions (components only, not core primitives)
-├── use-foobar.ts         # Custom hook if the component has non-trivial logic
-└── index.ts              # Barrel — export * from each file as needed
+├── foobar.tsx               # UI of the component
+├── foobar-types.ts          # All types for this component
+├── foobar-constants.ts      # Constants scoped to this component
+├── foobar-variants.ts       # Variant definitions (components only, not core primitives)
+├── use-foobar.ts            # Custom hook if the component has non-trivial logic
+├── components/              # Sub-components (only if the component is compositional)
+│   ├── foobar-header/
+│   │   ├── foobar-header.tsx
+│   │   ├── foobar-header-types.ts
+│   │   └── index.ts
+│   └── foobar-footer/
+│       ├── foobar-footer.tsx
+│       ├── foobar-footer-types.ts
+│       └── index.ts
+└── index.ts                 # Barrel — re-exports everything consumers need
+```
+
+When sub-components exist, they are attached as static properties inside `foobar.tsx` itself. `index.ts` stays a plain barrel.
+
+```tsx
+// foobar/foobar.tsx
+import { FoobarHeader } from './components/foobar-header';
+import { FoobarFooter } from './components/foobar-footer';
+
+export const Foobar = {
+  Header: FoobarHeader,
+  Footer: FoobarFooter,
+};
+```
+
+```ts
+// foobar/index.ts — plain barrel, no composition logic
+export * from './foobar';
+export * from './foobar-types';
+```
+
+```tsx
+// usage
+<Foobar.Header />
+<Foobar.Footer />
 ```
 
 ### Rules per file

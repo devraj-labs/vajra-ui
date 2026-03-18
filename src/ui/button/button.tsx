@@ -1,8 +1,8 @@
 import React, { memo } from 'react';
-import { ActivityIndicator, TouchableOpacity } from 'react-native';
+import { ActivityIndicator } from 'react-native';
 
 import { useVajraTheme } from '../../vajra-theme/use-vajra-theme';
-import { Box } from '../box';
+import { Pressable } from '../core/pressable';
 import { Text } from '../text';
 import { TButtonProps } from './button-types';
 import { getButtonSizeStyle, getButtonVariantStyle } from './button-variants';
@@ -30,29 +30,29 @@ const ButtonComponent: React.FC<TButtonProps> = ({
   );
 
   return (
-    <TouchableOpacity disabled={isInteractionDisabled} {...rest}>
-      <Box
-        style={{
-          backgroundColor: variantStyle.bg,
-          borderColor: variantStyle.borderColor,
-          opacity: isDisabled ? 0.4 : 1,
-        }}
-        borderWidth={variantStyle.borderWidth}
-        rounded={sizeStyle.rounded}
-        px={sizeStyle.px}
-        py={sizeStyle.py}
-        align="center"
-        justify="center"
-        direction="row"
-        gap="s-2"
-      >
-        {isLoading && loadingPosition === 'start' && spinner}
-        <Text variant={sizeStyle.fontVariant} color={variantStyle.textColor}>
-          {displayLabel}
-        </Text>
-        {isLoading && loadingPosition === 'end' && spinner}
-      </Box>
-    </TouchableOpacity>
+    <Pressable
+      disabled={isInteractionDisabled}
+      style={{
+        backgroundColor: variantStyle.bg,
+        borderColor: variantStyle.borderColor,
+        opacity: isDisabled ? 0.4 : 1,
+      }}
+      borderWidth={variantStyle.borderWidth}
+      rounded={sizeStyle.rounded}
+      px={sizeStyle.px}
+      py={sizeStyle.py}
+      align="center"
+      justify="center"
+      direction="row"
+      gap="s-2"
+      {...rest}
+    >
+      {isLoading && loadingPosition === 'start' && spinner}
+      <Text variant={sizeStyle.fontVariant} color={variantStyle.textColor}>
+        {displayLabel}
+      </Text>
+      {isLoading && loadingPosition === 'end' && spinner}
+    </Pressable>
   );
 };
 

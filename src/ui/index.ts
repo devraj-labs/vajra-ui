@@ -1,4 +1,4 @@
-export * from './box';
 export * from './button';
+export * from './core';
 export * from './icon-button';
 export * from './text';

@@ -1,10 +1,10 @@
 import React, { memo } from 'react';
 
-import { Box as CoreBox } from '../../core/box';
-import { useVajraTheme } from '../../vajra-theme/use-vajra-theme';
-import { TUiBoxProps } from './box-types';
+import { CorePressable } from '../../../core/pressable';
+import { useVajraTheme } from '../../../vajra-theme/use-vajra-theme';
+import { TUiPressableProps } from './pressable-types';
 
-const BoxComponent: React.FC<TUiBoxProps> = ({
+const PressableComponent: React.FC<TUiPressableProps> = ({
   bg,
   borderColor,
   rounded,
@@ -32,7 +32,7 @@ const BoxComponent: React.FC<TUiBoxProps> = ({
   const { colors, spacing, rounded: r } = useVajraTheme();
 
   return (
-    <CoreBox
+    <CorePressable
       bg={bg !== undefined ? colors[bg] : undefined}
       borderColor={borderColor !== undefined ? colors[borderColor] : undefined}
       rounded={rounded !== undefined ? r[rounded] : undefined}
@@ -60,5 +60,5 @@ const BoxComponent: React.FC<TUiBoxProps> = ({
   );
 };
 
-export const Box = memo(BoxComponent);
-Box.displayName = 'Box';
+export const Pressable = memo(PressableComponent);
+Pressable.displayName = 'Pressable';

@@ -1,18 +1,40 @@
+import { StarIcon } from 'lucide-react-native';
 import React from 'react';
-import { ScrollView, Text as RNText } from 'react-native';
+import { ScrollView } from 'react-native';
 
+import type {
+  TButtonColorPalette,
+  TButtonSize,
+  TButtonVariant,
+} from 'vajra-ui';
 import { Box, IconButton, Text } from 'vajra-ui';
-import type { TButtonColorPalette, TButtonSize, TButtonVariant, TVajraIconComponent } from 'vajra-ui';
 
-const VARIANTS: TButtonVariant[] = ['solid', 'subtle', 'surface', 'outline', 'ghost', 'plain'];
+const VARIANTS: TButtonVariant[] = [
+  'solid',
+  'subtle',
+  'surface',
+  'outline',
+  'ghost',
+  'plain',
+];
 const SIZES: TButtonSize[] = ['xs', 'sm', 'md', 'lg', 'xl'];
-const PALETTES: TButtonColorPalette[] = ['gray', 'blue', 'purple', 'red', 'green', 'yellow', 'orange', 'teal', 'pink'];
-const PALETTE_VARIANTS: TButtonVariant[] = ['solid', 'subtle', 'outline', 'ghost'];
-
-// Satisfies TVajraIconComponent — size and color come from IconButton automatically
-const StarIcon: TVajraIconComponent = ({ size, color }) => (
-  <RNText style={{ fontSize: size, lineHeight: size, color }}>★</RNText>
-);
+const PALETTES: TButtonColorPalette[] = [
+  'gray',
+  'blue',
+  'purple',
+  'red',
+  'green',
+  'yellow',
+  'orange',
+  'teal',
+  'pink',
+];
+const PALETTE_VARIANTS: TButtonVariant[] = [
+  'solid',
+  'subtle',
+  'outline',
+  'ghost',
+];
 
 function HScroll({ children }: { children: React.ReactNode }) {
   return (
@@ -24,7 +46,13 @@ function HScroll({ children }: { children: React.ReactNode }) {
   );
 }
 
-function Section({ title, children }: { title: string; children: React.ReactNode }) {
+function Section({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) {
   return (
     <Box gap="s-2">
       <Text variant="subheading">{title}</Text>
@@ -37,7 +65,6 @@ export function IconButtonExample() {
   return (
     <ScrollView>
       <Box flex={1} p="s-4" bg="background" gap="s-6">
-
         <Section title="Variants">
           <HScroll>
             {VARIANTS.map(v => (
@@ -58,7 +85,12 @@ export function IconButtonExample() {
           <Section key={v} title={`Color Palettes — ${v}`}>
             <HScroll>
               {PALETTES.map(p => (
-                <IconButton key={p} variant={v} colorPalette={p} icon={StarIcon} />
+                <IconButton
+                  key={p}
+                  variant={v}
+                  colorPalette={p}
+                  icon={StarIcon}
+                />
               ))}
             </HScroll>
           </Section>
@@ -79,7 +111,6 @@ export function IconButtonExample() {
             ))}
           </HScroll>
         </Section>
-
       </Box>
     </ScrollView>
   );

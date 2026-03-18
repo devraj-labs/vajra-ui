@@ -1,11 +1,11 @@
 import React, { memo } from 'react';
 import { ActivityIndicator } from 'react-native';
 
-import { useVajraTheme } from '../../vajra-theme/use-vajra-theme';
 import { Pressable } from '../../core/pressable';
 import { getButtonVariantStyle } from '../button/button-variants';
 import { TIconButtonProps } from './icon-button-types';
-import { getIconButtonSizeStyle } from './icon-button-variants';
+import { ICON_BUTTON_SIZE_MAP } from './icon-button-variants';
+import { useVajraTheme } from '../../vajra-theme';
 
 const IconButtonComponent: React.FC<TIconButtonProps> = ({
   variant = 'solid',
@@ -19,7 +19,7 @@ const IconButtonComponent: React.FC<TIconButtonProps> = ({
 }) => {
   const theme = useVajraTheme();
   const variantStyle = getButtonVariantStyle(variant, theme.colors, colorPalette);
-  const sizeStyle = getIconButtonSizeStyle(size);
+  const sizeStyle = ICON_BUTTON_SIZE_MAP[size];
 
   const isInteractionDisabled = isDisabled || isLoading;
 

@@ -2,7 +2,7 @@ import { ArrowLeft, ChevronRight } from 'lucide-react-native';
 import React, { useState } from 'react';
 import { ScrollView, TouchableOpacity } from 'react-native';
 
-import { Box, Card, Text } from 'vajra-ui';
+import { Box, Card, IconButton, Text } from 'vajra-ui';
 
 import { ButtonExample } from './examples/button-example';
 import { CardExample } from './examples/card-example';
@@ -19,13 +19,41 @@ type TTabScreen = {
 };
 
 const TABS = {
-  button: { label: 'Button', description: 'Variants, sizes & palettes', component: ButtonExample },
-  card: { label: 'Card', description: 'Padding, radius & backgrounds', component: CardExample },
-  checkbox: { label: 'Checkbox', description: 'Multi-select with color tokens', component: CheckboxExample },
-  iconButton: { label: 'Icon Button', description: 'Icon-only button variants', component: IconButtonExample },
-  input: { label: 'Input', description: 'Outline, filled, flushed & floating', component: InputExample },
-  radio: { label: 'Radio', description: 'Single-select with color tokens', component: RadioExample },
-  text: { label: 'Text', description: 'Typography variants & colors', component: TextExample },
+  button: {
+    label: 'Button',
+    description: 'Variants, sizes & palettes',
+    component: ButtonExample,
+  },
+  card: {
+    label: 'Card',
+    description: 'Padding, radius & backgrounds',
+    component: CardExample,
+  },
+  checkbox: {
+    label: 'Checkbox',
+    description: 'Multi-select with color tokens',
+    component: CheckboxExample,
+  },
+  iconButton: {
+    label: 'Icon Button',
+    description: 'Icon-only button variants',
+    component: IconButtonExample,
+  },
+  input: {
+    label: 'Input',
+    description: 'Outline, filled, flushed & floating',
+    component: InputExample,
+  },
+  radio: {
+    label: 'Radio',
+    description: 'Single-select with color tokens',
+    component: RadioExample,
+  },
+  text: {
+    label: 'Text',
+    description: 'Typography variants & colors',
+    component: TextExample,
+  },
 } satisfies Record<string, TTabScreen>;
 
 type TTabKey = keyof typeof TABS;
@@ -38,7 +66,7 @@ export function PreviewComponents() {
   if (activeTab !== null) {
     const ActiveScreen = TABS[activeTab].component;
     return (
-      <Box flex={1} bg="background">
+      <Box flex={1} bg="background" mt="s-5">
         <Box
           bg="surface"
           px="s-4"
@@ -49,9 +77,7 @@ export function PreviewComponents() {
           borderBottomWidth={1}
           borderColor="border"
         >
-          <TouchableOpacity onPress={() => setActiveTab(null)}>
-            <ArrowLeft size={20} />
-          </TouchableOpacity>
+          <IconButton size='xs' icon={ArrowLeft} onPress={() => setActiveTab(null)} />
           <Text variant="subheading">{TABS[activeTab].label}</Text>
         </Box>
         <Box flex={1}>
@@ -62,8 +88,14 @@ export function PreviewComponents() {
   }
 
   return (
-    <Box flex={1} bg="background">
-      <Box bg="surface" px="s-4" py="s-3" borderBottomWidth={1} borderColor="border">
+    <Box flex={1} bg="background" mt="s-5">
+      <Box
+        bg="surface"
+        px="s-4"
+        py="s-3"
+        borderBottomWidth={1}
+        borderColor="border"
+      >
         <Text variant="h2">Components</Text>
       </Box>
       <ScrollView>
@@ -74,7 +106,9 @@ export function PreviewComponents() {
                 <Box direction="row" align="center" justify="space-between">
                   <Box gap="s-1">
                     <Text variant="subheading">{TABS[key].label}</Text>
-                    <Text variant="caption" color="textMuted">{TABS[key].description}</Text>
+                    <Text variant="caption" color="textMuted">
+                      {TABS[key].description}
+                    </Text>
                   </Box>
                   <ChevronRight size={18} />
                 </Box>

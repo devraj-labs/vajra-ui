@@ -2,12 +2,12 @@ import React from 'react';
 
 import { VajraProvider } from 'vajra-ui';
 
-import { PreviewTabs } from './src/preview-tabs';
+import { PreviewComponents } from './src/preview-components';
 
 function App() {
   return (
     <VajraProvider>
-      <PreviewTabs />
+      <PreviewComponents />
     </VajraProvider>
   );
 }

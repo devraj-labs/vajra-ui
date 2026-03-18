@@ -3,7 +3,7 @@ import { ActivityIndicator } from 'react-native';
 
 import { useVajraTheme } from '../../vajra-theme/use-vajra-theme';
 import { Pressable } from '../core/pressable';
-import { Text } from '../text';
+import { Text } from '../core/text';
 import { TButtonProps } from './button-types';
 import { getButtonSizeStyle, getButtonVariantStyle } from './button-variants';
 

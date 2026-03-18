@@ -1,8 +1,8 @@
 import React, { memo } from 'react';
 
-import { useVajraTheme } from '../../vajra-theme/use-vajra-theme';
+import { useVajraTheme } from '../../../vajra-theme/use-vajra-theme';
 import { TTextVariantProps } from './text-types';
-import { CoreText } from '../../core/core-text';
+import { CoreText } from '../../../core/core-text';
 
 export const Text = memo(({ variant = 'body', color, ...rest }: TTextVariantProps) => {
   const theme = useVajraTheme();

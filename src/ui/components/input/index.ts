@@ -3,7 +3,6 @@ export * from './components/input-error';
 export * from './components/input-field';
 export * from './components/input-helper';
 export * from './components/input-label';
-export * from './components/input-root';
 export * from './input';
 export * from './input-constants';
 export * from './input-context';

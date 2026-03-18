@@ -1,15 +1,16 @@
 import React, { memo } from 'react';
 import { ViewStyle } from 'react-native';
 
-import { TVajraColor, useVajraTheme } from '../../../../../vajra-theme/use-vajra-theme';
+import { useVajraTheme } from '../../../../../vajra-theme/use-vajra-theme';
+import { TColorToken } from '../../../../../vajra-theme/tokens/colors/types';
 import { Row } from '../../../../core/row';
 import { TUiRowProps } from '../../../../core/row/row-types';
 import { useInputContext } from '../../input-context';
 
 export type TInputContainerProps = Omit<TUiRowProps, 'borderColor' | 'style'> & {
-  borderColor: TVajraColor;
-  focusBorderColor: TVajraColor;
-  errorBorderColor: TVajraColor;
+  borderColor: TColorToken;
+  focusBorderColor: TColorToken;
+  errorBorderColor: TColorToken;
   borderWidth?: number;
   style?: ViewStyle | ViewStyle[];
 };

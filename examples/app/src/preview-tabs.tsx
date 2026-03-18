@@ -4,6 +4,7 @@ import { ScrollView, TouchableOpacity } from 'react-native';
 import { Box, Text } from 'vajra-ui';
 
 import { ButtonExample } from './examples/button-example';
+import { CardExample } from './examples/card-example';
 import { IconButtonExample } from './examples/icon-button-example';
 import { InputExample } from './examples/input-example';
 import { TextExample } from './examples/text-example';
@@ -15,6 +16,7 @@ type TTabScreen = {
 
 const TABS = {
   button: { label: 'Button', component: ButtonExample },
+  card: { label: 'Card', component: CardExample },
   iconButton: { label: 'IconButton', component: IconButtonExample },
   input: { label: 'Input', component: InputExample },
   text: { label: 'Text', component: TextExample },

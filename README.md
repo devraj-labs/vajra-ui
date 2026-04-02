@@ -1,4 +1,4 @@
-# @vajra-ui/ui
+# Vajra UI
 
 A minimal React Native UI component library with a **bring your own tokens** model.
 
@@ -10,15 +10,15 @@ Use the built-in Vajra theme and get going in seconds — or plug in your own to
 
 | Package | Description |
 |---------|-------------|
-| [`@vajra-ui/core`](https://github.com/rishav-jha-mech/vajra-core) | Headless, unstyled primitives. No theme, no tokens. |
-| `@vajra-ui/ui` *(this)* | Token-aware components + optional Vajra theme. |
+| [`@devraj-labs/vajra-ui-core`](https://github.com/devraj-labs/vajra-ui-core) | Headless, unstyled primitives. No theme, no tokens. |
+| `@devraj-labs/vajra-ui` *(this)* | Token-aware components + optional Vajra theme. |
 
 ---
 
 ## Installation
 
 ```sh
-npm install @vajra-ui/ui @vajra-ui/core
+npm install @devraj-labs/vajra-ui @devraj-labs/vajra-ui-core
 ```
 
 ---
@@ -30,7 +30,7 @@ npm install @vajra-ui/ui @vajra-ui/core
 Use the built-in light/dark theme. Wrap your app with `VajraProvider` and start building.
 
 ```tsx
-import { VajraProvider, Button, Input } from '@vajra-ui/ui';
+import { VajraProvider, Button, Input } from '@devraj-labs/vajra-ui';
 
 export default function App() {
   return (
@@ -44,7 +44,7 @@ export default function App() {
 Access tokens anywhere via `useVajraTheme`:
 
 ```tsx
-import { useVajraTheme, Box, Text } from '@vajra-ui/ui';
+import { useVajraTheme, Box, Text } from '@devraj-labs/vajra-ui';
 
 const Banner = () => {
   const theme = useVajraTheme();
@@ -60,7 +60,7 @@ const Banner = () => {
 Override specific tokens:
 
 ```tsx
-import { VajraProvider, defaultVajraTheme } from '@vajra-ui/ui';
+import { VajraProvider, defaultVajraTheme } from '@devraj-labs/vajra-ui';
 
 const myTheme = {
   ...defaultVajraTheme.light,
@@ -80,7 +80,7 @@ Define any token shape you want. Use `ThemeProvider` directly.
 
 ```ts
 // theme.ts
-import { useTheme } from '@vajra-ui/ui';
+import { useTheme } from '@devraj-labs/vajra-ui';
 
 export const theme = {
   colors: {
@@ -107,7 +107,7 @@ export const useAppTheme = () => useTheme<TAppTheme>();
 
 ```tsx
 // App.tsx
-import { ThemeProvider } from '@vajra-ui/ui';
+import { ThemeProvider } from '@devraj-labs/vajra-ui';
 import { theme } from './theme';
 
 <ThemeProvider theme={theme}>
@@ -118,7 +118,7 @@ import { theme } from './theme';
 ```tsx
 // MyComponent.tsx
 import { useAppTheme } from './theme';
-import { Box, Text } from '@vajra-ui/core';
+import { Box, Text } from '@devraj-labs/vajra-ui-core';
 
 const Banner = () => {
   const theme = useAppTheme();

@@ -1,5 +1,5 @@
 {
-  "name": "@vajra-ui/ui",
+  "name": "@devraj-labs/vajra-ui-core",
   "version": "0.1.0",
   "description": "A minimal zero dependency React Native styling and theming library",
   "main": "src/index.ts",

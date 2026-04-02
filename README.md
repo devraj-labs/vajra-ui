@@ -1,85 +1,70 @@
-# Vajra UI
+# @vajra-ui/ui
 
-A minimal zero-dependency **React Native design system** built around composable primitives and flexible theming.
+A minimal React Native UI component library with a **bring your own tokens** model.
 
----
-
-## Philosophy
-
-Vajra UI separates **primitives, theming, and UI components**.
-
-The goal is to keep the foundation minimal and predictable while allowing opinionated UI components to be built on top.
-
-The library does **not enforce design opinions** like color palettes or token names. There is no required theme shape — you define your theme, pass it to the provider, and tell `useTheme` what type to expect.
+Use the built-in Vajra theme and get going in seconds — or plug in your own token shape and stay in full control. Zero design opinions forced on you.
 
 ---
 
-## Usage
+## Packages
 
-There are two ways to use Vajra UI depending on how much control you want.
+| Package | Description |
+|---------|-------------|
+| [`@vajra-ui/core`](https://github.com/rishav-jha-mech/vajra-core) | Headless, unstyled primitives. No theme, no tokens. |
+| `@vajra-ui/ui` *(this)* | Token-aware components + optional Vajra theme. |
 
 ---
 
-### Path 1 — Zero config with Vajra theme (recommended)
+## Installation
 
-Use `VajraProvider` and get started immediately. Built-in light and dark themes included.
-
-#### 1. Wrap your app
-
-```tsx
-import { VajraProvider } from 'vajra-ui';
-
-<VajraProvider colorScheme="light">
-  <App />
-</VajraProvider>
+```sh
+npm install @vajra-ui/ui @vajra-ui/core
 ```
 
-#### 2. Use UI kit components directly
+---
+
+## Two ways to use it
+
+### Option 1 — Vajra theme (zero config)
+
+Use the built-in light/dark theme. Wrap your app with `VajraProvider` and start building.
 
 ```tsx
-import { Button, Card } from 'vajra-ui';
+import { VajraProvider, Button, Input } from '@vajra-ui/ui';
 
-<Card>
-  <Button label="Submit" />
-</Card>
+export default function App() {
+  return (
+    <VajraProvider colorScheme="light">
+      <App />
+    </VajraProvider>
+  );
+}
 ```
 
-Components pull tokens from `VajraProvider` automatically — colors, spacing, rounded, typography.
-
-#### 3. Or build your own components using `useVajraTheme()`
+Access tokens anywhere via `useVajraTheme`:
 
 ```tsx
-import React, { memo } from 'react';
-import { Pressable } from 'react-native';
-import { Box, Text, useVajraTheme } from 'vajra-ui';
+import { useVajraTheme, Box, Text } from '@vajra-ui/ui';
 
-export const MyButton = memo(({ label }: { label: string }) => {
+const Banner = () => {
   const theme = useVajraTheme();
 
   return (
-    <Box bg={theme.colors.primary} px={theme.spacing.lg} py={theme.spacing.sm} rounded={theme.rounded.md}>
-      <Text color={theme.colors.onPrimary} fontSize={theme.typography.md.fontSize}>
-        {label}
-      </Text>
+    <Box bg="primary" p="s-4" rounded="r-2">
+      <Text variant="body" color="textInverse">Hello</Text>
     </Box>
   );
-});
-
-MyButton.displayName = 'MyButton';
+};
 ```
 
-Full autocomplete against all vajra tokens.
-
-#### Overriding tokens
-
-Spread the defaults and override what you need.
+Override specific tokens:
 
 ```tsx
-import { VajraProvider, defaultVajraTheme } from 'vajra-ui';
+import { VajraProvider, defaultVajraTheme } from '@vajra-ui/ui';
 
 const myTheme = {
   ...defaultVajraTheme.light,
-  colors: { ...defaultVajraTheme.light.colors, primary: '#0055ff' },
+  colors: { ...defaultVajraTheme.light.colors, primary: '#ff6b00' },
 };
 
 <VajraProvider theme={myTheme}>
@@ -89,30 +74,40 @@ const myTheme = {
 
 ---
 
-### Path 2 — Fully custom theme
+### Option 2 — Bring your own tokens
 
-Bring your own token shape. Use `ThemeProvider` directly — no vajra tokens required.
-
-#### 1. Define your theme
+Define any token shape you want. Use `ThemeProvider` directly.
 
 ```ts
+// theme.ts
+import { useTheme } from '@vajra-ui/ui';
+
 export const theme = {
   colors: {
-    background: '#ffffff',
-    surface: '#f5f5f5',
-    text: '#111111',
+    background: '#eeecee',
+    surface: '#ffffff',
+    text: '#0d0d0d',
+    textMuted: '#838383',
     primary: '#ff6b00',
     border: '#e0e0e0',
   },
   spacing: { none: 0, xs: 4, sm: 8, md: 16, lg: 24, xl: 32 },
   rounded: { none: 0, sm: 4, md: 8, lg: 16, full: 9999 },
+  typography: {
+    xs: { fontSize: 11, lineHeight: 16, fontWeight: '400' as const },
+    sm: { fontSize: 13, lineHeight: 18, fontWeight: '400' as const },
+    md: { fontSize: 15, lineHeight: 22, fontWeight: '400' as const },
+    lg: { fontSize: 18, lineHeight: 26, fontWeight: '500' as const },
+  },
 };
+
+export type TAppTheme = typeof theme;
+export const useAppTheme = () => useTheme<TAppTheme>();
 ```
 
-#### 2. Wrap your app
-
 ```tsx
-import { ThemeProvider } from 'vajra-ui';
+// App.tsx
+import { ThemeProvider } from '@vajra-ui/ui';
 import { theme } from './theme';
 
 <ThemeProvider theme={theme}>
@@ -120,157 +115,170 @@ import { theme } from './theme';
 </ThemeProvider>
 ```
 
-#### 3. Create a typed hook
-
-```ts
-import { useTheme } from 'vajra-ui';
-import { theme } from './theme';
-
-export type TAppTheme = typeof theme;
-
-export const useAppTheme = () => useTheme<TAppTheme>();
-```
-
-#### 4. Build components on top of core primitives
-
-Follow the same pattern as vajra's own core components — wrap primitives, pull tokens via your hook.
-
 ```tsx
-import React, { memo } from 'react';
-import { Pressable } from 'react-native';
-import { Box, Text } from 'vajra-ui';
-import { useAppTheme } from './hooks/use-app-theme';
+// MyComponent.tsx
+import { useAppTheme } from './theme';
+import { Box, Text } from '@vajra-ui/core';
 
-export const MyButton = memo(({ label }: { label: string }) => {
+const Banner = () => {
   const theme = useAppTheme();
 
   return (
-    <Box bg={theme.colors.primary} px={theme.spacing.lg} py={theme.spacing.sm} rounded={theme.rounded.md}>
-      <Text color={theme.colors.text} fontSize={14}>
-        {label}
+    <Box style={{ backgroundColor: theme.colors.primary, padding: theme.spacing.md }}>
+      <Text style={{ color: theme.colors.surface, fontSize: theme.typography.md.fontSize }}>
+        Hello
       </Text>
     </Box>
   );
-});
-
-MyButton.displayName = 'MyButton';
+};
 ```
 
-Core primitives (`Box`, `Row`, `Col`, `Text`, etc.) are theme-agnostic — they work with any token shape.
+> See the [example app](./examples/) for a full working setup with custom tokens.
 
 ---
 
-## Architecture
+## Vajra Theme Tokens
 
-Vajra UI is structured in two layers.
+### Colors — `TColorToken`
 
-### Core Primitives
+| Token | Description |
+|-------|-------------|
+| `primary` | Brand primary |
+| `primaryMuted` | Softer primary |
+| `primarySubtle` | Background tint |
+| `secondary` | Brand secondary |
+| `text` | Default text |
+| `textMuted` | Subdued text |
+| `textInverse` | Text on dark backgrounds |
+| `surface` | Card / sheet background |
+| `background` | Screen background |
+| `border` | Dividers and outlines |
+| `error` | Error state |
+| `success` | Success state |
+| `warning` | Warning state |
 
-Low-level, unstyled building blocks. Theme-agnostic — they do not depend on tokens.
+### Spacing — `TSpacingToken`
 
-- `Box`
-- `Row`
-- `Col`
-- `Grid`
-- `Text`
-- `Center`
-- `AbsoluteCenter`
-- `Spacer`
-- `Separator`
+| Token | Value |
+|-------|-------|
+| `s-0` | 0 |
+| `s-1` | 4 |
+| `s-2` | 8 |
+| `s-3` | 12 |
+| `s-4` | 16 |
+| `s-5` | 20 |
+| `s-6` | 24 |
+| `s-8` | 32 |
+| `s-10` | 40 |
+| `s-12` | 48 |
+| `s-16` | 64 |
 
-### UI Kit Components
+### Rounded — `TRoundedToken`
 
-Opinionated components built on top of core primitives (planned — see Roadmap).
+| Token | Value |
+|-------|-------|
+| `r-0` | 0 |
+| `r-1` | 4 |
+| `r-2` | 8 |
+| `r-3` | 12 |
+| `r-4` | 16 |
+| `r-6` | 24 |
+| `r-full` | 9999 |
 
-- `Button`
-- `Card`
-- `Input`
-- `Badge`
-- `Avatar`
-- `Modal`
-- `BottomSheet`
+### Typography — `TFontVariant`
 
-UI kit components are optional. Core primitives can be used independently.
+| Variant | Use |
+|---------|-----|
+| `label` | Small UI labels |
+| `caption` | Helper text, timestamps |
+| `bodySmall` | Secondary body copy |
+| `body` | Default body |
+| `bodyMedium` | Emphasized body |
+| `button` | Button labels |
+| `subheading` | Section headers |
+| `heading` | Page titles |
 
 ---
 
-## Project Structure
+## Components
 
+### Box
+
+```tsx
+<Box bg="surface" p="s-4" rounded="r-2" borderColor="border" borderWidth={1} />
 ```
-src/
-├── core/                     # Unstyled primitives
-│   ├── box/
-│   ├── row/
-│   ├── col/
-│   ├── grid/
-│   ├── center/
-│   ├── absolute-center/
-│   ├── separator/
-│   ├── spacer/
-│   └── text/
-│
-├── theme/                    # Theme provider + context
-│   ├── provider.tsx
-│   ├── provider-types.ts
-│   └── index.ts
-│
-├── hooks/
-│   └── use-dimensions.ts
-│
-├── vajra-theme/              # Default light/dark themes (optional)
-│   ├── colors/
-│   ├── tokens/
-│   ├── themes/
-│   └── primitives/
-│
-└── index.ts
+
+### Row / Col
+
+```tsx
+<Row gap="s-2" align="center">
+  <Col flex={1}>...</Col>
+  <Col flex={1}>...</Col>
+</Row>
 ```
 
----
+### Text
 
-## Roadmap
+```tsx
+<Text variant="heading" color="text">Title</Text>
+<Text variant="body" color="textMuted">Subtitle</Text>
+```
 
-### Phase 1 — Foundations
+### Button
 
-- `Box`
-- `Row`
-- `Col`
-- `Grid`
-- `Text`
-- `Center`
-- `AbsoluteCenter`
-- `Spacer`
-- `Separator`
+```tsx
+<Button label="Submit" />
+<Button label="Delete" variant="outline" colorPalette="error" />
+<Button label="Save" size="sm" isLoading />
+<Button label="Off" isDisabled />
+```
 
-### Phase 2 — Basic UI Components
+### Input
 
-- `Button`
-- `Card`
-- `Badge`
-- `Avatar`
-- `Input`
+```tsx
+<Input placeholder="Email" label="Email" size="md" />
+<Input isInvalid errorText="This field is required" />
+<Input isDisabled helperText="Cannot edit right now" />
+```
 
-### Phase 3 — Interactive Components
+### Checkbox
 
-- `Modal`
-- `Drawer`
-- `BottomSheet`
-- `Tabs`
-- `Popover`
-- `Toast`
+```tsx
+<Checkbox>
+  <Checkbox.Item value="a" label="Option A" />
+  <Checkbox.Item value="b" label="Option B" />
+</Checkbox>
+```
 
-### Phase 4 — Advanced Layout
+### Radio
 
-- Animated layouts
-- Complex lists
-- Interactive containers
+```tsx
+<Radio>
+  <Radio.Item value="a" label="Option A" />
+  <Radio.Item value="b" label="Option B" />
+</Radio>
+```
 
----
+### Switch
 
-## Installation
+```tsx
+<Switch>
+  <Switch.Item value="notifications" label="Notifications" />
+</Switch>
+```
 
-```sh
-npm install vajra-ui
+### Card
+
+```tsx
+<Card>
+  <Text variant="body">Content goes here</Text>
+</Card>
+```
+
+### Icon Button
+
+```tsx
+<IconButton icon={<MyIcon />} onPress={handlePress} />
 ```
 
 ---

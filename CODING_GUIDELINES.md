@@ -153,17 +153,19 @@ Never use raw values for colors, spacing, radii, or font scales. Always referenc
 ```
 
 Token prop types are key-based:
-- `TColorToken` — `'primary' | 'surface' | 'error' | ...`
-- `TSpacingToken` — `'xs' | 'sm' | 'md' | 'lg' | ...`
-- `TRoundedToken` — `'sm' | 'md' | 'lg' | 'full' | ...`
-- `TFontToken` — `'xs' | 'sm' | 'md' | 'lg' | ...` (compound: size + lineHeight + weight)
+- `TColorToken` — `'primary' | 'surface' | 'error' | 'text' | ...`
+- `TSpacingToken` — `'s-1' | 's-2' | 's-3' | 's-4' | 's-6' | 's-8' | ...`
+- `TRoundedToken` — `'r-1' | 'r-2' | 'r-3' | 'r-4' | 'r-full' | ...`
+- `TFontVariant` — `'heading' | 'subheading' | 'body' | 'bodySmall' | 'label' | 'caption' | 'button'`
 
 ---
 
-## Core vs Components
+## Layer Rules
 
 | Layer | Location | Description |
 |-------|----------|-------------|
-| Core primitives | `src/core/` | `Box`, `Row`, `Col` — layout building blocks. No variants file. |
-| Components | `src/components/` | Built on top of core. Have variants, constants, and optional hooks. |
-| Theme | `src/theme/` | Tokens, `createTheme`, `ThemeProvider`, `useTheme`. |
+| Core | `@vajra-ui/core` | Headless, unstyled. No theme context. No `useVajraTheme`. Raw primitives only. |
+| UI Core | `src/ui/core/` | Token-aware wrappers around `@vajra-ui/core`. Use `useVajraTheme`. Only imports from `@vajra-ui/core`. |
+| Components | `src/ui/components/` | Opinionated components with variants, constants, and optional hooks. Only imports from `src/ui/core` — never `@vajra-ui/core` directly. |
+| Theme | `src/theme/` | Generic `ThemeProvider` + `useTheme`. No vajra-specific tokens. |
+| Vajra Theme | `src/ui/vajra-theme/` | Default vajra tokens. `VajraProvider`, `useVajraTheme`, `defaultVajraTheme`. |

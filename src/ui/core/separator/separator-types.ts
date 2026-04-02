@@ -1,5 +1,5 @@
 import { TColorToken } from '../../vajra-theme/tokens/colors/types';
-import { TSeparatorOrientation, TSeparatorVariant } from '../../../core/separator/separator-types';
+import { TSeparatorOrientation, TSeparatorVariant } from '@vajra-ui/core';
 
 export type TUiSeparatorProps = {
   orientation?: TSeparatorOrientation;

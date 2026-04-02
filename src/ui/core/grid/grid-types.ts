@@ -1,4 +1,4 @@
-import { TGridColumns } from '../../../core/grid/grid-types';
+import { TGridColumns } from '@vajra-ui/core';
 import { TUiBoxProps } from '../box/box-types';
 
 export type TUiGridRootProps = Omit<TUiBoxProps, 'direction' | 'wrap'>;

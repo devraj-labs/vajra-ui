@@ -8,14 +8,6 @@
     ".": {
       "import": "./src/index.ts",
       "require": "./src/index.ts"
-    },
-    "./core": {
-      "import": "./src/core/index.ts",
-      "require": "./src/core/index.ts"
-    },
-    "./ui/core": {
-      "import": "./src/ui/core/index.ts",
-      "require": "./src/ui/core/index.ts"
     }
   },
   "publishConfig": {
@@ -25,14 +17,6 @@
       ".": {
         "import": "./dist/index.js",
         "types": "./dist/index.d.ts"
-      },
-      "./core": {
-        "import": "./dist/core/index.js",
-        "types": "./dist/core/index.d.ts"
-      },
-      "./ui/core": {
-        "import": "./dist/ui/core/index.js",
-        "types": "./dist/ui/core/index.d.ts"
       }
     }
   },
@@ -80,5 +64,8 @@
     "lint-staged": "^16.4.0",
     "prettier": "^3.2.5",
     "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@vajra-ui/core": "0.1.1"
   }
 }

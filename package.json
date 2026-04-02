@@ -1,5 +1,5 @@
 {
-  "name": "vajra-ui",
+  "name": "@vajra-ui/ui",
   "version": "0.1.0",
   "description": "A minimal zero dependency React Native styling and theming library",
   "main": "src/index.ts",
@@ -42,6 +42,11 @@
       "eslint --max-warnings=0"
     ]
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rishav-jha-mech/vajra-ui"
+  },
+  "homepage": "https://github.com/rishav-jha-mech/vajra-ui#readme",
   "license": "MIT",
   "peerDependencies": {
     "react": ">=18.0.0",

@@ -1,5 +1,5 @@
 {
-  "name": "@devraj-labs/vajra-ui-core",
+  "name": "@devraj-labs/vajra-ui",
   "version": "0.1.0",
   "description": "A minimal zero dependency React Native styling and theming library",
   "main": "src/index.ts",
@@ -44,12 +44,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/rishav-jha-mech/vajra-ui"
+    "url": "https://github.com/devraj-labs/vajra-ui"
   },
-  "homepage": "https://github.com/rishav-jha-mech/vajra-ui#readme",
+  "homepage": "https://github.com/devraj-labs/vajra-ui#readme",
   "license": "MIT",
   "peerDependencies": {
-    "@vajra-ui/core": ">=0.1.1",
+    "@devraj-labs/vajra-ui-core": ">=0.1.1",
     "react": ">=18.0.0",
     "react-native": ">=0.73.0"
   },

@@ -2,12 +2,17 @@ import React from 'react';
 import { ScrollView } from 'react-native';
 
 import { Box, Button, Text } from 'vajra-ui';
-import type { TButtonColorPalette, TButtonSize, TButtonVariant } from 'vajra-ui';
+import type { TButtonSize, TButtonVariant } from 'vajra-ui';
 
-const VARIANTS: TButtonVariant[] = ['solid', 'subtle', 'surface', 'outline', 'ghost', 'plain'];
+const VARIANTS: TButtonVariant[] = [
+  'solid',
+  'subtle',
+  'surface',
+  'outline',
+  'ghost',
+  'plain',
+];
 const SIZES: TButtonSize[] = ['xs', 'sm', 'md', 'lg', 'xl'];
-const PALETTES: TButtonColorPalette[] = ['gray', 'blue', 'purple', 'red', 'green', 'yellow', 'orange', 'teal', 'pink'];
-const PALETTE_VARIANTS: TButtonVariant[] = ['solid', 'subtle', 'outline', 'ghost'];
 
 function HScroll({ children }: { children: React.ReactNode }) {
   return (
@@ -19,7 +24,13 @@ function HScroll({ children }: { children: React.ReactNode }) {
   );
 }
 
-function Section({ title, children }: { title: string; children: React.ReactNode }) {
+function Section({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) {
   return (
     <Box gap="s-2">
       <Text variant="subheading">{title}</Text>
@@ -32,7 +43,6 @@ export function ButtonExample() {
   return (
     <ScrollView>
       <Box flex={1} p="s-4" bg="background" gap="s-6">
-
         <Section title="Variants">
           <HScroll>
             {VARIANTS.map(v => (
@@ -49,16 +59,6 @@ export function ButtonExample() {
           </HScroll>
         </Section>
 
-        {PALETTE_VARIANTS.map(v => (
-          <Section key={v} title={`Color Palettes — ${v}`}>
-            <HScroll>
-              {PALETTES.map(p => (
-                <Button key={p} variant={v} colorPalette={p} label={p} />
-              ))}
-            </HScroll>
-          </Section>
-        ))}
-
         <Section title="Disabled">
           <HScroll>
             {VARIANTS.map(v => (
@@ -70,7 +70,13 @@ export function ButtonExample() {
         <Section title="Loading — start">
           <HScroll>
             {VARIANTS.map(v => (
-              <Button key={v} variant={v} label={v} isLoading loading={{ position: 'start' }} />
+              <Button
+                key={v}
+                variant={v}
+                label={v}
+                isLoading
+                loading={{ position: 'start' }}
+              />
             ))}
           </HScroll>
         </Section>
@@ -78,19 +84,38 @@ export function ButtonExample() {
         <Section title="Loading — end">
           <HScroll>
             {VARIANTS.map(v => (
-              <Button key={v} variant={v} label={v} isLoading loading={{ position: 'end' }} />
+              <Button
+                key={v}
+                variant={v}
+                label={v}
+                isLoading
+                loading={{ position: 'end' }}
+              />
             ))}
           </HScroll>
         </Section>
 
         <Section title="Loading with label">
           <HScroll>
-            {PALETTES.map(p => (
-              <Button key={p} variant="solid" colorPalette={p} label={p} isLoading loading={{ label: 'Loading...' }} />
+            {VARIANTS.map(v => (
+              <Button
+                key={v}
+                variant={v}
+                label={v}
+                isLoading
+                loading={{ label: 'Saving...' }}
+              />
             ))}
           </HScroll>
         </Section>
 
+        <Section title="Custom style override">
+          <HScroll>
+            <Button variant="solid" label="Token bg" />
+            <Button variant="outline" label="Raw style" />
+            <Button variant="ghost" label="With margin" />
+          </HScroll>
+        </Section>
       </Box>
     </ScrollView>
   );

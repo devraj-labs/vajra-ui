@@ -1,5 +1,5 @@
 import { TVajraColors } from '../../vajra-theme/colors';
-import { TSeparatorOrientation, TSeparatorVariant } from '@vajra-ui/core';
+import { TSeparatorOrientation, TSeparatorVariant } from '@devraj-labs/vajra-ui-core';
 
 export type TUiSeparatorProps = {
   orientation?: TSeparatorOrientation;

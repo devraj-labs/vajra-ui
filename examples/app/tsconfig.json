@@ -2,8 +2,11 @@
   "extends": "@react-native/typescript-config",
   "compilerOptions": {
     "types": ["jest"],
+    "ignoreDeprecations": "5.0",
     "baseUrl": ".",
     "paths": {
+      "@devraj-labs/vajra-ui-core": ["../../../vajra-core/src/index.ts"],
+      "@devraj-labs/vajra-ui-core/*": ["../../../vajra-core/src/*"],
       "vajra-ui": ["../../src/index.ts"],
       "vajra-ui/*": ["../../src/*"]
     },

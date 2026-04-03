@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 
-import { CoreText } from '@vajra-ui/core';
+import { CoreText } from '@devraj-labs/vajra-ui-core';
 import { useVajraTheme } from '../../vajra-theme/use-vajra-theme';
 import { resolveSpacing } from '../../utils/spacing-props';
 import { TTextProps } from './text-types';

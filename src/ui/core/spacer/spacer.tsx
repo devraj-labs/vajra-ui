@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 
-import { Spacer as CoreSpacer } from '@vajra-ui/core';
+import { Spacer as CoreSpacer } from '@devraj-labs/vajra-ui-core';
 import { useVajraTheme } from '../../vajra-theme/use-vajra-theme';
 import { TUiSpacerProps } from './spacer-types';
 

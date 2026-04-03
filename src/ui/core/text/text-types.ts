@@ -1,4 +1,4 @@
-import { TTextProps as TCoreTextProps } from '@vajra-ui/core';
+import { TTextProps as TCoreTextProps } from '@devraj-labs/vajra-ui-core';
 import { TVajraColors } from '../../vajra-theme/colors';
 import { TFontVariant } from '../../vajra-theme/tokens/font-tokens/index';
 import { TSpacingProps } from '../../utils/spacing-props';

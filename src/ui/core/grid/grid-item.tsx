@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 
-import { useDimensions } from '@vajra-ui/core';
+import { useDimensions } from '@devraj-labs/vajra-ui-core';
 import { Box } from '../box';
 import { TUiGridItemProps } from './grid-types';
 

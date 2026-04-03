@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { ScrollView } from 'react-native';
 
 import { Box, Checkbox, Text } from 'vajra-ui';
-import type { TColorToken } from 'vajra-ui';
+import { TVajraColors } from 'vajra-ui/ui/vajra-theme/colors';
 
-const COLORS: TColorToken[] = ['primary', 'secondary', 'error', 'success', 'warning'];
+const COLORS: TVajraColors[] = ['primary', 'secondary', 'error', 'success', 'warning'];
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (

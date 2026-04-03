@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "vajra-example.app"
-               BlueprintName = "vajra-example"
-               ReferencedContainer = "container:vajra-example.xcodeproj">
+               BuildableName = "VajraExample.app"
+               BlueprintName = "VajraExample"
+               ReferencedContainer = "container:VajraExample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
                BuildableName = "VajraExampleTests.xctest"
                BlueprintName = "VajraExampleTests"
-               ReferencedContainer = "container:vajra-example.xcodeproj">
+               ReferencedContainer = "container:VajraExample.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "vajra-example.app"
-            BlueprintName = "vajra-example"
-            ReferencedContainer = "container:vajra-example.xcodeproj">
+            BuildableName = "VajraExample.app"
+            BlueprintName = "VajraExample"
+            ReferencedContainer = "container:VajraExample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "vajra-example.app"
-            BlueprintName = "vajra-example"
-            ReferencedContainer = "container:vajra-example.xcodeproj">
+            BuildableName = "VajraExample.app"
+            BlueprintName = "VajraExample"
+            ReferencedContainer = "container:VajraExample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

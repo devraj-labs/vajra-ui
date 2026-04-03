@@ -1,4 +1,4 @@
-import { TCorePressableProps } from '@vajra-ui/core';
+import { TCorePressableProps } from '@devraj-labs/vajra-ui-core';
 import { TVajraColors } from '../../vajra-theme/colors';
 import { TRoundedToken } from '../../vajra-theme/tokens/rounded-tokens';
 import { TSpacingProps } from '../../utils/spacing-props';

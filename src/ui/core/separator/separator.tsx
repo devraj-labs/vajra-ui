@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 
-import { Separator as CoreSeparator } from '@vajra-ui/core';
+import { Separator as CoreSeparator } from '@devraj-labs/vajra-ui-core';
 import { useVajraTheme } from '../../vajra-theme/use-vajra-theme';
 import { TUiSeparatorProps } from './separator-types';
 

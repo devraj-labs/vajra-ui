@@ -1,5 +1,5 @@
-import { StyleProp, ViewStyle } from 'react-native';
 import { TSpinnerSize } from 'src/ui/components';
+import { TUiBoxProps } from '../../core/box/box-types';
 
 type TLoaderProps = {
   isLoading?: boolean;
@@ -8,8 +8,6 @@ type TLoaderProps = {
   loaderText?: React.ReactNode;
 };
 
-export type TScreenWrapperProps = {
-  style?: StyleProp<ViewStyle>;
+export type TScreenWrapperProps = Omit<TUiBoxProps, 'flex'> & {
   loader?: TLoaderProps;
-  children?: React.ReactNode;
 };

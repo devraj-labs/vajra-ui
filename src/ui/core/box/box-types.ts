@@ -1,6 +1,6 @@
 import { DimensionValue, ViewProps, ViewStyle } from 'react-native';
 
-import { TColorToken } from '../../vajra-theme/tokens/colors/types';
+import { TVajraColors } from '../../vajra-theme/colors';
 import { TRoundedToken } from '../../vajra-theme/tokens/rounded-tokens';
 import { TSpacingProps } from '../../utils/spacing-props';
 
@@ -15,8 +15,8 @@ export type TUiBoxProps = Omit<ViewProps, 'style'> &
     maxH?: DimensionValue;
 
     // Color — token keys
-    bg?: TColorToken;
-    borderColor?: TColorToken;
+    bg?: TVajraColors;
+    borderColor?: TVajraColors;
 
     // Border widths — raw numbers
     borderWidth?: number;

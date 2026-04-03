@@ -21,3 +21,5 @@ export const darkColorTokens = {
   ...feedbackDark,
   transparent: 'transparent' as const,
 };
+
+export type TVajraColors = keyof typeof lightColorTokens;

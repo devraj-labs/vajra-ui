@@ -4,4 +4,5 @@ export * from './checkbox';
 export * from './icon-button';
 export * from './input';
 export * from './radio';
+export * from './spinner';
 export * from './switch';

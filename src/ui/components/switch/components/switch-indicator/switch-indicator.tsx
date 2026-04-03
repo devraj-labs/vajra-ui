@@ -1,7 +1,7 @@
 import React, { memo, useEffect, useRef } from 'react';
 import { Animated } from 'react-native';
 
-import { TColorToken } from '../../../../vajra-theme/tokens/colors/types';
+import { TVajraColors } from '../../../../vajra-theme/colors';
 import { useVajraTheme } from '../../../../vajra-theme';
 
 const TRACK_W = 44;
@@ -13,7 +13,7 @@ const THUMB_ON = TRACK_W - THUMB_SIZE - THUMB_OFF;
 type TSwitchIndicatorProps = {
   isSelected: boolean;
   isDisabled: boolean;
-  color?: TColorToken;
+  color?: TVajraColors;
 };
 
 const SwitchIndicatorComponent: React.FC<TSwitchIndicatorProps> = ({

@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { TColorToken } from '../../vajra-theme/tokens/colors/types';
+import { TVajraColors } from '../../vajra-theme/colors';
 
 export type TSwitchRootProps = {
   value: string;
   onChange: (value: string) => void;
-  color?: TColorToken;
+  color?: TVajraColors;
   isDisabled?: boolean;
   children: React.ReactNode;
 };

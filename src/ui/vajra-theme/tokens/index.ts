@@ -1,4 +1,3 @@
-export * from './colors';
 export * from './font-tokens/index';
 export * from './layout-tokens';
 export * from './rounded-tokens';

@@ -1,5 +1,5 @@
 import { TCorePressableProps } from '@vajra-ui/core';
-import { TColorToken } from '../../vajra-theme/tokens/colors/types';
+import { TVajraColors } from '../../vajra-theme/colors';
 import { TRoundedToken } from '../../vajra-theme/tokens/rounded-tokens';
 import { TSpacingProps } from '../../utils/spacing-props';
 
@@ -29,8 +29,8 @@ export type TUiPressableProps = Omit<
   | 'gap'
 > &
   TSpacingProps & {
-    bg?: TColorToken;
-    borderColor?: TColorToken;
+    bg?: TVajraColors;
+    borderColor?: TVajraColors;
     rounded?: TRoundedToken;
     roundedT?: TRoundedToken;
     roundedB?: TRoundedToken;

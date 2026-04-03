@@ -1,16 +1,63 @@
-import { TButtonSize } from '../button/button-types';
-import { TRoundedToken } from '../../vajra-theme/tokens/rounded-tokens';
+import { createRecipe, TRecipeVariants } from '../../utils/create-recipe';
+import { vajraStyle, vajraTextStyle } from '../../vajra-theme/vajra-style';
+import { TSpinnerSize } from '../spinner/spinner-types';
 
-export type TIconButtonSizeStyle = {
-  size: number;
-  iconSize: number;
-  rounded: TRoundedToken;
-};
+export const iconButtonRecipe = createRecipe({
+  variants: {
+    variant: {
+      solid: {
+        container: vajraStyle({ backgroundColor: 'primary' }),
+        label: vajraTextStyle({ color: 'textInverse' }),
+      },
+      subtle: {
+        container: vajraStyle({ backgroundColor: 'primarySubtle' }),
+        label: vajraTextStyle({ color: 'primary' }),
+      },
+      surface: {
+        container: vajraStyle({ backgroundColor: 'surface' }),
+        label: vajraTextStyle({ color: 'text' }),
+      },
+      outline: {
+        container: vajraStyle({ backgroundColor: 'transparent' }),
+        label: vajraTextStyle({ color: 'primary' }),
+      },
+      ghost: {
+        container: vajraStyle({ backgroundColor: 'transparent' }),
+        label: vajraTextStyle({ color: 'primary' }),
+      },
+      plain: {
+        container: vajraStyle({ backgroundColor: 'transparent' }),
+        label: vajraTextStyle({ color: 'text' }),
+      },
+    },
+    size: {
+      xs: {
+        container: vajraStyle({ rounded: 'r-1', size: 28 }),
+        icon: { size: 12 },
+        spinner: { size: 'xs' as TSpinnerSize },
+      },
+      sm: {
+        container: vajraStyle({ rounded: 'r-1', size: 32 }),
+        icon: { size: 16 },
+        spinner: { size: 'sm' as TSpinnerSize },
+      },
+      md: {
+        container: vajraStyle({ rounded: 'r-2', size: 40 }),
+        icon: { size: 24 },
+        spinner: { size: 'md' as TSpinnerSize },
+      },
+      lg: {
+        container: vajraStyle({ rounded: 'r-2', size: 48 }),
+        icon: { size: 28 },
+        spinner: { size: 'lg' as TSpinnerSize },
+      },
+      xl: {
+        container: vajraStyle({ rounded: 'r-3', size: 56 }),
+        icon: { size: 32 },
+        spinner: { size: 'xl' as TSpinnerSize },
+      },
+    },
+  },
+});
 
-export const ICON_BUTTON_SIZE_MAP: Record<TButtonSize, TIconButtonSizeStyle> = {
-  xs: { size: 28, iconSize: 16, rounded: 'r-1' },
-  sm: { size: 32, iconSize: 16, rounded: 'r-1' },
-  md: { size: 40, iconSize: 24, rounded: 'r-2' },
-  lg: { size: 48, iconSize: 28, rounded: 'r-2' },
-  xl: { size: 56, iconSize: 32, rounded: 'r-3' },
-};
+export type TIconButtonRecipeVariants = TRecipeVariants<typeof iconButtonRecipe>;

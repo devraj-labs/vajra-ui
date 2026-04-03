@@ -2,12 +2,12 @@ import React, { memo } from 'react';
 
 import { Center } from '../../../../core/center';
 import { Text } from '../../../../core/text';
-import { TColorToken } from '../../../../vajra-theme/tokens/colors/types';
+import { TVajraColors } from '../../../../vajra-theme/colors';
 
 type TCheckboxIndicatorProps = {
   isSelected: boolean;
   isDisabled: boolean;
-  color?: TColorToken;
+  color?: TVajraColors;
 };
 
 const CheckboxIndicatorComponent: React.FC<TCheckboxIndicatorProps> = ({

@@ -1,49 +1,43 @@
 import React, { memo } from 'react';
-import { ActivityIndicator } from 'react-native';
 
 import { Pressable } from '../../core/pressable';
-import { getButtonVariantStyle } from '../button/button-variants';
+import { Spinner } from '../spinner';
+import { useVajraTheme } from '../../vajra-theme/use-vajra-theme';
 import { TIconButtonProps } from './icon-button-types';
-import { ICON_BUTTON_SIZE_MAP } from './icon-button-variants';
-import { useVajraTheme } from '../../vajra-theme';
+import { iconButtonRecipe } from './icon-button-variants';
 
 const IconButtonComponent: React.FC<TIconButtonProps> = ({
   variant = 'solid',
   size = 'md',
-  colorPalette,
   icon: Icon,
   isDisabled = false,
   isLoading = false,
   loading,
   ...rest
 }) => {
-  const theme = useVajraTheme();
-  const variantStyle = getButtonVariantStyle(variant, theme.colors, colorPalette);
-  const sizeStyle = ICON_BUTTON_SIZE_MAP[size];
+  const { colors } = useVajraTheme();
+  const { variant: v, size: s } = iconButtonRecipe({ variant, size });
+  const container = { ...s.container, ...v.container };
+  const label = { ...v.label };
+
+  const textColor = label.color ? colors[label.color] : colors.text;
 
   const isInteractionDisabled = isDisabled || isLoading;
 
-  const spinner = loading?.loader ?? (
-    <ActivityIndicator size={sizeStyle.iconSize} color={variantStyle.textColor} />
-  );
+  const spinner = loading?.loader ?? <Spinner size={s.spinner.size} color={label.color} />;
 
   return (
     <Pressable
       disabled={isInteractionDisabled}
-      style={{
-        backgroundColor: variantStyle.bg,
-        borderColor: variantStyle.borderColor,
-        opacity: isDisabled ? 0.4 : 1,
-        width: sizeStyle.size,
-        height: sizeStyle.size,
-      }}
-      borderWidth={variantStyle.borderWidth}
-      rounded={sizeStyle.rounded}
+      bg={container.backgroundColor}
+      rounded={container.rounded}
+      opacity={isDisabled ? 0.4 : 1}
+      style={{ width: container.size, height: container.size }}
       align="center"
       justify="center"
       {...rest}
     >
-      {isLoading ? spinner : <Icon size={sizeStyle.iconSize} color={variantStyle.textColor} />}
+      {isLoading ? spinner : <Icon size={s.icon.size} color={textColor} />}
     </Pressable>
   );
 };

@@ -1,7 +1,7 @@
 import React from 'react';
-import { TouchableOpacityProps } from 'react-native';
+import { PressableProps } from 'react-native';
 
-import { TButtonColorPalette, TButtonSize, TButtonVariant } from '../button/button-types';
+import { TIconButtonRecipeVariants } from './icon-button-variants';
 
 /**
  * Contract every icon component must satisfy to work with IconButton.
@@ -32,12 +32,10 @@ export type TIconButtonLoadingProps = {
   loader?: React.ReactNode;
 };
 
-export type TIconButtonProps = Omit<TouchableOpacityProps, 'style'> & {
-  variant?: TButtonVariant;
-  size?: TButtonSize;
-  colorPalette?: TButtonColorPalette;
-  icon: TVajraIconComponent;
-  isDisabled?: boolean;
-  isLoading?: boolean;
-  loading?: TIconButtonLoadingProps;
-};
+export type TIconButtonProps = Omit<PressableProps, 'style'> &
+  TIconButtonRecipeVariants & {
+    icon: TVajraIconComponent;
+    isDisabled?: boolean;
+    isLoading?: boolean;
+    loading?: TIconButtonLoadingProps;
+  };

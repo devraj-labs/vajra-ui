@@ -3,12 +3,12 @@ import React, { memo } from 'react';
 import { Center } from '../../../../core/center';
 import { Box } from '../../../../core/box';
 import { useVajraTheme } from '../../../../vajra-theme/use-vajra-theme';
-import { TColorToken } from '../../../../vajra-theme/tokens/colors/types';
+import { TVajraColors } from '../../../../vajra-theme/colors';
 
 type TRadioIndicatorProps = {
   isSelected: boolean;
   isDisabled: boolean;
-  color?: TColorToken;
+  color?: TVajraColors;
 };
 
 const RadioIndicatorComponent: React.FC<TRadioIndicatorProps> = ({

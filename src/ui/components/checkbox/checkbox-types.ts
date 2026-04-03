@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { TColorToken } from '../../vajra-theme/tokens/colors/types';
+import { TVajraColors } from '../../vajra-theme/colors';
 
 export type TCheckboxRootProps = {
   values: string[];
   onChange: (values: string[]) => void;
-  color?: TColorToken;
+  color?: TVajraColors;
   isDisabled?: boolean;
   children: React.ReactNode;
 };

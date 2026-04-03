@@ -1,11 +1,11 @@
 import { createContext, useContext } from 'react';
 
-import { TColorToken } from '../../vajra-theme/tokens/colors/types';
+import { TVajraColors } from '../../vajra-theme/colors';
 
 type TCheckboxContext = {
   selectedValues: string[];
   onChange: (value: string) => void;
-  color?: TColorToken;
+  color?: TVajraColors;
   isDisabled: boolean;
 };
 

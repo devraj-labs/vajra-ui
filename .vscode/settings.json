@@ -1,0 +1,10 @@
+{
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/examples/app/node_modules/**": true
+  },
+  "files.exclude": {
+    "**/node_modules": true,
+    "**/examples/app/node_modules": true
+  }
+}

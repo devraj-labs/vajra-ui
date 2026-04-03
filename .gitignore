@@ -20,7 +20,6 @@ yarn-error.log
 *.log
 
 # Editor
-.vscode/
 .idea/
 *.swp
 *.swo

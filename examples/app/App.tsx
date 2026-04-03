@@ -1,4 +1,5 @@
 import React from 'react';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { VajraProvider } from 'vajra-ui';
 
@@ -6,9 +7,11 @@ import { PreviewComponents } from './src/preview-components';
 
 function App() {
   return (
-    <VajraProvider>
-      <PreviewComponents />
-    </VajraProvider>
+    <SafeAreaProvider>
+      <VajraProvider>
+        <PreviewComponents />
+      </VajraProvider>
+    </SafeAreaProvider>
   );
 }
 

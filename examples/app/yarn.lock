@@ -1006,8 +1006,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@devraj-labs/vajra-ui-core@file:../../../vajra-core":
+"@devraj-labs/vajra-ui-core@1.0.0":
   version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@devraj-labs/vajra-ui-core/-/vajra-ui-core-1.0.0.tgz#557b0bcc3002fe80e91d217d0f18d3d3129e8ace"
+  integrity sha512-YldO1/d38sgiAzt4fV4CFEhEC1ZoPAVIH2sRP5sqmvG122FYhRZ51W6+ZQ5V4yeCUzP2ugV0XhvWq9Lbhg+3Pw==
 
 "@eslint-community/eslint-utils@^4.2.0", "@eslint-community/eslint-utils@^4.9.1":
   version "4.9.1"
@@ -1676,11 +1678,6 @@
     "@react-native/metro-babel-transformer" "0.84.1"
     metro-config "^0.83.3"
     metro-runtime "^0.83.3"
-
-"@react-native/new-app-screen@0.84.1":
-  version "0.84.1"
-  resolved "https://registry.yarnpkg.com/@react-native/new-app-screen/-/new-app-screen-0.84.1.tgz#62ef64f28a40679dcd13902f4b6232c5d0fbe823"
-  integrity sha512-O4DEXWwiXqTBVVUfbWYOjOAxzTm5wv5K/DDDz1HkuJIaVDbzeE8+hPb6kob4oig58XQS3ANZSc9KxBqbuQi/iA==
 
 "@react-native/normalize-colors@0.84.1":
   version "0.84.1"

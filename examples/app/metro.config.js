@@ -2,7 +2,6 @@ const { getDefaultConfig, mergeConfig } = require('@react-native/metro-config');
 const path = require('path');
 
 const vajraUiRoot = path.resolve(__dirname, '../..');
-const vajraCoreRoot = path.resolve(__dirname, '../../../vajra-core');
 const appNodeModules = path.resolve(__dirname, 'node_modules');
 
 /**
@@ -12,7 +11,7 @@ const appNodeModules = path.resolve(__dirname, 'node_modules');
  * @type {import('@react-native/metro-config').MetroConfig}
  */
 const config = {
-  watchFolders: [vajraUiRoot, vajraCoreRoot],
+  watchFolders: [vajraUiRoot],
   resolver: {
     nodeModulesPaths: [appNodeModules],
     disableHierarchicalLookup: true,

@@ -2,7 +2,7 @@ import { ArrowLeft, ChevronRight } from 'lucide-react-native';
 import React, { useState } from 'react';
 import { ScrollView, TouchableOpacity } from 'react-native';
 
-import { Box, Card, IconButton, Text } from 'vajra-ui';
+import { Box, Card, IconButton, SafeAreaScreenWrapper, Text } from 'vajra-ui';
 
 import { ButtonExample } from './examples/button-example';
 import { CardExample } from './examples/card-example';
@@ -72,29 +72,35 @@ export function PreviewComponents() {
   if (activeTab !== null) {
     const ActiveScreen = TABS[activeTab].component;
     return (
-      <Box flex={1} bg="background" mt="s-5">
-        <Box
-          bg="surface"
-          px="s-4"
-          py="s-3"
-          direction="row"
-          align="center"
-          gap="s-3"
-          borderBottomWidth={1}
-          borderColor="border"
-        >
-          <IconButton size='xs' icon={ArrowLeft} onPress={() => setActiveTab(null)} />
-          <Text variant="subheading">{TABS[activeTab].label}</Text>
+      <SafeAreaScreenWrapper>
+        <Box flex={1} bg="background" mt="s-5">
+          <Box
+            bg="surface"
+            px="s-4"
+            py="s-3"
+            direction="row"
+            align="center"
+            gap="s-3"
+            borderBottomWidth={1}
+            borderColor="border"
+          >
+            <IconButton
+              size="xs"
+              icon={ArrowLeft}
+              onPress={() => setActiveTab(null)}
+            />
+            <Text variant="subheading">{TABS[activeTab].label}</Text>
+          </Box>
+          <Box flex={1}>
+            <ActiveScreen />
+          </Box>
         </Box>
-        <Box flex={1}>
-          <ActiveScreen />
-        </Box>
-      </Box>
+      </SafeAreaScreenWrapper>
     );
   }
 
   return (
-    <Box flex={1} bg="background" mt="s-5">
+    <SafeAreaScreenWrapper>
       <Box
         bg="surface"
         px="s-4"
@@ -123,6 +129,6 @@ export function PreviewComponents() {
           ))}
         </Box>
       </ScrollView>
-    </Box>
+    </SafeAreaScreenWrapper>
   );
 }

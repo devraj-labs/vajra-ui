@@ -4,6 +4,7 @@ Thumbs.db
 
 # Dependencies
 node_modules/
+examples/app/node_modules/
 
 # Build output
 dist/

@@ -1,4 +1,4 @@
-import { TSpinnerSize } from 'src/ui/components';
+import { TSpinnerSize } from '../../components/spinner/spinner-types';
 import { TUiBoxProps } from '../../core/box/box-types';
 
 type TLoaderProps = {

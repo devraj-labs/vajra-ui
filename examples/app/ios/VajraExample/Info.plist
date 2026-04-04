@@ -34,7 +34,7 @@
 		<true/>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>RCTNewArchEnabled</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
@@ -56,5 +56,99 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Manrope-Medium.ttf</string>
+		<string>PlusJakartaSans-MediumItalic.ttf</string>
+		<string>Newsreader_14pt-SemiBoldItalic.ttf</string>
+		<string>Manrope-SemiBold.ttf</string>
+		<string>PlusJakartaSans-Light.ttf</string>
+		<string>Newsreader_36pt-ExtraBold.ttf</string>
+		<string>Manrope-ExtraBold.ttf</string>
+		<string>PlusJakartaSans-Medium.ttf</string>
+		<string>Newsreader_24pt-ExtraLightItalic.ttf</string>
+		<string>Manrope-Regular.ttf</string>
+		<string>PlusJakartaSans-ExtraBoldItalic.ttf</string>
+		<string>Newsreader_9pt-LightItalic.ttf</string>
+		<string>Manrope-ExtraLight.ttf</string>
+		<string>PlusJakartaSans-SemiBold.ttf</string>
+		<string>Newsreader_24pt-LightItalic.ttf</string>
+		<string>Manrope-Light.ttf</string>
+		<string>PlusJakartaSans-SemiBoldItalic.ttf</string>
+		<string>Newsreader_60pt-ExtraLightItalic.ttf</string>
+		<string>Manrope-Bold.ttf</string>
+		<string>PlusJakartaSans-ExtraLightItalic.ttf</string>
+		<string>Newsreader_9pt-Italic.ttf</string>
+		<string>PlusJakartaSans-Regular.ttf</string>
+		<string>Newsreader_14pt-Regular.ttf</string>
+		<string>PlusJakartaSans-LightItalic.ttf</string>
+		<string>Newsreader_60pt-SemiBold.ttf</string>
+		<string>PlusJakartaSans-Bold.ttf</string>
+		<string>Newsreader_60pt-MediumItalic.ttf</string>
+		<string>PlusJakartaSans-ExtraLight.ttf</string>
+		<string>Newsreader_60pt-Regular.ttf</string>
+		<string>Newsreader_9pt-ExtraBoldItalic.ttf</string>
+		<string>PlusJakartaSans-ExtraBold.ttf</string>
+		<string>PlusJakartaSans-Italic.ttf</string>
+		<string>Newsreader_24pt-Bold.ttf</string>
+		<string>PlusJakartaSans-BoldItalic.ttf</string>
+		<string>Newsreader_60pt-ExtraLight.ttf</string>
+		<string>Newsreader_60pt-ExtraBold.ttf</string>
+		<string>Newsreader_24pt-ExtraLight.ttf</string>
+		<string>Newsreader_60pt-BoldItalic.ttf</string>
+		<string>Newsreader_60pt-Bold.ttf</string>
+		<string>Newsreader_24pt-BoldItalic.ttf</string>
+		<string>Newsreader_14pt-LightItalic.ttf</string>
+		<string>Newsreader_36pt-Light.ttf</string>
+		<string>Newsreader_24pt-Regular.ttf</string>
+		<string>Newsreader_36pt-MediumItalic.ttf</string>
+		<string>Newsreader_14pt-Italic.ttf</string>
+		<string>Newsreader_14pt-ExtraLight.ttf</string>
+		<string>Newsreader_9pt-SemiBold.ttf</string>
+		<string>Newsreader_14pt-ExtraBold.ttf</string>
+		<string>Newsreader_14pt-Bold.ttf</string>
+		<string>Newsreader_14pt-BoldItalic.ttf</string>
+		<string>Newsreader_14pt-Light.ttf</string>
+		<string>Newsreader_60pt-Medium.ttf</string>
+		<string>Newsreader_36pt-Italic.ttf</string>
+		<string>Newsreader_14pt-SemiBold.ttf</string>
+		<string>Newsreader_14pt-ExtraLightItalic.ttf</string>
+		<string>Newsreader_9pt-SemiBoldItalic.ttf</string>
+		<string>Newsreader_24pt-Italic.ttf</string>
+		<string>Newsreader_14pt-MediumItalic.ttf</string>
+		<string>Newsreader_9pt-ExtraLight.ttf</string>
+		<string>Newsreader_60pt-ExtraBoldItalic.ttf</string>
+		<string>Newsreader_36pt-BoldItalic.ttf</string>
+		<string>Newsreader_36pt-SemiBoldItalic.ttf</string>
+		<string>Newsreader_24pt-ExtraBold.ttf</string>
+		<string>Newsreader_60pt-LightItalic.ttf</string>
+		<string>Newsreader_36pt-ExtraLight.ttf</string>
+		<string>Newsreader_9pt-BoldItalic.ttf</string>
+		<string>Newsreader_14pt-Medium.ttf</string>
+		<string>Newsreader_24pt-MediumItalic.ttf</string>
+		<string>Newsreader_9pt-Regular.ttf</string>
+		<string>Newsreader_36pt-ExtraBoldItalic.ttf</string>
+		<string>Newsreader_36pt-Regular.ttf</string>
+		<string>Newsreader_36pt-Medium.ttf</string>
+		<string>Newsreader_24pt-Light.ttf</string>
+		<string>Newsreader_24pt-Medium.ttf</string>
+		<string>Newsreader_36pt-LightItalic.ttf</string>
+		<string>Newsreader_60pt-SemiBoldItalic.ttf</string>
+		<string>Newsreader_24pt-SemiBoldItalic.ttf</string>
+		<string>Newsreader_60pt-Italic.ttf</string>
+		<string>Newsreader_14pt-ExtraBoldItalic.ttf</string>
+		<string>Newsreader_9pt-Light.ttf</string>
+		<string>Newsreader_36pt-SemiBold.ttf</string>
+		<string>Newsreader_9pt-ExtraLightItalic.ttf</string>
+		<string>Newsreader_36pt-Bold.ttf</string>
+		<string>Newsreader_24pt-SemiBold.ttf</string>
+		<string>Newsreader_9pt-Medium.ttf</string>
+		<string>Newsreader_9pt-ExtraBold.ttf</string>
+		<string>Newsreader_9pt-Bold.ttf</string>
+		<string>Newsreader_9pt-MediumItalic.ttf</string>
+		<string>Newsreader_60pt-Light.ttf</string>
+		<string>Newsreader_24pt-ExtraBoldItalic.ttf</string>
+		<string>Newsreader_36pt-ExtraLightItalic.ttf</string>
+	</array>
 </dict>
 </plist>

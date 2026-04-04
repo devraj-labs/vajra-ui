@@ -34,12 +34,16 @@ import { ThemeProvider } from '../../theme';
 import { VajraNavigationContext } from '../vajra-navigation/vajra-navigation-context';
 import { defaultVajraTheme } from './vajra-theme';
 import type { TDefaultVajraTheme } from './vajra-theme-types';
+import type { TFontFamilies, TVajraThemeWithFonts } from './create-vajra-theme';
 
 type TVajraColorScheme = 'light' | 'dark';
 
 type TVajraProviderProps = {
   colorScheme?: TVajraColorScheme;
-  theme?: TDefaultVajraTheme['light'] | TDefaultVajraTheme['dark'];
+  theme?:
+    | TDefaultVajraTheme['light']
+    | TDefaultVajraTheme['dark']
+    | TVajraThemeWithFonts<TFontFamilies>;
   defaultBackBehaviour?: () => void;
   children: React.ReactNode;
 };

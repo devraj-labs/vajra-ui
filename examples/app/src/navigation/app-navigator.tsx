@@ -5,6 +5,7 @@ import { enableScreens } from 'react-native-screens';
 
 import { VajraProvider } from 'vajra-ui';
 
+import { theme } from '../theme';
 import { AppBarScreen } from '../screens/app-bar-screen';
 import { ButtonScreen } from '../screens/button-screen';
 import { CardScreen } from '../screens/card-screen';
@@ -26,7 +27,7 @@ function NavigatorWithProvider() {
   const navigation = useAppNavigation();
 
   return (
-    <VajraProvider defaultBackBehaviour={() => navigation.goBack()}>
+    <VajraProvider theme={theme} defaultBackBehaviour={() => navigation.goBack()}>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="ComponentList" component={ComponentListScreen} />
         <Stack.Screen name="AppBarScreen" component={AppBarScreen} />

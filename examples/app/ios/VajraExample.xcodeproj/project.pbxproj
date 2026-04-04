@@ -12,6 +12,97 @@
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		F3F69A447B6F2DBDC4A7EA22 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
+		5B1089A44F964284A20F23AD /* Manrope-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2665A150057F41F68178CB83 /* Manrope-Medium.ttf */; };
+		3661E82518284D85BEE29B31 /* PlusJakartaSans-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B8187CC7D5324AB5A0A89421 /* PlusJakartaSans-MediumItalic.ttf */; };
+		99D559BEED4A4E1EA31D7F1E /* Newsreader_14pt-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7C62CF38E79E4F8386DCD350 /* Newsreader_14pt-SemiBoldItalic.ttf */; };
+		BC75C0F7758E48FB9E2B8F0D /* Manrope-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 37AED1E98DF64C809DFDBE7B /* Manrope-SemiBold.ttf */; };
+		B19CA2D9A0554BEFBCDA0FB4 /* PlusJakartaSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 37B713057DE64F5D9C18FB99 /* PlusJakartaSans-Light.ttf */; };
+		DC5E3789699A4781B447C1A0 /* Newsreader_36pt-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D070413B0A9427D8E7BB5DB /* Newsreader_36pt-ExtraBold.ttf */; };
+		948557DE35134280A4E1C516 /* Manrope-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 026CF4C713B24953BF897ED0 /* Manrope-ExtraBold.ttf */; };
+		008437781D994A4281444E1E /* PlusJakartaSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF5D65C6A252434E88F165A9 /* PlusJakartaSans-Medium.ttf */; };
+		4FE9AAE6646D4952950B7DEA /* Newsreader_24pt-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1ACDACCCB07742639708D54F /* Newsreader_24pt-ExtraLightItalic.ttf */; };
+		971F521677B84548BDCC02F9 /* Manrope-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F41183A035DE4595BEFA3E40 /* Manrope-Regular.ttf */; };
+		FF12E36D025D42149835B7C7 /* PlusJakartaSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E908AFFDEE5F48318D765317 /* PlusJakartaSans-ExtraBoldItalic.ttf */; };
+		0B127BE42BB047099733C7DD /* Newsreader_9pt-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3016D3A2578B48449B82ABED /* Newsreader_9pt-LightItalic.ttf */; };
+		9FA24A9E4D314849B02250A1 /* Manrope-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C66101D04586414EA8FE3718 /* Manrope-ExtraLight.ttf */; };
+		BD4A102E3BD14B9EB974743D /* PlusJakartaSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A11E20775CD1413FB328DEBB /* PlusJakartaSans-SemiBold.ttf */; };
+		8C2B0A7FA6B34F55935B32BB /* Newsreader_24pt-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCAC010D2C284E6283B71D86 /* Newsreader_24pt-LightItalic.ttf */; };
+		E7F2CC2200054A259E2F5A0B /* Manrope-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1AD86F0B23DA4F278031C7E2 /* Manrope-Light.ttf */; };
+		F7D09564B7574A06908F7EE0 /* PlusJakartaSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1E30E181D0194A8E82645D2A /* PlusJakartaSans-SemiBoldItalic.ttf */; };
+		6C59D6637EA74A6583BC79A2 /* Newsreader_60pt-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 370BD847D65F43959C987FB0 /* Newsreader_60pt-ExtraLightItalic.ttf */; };
+		B723D46A7B124578B3F84725 /* Manrope-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5EA0A8D7998245AC9C4A2FD7 /* Manrope-Bold.ttf */; };
+		BFAFB9D916764B29809A4CED /* PlusJakartaSans-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D91B82320114F54ACF9A932 /* PlusJakartaSans-ExtraLightItalic.ttf */; };
+		6C20D4F26B41496786FDB215 /* Newsreader_9pt-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86FC4CA0366C49F299F6454C /* Newsreader_9pt-Italic.ttf */; };
+		15C694C6FB4C49DCB71034C5 /* PlusJakartaSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 662F2BA52C6147E687A45485 /* PlusJakartaSans-Regular.ttf */; };
+		3DB4D7C18F404637A8540D9F /* Newsreader_14pt-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43C93257EB0D4C46A2FC82E6 /* Newsreader_14pt-Regular.ttf */; };
+		6BFB08889B794C1C934638D5 /* PlusJakartaSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EC22057D7C724D6DBA7E539A /* PlusJakartaSans-LightItalic.ttf */; };
+		3C7F3B7AFF5C4CBD9E7AF352 /* Newsreader_60pt-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1482035FE4E54D7382C89859 /* Newsreader_60pt-SemiBold.ttf */; };
+		39E07DDC321243E3B44025DE /* PlusJakartaSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 722371CA785748F292BA092D /* PlusJakartaSans-Bold.ttf */; };
+		17AFA98186754B8E82B28E07 /* Newsreader_60pt-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F2F903CED4AB496789F1C018 /* Newsreader_60pt-MediumItalic.ttf */; };
+		3C27F8A1CC114CC08F79D49C /* PlusJakartaSans-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5AF6B64E2D36429BA7E5FE50 /* PlusJakartaSans-ExtraLight.ttf */; };
+		FC3180286DD74AAE8F33B316 /* Newsreader_60pt-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C133969021094B84B068EAE9 /* Newsreader_60pt-Regular.ttf */; };
+		5A1D3C68AE664987BA020D81 /* Newsreader_9pt-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E2A206EFD14458286C49451 /* Newsreader_9pt-ExtraBoldItalic.ttf */; };
+		E161E18036124AA2AC128219 /* PlusJakartaSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FC76790A14F46F69FB824BC /* PlusJakartaSans-ExtraBold.ttf */; };
+		81BB9E87AD1B4447A6AE08D7 /* PlusJakartaSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D2FDEADA04E4D30867BDCB1 /* PlusJakartaSans-Italic.ttf */; };
+		A0A5E1DE7F7149379FEF8FCD /* Newsreader_24pt-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E07B5F8F0EFA4314AB2E4007 /* Newsreader_24pt-Bold.ttf */; };
+		3ED073D71A92499D8351C315 /* PlusJakartaSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C99DB2ADAC874F0F9BCBCBC8 /* PlusJakartaSans-BoldItalic.ttf */; };
+		4068011BC4FC4268AFCC2A1B /* Newsreader_60pt-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF4436DFB4C14832B81D0278 /* Newsreader_60pt-ExtraLight.ttf */; };
+		A9B437C86C2349FEA01DF320 /* Newsreader_60pt-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CB624C13D304408B50DB7B7 /* Newsreader_60pt-ExtraBold.ttf */; };
+		797A6BA01442424F919C9AF0 /* Newsreader_24pt-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5521C1BE6DC64F3F83DD95BC /* Newsreader_24pt-ExtraLight.ttf */; };
+		380EEEC928DF4CF29320C17D /* Newsreader_60pt-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 628334607BE34C8FB00DECA8 /* Newsreader_60pt-BoldItalic.ttf */; };
+		45628DCC89BB48E6A22E3E2C /* Newsreader_60pt-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DCAA38DE904B416C9C4DE997 /* Newsreader_60pt-Bold.ttf */; };
+		F936C5BDB4114FB5B940C87C /* Newsreader_24pt-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F634A2BADC5840A4A759DF37 /* Newsreader_24pt-BoldItalic.ttf */; };
+		FE57BA644441467F87DAD6FC /* Newsreader_14pt-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EEB698E2C9114718A587284E /* Newsreader_14pt-LightItalic.ttf */; };
+		FCF9CF544439490091A59BC9 /* Newsreader_36pt-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BDE6850ED9C848BDAE7473CD /* Newsreader_36pt-Light.ttf */; };
+		D6357089C8DB47D9A82A928B /* Newsreader_24pt-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B2CB48E81964D768D5987CE /* Newsreader_24pt-Regular.ttf */; };
+		613CC6B4CAAA42ABAF996F04 /* Newsreader_36pt-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D20966BBCFC54699ABCC3F93 /* Newsreader_36pt-MediumItalic.ttf */; };
+		FEE48808F13B45F6A0C28E73 /* Newsreader_14pt-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5E4BB5FDBBFC40C8851B284E /* Newsreader_14pt-Italic.ttf */; };
+		2E0168048C2E483A87E50CB1 /* Newsreader_14pt-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EFAE0E3584014D8EB163E3B2 /* Newsreader_14pt-ExtraLight.ttf */; };
+		F767AD90A4AE45468A9A00FF /* Newsreader_9pt-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 452E247F28064E8F951D39EA /* Newsreader_9pt-SemiBold.ttf */; };
+		469F46F559484ACDA1E82DC1 /* Newsreader_14pt-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 26307AE04DBF469AA5B561FE /* Newsreader_14pt-ExtraBold.ttf */; };
+		9592442D15094386996C0BA9 /* Newsreader_14pt-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C6E6EBDE69DD48B197B944A8 /* Newsreader_14pt-Bold.ttf */; };
+		A74D13C34E674F56BDAF3C5B /* Newsreader_14pt-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 74D2C4A87389459E8EF2E24C /* Newsreader_14pt-BoldItalic.ttf */; };
+		2BD5A186FE12427BB2CE436A /* Newsreader_14pt-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B2A58C0CCC64B5AB20E8F2A /* Newsreader_14pt-Light.ttf */; };
+		09B9B6C7345E41CE91006AFC /* Newsreader_60pt-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9F1D43FDF15747988889EE5D /* Newsreader_60pt-Medium.ttf */; };
+		9A98B8B148B045878A2CE95A /* Newsreader_36pt-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B1A3C2ADB4D24E299FCC6046 /* Newsreader_36pt-Italic.ttf */; };
+		86EABFED46294CC88898D08F /* Newsreader_14pt-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC2FDCA7EF2D45A19E3B6B34 /* Newsreader_14pt-SemiBold.ttf */; };
+		E95DF25909F4404488445755 /* Newsreader_14pt-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CB210A18629A451297DA002D /* Newsreader_14pt-ExtraLightItalic.ttf */; };
+		6F81D11F8E2840969A55B47B /* Newsreader_9pt-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE984DB24BEA40248AC04A9E /* Newsreader_9pt-SemiBoldItalic.ttf */; };
+		E63C32081BE84892A4F531CD /* Newsreader_24pt-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2CB84770AC694ECBBA59A5CB /* Newsreader_24pt-Italic.ttf */; };
+		5D23E2716BB541799DCBE293 /* Newsreader_14pt-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F5A39AF9AE7F4BF4918B9512 /* Newsreader_14pt-MediumItalic.ttf */; };
+		52200E8EA03349E8BDEED55C /* Newsreader_9pt-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 66C98A715B7547388D62B942 /* Newsreader_9pt-ExtraLight.ttf */; };
+		B1671D69C8914D339EA36641 /* Newsreader_60pt-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D0D747BB79A8478382EA7363 /* Newsreader_60pt-ExtraBoldItalic.ttf */; };
+		3345CE14F1A443D9BE995015 /* Newsreader_36pt-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E0C4095DAD534708BBA0255C /* Newsreader_36pt-BoldItalic.ttf */; };
+		AC63F3D12910436C9616232C /* Newsreader_36pt-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 64EE7E9DCEBC48489ED495B3 /* Newsreader_36pt-SemiBoldItalic.ttf */; };
+		97BD2E4E655448A7A56F039A /* Newsreader_24pt-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D9E64E18218F4DC3AF8C5D46 /* Newsreader_24pt-ExtraBold.ttf */; };
+		EFA30DFAA9E24424B109BD14 /* Newsreader_60pt-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75B7BF9C0D654E6685B70EB5 /* Newsreader_60pt-LightItalic.ttf */; };
+		546EF56024074A50A35BD796 /* Newsreader_36pt-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 004C9D2D19CE4300B3F5AC48 /* Newsreader_36pt-ExtraLight.ttf */; };
+		6F5155F75ACB48728A253DEE /* Newsreader_9pt-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F7C73FA15764402D8019A895 /* Newsreader_9pt-BoldItalic.ttf */; };
+		348D059413624B9595F09CEE /* Newsreader_14pt-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B3828ABBAFA343B3BB3CD33C /* Newsreader_14pt-Medium.ttf */; };
+		8FA46363F8694CE9B0C825F0 /* Newsreader_24pt-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13535DC16D7445EF939EFD37 /* Newsreader_24pt-MediumItalic.ttf */; };
+		729CCB13D4D94FABBA4F03FD /* Newsreader_9pt-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D99946C7766647EB98807ED6 /* Newsreader_9pt-Regular.ttf */; };
+		863BE67F57C2427BA7F0269D /* Newsreader_36pt-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C24E3306E59D4CC8A7D805D5 /* Newsreader_36pt-ExtraBoldItalic.ttf */; };
+		B9A4C84E19C749D2B72086E1 /* Newsreader_36pt-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D13118CACF344776A0B96A1D /* Newsreader_36pt-Regular.ttf */; };
+		06E4E1D900FA4FD7961FC315 /* Newsreader_36pt-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B74C794C93E64175BF674EED /* Newsreader_36pt-Medium.ttf */; };
+		996E0249D4104DD8BC00AF70 /* Newsreader_24pt-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F83920E407F840F39E6A7E01 /* Newsreader_24pt-Light.ttf */; };
+		87E4842017B24110A083F8A3 /* Newsreader_24pt-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C642FDBA6817488696AAD1CE /* Newsreader_24pt-Medium.ttf */; };
+		CF044B41F52546FCB85CB6FD /* Newsreader_36pt-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A3408259DE3342038C4142F6 /* Newsreader_36pt-LightItalic.ttf */; };
+		99BA0E18C319423B90906512 /* Newsreader_60pt-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 77EC010651694617A6976EA4 /* Newsreader_60pt-SemiBoldItalic.ttf */; };
+		FDDE76B53C5F40F0B0B72B18 /* Newsreader_24pt-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78F69C38C3794751824BC4A2 /* Newsreader_24pt-SemiBoldItalic.ttf */; };
+		2C781CA34D39415798FDE6EE /* Newsreader_60pt-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 129A3D4ED97E44AF9D78411F /* Newsreader_60pt-Italic.ttf */; };
+		7447D5335B4E4E3F87DF96F4 /* Newsreader_14pt-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57706BDA7CC24E29A54F322E /* Newsreader_14pt-ExtraBoldItalic.ttf */; };
+		9E9AA7451ECD4D18AD1DFB19 /* Newsreader_9pt-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A53EED2166648D1937F1FAD /* Newsreader_9pt-Light.ttf */; };
+		191461C497C249BA82ED544C /* Newsreader_36pt-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 852A7D6F210D482DAFE7D85D /* Newsreader_36pt-SemiBold.ttf */; };
+		E81EEB51875A4CAE9E4DD320 /* Newsreader_9pt-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA304DD93E3347A0B3306634 /* Newsreader_9pt-ExtraLightItalic.ttf */; };
+		EE5F9AC15FFB4D8EA2DA336E /* Newsreader_36pt-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D57DB3F6190546FCB7596215 /* Newsreader_36pt-Bold.ttf */; };
+		5757430535964F1286FE00D3 /* Newsreader_24pt-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2819A945004B4340B8F55253 /* Newsreader_24pt-SemiBold.ttf */; };
+		DF9FED9672574A66A95F7C51 /* Newsreader_9pt-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C58F35602F974A12A4F6CF09 /* Newsreader_9pt-Medium.ttf */; };
+		8453BD2DAF484EB59D419194 /* Newsreader_9pt-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EBB99C90EEED402BB4D7319B /* Newsreader_9pt-ExtraBold.ttf */; };
+		260F8DBCA5F54E7C933DF395 /* Newsreader_9pt-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07E4735A66EE422DBBBC5317 /* Newsreader_9pt-Bold.ttf */; };
+		1AF2B189642D4989BF337014 /* Newsreader_9pt-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89900C0CD7924A8D92440F48 /* Newsreader_9pt-MediumItalic.ttf */; };
+		274B2DDAFBDC4CEA92C269B8 /* Newsreader_60pt-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 68923FCF40BC489E928EEBDE /* Newsreader_60pt-Light.ttf */; };
+		3E8A4DA0F62941FBAF840C5C /* Newsreader_24pt-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35A548E4CFC043DFBE9E1B51 /* Newsreader_24pt-ExtraBoldItalic.ttf */; };
+		A7D7912B89254582AB855795 /* Newsreader_36pt-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F95D1C425B9145B4A88D509E /* Newsreader_36pt-ExtraLightItalic.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +116,97 @@
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = VajraExample/AppDelegate.swift; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = VajraExample/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		2665A150057F41F68178CB83 /* Manrope-Medium.ttf */ = {isa = PBXFileReference; name = "Manrope-Medium.ttf"; path = "../node_modules/@devraj-labs/rn-font-manrope/assets/fonts/Manrope-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B8187CC7D5324AB5A0A89421 /* PlusJakartaSans-MediumItalic.ttf */ = {isa = PBXFileReference; name = "PlusJakartaSans-MediumItalic.ttf"; path = "../node_modules/@devraj-labs/rn-font-jakaratasans/assets/fonts/PlusJakartaSans-MediumItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		7C62CF38E79E4F8386DCD350 /* Newsreader_14pt-SemiBoldItalic.ttf */ = {isa = PBXFileReference; name = "Newsreader_14pt-SemiBoldItalic.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_14pt-SemiBoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		37AED1E98DF64C809DFDBE7B /* Manrope-SemiBold.ttf */ = {isa = PBXFileReference; name = "Manrope-SemiBold.ttf"; path = "../node_modules/@devraj-labs/rn-font-manrope/assets/fonts/Manrope-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		37B713057DE64F5D9C18FB99 /* PlusJakartaSans-Light.ttf */ = {isa = PBXFileReference; name = "PlusJakartaSans-Light.ttf"; path = "../node_modules/@devraj-labs/rn-font-jakaratasans/assets/fonts/PlusJakartaSans-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3D070413B0A9427D8E7BB5DB /* Newsreader_36pt-ExtraBold.ttf */ = {isa = PBXFileReference; name = "Newsreader_36pt-ExtraBold.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_36pt-ExtraBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		026CF4C713B24953BF897ED0 /* Manrope-ExtraBold.ttf */ = {isa = PBXFileReference; name = "Manrope-ExtraBold.ttf"; path = "../node_modules/@devraj-labs/rn-font-manrope/assets/fonts/Manrope-ExtraBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		BF5D65C6A252434E88F165A9 /* PlusJakartaSans-Medium.ttf */ = {isa = PBXFileReference; name = "PlusJakartaSans-Medium.ttf"; path = "../node_modules/@devraj-labs/rn-font-jakaratasans/assets/fonts/PlusJakartaSans-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		1ACDACCCB07742639708D54F /* Newsreader_24pt-ExtraLightItalic.ttf */ = {isa = PBXFileReference; name = "Newsreader_24pt-ExtraLightItalic.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_24pt-ExtraLightItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F41183A035DE4595BEFA3E40 /* Manrope-Regular.ttf */ = {isa = PBXFileReference; name = "Manrope-Regular.ttf"; path = "../node_modules/@devraj-labs/rn-font-manrope/assets/fonts/Manrope-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E908AFFDEE5F48318D765317 /* PlusJakartaSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; name = "PlusJakartaSans-ExtraBoldItalic.ttf"; path = "../node_modules/@devraj-labs/rn-font-jakaratasans/assets/fonts/PlusJakartaSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3016D3A2578B48449B82ABED /* Newsreader_9pt-LightItalic.ttf */ = {isa = PBXFileReference; name = "Newsreader_9pt-LightItalic.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_9pt-LightItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C66101D04586414EA8FE3718 /* Manrope-ExtraLight.ttf */ = {isa = PBXFileReference; name = "Manrope-ExtraLight.ttf"; path = "../node_modules/@devraj-labs/rn-font-manrope/assets/fonts/Manrope-ExtraLight.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A11E20775CD1413FB328DEBB /* PlusJakartaSans-SemiBold.ttf */ = {isa = PBXFileReference; name = "PlusJakartaSans-SemiBold.ttf"; path = "../node_modules/@devraj-labs/rn-font-jakaratasans/assets/fonts/PlusJakartaSans-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		CCAC010D2C284E6283B71D86 /* Newsreader_24pt-LightItalic.ttf */ = {isa = PBXFileReference; name = "Newsreader_24pt-LightItalic.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_24pt-LightItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		1AD86F0B23DA4F278031C7E2 /* Manrope-Light.ttf */ = {isa = PBXFileReference; name = "Manrope-Light.ttf"; path = "../node_modules/@devraj-labs/rn-font-manrope/assets/fonts/Manrope-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		1E30E181D0194A8E82645D2A /* PlusJakartaSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; name = "PlusJakartaSans-SemiBoldItalic.ttf"; path = "../node_modules/@devraj-labs/rn-font-jakaratasans/assets/fonts/PlusJakartaSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		370BD847D65F43959C987FB0 /* Newsreader_60pt-ExtraLightItalic.ttf */ = {isa = PBXFileReference; name = "Newsreader_60pt-ExtraLightItalic.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_60pt-ExtraLightItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5EA0A8D7998245AC9C4A2FD7 /* Manrope-Bold.ttf */ = {isa = PBXFileReference; name = "Manrope-Bold.ttf"; path = "../node_modules/@devraj-labs/rn-font-manrope/assets/fonts/Manrope-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3D91B82320114F54ACF9A932 /* PlusJakartaSans-ExtraLightItalic.ttf */ = {isa = PBXFileReference; name = "PlusJakartaSans-ExtraLightItalic.ttf"; path = "../node_modules/@devraj-labs/rn-font-jakaratasans/assets/fonts/PlusJakartaSans-ExtraLightItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		86FC4CA0366C49F299F6454C /* Newsreader_9pt-Italic.ttf */ = {isa = PBXFileReference; name = "Newsreader_9pt-Italic.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_9pt-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		662F2BA52C6147E687A45485 /* PlusJakartaSans-Regular.ttf */ = {isa = PBXFileReference; name = "PlusJakartaSans-Regular.ttf"; path = "../node_modules/@devraj-labs/rn-font-jakaratasans/assets/fonts/PlusJakartaSans-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		43C93257EB0D4C46A2FC82E6 /* Newsreader_14pt-Regular.ttf */ = {isa = PBXFileReference; name = "Newsreader_14pt-Regular.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_14pt-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		EC22057D7C724D6DBA7E539A /* PlusJakartaSans-LightItalic.ttf */ = {isa = PBXFileReference; name = "PlusJakartaSans-LightItalic.ttf"; path = "../node_modules/@devraj-labs/rn-font-jakaratasans/assets/fonts/PlusJakartaSans-LightItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		1482035FE4E54D7382C89859 /* Newsreader_60pt-SemiBold.ttf */ = {isa = PBXFileReference; name = "Newsreader_60pt-SemiBold.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_60pt-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		722371CA785748F292BA092D /* PlusJakartaSans-Bold.ttf */ = {isa = PBXFileReference; name = "PlusJakartaSans-Bold.ttf"; path = "../node_modules/@devraj-labs/rn-font-jakaratasans/assets/fonts/PlusJakartaSans-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F2F903CED4AB496789F1C018 /* Newsreader_60pt-MediumItalic.ttf */ = {isa = PBXFileReference; name = "Newsreader_60pt-MediumItalic.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_60pt-MediumItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5AF6B64E2D36429BA7E5FE50 /* PlusJakartaSans-ExtraLight.ttf */ = {isa = PBXFileReference; name = "PlusJakartaSans-ExtraLight.ttf"; path = "../node_modules/@devraj-labs/rn-font-jakaratasans/assets/fonts/PlusJakartaSans-ExtraLight.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C133969021094B84B068EAE9 /* Newsreader_60pt-Regular.ttf */ = {isa = PBXFileReference; name = "Newsreader_60pt-Regular.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_60pt-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3E2A206EFD14458286C49451 /* Newsreader_9pt-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; name = "Newsreader_9pt-ExtraBoldItalic.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_9pt-ExtraBoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3FC76790A14F46F69FB824BC /* PlusJakartaSans-ExtraBold.ttf */ = {isa = PBXFileReference; name = "PlusJakartaSans-ExtraBold.ttf"; path = "../node_modules/@devraj-labs/rn-font-jakaratasans/assets/fonts/PlusJakartaSans-ExtraBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		4D2FDEADA04E4D30867BDCB1 /* PlusJakartaSans-Italic.ttf */ = {isa = PBXFileReference; name = "PlusJakartaSans-Italic.ttf"; path = "../node_modules/@devraj-labs/rn-font-jakaratasans/assets/fonts/PlusJakartaSans-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E07B5F8F0EFA4314AB2E4007 /* Newsreader_24pt-Bold.ttf */ = {isa = PBXFileReference; name = "Newsreader_24pt-Bold.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_24pt-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C99DB2ADAC874F0F9BCBCBC8 /* PlusJakartaSans-BoldItalic.ttf */ = {isa = PBXFileReference; name = "PlusJakartaSans-BoldItalic.ttf"; path = "../node_modules/@devraj-labs/rn-font-jakaratasans/assets/fonts/PlusJakartaSans-BoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		EF4436DFB4C14832B81D0278 /* Newsreader_60pt-ExtraLight.ttf */ = {isa = PBXFileReference; name = "Newsreader_60pt-ExtraLight.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_60pt-ExtraLight.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5CB624C13D304408B50DB7B7 /* Newsreader_60pt-ExtraBold.ttf */ = {isa = PBXFileReference; name = "Newsreader_60pt-ExtraBold.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_60pt-ExtraBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5521C1BE6DC64F3F83DD95BC /* Newsreader_24pt-ExtraLight.ttf */ = {isa = PBXFileReference; name = "Newsreader_24pt-ExtraLight.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_24pt-ExtraLight.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		628334607BE34C8FB00DECA8 /* Newsreader_60pt-BoldItalic.ttf */ = {isa = PBXFileReference; name = "Newsreader_60pt-BoldItalic.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_60pt-BoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		DCAA38DE904B416C9C4DE997 /* Newsreader_60pt-Bold.ttf */ = {isa = PBXFileReference; name = "Newsreader_60pt-Bold.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_60pt-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F634A2BADC5840A4A759DF37 /* Newsreader_24pt-BoldItalic.ttf */ = {isa = PBXFileReference; name = "Newsreader_24pt-BoldItalic.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_24pt-BoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		EEB698E2C9114718A587284E /* Newsreader_14pt-LightItalic.ttf */ = {isa = PBXFileReference; name = "Newsreader_14pt-LightItalic.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_14pt-LightItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		BDE6850ED9C848BDAE7473CD /* Newsreader_36pt-Light.ttf */ = {isa = PBXFileReference; name = "Newsreader_36pt-Light.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_36pt-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		1B2CB48E81964D768D5987CE /* Newsreader_24pt-Regular.ttf */ = {isa = PBXFileReference; name = "Newsreader_24pt-Regular.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_24pt-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D20966BBCFC54699ABCC3F93 /* Newsreader_36pt-MediumItalic.ttf */ = {isa = PBXFileReference; name = "Newsreader_36pt-MediumItalic.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_36pt-MediumItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5E4BB5FDBBFC40C8851B284E /* Newsreader_14pt-Italic.ttf */ = {isa = PBXFileReference; name = "Newsreader_14pt-Italic.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_14pt-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		EFAE0E3584014D8EB163E3B2 /* Newsreader_14pt-ExtraLight.ttf */ = {isa = PBXFileReference; name = "Newsreader_14pt-ExtraLight.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_14pt-ExtraLight.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		452E247F28064E8F951D39EA /* Newsreader_9pt-SemiBold.ttf */ = {isa = PBXFileReference; name = "Newsreader_9pt-SemiBold.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_9pt-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		26307AE04DBF469AA5B561FE /* Newsreader_14pt-ExtraBold.ttf */ = {isa = PBXFileReference; name = "Newsreader_14pt-ExtraBold.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_14pt-ExtraBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C6E6EBDE69DD48B197B944A8 /* Newsreader_14pt-Bold.ttf */ = {isa = PBXFileReference; name = "Newsreader_14pt-Bold.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_14pt-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		74D2C4A87389459E8EF2E24C /* Newsreader_14pt-BoldItalic.ttf */ = {isa = PBXFileReference; name = "Newsreader_14pt-BoldItalic.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_14pt-BoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		0B2A58C0CCC64B5AB20E8F2A /* Newsreader_14pt-Light.ttf */ = {isa = PBXFileReference; name = "Newsreader_14pt-Light.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_14pt-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		9F1D43FDF15747988889EE5D /* Newsreader_60pt-Medium.ttf */ = {isa = PBXFileReference; name = "Newsreader_60pt-Medium.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_60pt-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B1A3C2ADB4D24E299FCC6046 /* Newsreader_36pt-Italic.ttf */ = {isa = PBXFileReference; name = "Newsreader_36pt-Italic.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_36pt-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		FC2FDCA7EF2D45A19E3B6B34 /* Newsreader_14pt-SemiBold.ttf */ = {isa = PBXFileReference; name = "Newsreader_14pt-SemiBold.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_14pt-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		CB210A18629A451297DA002D /* Newsreader_14pt-ExtraLightItalic.ttf */ = {isa = PBXFileReference; name = "Newsreader_14pt-ExtraLightItalic.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_14pt-ExtraLightItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		DE984DB24BEA40248AC04A9E /* Newsreader_9pt-SemiBoldItalic.ttf */ = {isa = PBXFileReference; name = "Newsreader_9pt-SemiBoldItalic.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_9pt-SemiBoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		2CB84770AC694ECBBA59A5CB /* Newsreader_24pt-Italic.ttf */ = {isa = PBXFileReference; name = "Newsreader_24pt-Italic.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_24pt-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F5A39AF9AE7F4BF4918B9512 /* Newsreader_14pt-MediumItalic.ttf */ = {isa = PBXFileReference; name = "Newsreader_14pt-MediumItalic.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_14pt-MediumItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		66C98A715B7547388D62B942 /* Newsreader_9pt-ExtraLight.ttf */ = {isa = PBXFileReference; name = "Newsreader_9pt-ExtraLight.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_9pt-ExtraLight.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D0D747BB79A8478382EA7363 /* Newsreader_60pt-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; name = "Newsreader_60pt-ExtraBoldItalic.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_60pt-ExtraBoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E0C4095DAD534708BBA0255C /* Newsreader_36pt-BoldItalic.ttf */ = {isa = PBXFileReference; name = "Newsreader_36pt-BoldItalic.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_36pt-BoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		64EE7E9DCEBC48489ED495B3 /* Newsreader_36pt-SemiBoldItalic.ttf */ = {isa = PBXFileReference; name = "Newsreader_36pt-SemiBoldItalic.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_36pt-SemiBoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D9E64E18218F4DC3AF8C5D46 /* Newsreader_24pt-ExtraBold.ttf */ = {isa = PBXFileReference; name = "Newsreader_24pt-ExtraBold.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_24pt-ExtraBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		75B7BF9C0D654E6685B70EB5 /* Newsreader_60pt-LightItalic.ttf */ = {isa = PBXFileReference; name = "Newsreader_60pt-LightItalic.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_60pt-LightItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		004C9D2D19CE4300B3F5AC48 /* Newsreader_36pt-ExtraLight.ttf */ = {isa = PBXFileReference; name = "Newsreader_36pt-ExtraLight.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_36pt-ExtraLight.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F7C73FA15764402D8019A895 /* Newsreader_9pt-BoldItalic.ttf */ = {isa = PBXFileReference; name = "Newsreader_9pt-BoldItalic.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_9pt-BoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B3828ABBAFA343B3BB3CD33C /* Newsreader_14pt-Medium.ttf */ = {isa = PBXFileReference; name = "Newsreader_14pt-Medium.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_14pt-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		13535DC16D7445EF939EFD37 /* Newsreader_24pt-MediumItalic.ttf */ = {isa = PBXFileReference; name = "Newsreader_24pt-MediumItalic.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_24pt-MediumItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D99946C7766647EB98807ED6 /* Newsreader_9pt-Regular.ttf */ = {isa = PBXFileReference; name = "Newsreader_9pt-Regular.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_9pt-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C24E3306E59D4CC8A7D805D5 /* Newsreader_36pt-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; name = "Newsreader_36pt-ExtraBoldItalic.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_36pt-ExtraBoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D13118CACF344776A0B96A1D /* Newsreader_36pt-Regular.ttf */ = {isa = PBXFileReference; name = "Newsreader_36pt-Regular.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_36pt-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B74C794C93E64175BF674EED /* Newsreader_36pt-Medium.ttf */ = {isa = PBXFileReference; name = "Newsreader_36pt-Medium.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_36pt-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F83920E407F840F39E6A7E01 /* Newsreader_24pt-Light.ttf */ = {isa = PBXFileReference; name = "Newsreader_24pt-Light.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_24pt-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C642FDBA6817488696AAD1CE /* Newsreader_24pt-Medium.ttf */ = {isa = PBXFileReference; name = "Newsreader_24pt-Medium.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_24pt-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A3408259DE3342038C4142F6 /* Newsreader_36pt-LightItalic.ttf */ = {isa = PBXFileReference; name = "Newsreader_36pt-LightItalic.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_36pt-LightItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		77EC010651694617A6976EA4 /* Newsreader_60pt-SemiBoldItalic.ttf */ = {isa = PBXFileReference; name = "Newsreader_60pt-SemiBoldItalic.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_60pt-SemiBoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		78F69C38C3794751824BC4A2 /* Newsreader_24pt-SemiBoldItalic.ttf */ = {isa = PBXFileReference; name = "Newsreader_24pt-SemiBoldItalic.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_24pt-SemiBoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		129A3D4ED97E44AF9D78411F /* Newsreader_60pt-Italic.ttf */ = {isa = PBXFileReference; name = "Newsreader_60pt-Italic.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_60pt-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		57706BDA7CC24E29A54F322E /* Newsreader_14pt-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; name = "Newsreader_14pt-ExtraBoldItalic.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_14pt-ExtraBoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		8A53EED2166648D1937F1FAD /* Newsreader_9pt-Light.ttf */ = {isa = PBXFileReference; name = "Newsreader_9pt-Light.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_9pt-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		852A7D6F210D482DAFE7D85D /* Newsreader_36pt-SemiBold.ttf */ = {isa = PBXFileReference; name = "Newsreader_36pt-SemiBold.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_36pt-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		DA304DD93E3347A0B3306634 /* Newsreader_9pt-ExtraLightItalic.ttf */ = {isa = PBXFileReference; name = "Newsreader_9pt-ExtraLightItalic.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_9pt-ExtraLightItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D57DB3F6190546FCB7596215 /* Newsreader_36pt-Bold.ttf */ = {isa = PBXFileReference; name = "Newsreader_36pt-Bold.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_36pt-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		2819A945004B4340B8F55253 /* Newsreader_24pt-SemiBold.ttf */ = {isa = PBXFileReference; name = "Newsreader_24pt-SemiBold.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_24pt-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C58F35602F974A12A4F6CF09 /* Newsreader_9pt-Medium.ttf */ = {isa = PBXFileReference; name = "Newsreader_9pt-Medium.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_9pt-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		EBB99C90EEED402BB4D7319B /* Newsreader_9pt-ExtraBold.ttf */ = {isa = PBXFileReference; name = "Newsreader_9pt-ExtraBold.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_9pt-ExtraBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		07E4735A66EE422DBBBC5317 /* Newsreader_9pt-Bold.ttf */ = {isa = PBXFileReference; name = "Newsreader_9pt-Bold.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_9pt-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		89900C0CD7924A8D92440F48 /* Newsreader_9pt-MediumItalic.ttf */ = {isa = PBXFileReference; name = "Newsreader_9pt-MediumItalic.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_9pt-MediumItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		68923FCF40BC489E928EEBDE /* Newsreader_60pt-Light.ttf */ = {isa = PBXFileReference; name = "Newsreader_60pt-Light.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_60pt-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		35A548E4CFC043DFBE9E1B51 /* Newsreader_24pt-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; name = "Newsreader_24pt-ExtraBoldItalic.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_24pt-ExtraBoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F95D1C425B9145B4A88D509E /* Newsreader_36pt-ExtraLightItalic.ttf */ = {isa = PBXFileReference; name = "Newsreader_36pt-ExtraLightItalic.ttf"; path = "../node_modules/@devraj-labs/rn-font-newsreader/assets/fonts/Newsreader_36pt-ExtraLightItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +257,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				4B33B90DA6704D6FA6A6D647 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -97,6 +280,105 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		4B33B90DA6704D6FA6A6D647 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				2665A150057F41F68178CB83 /* Manrope-Medium.ttf */,
+				B8187CC7D5324AB5A0A89421 /* PlusJakartaSans-MediumItalic.ttf */,
+				7C62CF38E79E4F8386DCD350 /* Newsreader_14pt-SemiBoldItalic.ttf */,
+				37AED1E98DF64C809DFDBE7B /* Manrope-SemiBold.ttf */,
+				37B713057DE64F5D9C18FB99 /* PlusJakartaSans-Light.ttf */,
+				3D070413B0A9427D8E7BB5DB /* Newsreader_36pt-ExtraBold.ttf */,
+				026CF4C713B24953BF897ED0 /* Manrope-ExtraBold.ttf */,
+				BF5D65C6A252434E88F165A9 /* PlusJakartaSans-Medium.ttf */,
+				1ACDACCCB07742639708D54F /* Newsreader_24pt-ExtraLightItalic.ttf */,
+				F41183A035DE4595BEFA3E40 /* Manrope-Regular.ttf */,
+				E908AFFDEE5F48318D765317 /* PlusJakartaSans-ExtraBoldItalic.ttf */,
+				3016D3A2578B48449B82ABED /* Newsreader_9pt-LightItalic.ttf */,
+				C66101D04586414EA8FE3718 /* Manrope-ExtraLight.ttf */,
+				A11E20775CD1413FB328DEBB /* PlusJakartaSans-SemiBold.ttf */,
+				CCAC010D2C284E6283B71D86 /* Newsreader_24pt-LightItalic.ttf */,
+				1AD86F0B23DA4F278031C7E2 /* Manrope-Light.ttf */,
+				1E30E181D0194A8E82645D2A /* PlusJakartaSans-SemiBoldItalic.ttf */,
+				370BD847D65F43959C987FB0 /* Newsreader_60pt-ExtraLightItalic.ttf */,
+				5EA0A8D7998245AC9C4A2FD7 /* Manrope-Bold.ttf */,
+				3D91B82320114F54ACF9A932 /* PlusJakartaSans-ExtraLightItalic.ttf */,
+				86FC4CA0366C49F299F6454C /* Newsreader_9pt-Italic.ttf */,
+				662F2BA52C6147E687A45485 /* PlusJakartaSans-Regular.ttf */,
+				43C93257EB0D4C46A2FC82E6 /* Newsreader_14pt-Regular.ttf */,
+				EC22057D7C724D6DBA7E539A /* PlusJakartaSans-LightItalic.ttf */,
+				1482035FE4E54D7382C89859 /* Newsreader_60pt-SemiBold.ttf */,
+				722371CA785748F292BA092D /* PlusJakartaSans-Bold.ttf */,
+				F2F903CED4AB496789F1C018 /* Newsreader_60pt-MediumItalic.ttf */,
+				5AF6B64E2D36429BA7E5FE50 /* PlusJakartaSans-ExtraLight.ttf */,
+				C133969021094B84B068EAE9 /* Newsreader_60pt-Regular.ttf */,
+				3E2A206EFD14458286C49451 /* Newsreader_9pt-ExtraBoldItalic.ttf */,
+				3FC76790A14F46F69FB824BC /* PlusJakartaSans-ExtraBold.ttf */,
+				4D2FDEADA04E4D30867BDCB1 /* PlusJakartaSans-Italic.ttf */,
+				E07B5F8F0EFA4314AB2E4007 /* Newsreader_24pt-Bold.ttf */,
+				C99DB2ADAC874F0F9BCBCBC8 /* PlusJakartaSans-BoldItalic.ttf */,
+				EF4436DFB4C14832B81D0278 /* Newsreader_60pt-ExtraLight.ttf */,
+				5CB624C13D304408B50DB7B7 /* Newsreader_60pt-ExtraBold.ttf */,
+				5521C1BE6DC64F3F83DD95BC /* Newsreader_24pt-ExtraLight.ttf */,
+				628334607BE34C8FB00DECA8 /* Newsreader_60pt-BoldItalic.ttf */,
+				DCAA38DE904B416C9C4DE997 /* Newsreader_60pt-Bold.ttf */,
+				F634A2BADC5840A4A759DF37 /* Newsreader_24pt-BoldItalic.ttf */,
+				EEB698E2C9114718A587284E /* Newsreader_14pt-LightItalic.ttf */,
+				BDE6850ED9C848BDAE7473CD /* Newsreader_36pt-Light.ttf */,
+				1B2CB48E81964D768D5987CE /* Newsreader_24pt-Regular.ttf */,
+				D20966BBCFC54699ABCC3F93 /* Newsreader_36pt-MediumItalic.ttf */,
+				5E4BB5FDBBFC40C8851B284E /* Newsreader_14pt-Italic.ttf */,
+				EFAE0E3584014D8EB163E3B2 /* Newsreader_14pt-ExtraLight.ttf */,
+				452E247F28064E8F951D39EA /* Newsreader_9pt-SemiBold.ttf */,
+				26307AE04DBF469AA5B561FE /* Newsreader_14pt-ExtraBold.ttf */,
+				C6E6EBDE69DD48B197B944A8 /* Newsreader_14pt-Bold.ttf */,
+				74D2C4A87389459E8EF2E24C /* Newsreader_14pt-BoldItalic.ttf */,
+				0B2A58C0CCC64B5AB20E8F2A /* Newsreader_14pt-Light.ttf */,
+				9F1D43FDF15747988889EE5D /* Newsreader_60pt-Medium.ttf */,
+				B1A3C2ADB4D24E299FCC6046 /* Newsreader_36pt-Italic.ttf */,
+				FC2FDCA7EF2D45A19E3B6B34 /* Newsreader_14pt-SemiBold.ttf */,
+				CB210A18629A451297DA002D /* Newsreader_14pt-ExtraLightItalic.ttf */,
+				DE984DB24BEA40248AC04A9E /* Newsreader_9pt-SemiBoldItalic.ttf */,
+				2CB84770AC694ECBBA59A5CB /* Newsreader_24pt-Italic.ttf */,
+				F5A39AF9AE7F4BF4918B9512 /* Newsreader_14pt-MediumItalic.ttf */,
+				66C98A715B7547388D62B942 /* Newsreader_9pt-ExtraLight.ttf */,
+				D0D747BB79A8478382EA7363 /* Newsreader_60pt-ExtraBoldItalic.ttf */,
+				E0C4095DAD534708BBA0255C /* Newsreader_36pt-BoldItalic.ttf */,
+				64EE7E9DCEBC48489ED495B3 /* Newsreader_36pt-SemiBoldItalic.ttf */,
+				D9E64E18218F4DC3AF8C5D46 /* Newsreader_24pt-ExtraBold.ttf */,
+				75B7BF9C0D654E6685B70EB5 /* Newsreader_60pt-LightItalic.ttf */,
+				004C9D2D19CE4300B3F5AC48 /* Newsreader_36pt-ExtraLight.ttf */,
+				F7C73FA15764402D8019A895 /* Newsreader_9pt-BoldItalic.ttf */,
+				B3828ABBAFA343B3BB3CD33C /* Newsreader_14pt-Medium.ttf */,
+				13535DC16D7445EF939EFD37 /* Newsreader_24pt-MediumItalic.ttf */,
+				D99946C7766647EB98807ED6 /* Newsreader_9pt-Regular.ttf */,
+				C24E3306E59D4CC8A7D805D5 /* Newsreader_36pt-ExtraBoldItalic.ttf */,
+				D13118CACF344776A0B96A1D /* Newsreader_36pt-Regular.ttf */,
+				B74C794C93E64175BF674EED /* Newsreader_36pt-Medium.ttf */,
+				F83920E407F840F39E6A7E01 /* Newsreader_24pt-Light.ttf */,
+				C642FDBA6817488696AAD1CE /* Newsreader_24pt-Medium.ttf */,
+				A3408259DE3342038C4142F6 /* Newsreader_36pt-LightItalic.ttf */,
+				77EC010651694617A6976EA4 /* Newsreader_60pt-SemiBoldItalic.ttf */,
+				78F69C38C3794751824BC4A2 /* Newsreader_24pt-SemiBoldItalic.ttf */,
+				129A3D4ED97E44AF9D78411F /* Newsreader_60pt-Italic.ttf */,
+				57706BDA7CC24E29A54F322E /* Newsreader_14pt-ExtraBoldItalic.ttf */,
+				8A53EED2166648D1937F1FAD /* Newsreader_9pt-Light.ttf */,
+				852A7D6F210D482DAFE7D85D /* Newsreader_36pt-SemiBold.ttf */,
+				DA304DD93E3347A0B3306634 /* Newsreader_9pt-ExtraLightItalic.ttf */,
+				D57DB3F6190546FCB7596215 /* Newsreader_36pt-Bold.ttf */,
+				2819A945004B4340B8F55253 /* Newsreader_24pt-SemiBold.ttf */,
+				C58F35602F974A12A4F6CF09 /* Newsreader_9pt-Medium.ttf */,
+				EBB99C90EEED402BB4D7319B /* Newsreader_9pt-ExtraBold.ttf */,
+				07E4735A66EE422DBBBC5317 /* Newsreader_9pt-Bold.ttf */,
+				89900C0CD7924A8D92440F48 /* Newsreader_9pt-MediumItalic.ttf */,
+				68923FCF40BC489E928EEBDE /* Newsreader_60pt-Light.ttf */,
+				35A548E4CFC043DFBE9E1B51 /* Newsreader_24pt-ExtraBoldItalic.ttf */,
+				F95D1C425B9145B4A88D509E /* Newsreader_36pt-ExtraLightItalic.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -161,6 +443,97 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				F3F69A447B6F2DBDC4A7EA22 /* PrivacyInfo.xcprivacy in Resources */,
+				5B1089A44F964284A20F23AD /* Manrope-Medium.ttf in Resources */,
+				3661E82518284D85BEE29B31 /* PlusJakartaSans-MediumItalic.ttf in Resources */,
+				99D559BEED4A4E1EA31D7F1E /* Newsreader_14pt-SemiBoldItalic.ttf in Resources */,
+				BC75C0F7758E48FB9E2B8F0D /* Manrope-SemiBold.ttf in Resources */,
+				B19CA2D9A0554BEFBCDA0FB4 /* PlusJakartaSans-Light.ttf in Resources */,
+				DC5E3789699A4781B447C1A0 /* Newsreader_36pt-ExtraBold.ttf in Resources */,
+				948557DE35134280A4E1C516 /* Manrope-ExtraBold.ttf in Resources */,
+				008437781D994A4281444E1E /* PlusJakartaSans-Medium.ttf in Resources */,
+				4FE9AAE6646D4952950B7DEA /* Newsreader_24pt-ExtraLightItalic.ttf in Resources */,
+				971F521677B84548BDCC02F9 /* Manrope-Regular.ttf in Resources */,
+				FF12E36D025D42149835B7C7 /* PlusJakartaSans-ExtraBoldItalic.ttf in Resources */,
+				0B127BE42BB047099733C7DD /* Newsreader_9pt-LightItalic.ttf in Resources */,
+				9FA24A9E4D314849B02250A1 /* Manrope-ExtraLight.ttf in Resources */,
+				BD4A102E3BD14B9EB974743D /* PlusJakartaSans-SemiBold.ttf in Resources */,
+				8C2B0A7FA6B34F55935B32BB /* Newsreader_24pt-LightItalic.ttf in Resources */,
+				E7F2CC2200054A259E2F5A0B /* Manrope-Light.ttf in Resources */,
+				F7D09564B7574A06908F7EE0 /* PlusJakartaSans-SemiBoldItalic.ttf in Resources */,
+				6C59D6637EA74A6583BC79A2 /* Newsreader_60pt-ExtraLightItalic.ttf in Resources */,
+				B723D46A7B124578B3F84725 /* Manrope-Bold.ttf in Resources */,
+				BFAFB9D916764B29809A4CED /* PlusJakartaSans-ExtraLightItalic.ttf in Resources */,
+				6C20D4F26B41496786FDB215 /* Newsreader_9pt-Italic.ttf in Resources */,
+				15C694C6FB4C49DCB71034C5 /* PlusJakartaSans-Regular.ttf in Resources */,
+				3DB4D7C18F404637A8540D9F /* Newsreader_14pt-Regular.ttf in Resources */,
+				6BFB08889B794C1C934638D5 /* PlusJakartaSans-LightItalic.ttf in Resources */,
+				3C7F3B7AFF5C4CBD9E7AF352 /* Newsreader_60pt-SemiBold.ttf in Resources */,
+				39E07DDC321243E3B44025DE /* PlusJakartaSans-Bold.ttf in Resources */,
+				17AFA98186754B8E82B28E07 /* Newsreader_60pt-MediumItalic.ttf in Resources */,
+				3C27F8A1CC114CC08F79D49C /* PlusJakartaSans-ExtraLight.ttf in Resources */,
+				FC3180286DD74AAE8F33B316 /* Newsreader_60pt-Regular.ttf in Resources */,
+				5A1D3C68AE664987BA020D81 /* Newsreader_9pt-ExtraBoldItalic.ttf in Resources */,
+				E161E18036124AA2AC128219 /* PlusJakartaSans-ExtraBold.ttf in Resources */,
+				81BB9E87AD1B4447A6AE08D7 /* PlusJakartaSans-Italic.ttf in Resources */,
+				A0A5E1DE7F7149379FEF8FCD /* Newsreader_24pt-Bold.ttf in Resources */,
+				3ED073D71A92499D8351C315 /* PlusJakartaSans-BoldItalic.ttf in Resources */,
+				4068011BC4FC4268AFCC2A1B /* Newsreader_60pt-ExtraLight.ttf in Resources */,
+				A9B437C86C2349FEA01DF320 /* Newsreader_60pt-ExtraBold.ttf in Resources */,
+				797A6BA01442424F919C9AF0 /* Newsreader_24pt-ExtraLight.ttf in Resources */,
+				380EEEC928DF4CF29320C17D /* Newsreader_60pt-BoldItalic.ttf in Resources */,
+				45628DCC89BB48E6A22E3E2C /* Newsreader_60pt-Bold.ttf in Resources */,
+				F936C5BDB4114FB5B940C87C /* Newsreader_24pt-BoldItalic.ttf in Resources */,
+				FE57BA644441467F87DAD6FC /* Newsreader_14pt-LightItalic.ttf in Resources */,
+				FCF9CF544439490091A59BC9 /* Newsreader_36pt-Light.ttf in Resources */,
+				D6357089C8DB47D9A82A928B /* Newsreader_24pt-Regular.ttf in Resources */,
+				613CC6B4CAAA42ABAF996F04 /* Newsreader_36pt-MediumItalic.ttf in Resources */,
+				FEE48808F13B45F6A0C28E73 /* Newsreader_14pt-Italic.ttf in Resources */,
+				2E0168048C2E483A87E50CB1 /* Newsreader_14pt-ExtraLight.ttf in Resources */,
+				F767AD90A4AE45468A9A00FF /* Newsreader_9pt-SemiBold.ttf in Resources */,
+				469F46F559484ACDA1E82DC1 /* Newsreader_14pt-ExtraBold.ttf in Resources */,
+				9592442D15094386996C0BA9 /* Newsreader_14pt-Bold.ttf in Resources */,
+				A74D13C34E674F56BDAF3C5B /* Newsreader_14pt-BoldItalic.ttf in Resources */,
+				2BD5A186FE12427BB2CE436A /* Newsreader_14pt-Light.ttf in Resources */,
+				09B9B6C7345E41CE91006AFC /* Newsreader_60pt-Medium.ttf in Resources */,
+				9A98B8B148B045878A2CE95A /* Newsreader_36pt-Italic.ttf in Resources */,
+				86EABFED46294CC88898D08F /* Newsreader_14pt-SemiBold.ttf in Resources */,
+				E95DF25909F4404488445755 /* Newsreader_14pt-ExtraLightItalic.ttf in Resources */,
+				6F81D11F8E2840969A55B47B /* Newsreader_9pt-SemiBoldItalic.ttf in Resources */,
+				E63C32081BE84892A4F531CD /* Newsreader_24pt-Italic.ttf in Resources */,
+				5D23E2716BB541799DCBE293 /* Newsreader_14pt-MediumItalic.ttf in Resources */,
+				52200E8EA03349E8BDEED55C /* Newsreader_9pt-ExtraLight.ttf in Resources */,
+				B1671D69C8914D339EA36641 /* Newsreader_60pt-ExtraBoldItalic.ttf in Resources */,
+				3345CE14F1A443D9BE995015 /* Newsreader_36pt-BoldItalic.ttf in Resources */,
+				AC63F3D12910436C9616232C /* Newsreader_36pt-SemiBoldItalic.ttf in Resources */,
+				97BD2E4E655448A7A56F039A /* Newsreader_24pt-ExtraBold.ttf in Resources */,
+				EFA30DFAA9E24424B109BD14 /* Newsreader_60pt-LightItalic.ttf in Resources */,
+				546EF56024074A50A35BD796 /* Newsreader_36pt-ExtraLight.ttf in Resources */,
+				6F5155F75ACB48728A253DEE /* Newsreader_9pt-BoldItalic.ttf in Resources */,
+				348D059413624B9595F09CEE /* Newsreader_14pt-Medium.ttf in Resources */,
+				8FA46363F8694CE9B0C825F0 /* Newsreader_24pt-MediumItalic.ttf in Resources */,
+				729CCB13D4D94FABBA4F03FD /* Newsreader_9pt-Regular.ttf in Resources */,
+				863BE67F57C2427BA7F0269D /* Newsreader_36pt-ExtraBoldItalic.ttf in Resources */,
+				B9A4C84E19C749D2B72086E1 /* Newsreader_36pt-Regular.ttf in Resources */,
+				06E4E1D900FA4FD7961FC315 /* Newsreader_36pt-Medium.ttf in Resources */,
+				996E0249D4104DD8BC00AF70 /* Newsreader_24pt-Light.ttf in Resources */,
+				87E4842017B24110A083F8A3 /* Newsreader_24pt-Medium.ttf in Resources */,
+				CF044B41F52546FCB85CB6FD /* Newsreader_36pt-LightItalic.ttf in Resources */,
+				99BA0E18C319423B90906512 /* Newsreader_60pt-SemiBoldItalic.ttf in Resources */,
+				FDDE76B53C5F40F0B0B72B18 /* Newsreader_24pt-SemiBoldItalic.ttf in Resources */,
+				2C781CA34D39415798FDE6EE /* Newsreader_60pt-Italic.ttf in Resources */,
+				7447D5335B4E4E3F87DF96F4 /* Newsreader_14pt-ExtraBoldItalic.ttf in Resources */,
+				9E9AA7451ECD4D18AD1DFB19 /* Newsreader_9pt-Light.ttf in Resources */,
+				191461C497C249BA82ED544C /* Newsreader_36pt-SemiBold.ttf in Resources */,
+				E81EEB51875A4CAE9E4DD320 /* Newsreader_9pt-ExtraLightItalic.ttf in Resources */,
+				EE5F9AC15FFB4D8EA2DA336E /* Newsreader_36pt-Bold.ttf in Resources */,
+				5757430535964F1286FE00D3 /* Newsreader_24pt-SemiBold.ttf in Resources */,
+				DF9FED9672574A66A95F7C51 /* Newsreader_9pt-Medium.ttf in Resources */,
+				8453BD2DAF484EB59D419194 /* Newsreader_9pt-ExtraBold.ttf in Resources */,
+				260F8DBCA5F54E7C933DF395 /* Newsreader_9pt-Bold.ttf in Resources */,
+				1AF2B189642D4989BF337014 /* Newsreader_9pt-MediumItalic.ttf in Resources */,
+				274B2DDAFBDC4CEA92C269B8 /* Newsreader_60pt-Light.ttf in Resources */,
+				3E8A4DA0F62941FBAF840C5C /* Newsreader_24pt-ExtraBoldItalic.ttf in Resources */,
+				A7D7912B89254582AB855795 /* Newsreader_36pt-ExtraLightItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

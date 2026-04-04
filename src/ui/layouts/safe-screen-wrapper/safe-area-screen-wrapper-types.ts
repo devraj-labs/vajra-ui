@@ -1,6 +1,6 @@
 import { StyleProp, ViewStyle } from 'react-native';
 import { Edge } from 'react-native-safe-area-context';
-import { TSpinnerSize } from 'src/ui/components';
+import { TSpinnerSize } from '../../components/spinner/spinner-types';
 
 type TLoaderProps = {
   isLoading?: boolean;

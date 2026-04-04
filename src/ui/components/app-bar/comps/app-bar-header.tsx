@@ -21,11 +21,8 @@ const AppBarHeaderComponent: React.FC<TAppBarHeaderProps> = ({
 
   return (
     <AppBarContext.Provider value={{ tint }}>
-      <Box bg={bg} style={style}>
-        <Row
-          align="center"
-          style={{ height: height + topPadding, paddingTop: topPadding, ...contentStyle }}
-        >
+      <Box bg={bg} style={{ paddingTop: topPadding, ...style }}>
+        <Row align="center" style={{ height, ...contentStyle }}>
           {children}
         </Row>
       </Box>

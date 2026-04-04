@@ -1,16 +1,12 @@
 import React from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-import { VajraProvider } from 'vajra-ui';
-
-import { PreviewComponents } from './src/preview-components';
+import { AppNavigator } from './src/navigation/app-navigator';
 
 function App() {
   return (
     <SafeAreaProvider>
-      <VajraProvider>
-        <PreviewComponents />
-      </VajraProvider>
+      <AppNavigator />
     </SafeAreaProvider>
   );
 }

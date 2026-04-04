@@ -23,7 +23,7 @@ const AppBarIconButtonComponent: React.FC<TAppBarIconButtonProps> = ({
       align="center"
       justify="center"
       px="s-2"
-      style={{ minWidth: APP_BAR_SIDE_MIN_WIDTH }}
+      style={{ minWidth: APP_BAR_SIDE_MIN_WIDTH, alignSelf: 'stretch' }}
     >
       <Icon size={20} color={colors[tint]} />
     </Pressable>

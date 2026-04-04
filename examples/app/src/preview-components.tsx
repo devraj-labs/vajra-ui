@@ -4,6 +4,7 @@ import { ScrollView, TouchableOpacity } from 'react-native';
 
 import { Box, Card, IconButton, SafeAreaScreenWrapper, Text } from 'vajra-ui';
 
+import { AppBarExample } from './examples/app-bar-example';
 import { ButtonExample } from './examples/button-example';
 import { CardExample } from './examples/card-example';
 import { CheckboxExample } from './examples/checkbox-example';
@@ -20,6 +21,11 @@ type TTabScreen = {
 };
 
 const TABS = {
+  appBar: {
+    label: 'AppBar',
+    description: 'Compound header with back, title & actions',
+    component: AppBarExample,
+  },
   button: {
     label: 'Button',
     description: 'Variants, sizes & palettes',

@@ -31,6 +31,7 @@
 import React from 'react';
 
 import { ThemeProvider } from '../../theme';
+import { VajraNavigationContext } from '../vajra-navigation/vajra-navigation-context';
 import { defaultVajraTheme } from './vajra-theme';
 import type { TDefaultVajraTheme } from './vajra-theme-types';
 
@@ -39,11 +40,23 @@ type TVajraColorScheme = 'light' | 'dark';
 type TVajraProviderProps = {
   colorScheme?: TVajraColorScheme;
   theme?: TDefaultVajraTheme['light'] | TDefaultVajraTheme['dark'];
+  defaultBackBehaviour?: () => void;
   children: React.ReactNode;
 };
 
-export const VajraProvider = ({ colorScheme = 'light', theme, children }: TVajraProviderProps) => {
+export const VajraProvider = ({
+  colorScheme = 'light',
+  theme,
+  defaultBackBehaviour,
+  children,
+}: TVajraProviderProps) => {
   const resolvedTheme = theme ?? defaultVajraTheme[colorScheme];
 
-  return <ThemeProvider theme={resolvedTheme}>{children}</ThemeProvider>;
+  return (
+    <ThemeProvider theme={resolvedTheme}>
+      <VajraNavigationContext.Provider value={{ defaultBackBehaviour }}>
+        {children}
+      </VajraNavigationContext.Provider>
+    </ThemeProvider>
+  );
 };

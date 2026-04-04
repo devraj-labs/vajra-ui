@@ -4,17 +4,15 @@ import { Animated } from 'react-native';
 import { Spinner } from '../../components/spinner';
 import { Box } from '../../core/box';
 import { Col } from '../../core/col';
-import { useVajraTheme } from '../../vajra-theme/use-vajra-theme';
 import { TScreenWrapperProps } from './screen-wrapper-types';
 import { useScreenWrapper } from './use-screen-wrapper';
 
 export const ScreenWrapper = memo<TScreenWrapperProps>(({ loader, children, ...boxProps }) => {
   const { isLoading = false, loader: customLoader, size = 'lg', loaderText } = loader ?? {};
   const { opacity, visible } = useScreenWrapper(isLoading);
-  const { layout } = useVajraTheme();
 
   return (
-    <Box flex={1} style={{ paddingHorizontal: layout.screenPadding }} {...boxProps}>
+    <Box flex={1} {...boxProps}>
       {children}
       {visible && (
         <Animated.View

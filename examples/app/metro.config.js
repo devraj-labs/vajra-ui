@@ -17,10 +17,14 @@ const config = {
     disableHierarchicalLookup: true,
     extraNodeModules: new Proxy(
       {},
-      {
-        get: (_, name) => path.resolve(appNodeModules, name),
-      }
+      { get: (_, name) => path.resolve(appNodeModules, name) }
     ),
+    resolveRequest: (context, moduleName, platform) => {
+      if (moduleName === 'vajra-ui') {
+        return { filePath: path.resolve(vajraUiRoot, 'src/index.ts'), type: 'sourceFile' };
+      }
+      return context.resolveRequest(context, moduleName, platform);
+    },
   },
 };
 

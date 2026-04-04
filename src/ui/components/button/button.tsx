@@ -29,10 +29,12 @@ const ButtonComponent: React.FC<TButtonProps> = ({
     <Pressable
       disabled={isInteractionDisabled}
       bg={container.backgroundColor}
+      borderColor={container.borderColor}
+      borderWidth={container.borderWidth}
       px={container.px}
       py={container.py}
       rounded={container.rounded}
-      opacity={isDisabled ? 0.4 : 1}
+      style={isDisabled ? { opacity: 0 } : undefined}
       align="center"
       justify="center"
       direction="row"

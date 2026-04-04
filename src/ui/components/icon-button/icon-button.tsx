@@ -31,8 +31,7 @@ const IconButtonComponent: React.FC<TIconButtonProps> = ({
       disabled={isInteractionDisabled}
       bg={container.backgroundColor}
       rounded={container.rounded}
-      opacity={isDisabled ? 0.4 : 1}
-      style={{ width: container.size, height: container.size }}
+      style={{ width: container.size, height: container.size, opacity: isDisabled ? 0.4 : 1 }}
       align="center"
       justify="center"
       {...rest}

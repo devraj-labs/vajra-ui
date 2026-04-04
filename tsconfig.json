@@ -12,8 +12,8 @@
     "noEmit": true,
     "baseUrl": ".",
     "paths": {
-      "@devraj-labs/vajra-ui-core": ["../vajra-core/src/index.ts"],
-      "@devraj-labs/vajra-ui-core/*": ["../vajra-core/src/*"],
+      "@devraj-labs/vajra-ui-core": ["./node_modules/@devraj-labs/vajra-ui-core/src/index.ts"],
+      "@devraj-labs/vajra-ui-core/*": ["./node_modules/@devraj-labs/vajra-ui-core/src/*"],
       "react-native": ["./examples/app/node_modules/react-native"],
       "react-native/*": ["./examples/app/node_modules/react-native/*"]
     }

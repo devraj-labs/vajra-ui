@@ -1,6 +1,6 @@
 import React from 'react';
-import { PressableProps } from 'react-native';
 
+import { TUiPressableProps } from '../../core/pressable/pressable-types';
 import { TIconButtonRecipeVariants } from './icon-button-variants';
 
 /**
@@ -32,7 +32,7 @@ export type TIconButtonLoadingProps = {
   loader?: React.ReactNode;
 };
 
-export type TIconButtonProps = Omit<PressableProps, 'style'> &
+export type TIconButtonProps = Omit<TUiPressableProps, 'disabled'> &
   TIconButtonRecipeVariants & {
     icon: TVajraIconComponent;
     isDisabled?: boolean;

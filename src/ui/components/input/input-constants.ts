@@ -1,5 +1,7 @@
 import { TInputSize, TInputSizeStyle } from './input-types';
 
+export const INPUT_SIZES = ['xs', 'sm', 'md', 'lg'] as const satisfies TInputSize[];
+
 export const INPUT_SIZE_STYLES: Record<TInputSize, TInputSizeStyle> = {
   xs: {
     height: 32,

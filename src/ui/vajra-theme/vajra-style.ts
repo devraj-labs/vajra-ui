@@ -5,7 +5,10 @@ import { TRoundedToken } from './tokens/rounded-tokens';
 import { TFontVariant } from './tokens';
 import { TVajraColors } from './colors';
 
-export type TVajraStyleProps = Omit<ViewStyle, 'backgroundColor' | 'borderRadius'> & {
+export type TVajraStyleProps = Omit<
+  ViewStyle,
+  'backgroundColor' | 'borderRadius' | 'borderColor'
+> & {
   px?: TSpacingToken;
   py?: TSpacingToken;
   pt?: TSpacingToken;
@@ -21,6 +24,7 @@ export type TVajraStyleProps = Omit<ViewStyle, 'backgroundColor' | 'borderRadius
   gap?: TSpacingToken;
   rounded?: TRoundedToken;
   backgroundColor?: TVajraColors;
+  borderColor?: TVajraColors;
   size?: number;
 };
 

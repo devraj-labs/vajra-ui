@@ -19,9 +19,15 @@ type TRecipeVariantProps<TVariants extends TVariantsConfig> = {
   [K in keyof TVariants]?: keyof TVariants[K];
 };
 
-type TRecipe<TVariants extends TVariantsConfig> = (
+type TRecipeKeys<TVariants extends TVariantsConfig> = {
+  [K in keyof TVariants]: (keyof TVariants[K])[];
+};
+
+type TRecipe<TVariants extends TVariantsConfig> = ((
   props: TRecipeVariantProps<TVariants>,
-) => TRecipeResult<TVariants>;
+) => TRecipeResult<TVariants>) & {
+  keys: TRecipeKeys<TVariants>;
+};
 
 export type TRecipeVariants<T> =
   T extends TRecipe<infer TVariants> ? TRecipeVariantProps<TVariants> : never;
@@ -29,9 +35,10 @@ export type TRecipeVariants<T> =
 const mergeSlot = (value: TAnyObject | readonly TAnyObject[]): TAnyObject =>
   Array.isArray(value) ? Object.assign({}, ...value) : (value as TAnyObject);
 
-export const createRecipe =
-  <TVariants extends TVariantsConfig>(config: { variants: TVariants }): TRecipe<TVariants> =>
-  props => {
+export const createRecipe = <TVariants extends TVariantsConfig>(config: {
+  variants: TVariants;
+}): TRecipe<TVariants> => {
+  const fn = (props: TRecipeVariantProps<TVariants>): TRecipeResult<TVariants> => {
     const result = {} as TAnyObject;
 
     for (const dim in config.variants) {
@@ -50,3 +57,13 @@ export const createRecipe =
 
     return result as TRecipeResult<TVariants>;
   };
+
+  const keys = {} as TAnyObject;
+  for (const dim in config.variants) {
+    keys[dim] = Object.keys(config.variants[dim]);
+  }
+
+  (fn as TAnyObject).keys = keys;
+
+  return fn as TRecipe<TVariants>;
+};

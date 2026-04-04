@@ -61,3 +61,8 @@ export const iconButtonRecipe = createRecipe({
 });
 
 export type TIconButtonRecipeVariants = TRecipeVariants<typeof iconButtonRecipe>;
+export type TIconButtonVariant = NonNullable<TIconButtonRecipeVariants['variant']>;
+export type TIconButtonSize = NonNullable<TIconButtonRecipeVariants['size']>;
+
+export const ICON_BUTTON_VARIANTS = iconButtonRecipe.keys.variant;
+export const ICON_BUTTON_SIZES = iconButtonRecipe.keys.size;

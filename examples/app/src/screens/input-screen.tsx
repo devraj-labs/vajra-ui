@@ -2,10 +2,7 @@ import { ArrowLeft } from 'lucide-react-native';
 import React, { useState } from 'react';
 import { ScrollView } from 'react-native';
 
-import { AppBar, Box, Input, ScreenWrapper, Text } from 'vajra-ui';
-import type { TInputSize } from 'vajra-ui';
-
-const SIZES: TInputSize[] = ['xs', 'sm', 'md', 'lg'];
+import { AppBar, Box, Input, INPUT_SIZES, ScreenWrapper, Text } from 'vajra-ui';
 
 function Section({
   title,
@@ -83,7 +80,7 @@ export function InputScreen() {
             />
           </Section>
           <Section title="Sizes">
-            {SIZES.map(s => (
+            {INPUT_SIZES.map(s => (
               <Input.Outline key={s} size={s} placeholder={`Size: ${s}`} />
             ))}
           </Section>

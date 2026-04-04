@@ -1,10 +1,9 @@
 import React from 'react';
-import { PressableProps } from 'react-native';
 
-import { TButtonRecipeVariants } from './button-variants';
+import { TUiPressableProps } from '../../core/pressable/pressable-types';
+import { TButtonRecipeVariants, TButtonSize, TButtonVariant } from './button-variants';
 
-export type TButtonVariant = NonNullable<TButtonRecipeVariants['variant']>;
-export type TButtonSize = NonNullable<TButtonRecipeVariants['size']>;
+export type { TButtonSize, TButtonVariant };
 
 export type TButtonLoadingPosition = 'start' | 'end';
 
@@ -14,7 +13,7 @@ export type TButtonLoadingProps = {
   loader?: React.ReactNode;
 };
 
-export type TButtonProps = Omit<PressableProps, 'style'> &
+export type TButtonProps = Omit<TUiPressableProps, 'disabled'> &
   TButtonRecipeVariants & {
     label: string;
     isDisabled?: boolean;

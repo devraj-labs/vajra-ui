@@ -2,16 +2,7 @@ import { ArrowLeft } from 'lucide-react-native';
 import React, { useState } from 'react';
 import { ScrollView } from 'react-native';
 
-import { AppBar, Box, Checkbox, ScreenWrapper, Text } from 'vajra-ui';
-import { TVajraColors } from 'vajra-ui/ui/vajra-theme/colors';
-
-const COLORS: TVajraColors[] = [
-  'primary',
-  'secondary',
-  'error',
-  'success',
-  'warning',
-];
+import { AppBar, Box, Checkbox, SEMANTIC_COLORS, ScreenWrapper, Text } from 'vajra-ui';
 
 function Section({
   title,
@@ -62,7 +53,7 @@ export function CheckboxScreen() {
           </Section>
           <Section title="Color Tokens">
             <Box gap="s-4">
-              {COLORS.map(color => (
+              {SEMANTIC_COLORS.map(color => (
                 <Box key={color} gap="s-1">
                   <Text variant="label" color="textMuted">
                     {color}

@@ -67,7 +67,7 @@ export function ComponentListScreen() {
   return (
     <ScreenWrapper>
       <AppBar.Header>
-        <AppBar.Title centered>Vajra UI</AppBar.Title>
+        <AppBar.Title centered>⚡️ Vajra UI</AppBar.Title>
       </AppBar.Header>
       <ScrollView>
         <Box p="s-4" gap="s-3">

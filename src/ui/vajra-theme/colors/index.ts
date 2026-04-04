@@ -23,3 +23,7 @@ export const darkColorTokens = {
 };
 
 export type TVajraColors = keyof typeof lightColorTokens;
+
+export const SEMANTIC_COLORS = [...Object.keys(brandLight), ...Object.keys(feedbackLight)].filter(
+  k => !k.endsWith('Muted') && !k.endsWith('Subtle'),
+) as TVajraColors[];

@@ -18,7 +18,11 @@ export const buttonRecipe = createRecipe({
         label: vajraTextStyle({ color: 'text' }),
       },
       outline: {
-        container: vajraStyle({ backgroundColor: 'transparent' }),
+        container: vajraStyle({
+          backgroundColor: 'transparent',
+          borderColor: 'primary',
+          borderWidth: 1,
+        }),
         label: vajraTextStyle({ color: 'primary' }),
       },
       ghost: {
@@ -61,3 +65,8 @@ export const buttonRecipe = createRecipe({
 });
 
 export type TButtonRecipeVariants = TRecipeVariants<typeof buttonRecipe>;
+export type TButtonVariant = NonNullable<TButtonRecipeVariants['variant']>;
+export type TButtonSize = NonNullable<TButtonRecipeVariants['size']>;
+
+export const BUTTON_VARIANTS = buttonRecipe.keys.variant;
+export const BUTTON_SIZES = buttonRecipe.keys.size;

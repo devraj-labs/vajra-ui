@@ -1006,10 +1006,10 @@
   resolved "https://registry.npmjs.org/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@devraj-labs/vajra-ui-core@1.0.0":
-  version "1.0.0"
-  resolved "https://registry.npmjs.org/@devraj-labs/vajra-ui-core/-/vajra-ui-core-1.0.0.tgz"
-  integrity sha512-YldO1/d38sgiAzt4fV4CFEhEC1ZoPAVIH2sRP5sqmvG122FYhRZ51W6+ZQ5V4yeCUzP2ugV0XhvWq9Lbhg+3Pw==
+"@devraj-labs/vajra-ui-core@2.0.1":
+  version "2.0.1"
+  resolved "https://registry.npmjs.org/@devraj-labs/vajra-ui-core/-/vajra-ui-core-2.0.1.tgz"
+  integrity sha512-4RviX0v6j062m7w9jJ1d1y4jJ3W9bMNMKt/RLkGhEaO1OZ6HC3vUpG0hegkiqa8YkUHT3R8j7ngs1HV2e91KQw==
 
 "@eslint-community/eslint-utils@^4.2.0", "@eslint-community/eslint-utils@^4.9.1":
   version "4.9.1"

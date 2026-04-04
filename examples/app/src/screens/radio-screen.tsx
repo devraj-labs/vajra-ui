@@ -2,9 +2,7 @@ import { ArrowLeft } from 'lucide-react-native';
 import React, { useState } from 'react';
 import { ScrollView } from 'react-native';
 
-import { AppBar, Box, Radio, ScreenWrapper, Text, TVajraColors } from 'vajra-ui';
-
-const COLORS: TVajraColors[] = ['primary', 'secondary', 'error', 'success', 'warning'];
+import { AppBar, Box, Radio, ScreenWrapper, SEMANTIC_COLORS, Text } from 'vajra-ui';
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -49,7 +47,7 @@ export function RadioScreen() {
           </Section>
           <Section title="Color Tokens">
             <Box gap="s-4">
-              {COLORS.map(color => (
+              {SEMANTIC_COLORS.map(color => (
                 <Box key={color} gap="s-1">
                   <Text variant="label" color="textMuted">{color}</Text>
                   <Radio.Root value={colorValue} onChange={setColorValue} color={color}>

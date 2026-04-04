@@ -5,12 +5,11 @@
     "allowJs": false,
     "jsx": "react-native",
     "strict": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "esModuleInterop": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "noEmit": true,
-    "baseUrl": ".",
     "paths": {
       "@devraj-labs/vajra-ui-core": ["./node_modules/@devraj-labs/vajra-ui-core/src/index.ts"],
       "@devraj-labs/vajra-ui-core/*": ["./node_modules/@devraj-labs/vajra-ui-core/src/*"],

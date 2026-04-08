@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@devraj-labs/vajra-ui-core@2.0.1":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@devraj-labs/vajra-ui-core/-/vajra-ui-core-2.0.1.tgz#3d23daa9c2a85fd863b92c51f3b0d2443d2169f1"
-  integrity sha512-4RviX0v6j062m7w9jJ1d1y4jJ3W9bMNMKt/RLkGhEaO1OZ6HC3vUpG0hegkiqa8YkUHT3R8j7ngs1HV2e91KQw==
+"@devraj-labs/vajra-ui-core@2.1.6":
+  version "2.1.6"
+  resolved "https://registry.yarnpkg.com/@devraj-labs/vajra-ui-core/-/vajra-ui-core-2.1.6.tgz#bf0e63312d68942993c559b12d6abf0f247cbd37"
+  integrity sha512-BYvNXG/6IwkRKBwQzdp5toejE8OLW15bWshH7NtI5xb8laN/dc0uRKpbVxJref1Dq53k/ZxTzdhlrb4KOY6Mhg==
 
 "@emnapi/core@^1.4.3":
   version "1.9.0"

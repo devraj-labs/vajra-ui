@@ -4,6 +4,8 @@ import {
   BellOff,
   Eye,
   EyeOff,
+  Grid2x2,
+  List,
   Lock,
   LockOpen,
   Moon,
@@ -37,15 +39,12 @@ function Row({ label, children }: { label: string; children: React.ReactNode }) 
 }
 
 export function IconSwitchScreen() {
-  const [wifi, setWifi] = useState(true);
-  const [notify, setNotify] = useState(false);
-  const [visible, setVisible] = useState(true);
-  const [locked, setLocked] = useState(false);
+  const [wifi, setWifi] = useState(false);
+  const [notify, setNotify] = useState(true);
+  const [visible, setVisible] = useState(false);
+  const [locked, setLocked] = useState(true);
   const [dark, setDark] = useState(false);
-  const [disabled, setDisabled] = useState(true);
-  const [big, setBig] = useState(false);
-  const [small, setSmall] = useState(true);
-  const [custom, setCustom] = useState(true);
+  const [layout, setLayout] = useState(true);
 
   return (
     <ScreenWrapper>
@@ -55,86 +54,103 @@ export function IconSwitchScreen() {
       </AppBar.Header>
       <ScrollView>
         <Box flex={1} p="s-4" bg="background" gap="s-6">
-          <Section title="Default (with icons)">
+          <Section title="Default">
             <Row label="Wi-Fi">
-              <IconSwitch value={wifi} onChange={setWifi} onIcon={Wifi} offIcon={WifiOff} />
+              <IconSwitch value={wifi} onChange={setWifi} offIcon={WifiOff} onIcon={Wifi} />
             </Row>
             <Row label="Notifications">
-              <IconSwitch value={notify} onChange={setNotify} onIcon={Bell} offIcon={BellOff} />
+              <IconSwitch value={notify} onChange={setNotify} offIcon={BellOff} onIcon={Bell} />
             </Row>
             <Row label="Visibility">
-              <IconSwitch value={visible} onChange={setVisible} onIcon={Eye} offIcon={EyeOff} />
+              <IconSwitch value={visible} onChange={setVisible} offIcon={EyeOff} onIcon={Eye} />
             </Row>
             <Row label="Lock">
-              <IconSwitch value={locked} onChange={setLocked} onIcon={Lock} offIcon={LockOpen} />
+              <IconSwitch value={locked} onChange={setLocked} offIcon={LockOpen} onIcon={Lock} />
             </Row>
           </Section>
 
-          <Section title="Custom track colors">
+          <Section title="Custom colors">
             <Row label="Dark mode">
               <IconSwitch
                 value={dark}
                 onChange={setDark}
-                onIcon={Moon}
                 offIcon={Sun}
-                trackOnColor="secondary"
-                trackOffColor="warningSubtle"
-                iconOnColor="textInverse"
-                iconOffColor="warning"
+                onIcon={Moon}
+                trackBg="surfaceSunken"
+                selectorBg="primary"
+                activeIconColor="textInverse"
+                inactiveIconColor="textMuted"
               />
             </Row>
-            <Row label="Custom color">
+            <Row label="Layout">
               <IconSwitch
-                value={custom}
-                onChange={setCustom}
-                onIcon={Bell}
-                offIcon={BellOff}
-                trackOnColor="success"
-                trackOffColor="errorSubtle"
-                iconOnColor="textInverse"
-                iconOffColor="error"
+                value={layout}
+                onChange={setLayout}
+                offIcon={List}
+                onIcon={Grid2x2}
+                trackBg="primarySubtle"
+                selectorBg="primary"
+                activeIconColor="textInverse"
+                inactiveIconColor="primary"
+              />
+            </Row>
+          </Section>
+
+          <Section title="Rounded variants">
+            <Row label="r-full (pill)">
+              <IconSwitch
+                value={wifi}
+                onChange={setWifi}
+                offIcon={WifiOff}
+                onIcon={Wifi}
+                trackRounded="r-full"
+                selectorRounded="r-full"
+              />
+            </Row>
+            <Row label="r-1 (sharp)">
+              <IconSwitch
+                value={wifi}
+                onChange={setWifi}
+                offIcon={WifiOff}
+                onIcon={Wifi}
+                trackRounded="r-1"
+                selectorRounded="r-0"
               />
             </Row>
           </Section>
 
           <Section title="Sizes">
-            <Row label="Small (trackWidth=44, trackHeight=24)">
+            <Row label="Small (cellSize=32)">
               <IconSwitch
-                value={small}
-                onChange={setSmall}
-                onIcon={Wifi}
-                offIcon={WifiOff}
-                trackWidth={44}
-                trackHeight={24}
+                value={notify}
+                onChange={setNotify}
+                offIcon={BellOff}
+                onIcon={Bell}
+                cellSize={32}
+                iconSize={14}
               />
             </Row>
-            <Row label="Default (56 × 30)">
-              <IconSwitch value={wifi} onChange={setWifi} onIcon={Wifi} offIcon={WifiOff} />
+            <Row label="Default (cellSize=40)">
+              <IconSwitch value={notify} onChange={setNotify} offIcon={BellOff} onIcon={Bell} />
             </Row>
-            <Row label="Large (72 × 38)">
+            <Row label="Large (cellSize=52)">
               <IconSwitch
-                value={big}
-                onChange={setBig}
-                onIcon={Wifi}
-                offIcon={WifiOff}
-                trackWidth={72}
-                trackHeight={38}
+                value={notify}
+                onChange={setNotify}
+                offIcon={BellOff}
+                onIcon={Bell}
+                cellSize={52}
+                iconSize={24}
               />
-            </Row>
-          </Section>
-
-          <Section title="No icons">
-            <Row label="Plain (no icons)">
-              <IconSwitch value={notify} onChange={setNotify} />
             </Row>
           </Section>
 
           <Section title="Disabled">
             <Row label="Disabled (on)">
-              <IconSwitch value={disabled} onChange={setDisabled} onIcon={Lock} offIcon={LockOpen} isDisabled />
+              <IconSwitch value={true} onChange={() => {}} offIcon={LockOpen} onIcon={Lock} isDisabled />
             </Row>
             <Row label="Disabled (off)">
-              <IconSwitch value={false} onChange={() => {}} onIcon={Lock} offIcon={LockOpen} isDisabled />
+              <IconSwitch value={false} onChange={() => {}} offIcon={LockOpen} onIcon={Lock} isDisabled />
             </Row>
           </Section>
         </Box>

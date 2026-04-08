@@ -1,49 +1,38 @@
 import React, { memo, useEffect, useRef } from 'react';
-import { Animated, TouchableOpacity } from 'react-native';
+import { Animated, TouchableOpacity, View } from 'react-native';
 
 import { useVajraTheme } from '../../vajra-theme/use-vajra-theme';
 import { TIconSwitchProps } from './icon-switch-types';
 
-const THUMB_INSET = 3;
+const INSET = 3;
 
 const IconSwitchComponent: React.FC<TIconSwitchProps> = ({
   value,
   onChange,
   offIcon: OffIcon,
   onIcon: OnIcon,
-  trackOnColor = 'primary',
-  trackOffColor = 'border',
-  thumbColor = 'surface',
-  iconOnColor = 'primary',
-  iconOffColor = 'textMuted',
+  trackBg = 'surfaceRaised',
+  trackRounded = 'r-3',
+  selectorBg = 'surface',
+  selectorRounded = 'r-2',
+  activeIconColor = 'text',
+  inactiveIconColor = 'textMuted',
   isDisabled = false,
-  trackWidth = 56,
-  trackHeight = 30,
+  cellSize = 40,
+  iconSize = 18,
 }) => {
-  const { colors } = useVajraTheme();
-  const thumbSize = trackHeight - THUMB_INSET * 2;
-  const thumbOn = trackWidth - thumbSize - THUMB_INSET;
-  const thumbOff = THUMB_INSET;
-
-  const anim = useRef(new Animated.Value(value ? 1 : 0)).current;
+  const { colors, rounded: r } = useVajraTheme();
+  const selectorX = useRef(new Animated.Value(value ? cellSize : 0)).current;
 
   useEffect(() => {
-    Animated.spring(anim, {
-      toValue: value ? 1 : 0,
-      useNativeDriver: false,
+    Animated.spring(selectorX, {
+      toValue: value ? cellSize : 0,
+      useNativeDriver: true,
       bounciness: 4,
     }).start();
-  }, [value, anim]);
+  }, [value, selectorX, cellSize]);
 
-  const translateX = anim.interpolate({ inputRange: [0, 1], outputRange: [thumbOff, thumbOn] });
-  const trackBg = anim.interpolate({
-    inputRange: [0, 1],
-    outputRange: [colors[trackOffColor], colors[trackOnColor]],
-  });
-
-  const iconSize = Math.round(thumbSize * 0.55);
-  const CurrentIcon = value ? OnIcon : OffIcon;
-  const iconColor = value ? colors[iconOnColor] : colors[iconOffColor];
+  const trackSize = cellSize * 2 + INSET * 2;
 
   return (
     <TouchableOpacity
@@ -52,29 +41,63 @@ const IconSwitchComponent: React.FC<TIconSwitchProps> = ({
       disabled={isDisabled}
       style={{ opacity: isDisabled ? 0.4 : 1 }}
     >
-      <Animated.View
+      <View
         style={{
-          width: trackWidth,
-          height: trackHeight,
-          borderRadius: trackHeight / 2,
-          backgroundColor: trackBg,
-          justifyContent: 'center',
+          width: trackSize,
+          height: cellSize + INSET * 2,
+          borderRadius: r[trackRounded],
+          backgroundColor: colors[trackBg],
+          padding: INSET,
+          flexDirection: 'row',
+          position: 'relative',
         }}
       >
+        {/* Sliding selector box */}
         <Animated.View
           style={{
-            width: thumbSize,
-            height: thumbSize,
-            borderRadius: thumbSize / 2,
-            backgroundColor: colors[thumbColor],
-            transform: [{ translateX }],
+            position: 'absolute',
+            top: INSET,
+            left: INSET,
+            width: cellSize,
+            height: cellSize,
+            borderRadius: r[selectorRounded],
+            backgroundColor: colors[selectorBg],
+            transform: [{ translateX: selectorX }],
+          }}
+        />
+
+        {/* Off icon cell */}
+        <View
+          style={{
+            width: cellSize,
+            height: cellSize,
             alignItems: 'center',
             justifyContent: 'center',
+            zIndex: 1,
           }}
         >
-          {CurrentIcon && <CurrentIcon size={iconSize} color={iconColor} />}
-        </Animated.View>
-      </Animated.View>
+          <OffIcon
+            size={iconSize}
+            color={!value ? colors[activeIconColor] : colors[inactiveIconColor]}
+          />
+        </View>
+
+        {/* On icon cell */}
+        <View
+          style={{
+            width: cellSize,
+            height: cellSize,
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 1,
+          }}
+        >
+          <OnIcon
+            size={iconSize}
+            color={value ? colors[activeIconColor] : colors[inactiveIconColor]}
+          />
+        </View>
+      </View>
     </TouchableOpacity>
   );
 };

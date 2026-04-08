@@ -7,11 +7,13 @@ import { VajraProvider } from 'vajra-ui';
 
 import { theme } from '../theme';
 import { AppBarScreen } from '../screens/app-bar-screen';
+import { BadgeScreen } from '../screens/badge-screen';
 import { ButtonScreen } from '../screens/button-screen';
 import { CardScreen } from '../screens/card-screen';
 import { CheckboxScreen } from '../screens/checkbox-screen';
 import { ComponentListScreen } from '../screens/component-list-screen';
 import { IconButtonScreen } from '../screens/icon-button-screen';
+import { IconBoxScreen } from '../screens/icon-box-screen';
 import { InputScreen } from '../screens/input-screen';
 import { RadioScreen } from '../screens/radio-screen';
 import { SwitchScreen } from '../screens/switch-screen';
@@ -31,10 +33,12 @@ function NavigatorWithProvider() {
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="ComponentList" component={ComponentListScreen} />
         <Stack.Screen name="AppBarScreen" component={AppBarScreen} />
+        <Stack.Screen name="BadgeScreen" component={BadgeScreen} />
         <Stack.Screen name="ButtonScreen" component={ButtonScreen} />
         <Stack.Screen name="CardScreen" component={CardScreen} />
         <Stack.Screen name="CheckboxScreen" component={CheckboxScreen} />
         <Stack.Screen name="IconButtonScreen" component={IconButtonScreen} />
+        <Stack.Screen name="IconBoxScreen" component={IconBoxScreen} />
         <Stack.Screen name="InputScreen" component={InputScreen} />
         <Stack.Screen name="RadioScreen" component={RadioScreen} />
         <Stack.Screen name="SwitchScreen" component={SwitchScreen} />

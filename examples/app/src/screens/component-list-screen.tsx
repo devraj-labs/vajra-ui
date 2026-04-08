@@ -20,6 +20,11 @@ const COMPONENTS: TComponentEntry[] = [
     screen: 'AppBarScreen',
   },
   {
+    label: 'Badge',
+    description: 'Pill labels with color, radius & padding',
+    screen: 'BadgeScreen',
+  },
+  {
     label: 'Button',
     description: 'Variants, sizes & palettes',
     screen: 'ButtonScreen',
@@ -38,6 +43,11 @@ const COMPONENTS: TComponentEntry[] = [
     label: 'Icon Button',
     description: 'Icon-only button variants',
     screen: 'IconButtonScreen',
+  },
+  {
+    label: 'Icon Box',
+    description: 'Icon wrapper with color & background tokens',
+    screen: 'IconBoxScreen',
   },
   {
     label: 'Input',

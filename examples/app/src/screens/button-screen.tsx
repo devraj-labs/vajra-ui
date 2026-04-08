@@ -76,6 +76,11 @@ export function ButtonScreen() {
               />
             ))}
           </Section>
+          <Section title="Pill">
+            {BUTTON_VARIANTS.map(v => (
+              <Button key={v} variant={v} label={v} isPill />
+            ))}
+          </Section>
         </Box>
       </ScrollView>
     </ScreenWrapper>

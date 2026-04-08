@@ -18,5 +18,6 @@ export type TButtonProps = Omit<TUiPressableProps, 'disabled'> &
     label: string;
     isDisabled?: boolean;
     isLoading?: boolean;
+    isPill?: boolean;
     loading?: TButtonLoadingProps;
   };

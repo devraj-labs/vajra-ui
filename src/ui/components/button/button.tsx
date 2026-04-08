@@ -12,6 +12,7 @@ const ButtonComponent: React.FC<TButtonProps> = ({
   label,
   isDisabled = false,
   isLoading = false,
+  isPill = false,
   loading,
   ...rest
 }) => {
@@ -33,8 +34,8 @@ const ButtonComponent: React.FC<TButtonProps> = ({
       borderWidth={container.borderWidth}
       px={container.px}
       py={container.py}
-      rounded={container.rounded}
-      style={isDisabled ? { opacity: 0 } : undefined}
+      rounded={isPill ? 'r-full' : container.rounded}
+      style={isDisabled ? { opacity: 0.6 } : undefined}
       align="center"
       justify="center"
       direction="row"

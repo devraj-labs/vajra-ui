@@ -14,7 +14,9 @@ import { CheckboxScreen } from '../screens/checkbox-screen';
 import { ComponentListScreen } from '../screens/component-list-screen';
 import { IconButtonScreen } from '../screens/icon-button-screen';
 import { IconBoxScreen } from '../screens/icon-box-screen';
+import { IconSwitchScreen } from '../screens/icon-switch-screen';
 import { InputScreen } from '../screens/input-screen';
+import { TabBarScreen } from '../screens/tab-bar-screen';
 import { RadioScreen } from '../screens/radio-screen';
 import { SwitchScreen } from '../screens/switch-screen';
 import { TextScreen } from '../screens/text-screen';
@@ -39,7 +41,9 @@ function NavigatorWithProvider() {
         <Stack.Screen name="CheckboxScreen" component={CheckboxScreen} />
         <Stack.Screen name="IconButtonScreen" component={IconButtonScreen} />
         <Stack.Screen name="IconBoxScreen" component={IconBoxScreen} />
+        <Stack.Screen name="IconSwitchScreen" component={IconSwitchScreen} />
         <Stack.Screen name="InputScreen" component={InputScreen} />
+        <Stack.Screen name="TabBarScreen" component={TabBarScreen} />
         <Stack.Screen name="RadioScreen" component={RadioScreen} />
         <Stack.Screen name="SwitchScreen" component={SwitchScreen} />
         <Stack.Screen name="TextScreen" component={TextScreen} />

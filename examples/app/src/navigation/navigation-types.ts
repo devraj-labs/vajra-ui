@@ -9,7 +9,9 @@ export type TAppStackParamList = {
   CheckboxScreen: undefined;
   IconButtonScreen: undefined;
   IconBoxScreen: undefined;
+  IconSwitchScreen: undefined;
   InputScreen: undefined;
+  TabBarScreen: undefined;
   RadioScreen: undefined;
   SwitchScreen: undefined;
   TextScreen: undefined;

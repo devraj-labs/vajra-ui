@@ -50,6 +50,11 @@ const COMPONENTS: TComponentEntry[] = [
     screen: 'IconBoxScreen',
   },
   {
+    label: 'Icon Switch',
+    description: 'Toggle switch with sliding icon thumb',
+    screen: 'IconSwitchScreen',
+  },
+  {
     label: 'Input',
     description: 'Outline, filled, flushed & floating',
     screen: 'InputScreen',
@@ -63,6 +68,11 @@ const COMPONENTS: TComponentEntry[] = [
     label: 'Switch',
     description: 'Toggle with animation & color tokens',
     screen: 'SwitchScreen',
+  },
+  {
+    label: 'Tab Bar',
+    description: 'Horizontal tabs with animated sliding indicator',
+    screen: 'TabBarScreen',
   },
   {
     label: 'Text',

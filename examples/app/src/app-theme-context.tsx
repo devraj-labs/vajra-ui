@@ -13,7 +13,7 @@ type TAppThemeContext = {
 const AppThemeContext = createContext<TAppThemeContext | null>(null);
 
 export function AppThemeProvider({ children }: { children: React.ReactNode }) {
-  const [preset, setPresetState] = useState<TThemePreset>('default');
+  const [preset, setPresetState] = useState<TThemePreset>('teal');
   const [colorScheme, setColorSchemeState] = useState<TColorScheme>('light');
 
   const setPreset = useCallback((p: TThemePreset) => setPresetState(p), []);

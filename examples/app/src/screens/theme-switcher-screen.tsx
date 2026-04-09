@@ -21,7 +21,7 @@ import {
   TThemePreset,
 } from '../theme-presets';
 
-const PRESETS: TThemePreset[] = ['default', 'purple', 'orange'];
+const PRESETS: TThemePreset[] = ['teal', 'purple', 'orange', 'blue', 'pink', 'gold', 'crimson', 'cosmic'];
 
 function Section({
   title,

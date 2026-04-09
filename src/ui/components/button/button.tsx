@@ -24,7 +24,7 @@ const ButtonComponent: React.FC<TButtonProps> = ({
   const isInteractionDisabled = isDisabled || isLoading;
   const displayLabel = isLoading && loading?.label ? loading.label : label;
 
-  const spinner = loading?.loader ?? <Spinner size={s.spinner.size} color={labelStyle.color} />;
+  const spinner = loading?.loader ?? <Spinner color={labelStyle.color} />;
 
   return (
     <Pressable

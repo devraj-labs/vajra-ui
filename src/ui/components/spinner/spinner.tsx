@@ -3,16 +3,11 @@ import { ActivityIndicator } from 'react-native';
 
 import { useVajraTheme } from '../../vajra-theme/use-vajra-theme';
 import { TSpinnerProps } from './spinner-types';
-import { spinnerRecipe } from './spinner-variants';
 
-const SpinnerComponent: React.FC<TSpinnerProps> = ({ size = 'md', color = 'primary' }) => {
+const SpinnerComponent: React.FC<TSpinnerProps> = ({ color = 'primary' }) => {
   const { colors } = useVajraTheme();
-  const { size: s } = spinnerRecipe({ size });
-  const scale = s.root.size / 24;
 
-  return (
-    <ActivityIndicator size="large" color={colors[color]} style={{ transform: [{ scale }] }} />
-  );
+  return <ActivityIndicator size="small" color={colors[color]} />;
 };
 
 export const Spinner = memo(SpinnerComponent);

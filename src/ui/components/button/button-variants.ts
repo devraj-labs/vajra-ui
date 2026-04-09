@@ -1,6 +1,5 @@
 import { createRecipe, TRecipeVariants } from '../../utils/create-recipe';
 import { vajraStyle, vajraTextStyle } from '../../vajra-theme/vajra-style';
-import { TSpinnerSize } from '../spinner/spinner-types';
 
 export const buttonRecipe = createRecipe({
   variants: {
@@ -38,27 +37,22 @@ export const buttonRecipe = createRecipe({
       xs: {
         container: vajraStyle({ px: 's-2', py: 's-1', rounded: 'r-1' }),
         label: vajraTextStyle({ fontVariant: 'label' }),
-        spinner: { size: 'xs' as TSpinnerSize },
       },
       sm: {
         container: vajraStyle({ px: 's-3', py: 's-2', rounded: 'r-1' }),
         label: vajraTextStyle({ fontVariant: 'label' }),
-        spinner: { size: 'sm' as TSpinnerSize },
       },
       md: {
         container: vajraStyle({ px: 's-4', py: 's-3', rounded: 'r-2' }),
         label: vajraTextStyle({ fontVariant: 'button' }),
-        spinner: { size: 'md' as TSpinnerSize },
       },
       lg: {
         container: vajraStyle({ px: 's-5', py: 's-3', rounded: 'r-2' }),
         label: vajraTextStyle({ fontVariant: 'button' }),
-        spinner: { size: 'lg' as TSpinnerSize },
       },
       xl: {
         container: vajraStyle({ px: 's-6', py: 's-4', rounded: 'r-3' }),
         label: vajraTextStyle({ fontVariant: 'button' }),
-        spinner: { size: 'xl' as TSpinnerSize },
       },
     },
   },

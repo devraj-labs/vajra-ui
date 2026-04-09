@@ -8,11 +8,11 @@ import { TScreenWrapperProps } from './screen-wrapper-types';
 import { useScreenWrapper } from './use-screen-wrapper';
 
 export const ScreenWrapper = memo<TScreenWrapperProps>(({ loader, children, ...boxProps }) => {
-  const { isLoading = false, loader: customLoader, size = 'lg', loaderText } = loader ?? {};
+  const { isLoading = false, loader: customLoader = 'lg', loaderText } = loader ?? {};
   const { opacity, visible } = useScreenWrapper(isLoading);
 
   return (
-    <Box flex={1} {...boxProps}>
+    <Box flex={1} {...boxProps} bg="background">
       {children}
       {visible && (
         <Animated.View
@@ -26,7 +26,7 @@ export const ScreenWrapper = memo<TScreenWrapperProps>(({ loader, children, ...b
           }}
         >
           <Col flex={1} align="center" justify="center">
-            {customLoader ?? <Spinner size={size} />}
+            {customLoader ?? <Spinner />}
             {loaderText}
           </Col>
         </Animated.View>

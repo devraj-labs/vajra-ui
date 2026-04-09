@@ -9,7 +9,7 @@ import { useSafeAreaScreenWrapper } from './use-safe-area-screen-wrapper';
 
 export const SafeAreaScreenWrapper = memo<TSafeAreaScreenWrapperProps>(
   ({ style, edges = ['top', 'bottom'], loader, children }) => {
-    const { isLoading = false, loader: customLoader, size = 'lg', loaderText } = loader ?? {};
+    const { isLoading = false, loader: customLoader, loaderText } = loader ?? {};
     const { opacity, visible } = useSafeAreaScreenWrapper(isLoading);
 
     return (
@@ -23,7 +23,7 @@ export const SafeAreaScreenWrapper = memo<TSafeAreaScreenWrapperProps>(
             }}
           >
             <Col flex={1} align="center" justify="center">
-              {customLoader ?? <Spinner size={size} />}
+              {customLoader ?? <Spinner />}
               {loaderText}
             </Col>
           </Animated.View>

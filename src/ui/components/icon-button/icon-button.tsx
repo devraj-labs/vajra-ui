@@ -24,7 +24,7 @@ const IconButtonComponent: React.FC<TIconButtonProps> = ({
 
   const isInteractionDisabled = isDisabled || isLoading;
 
-  const spinner = loading?.loader ?? <Spinner size={s.spinner.size} color={label.color} />;
+  const spinner = loading?.loader ?? <Spinner color={label.color} />;
 
   return (
     <Pressable

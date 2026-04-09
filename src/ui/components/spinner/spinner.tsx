@@ -8,8 +8,11 @@ import { spinnerRecipe } from './spinner-variants';
 const SpinnerComponent: React.FC<TSpinnerProps> = ({ size = 'md', color = 'primary' }) => {
   const { colors } = useVajraTheme();
   const { size: s } = spinnerRecipe({ size });
+  const scale = s.root.size / 24;
 
-  return <ActivityIndicator size={s.root.size} color={colors[color]} />;
+  return (
+    <ActivityIndicator size="large" color={colors[color]} style={{ transform: [{ scale }] }} />
+  );
 };
 
 export const Spinner = memo(SpinnerComponent);

@@ -1,8 +1,27 @@
-# Vajra UI
+<div align="center">
 
-A minimal React Native UI component library with a **bring your own tokens** model.
+<h1>Devraj Labs · Vajra UI ⚡️</h1>
 
-Use the built-in Vajra theme and get going in seconds — or plug in your own token shape and stay in full control. Zero design opinions forced on you.
+<p><strong>A minimal, token-driven React Native component library.</strong></p>
+
+<p>Bring your own brand. Override what you need. Build the rest on top.</p>
+
+[![npm version](https://img.shields.io/npm/v/@devraj-labs/vajra-ui)](https://www.npmjs.com/package/@devraj-labs/vajra-ui)
+[![license](https://img.shields.io/npm/l/@devraj-labs/vajra-ui)](./LICENSE)
+[![platform](https://img.shields.io/badge/platform-iOS%20%7C%20Android-lightgrey)](https://reactnative.dev)
+
+
+</div>
+
+---
+
+## Why Vajra UI
+
+- **Token-first** — every prop (`bg`, `p`, `rounded`, `color`) maps to a design token, never a raw value
+- **Themeable** — override colors, spacing, and border radii via `createVajraTheme`; switch themes at runtime
+- **Typed end to end** — tokens are typed unions, no magic strings slip through
+- **Headless core** — unstyled primitives in `@devraj-labs/vajra-ui-core` if you want full control
+- **Zero opinions on navigation** — works with any navigation library
 
 ---
 
@@ -10,157 +29,211 @@ Use the built-in Vajra theme and get going in seconds — or plug in your own to
 
 | Package | Description |
 |---------|-------------|
-| [`@devraj-labs/vajra-ui-core`](https://github.com/devraj-labs/vajra-ui-core) | Headless, unstyled primitives. No theme, no tokens. |
-| `@devraj-labs/vajra-ui` *(this)* | Token-aware components + optional Vajra theme. |
+| `@devraj-labs/vajra-ui` | Token-aware components + Vajra theme system |
+| `@devraj-labs/vajra-ui-core` | Headless, unstyled primitives — no theme, no tokens |
 
 ---
 
 ## Installation
 
 ```sh
-npm install @devraj-labs/vajra-ui @devraj-labs/vajra-ui-core
+npm install @devraj-labs/vajra-ui
+# or
+yarn add @devraj-labs/vajra-ui
+```
+
+**Peer dependencies**
+
+```sh
+npm install react react-native react-native-safe-area-context
 ```
 
 ---
 
-## Two ways to use it
+## Quick Start
 
-### Option 1 — Vajra theme (zero config)
-
-Use the built-in light/dark theme. Wrap your app with `VajraProvider` and start building.
+### 1. Wrap your app
 
 ```tsx
-import { VajraProvider, Button, Input } from '@devraj-labs/vajra-ui';
+import { VajraProvider } from '@devraj-labs/vajra-ui';
 
 export default function App() {
   return (
     <VajraProvider colorScheme="light">
-      <App />
+      <YourApp />
     </VajraProvider>
   );
 }
 ```
 
-Access tokens anywhere via `useVajraTheme`:
+### 2. Build with token props
 
 ```tsx
-import { useVajraTheme, Box, Text } from '@devraj-labs/vajra-ui';
+import { Box, Text, Button, Badge } from '@devraj-labs/vajra-ui';
 
-const Banner = () => {
-  const theme = useVajraTheme();
-
+export function MyScreen() {
   return (
-    <Box bg="primary" p="s-4" rounded="r-2">
-      <Text variant="body" color="textInverse">Hello</Text>
+    <Box p="s-4" gap="s-3">
+      <Text variant="subheading">Hello</Text>
+      <Badge label="New" bg="primary" />
+      <Button label="Get started" onPress={() => {}} />
     </Box>
   );
-};
+}
 ```
 
-Override specific tokens:
+### 3. Access tokens in your own components
 
 ```tsx
-import { VajraProvider, defaultVajraTheme } from '@devraj-labs/vajra-ui';
+import { useVajraTheme } from '@devraj-labs/vajra-ui';
+import { View } from 'react-native';
 
-const myTheme = {
-  ...defaultVajraTheme.light,
-  colors: { ...defaultVajraTheme.light.colors, primary: '#ff6b00' },
-};
+export function MyCard() {
+  const { colors, spacing, rounded } = useVajraTheme();
 
-<VajraProvider theme={myTheme}>
-  <App />
-</VajraProvider>
+  return (
+    <View
+      style={{
+        backgroundColor: colors.surface,
+        padding: spacing['s-4'],
+        borderRadius: rounded['r-3'],
+      }}
+    />
+  );
+}
 ```
 
 ---
 
-### Option 2 — Bring your own tokens
+## Theming
 
-Define any token shape you want. Use `ThemeProvider` directly.
+### Custom fonts
 
 ```ts
 // theme.ts
-import { useTheme } from '@devraj-labs/vajra-ui';
+import { createVajraTheme } from '@devraj-labs/vajra-ui';
+import { myFonts } from './fonts';
 
-export const theme = {
+export const theme = createVajraTheme({ fonts: myFonts });
+```
+
+```tsx
+<VajraProvider theme={theme}>
+  <YourApp />
+</VajraProvider>
+```
+
+Get font autocomplete on `<Text font="..." />` by augmenting the module:
+
+```ts
+export type TAppFonts = keyof typeof myFonts;
+
+declare module '@devraj-labs/vajra-ui' {
+  interface IVajraFonts extends Record<TAppFonts, true> {}
+}
+```
+
+### Override brand colors
+
+Pass a partial `colors` map — only the keys you provide are overridden, the rest stay as defaults.
+
+```ts
+export const theme = createVajraTheme({
+  fonts: myFonts,
+  colorScheme: 'light',
   colors: {
-    background: '#eeecee',
-    surface: '#ffffff',
-    text: '#0d0d0d',
-    textMuted: '#838383',
-    primary: '#ff6b00',
-    border: '#e0e0e0',
+    primary: '#8B5CF6',
+    primaryMuted: '#9D68F0',
+    primarySubtle: '#F5F3FF',
+    borderFocus: '#9D68F0',
   },
-  spacing: { none: 0, xs: 4, sm: 8, md: 16, lg: 24, xl: 32 },
-  rounded: { none: 0, sm: 4, md: 8, lg: 16, full: 9999 },
-  typography: {
-    xs: { fontSize: 11, lineHeight: 16, fontWeight: '400' as const },
-    sm: { fontSize: 13, lineHeight: 18, fontWeight: '400' as const },
-    md: { fontSize: 15, lineHeight: 22, fontWeight: '400' as const },
-    lg: { fontSize: 18, lineHeight: 26, fontWeight: '500' as const },
-  },
-};
-
-export type TAppTheme = typeof theme;
-export const useAppTheme = () => useTheme<TAppTheme>();
+});
 ```
 
-```tsx
-// App.tsx
-import { ThemeProvider } from '@devraj-labs/vajra-ui';
-import { theme } from './theme';
+### Override spacing and border radii
 
-<ThemeProvider theme={theme}>
-  <App />
-</ThemeProvider>
+```ts
+export const theme = createVajraTheme({
+  fonts: myFonts,
+  spacing: { 's-4': 20 },   // bump base padding
+  rounded: { 'r-2': 10 },   // slightly rounder cards
+});
 ```
 
-```tsx
-// MyComponent.tsx
-import { useAppTheme } from './theme';
-import { Box, Text } from '@devraj-labs/vajra-ui-core';
+### Runtime theme switching
 
-const Banner = () => {
-  const theme = useAppTheme();
+Hold `preset` and `colorScheme` in state, rebuild the theme on change, pass it to `VajraProvider`:
+
+```tsx
+function AppWithTheme() {
+  const [colorScheme, setColorScheme] = useState<'light' | 'dark'>('light');
+
+  const theme = createVajraTheme({ fonts: myFonts, colorScheme });
 
   return (
-    <Box style={{ backgroundColor: theme.colors.primary, padding: theme.spacing.md }}>
-      <Text style={{ color: theme.colors.surface, fontSize: theme.typography.md.fontSize }}>
-        Hello
-      </Text>
-    </Box>
+    <VajraProvider theme={theme}>
+      <YourApp />
+    </VajraProvider>
   );
-};
+}
 ```
 
-> See the [example app](./examples/) for a full working setup with custom tokens.
+### Adding your own tokens
+
+Consumer apps often need extra tokens for their own components. Augment `IVajraCustomColors` — your tokens will be typed through `useVajraTheme()` alongside ours.
+
+```ts
+// theme.ts
+declare module '@devraj-labs/vajra-ui' {
+  interface IVajraCustomColors {
+    surfaceAccent: string;
+    brandGold: string;
+  }
+}
+
+export const theme = createVajraTheme({
+  fonts: myFonts,
+  colors: {
+    surfaceAccent: '#F0E6FF',
+    brandGold: '#D4A017',
+  },
+});
+```
+
+```tsx
+// YourComponent.tsx
+const { colors } = useVajraTheme();
+colors.surfaceAccent // ✅ typed, autocompletes
+colors.brandGold     // ✅ typed, autocompletes
+```
+
+> Our components only use our tokens — nothing breaks. Your components get the extra tokens through the same hook.
+
+For the full theming guide including runtime switching, spacing/radius overrides, and custom fonts — see [docs/theming.md](./docs/theming.md).
 
 ---
 
-## Vajra Theme Tokens
+## Design Tokens
 
-### Colors — `TColorToken`
+### Colors
 
 | Token | Description |
 |-------|-------------|
-| `primary` | Brand primary |
-| `primaryMuted` | Softer primary |
-| `primarySubtle` | Background tint |
-| `secondary` | Brand secondary |
-| `text` | Default text |
-| `textMuted` | Subdued text |
-| `textInverse` | Text on dark backgrounds |
-| `surface` | Card / sheet background |
+| `primary` / `primaryMuted` / `primarySubtle` | Brand primary scale |
+| `secondary` / `secondaryMuted` / `secondarySubtle` | Brand secondary scale |
+| `text` / `textMuted` / `textInverse` / `textDisabled` | Text scale |
 | `background` | Screen background |
-| `border` | Dividers and outlines |
-| `error` | Error state |
-| `success` | Success state |
-| `warning` | Warning state |
+| `surfaceSunken` / `surface` / `surfaceRaised` / `surfaceOverlay` | Surface scale |
+| `border` / `borderStrong` / `borderFocus` | Border scale |
+| `error` / `errorMuted` / `errorSubtle` | Error feedback |
+| `success` / `successMuted` / `successSubtle` | Success feedback |
+| `warning` / `warningMuted` / `warningSubtle` | Warning feedback |
+| `info` / `infoMuted` / `infoSubtle` | Info feedback |
 
-### Spacing — `TSpacingToken`
+### Spacing
 
-| Token | Value |
-|-------|-------|
+| Token | Value (px) |
+|-------|-----------|
 | `s-0` | 0 |
 | `s-1` | 4 |
 | `s-2` | 8 |
@@ -173,10 +246,10 @@ const Banner = () => {
 | `s-12` | 48 |
 | `s-16` | 64 |
 
-### Rounded — `TRoundedToken`
+### Border Radius
 
-| Token | Value |
-|-------|-------|
+| Token | Value (px) |
+|-------|-----------|
 | `r-0` | 0 |
 | `r-1` | 4 |
 | `r-2` | 8 |
@@ -185,104 +258,43 @@ const Banner = () => {
 | `r-6` | 24 |
 | `r-full` | 9999 |
 
-### Typography — `TFontVariant`
+### Typography
 
 | Variant | Use |
 |---------|-----|
-| `label` | Small UI labels |
-| `caption` | Helper text, timestamps |
-| `bodySmall` | Secondary body copy |
-| `body` | Default body |
-| `bodyMedium` | Emphasized body |
+| `display` | Hero text |
+| `h1` / `h2` / `h3` | Page and section headings |
+| `subheading` | Section labels |
+| `body` / `bodyMedium` / `bodySmall` | Body copy |
 | `button` | Button labels |
-| `subheading` | Section headers |
-| `heading` | Page titles |
+| `label` / `labelMedium` | UI labels |
+| `caption` | Helper text, timestamps |
 
 ---
 
-## Components
+## Architecture
 
-### Box
+```
+@devraj-labs/vajra-ui
+├── core/           Token-aware wrappers (Box, Text, Pressable...)
+├── components/     Opinionated components (Button, Badge, TabBar...)
+├── vajra-theme/    Default tokens, VajraProvider, useVajraTheme
+└── theme/          Generic ThemeProvider + useTheme (no vajra tokens)
 
-```tsx
-<Box bg="surface" p="s-4" rounded="r-2" borderColor="border" borderWidth={1} />
+@devraj-labs/vajra-ui-core
+└── Headless primitives — no theme dependency
 ```
 
-### Row / Col
+**Layer rule:** `core` imports from `vajra-ui-core`. `components` imports from `core`. Nothing imports across layers.
 
-```tsx
-<Row gap="s-2" align="center">
-  <Col flex={1}>...</Col>
-  <Col flex={1}>...</Col>
-</Row>
-```
+---
 
-### Text
+## Contributing
 
-```tsx
-<Text variant="heading" color="text">Title</Text>
-<Text variant="body" color="textMuted">Subtitle</Text>
-```
-
-### Button
-
-```tsx
-<Button label="Submit" />
-<Button label="Delete" variant="outline" colorPalette="error" />
-<Button label="Save" size="sm" isLoading />
-<Button label="Off" isDisabled />
-```
-
-### Input
-
-```tsx
-<Input placeholder="Email" label="Email" size="md" />
-<Input isInvalid errorText="This field is required" />
-<Input isDisabled helperText="Cannot edit right now" />
-```
-
-### Checkbox
-
-```tsx
-<Checkbox>
-  <Checkbox.Item value="a" label="Option A" />
-  <Checkbox.Item value="b" label="Option B" />
-</Checkbox>
-```
-
-### Radio
-
-```tsx
-<Radio>
-  <Radio.Item value="a" label="Option A" />
-  <Radio.Item value="b" label="Option B" />
-</Radio>
-```
-
-### Switch
-
-```tsx
-<Switch>
-  <Switch.Item value="notifications" label="Notifications" />
-</Switch>
-```
-
-### Card
-
-```tsx
-<Card>
-  <Text variant="body">Content goes here</Text>
-</Card>
-```
-
-### Icon Button
-
-```tsx
-<IconButton icon={<MyIcon />} onPress={handlePress} />
-```
+See [CODING_GUIDELINES.md](./CODING_GUIDELINES.md) for naming conventions, folder structure, and component patterns.
 
 ---
 
 ## License
 
-MIT
+MIT © [Devraj Labs](https://github.com/devraj-labs)

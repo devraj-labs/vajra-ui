@@ -127,15 +127,10 @@ useButton.ts            wrong
 import React, { memo } from 'react';
 import { TFoobarProps } from './foobar-types';
 
-const FoobarComponent: React.FC<TFoobarProps> = ({ ... }) => {
-  return ( ... );
-};
-
-export const Foobar = memo(FoobarComponent);
+export const Foobar = memo<TFoobarProps>(({ ... }) => { return ( ... ); });
 ```
 
-- Internal implementation uses `FoobarComponent`
-- The memoised version is the named export: `Foobar`
+- Component and memo export are written as a single inline declaration
 - Props type lives in `foobar-types.ts`
 
 ---

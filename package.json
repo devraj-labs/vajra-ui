@@ -27,7 +27,8 @@
     "build": "tsc --project tsconfig.build.json",
     "lint": "eslint src --ext .ts,.tsx",
     "format": "prettier --write 'src/**/*.{ts,tsx}'",
-    "prepare": "husky"
+    "prepare": "husky",
+    "release": "npm run build && npm publish --access public"
   },
   "keywords": [
     "react-native",

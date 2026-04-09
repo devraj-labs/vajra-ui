@@ -1,3 +1,4 @@
+import { Palette } from 'lucide-react-native';
 import React from 'react';
 import { ScrollView } from 'react-native';
 
@@ -66,6 +67,7 @@ export function ComponentListScreen() {
     <ScreenWrapper bg='background'>
       <AppBar.Header>
         <AppBar.Title centered>⚡️ Vajra UI</AppBar.Title>
+        <AppBar.IconButton icon={Palette} onPress={() => navigation.navigate('ThemeSwitcher')} />
       </AppBar.Header>
       <ScrollView>
         <Box p="s-4" gap="s-3">

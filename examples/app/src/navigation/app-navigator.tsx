@@ -5,7 +5,7 @@ import { enableScreens } from 'react-native-screens';
 
 import { VajraProvider } from 'vajra-ui';
 
-import { theme } from '../theme';
+import { useAppTheme } from '../app-theme-context';
 import { AppBarScreen } from '../screens/app-bar-screen';
 import { BadgeScreen } from '../screens/badge-screen';
 import { ButtonScreen } from '../screens/button-screen';
@@ -21,6 +21,7 @@ import { RadioScreen } from '../screens/radio-screen';
 import { SpinnerScreen } from '../screens/spinner-screen';
 import { SwitchScreen } from '../screens/switch-screen';
 import { TextScreen } from '../screens/text-screen';
+import { ThemeSwitcherScreen } from '../screens/theme-switcher-screen';
 import { TAppStackParamList } from './navigation-types';
 import { useAppNavigation } from './use-app-navigation';
 
@@ -30,11 +31,13 @@ const Stack = createNativeStackNavigator<TAppStackParamList>();
 
 function NavigatorWithProvider() {
   const navigation = useAppNavigation();
+  const { theme } = useAppTheme();
 
   return (
     <VajraProvider theme={theme} defaultBackBehaviour={() => navigation.goBack()}>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="ComponentList" component={ComponentListScreen} />
+        <Stack.Screen name="ThemeSwitcher" component={ThemeSwitcherScreen} />
         <Stack.Screen name="AppBarScreen" component={AppBarScreen} />
         <Stack.Screen name="BadgeScreen" component={BadgeScreen} />
         <Stack.Screen name="ButtonScreen" component={ButtonScreen} />

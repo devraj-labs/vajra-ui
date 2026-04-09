@@ -1,5 +1,6 @@
 export type TAppStackParamList = {
   ComponentList: undefined;
+  ThemeSwitcher: undefined;
 
   // Component screens
   AppBarScreen: undefined;

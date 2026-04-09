@@ -11,6 +11,11 @@
 [![platform](https://img.shields.io/badge/platform-iOS%20%7C%20Android-lightgrey)](https://reactnative.dev)
 
 
+
+
+> **⚠️ Work in Progress — First release coming June 2026**
+> This library is under active development. APIs are still evolving hold off on using it in production until the v1 release.
+
 </div>
 
 ---

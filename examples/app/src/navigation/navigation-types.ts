@@ -13,6 +13,7 @@ export type TAppStackParamList = {
   InputScreen: undefined;
   TabBarScreen: undefined;
   RadioScreen: undefined;
+  SpinnerScreen: undefined;
   SwitchScreen: undefined;
   TextScreen: undefined;
 };

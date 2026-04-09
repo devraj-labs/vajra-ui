@@ -18,6 +18,7 @@ import { IconSwitchScreen } from '../screens/icon-switch-screen';
 import { InputScreen } from '../screens/input-screen';
 import { TabBarScreen } from '../screens/tab-bar-screen';
 import { RadioScreen } from '../screens/radio-screen';
+import { SpinnerScreen } from '../screens/spinner-screen';
 import { SwitchScreen } from '../screens/switch-screen';
 import { TextScreen } from '../screens/text-screen';
 import { TAppStackParamList } from './navigation-types';
@@ -45,6 +46,7 @@ function NavigatorWithProvider() {
         <Stack.Screen name="InputScreen" component={InputScreen} />
         <Stack.Screen name="TabBarScreen" component={TabBarScreen} />
         <Stack.Screen name="RadioScreen" component={RadioScreen} />
+        <Stack.Screen name="SpinnerScreen" component={SpinnerScreen} />
         <Stack.Screen name="SwitchScreen" component={SwitchScreen} />
         <Stack.Screen name="TextScreen" component={TextScreen} />
       </Stack.Navigator>

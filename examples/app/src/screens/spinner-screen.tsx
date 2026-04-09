@@ -22,16 +22,6 @@ export function SpinnerScreen() {
       </AppBar.Header>
       <ScrollView>
         <Box flex={1} p="s-4" bg="background" gap="s-6">
-          <Section title="Sizes">
-            <Box direction="row" align="center" gap="s-4">
-              <Spinner size="xs" />
-              <Spinner size="sm" />
-              <Spinner size="md" />
-              <Spinner size="lg" />
-              <Spinner size="xl" />
-            </Box>
-          </Section>
-
           <Section title="Colors">
             <Box direction="row" align="center" gap="s-4">
               <Spinner color="primary" />

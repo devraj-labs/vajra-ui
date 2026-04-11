@@ -2,8 +2,6 @@ import React, { memo } from 'react';
 
 import { CoreText } from '@devraj-labs/vajra-ui-core';
 import { useVajraTheme } from '../../vajra-theme/use-vajra-theme';
-import { fontSizeTokens } from '../../vajra-theme/tokens/font-tokens/font-size-tokens';
-import { lineHeightTokens } from '../../vajra-theme/tokens/font-tokens/line-height-tokens';
 import { resolveSpacing } from '../../utils/spacing-props';
 import { TTextProps } from './text-types';
 
@@ -44,8 +42,8 @@ export const Text = memo(
 
     return (
       <CoreText
-        fontSize={fontSize != null ? fontSizeTokens[fontSize] : fontVariantStyle.fontSize}
-        lineHeight={fontSize != null ? lineHeightTokens[fontSize] : fontVariantStyle.lineHeight}
+        fontSize={fontSize != null ? theme.fontSizes[fontSize] : fontVariantStyle.fontSize}
+        lineHeight={fontSize != null ? theme.lineHeights[fontSize] : fontVariantStyle.lineHeight}
         fontWeight={resolvedFontFamily != null ? undefined : fontVariantStyle.fontWeight}
         fontFamily={resolvedFontFamily}
         color={color !== undefined ? theme.colors[color] : theme.colors.text}

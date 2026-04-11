@@ -12,7 +12,7 @@ export const fontSizeTokens = {
 // Augment this interface in your app to add custom font size tokens:
 // declare module '@devraj-labs/vajra-ui' {
 //   interface IVajraFontSizeTokens {
-//     'f-7': number;
+//     'f-2.5': number;
 //   }
 // }
 // eslint-disable-next-line @typescript-eslint/no-empty-interface, @typescript-eslint/consistent-type-definitions

@@ -185,7 +185,7 @@ function AppWithTheme() {
 
 ### Adding your own tokens
 
-Consumer apps often need extra tokens for their own components. Augment `IVajraCustomColors` — your tokens will be typed through `useVajraTheme()` alongside ours.
+**Custom colors** — augment `IVajraCustomColors`. Your tokens are typed through `useVajraTheme()` alongside ours.
 
 ```ts
 // theme.ts
@@ -212,7 +212,22 @@ colors.surfaceAccent // ✅ typed, autocompletes
 colors.brandGold     // ✅ typed, autocompletes
 ```
 
-> Our components only use our tokens — nothing breaks. Your components get the extra tokens through the same hook.
+**Custom rounded tokens** — augment `IVajraRoundedTokens`. Your tokens are accepted by `rounded`, `roundedT`, `roundedB`, `roundedL`, `roundedR` on `Box` and other components.
+
+```ts
+declare module '@devraj-labs/vajra-ui' {
+  interface IVajraRoundedTokens {
+    'r-12': number;
+    'r-16': number;
+  }
+}
+```
+
+```tsx
+<Box rounded="r-12">...</Box> // ✅ typed, autocompletes
+```
+
+> Our components only use our tokens — nothing breaks. Your tokens are only visible through props and hooks in your own components.
 
 For the full theming guide including runtime switching, spacing/radius overrides, and custom fonts — see [docs/theming.md](./docs/theming.md).
 
@@ -260,7 +275,12 @@ For the full theming guide including runtime switching, spacing/radius overrides
 | `r-2` | 8 |
 | `r-3` | 12 |
 | `r-4` | 16 |
+| `r-5` | 20 |
 | `r-6` | 24 |
+| `r-7` | 28 |
+| `r-8` | 32 |
+| `r-9` | 36 |
+| `r-10` | 40 |
 | `r-full` | 9999 |
 
 ### Typography

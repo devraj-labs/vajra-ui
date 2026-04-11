@@ -39,6 +39,14 @@ export type TUiBoxProps = Omit<ViewProps, 'style'> &
     direction?: ViewStyle['flexDirection'];
     wrap?: ViewStyle['flexWrap'];
 
+    // Position & overflow
+    position?: ViewStyle['position'];
+    top?: DimensionValue;
+    bottom?: DimensionValue;
+    left?: DimensionValue;
+    right?: DimensionValue;
+    overflow?: ViewStyle['overflow'];
+
     style?: ViewStyle | ViewStyle[];
     children?: React.ReactNode;
   };

@@ -79,6 +79,8 @@ export const theme = createVajraTheme({
 
 ## Adding your own tokens
 
+### Custom colors
+
 Consumer apps often need extra tokens for their own components — colours outside the Vajra semantic set, brand-specific values, etc.
 
 Augment `IVajraCustomColors` in your app. Your tokens become part of `TVajraColors` and are typed through `useVajraTheme()` alongside ours.
@@ -128,6 +130,33 @@ export function MyCard() {
 `colors.surfaceAccent` and `colors.brandGold` are fully typed and autocomplete in your editor.
 
 > Our components only reference our own tokens — nothing breaks. Your tokens are only visible to your components through the same hook.
+
+---
+
+### Custom rounded tokens
+
+Augment `IVajraRoundedTokens` to add your own border radius tokens. They will be accepted by the `rounded`, `roundedT`, `roundedB`, `roundedL`, and `roundedR` props on `Box` and other components, with full autocomplete.
+
+**Step 1 — Declare your tokens**
+
+```ts
+// theme.ts
+declare module '@devraj-labs/vajra-ui' {
+  interface IVajraRoundedTokens {
+    'r-12': number;
+    'r-16': number;
+  }
+}
+```
+
+**Step 2 — Use them in your components**
+
+```tsx
+<Box rounded="r-12">...</Box>       {/* ✅ typed, autocompletes */}
+<Box roundedT="r-16">...</Box>      {/* ✅ typed, autocompletes */}
+```
+
+> Custom rounded tokens don't need to be provided to `createVajraTheme`. They're resolved at the prop level — just declare the interface and use the token names directly as raw px values are not needed in the theme config.
 
 ---
 
@@ -277,7 +306,12 @@ const { colors, spacing, rounded, typography, fonts } = useVajraTheme();
 | `r-2` | 8 |
 | `r-3` | 12 |
 | `r-4` | 16 |
+| `r-5` | 20 |
 | `r-6` | 24 |
+| `r-7` | 28 |
+| `r-8` | 32 |
+| `r-9` | 36 |
+| `r-10` | 40 |
 | `r-full` | 9999 |
 
 ### Typography — `TFontVariant`

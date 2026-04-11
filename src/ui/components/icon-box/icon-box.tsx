@@ -28,7 +28,7 @@ const IconBoxComponent: React.FC<TIconBoxProps> = ({
       style={style}
       {...rest}
     >
-      <Icon size={iconSize} color={colors[iconColor]} />
+      <Icon size={iconSize} width={iconSize} height={iconSize} color={colors[iconColor]} />
     </Box>
   );
 };

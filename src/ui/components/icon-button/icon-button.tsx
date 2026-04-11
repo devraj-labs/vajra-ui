@@ -36,7 +36,11 @@ const IconButtonComponent: React.FC<TIconButtonProps> = ({
       justify="center"
       {...rest}
     >
-      {isLoading ? spinner : <Icon size={s.icon.size} color={textColor} />}
+      {isLoading ? (
+        spinner
+      ) : (
+        <Icon size={s.icon.size} width={s.icon.size} height={s.icon.size} color={textColor} />
+      )}
     </Pressable>
   );
 };

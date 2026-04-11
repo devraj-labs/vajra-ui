@@ -26,7 +26,12 @@ import { TIconButtonRecipeVariants } from './icon-button-variants';
  *   <IconButton icon={BellIcon} />
  *   <IconButton icon={BellIcon} size="lg" variant="outline" />
  */
-export type TVajraIconComponent = React.ComponentType<{ size: number; color: string }>;
+export type TVajraIconComponent = React.ComponentType<{
+  size: number;
+  width: number;
+  height: number;
+  color: string;
+}>;
 
 export type TIconButtonLoadingProps = {
   loader?: React.ReactNode;

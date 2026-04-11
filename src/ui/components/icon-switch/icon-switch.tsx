@@ -78,6 +78,8 @@ const IconSwitchComponent: React.FC<TIconSwitchProps> = ({
         >
           <OffIcon
             size={iconSize}
+            width={iconSize}
+            height={iconSize}
             color={!value ? colors[activeIconColor] : colors[inactiveIconColor]}
           />
         </View>
@@ -94,6 +96,8 @@ const IconSwitchComponent: React.FC<TIconSwitchProps> = ({
         >
           <OnIcon
             size={iconSize}
+            width={iconSize}
+            height={iconSize}
             color={value ? colors[activeIconColor] : colors[inactiveIconColor]}
           />
         </View>

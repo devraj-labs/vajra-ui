@@ -31,7 +31,9 @@ const BadgeComponent: React.FC<TBadgeProps> = ({
       gap="s-1"
       {...rest}
     >
-      {Icon && <Icon size={iconSize} color={colors[iconColor]} />}
+      {Icon && (
+        <Icon size={iconSize} width={iconSize} height={iconSize} color={colors[iconColor]} />
+      )}
       <Text variant="label" color="textInverse" {...textProps}>
         {label}
       </Text>

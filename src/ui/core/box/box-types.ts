@@ -47,6 +47,9 @@ export type TUiBoxProps = Omit<ViewProps, 'style'> &
     right?: DimensionValue;
     overflow?: ViewStyle['overflow'];
 
+    // Opacity
+    opacity?: number;
+
     style?: ViewStyle | ViewStyle[];
     children?: React.ReactNode;
   };

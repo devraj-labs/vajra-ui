@@ -1,4 +1,6 @@
-import { fontSizeTokens, TFontSizeToken } from './font-size-tokens';
+import { fontSizeTokens, TFontSizeToken, IVajraFontSizeTokens } from './font-size-tokens';
+
+export type { IVajraFontSizeTokens };
 import { fontWeightTokens, TFontWeightToken } from './font-weight-tokens';
 import { lineHeightTokens } from './line-height-tokens';
 

@@ -38,4 +38,14 @@ export const fontVariants = {
   display: f('f-6', 'f-700'),
 } satisfies Record<string, TFontVariantProps>;
 
-export type TFontVariant = keyof typeof fontVariants;
+// Augment this interface in your app to add custom typography variants with autocomplete:
+// declare module '@devraj-labs/vajra-ui' {
+//   interface IVajraFontVariants {
+//     displayLarge: TFontVariantProps;
+//     eyebrow: TFontVariantProps;
+//   }
+// }
+// eslint-disable-next-line @typescript-eslint/no-empty-interface, @typescript-eslint/consistent-type-definitions
+export interface IVajraFontVariants {}
+
+export type TFontVariant = keyof typeof fontVariants | keyof IVajraFontVariants;

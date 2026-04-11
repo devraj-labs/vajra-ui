@@ -79,6 +79,8 @@ export const theme = createVajraTheme({
 
 ## Adding your own tokens
 
+All four token systems — colors, spacing, border radius, and typography — support module augmentation. Declare an interface in your app, and your custom tokens are typed end-to-end: autocomplete in props, `useVajraTheme()`, and `createVajraTheme`.
+
 ### Custom colors
 
 Consumer apps often need extra tokens for their own components — colours outside the Vajra semantic set, brand-specific values, etc.
@@ -157,6 +159,63 @@ declare module '@devraj-labs/vajra-ui' {
 ```
 
 > Custom rounded tokens don't need to be provided to `createVajraTheme`. They're resolved at the prop level — just declare the interface and use the token names directly as raw px values are not needed in the theme config.
+
+---
+
+### Custom spacing tokens
+
+Augment `IVajraSpacingTokens` to add new spacing tokens. They'll be accepted by all spacing props (`p`, `m`, `px`, `gap`, etc.) on `Box` and other components.
+
+```ts
+declare module '@devraj-labs/vajra-ui' {
+  interface IVajraSpacingTokens {
+    's-20': number;
+    's-24': number;
+  }
+}
+```
+
+```tsx
+<Box p="s-20" gap="s-24">...</Box> // ✅ typed, autocompletes
+```
+
+---
+
+### Custom typography variants
+
+Augment `IVajraFontVariants` to add new text variants. They'll be accepted by the `variant` prop on `Text`, and available via `useVajraTheme().typography`.
+
+**Step 1 — Declare your variants**
+
+```ts
+import { TFontVariantProps } from '@devraj-labs/vajra-ui';
+
+declare module '@devraj-labs/vajra-ui' {
+  interface IVajraFontVariants {
+    displayLarge: TFontVariantProps;
+    eyebrow: TFontVariantProps;
+  }
+}
+```
+
+**Step 2 — Provide values in createVajraTheme**
+
+```ts
+export const theme = createVajraTheme({
+  fonts: myFonts,
+  typography: {
+    displayLarge: { fontSize: 48, lineHeight: 56, fontWeight: '700' },
+    eyebrow: { fontSize: 11, lineHeight: 16, fontWeight: '600' },
+  },
+});
+```
+
+**Step 3 — Use them in your components**
+
+```tsx
+<Text variant="displayLarge">Hero</Text>   // ✅ typed, autocompletes
+<Text variant="eyebrow">Section</Text>     // ✅ typed, autocompletes
+```
 
 ---
 

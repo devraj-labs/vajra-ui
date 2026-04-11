@@ -2,6 +2,7 @@ import { TVajraColors } from './colors';
 import { defaultVajraTheme } from './vajra-theme';
 import { TRoundedToken } from './tokens/rounded-tokens';
 import { TSpacingToken } from './tokens/spacing-tokens';
+import { TFontVariant, TFontVariantProps } from './tokens/font-tokens/index';
 
 export type TFontWeightValue = '200' | '300' | '400' | '500' | '600' | '700' | '800';
 export type TFontFamilyMap = Partial<Record<TFontWeightValue, string>>;
@@ -14,6 +15,7 @@ export interface IVajraFonts {}
 export type TVajraColorOverrides = Partial<Record<TVajraColors, string>>;
 export type TVajraSpacingOverrides = Partial<Record<TSpacingToken, number>>;
 export type TVajraRoundedOverrides = Partial<Record<TRoundedToken, number>>;
+export type TVajraTypographyOverrides = Partial<Record<TFontVariant, TFontVariantProps>>;
 
 export type TVajraThemeWithFonts<F extends TFontFamilies> = (
   | typeof defaultVajraTheme.light
@@ -28,6 +30,7 @@ export const createVajraTheme = <F extends TFontFamilies>(config: {
   colors?: TVajraColorOverrides;
   spacing?: TVajraSpacingOverrides;
   rounded?: TVajraRoundedOverrides;
+  typography?: TVajraTypographyOverrides;
 }): TVajraThemeWithFonts<F> => {
   const base = defaultVajraTheme[config.colorScheme ?? 'light'];
 
@@ -36,6 +39,7 @@ export const createVajraTheme = <F extends TFontFamilies>(config: {
     colors: { ...base.colors, ...config.colors },
     spacing: { ...base.spacing, ...config.spacing },
     rounded: { ...base.rounded, ...config.rounded },
+    typography: { ...base.typography, ...config.typography },
     fonts: config.fonts,
   } as TVajraThemeWithFonts<F>;
 };

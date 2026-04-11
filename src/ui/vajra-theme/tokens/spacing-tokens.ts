@@ -13,4 +13,14 @@ export const spacingTokens = {
   's-16': 64,
 } as const;
 
-export type TSpacingToken = keyof typeof spacingTokens;
+// Augment this interface in your app to add custom spacing tokens with autocomplete:
+// declare module '@devraj-labs/vajra-ui' {
+//   interface IVajraSpacingTokens {
+//     's-20': number;
+//     's-24': number;
+//   }
+// }
+// eslint-disable-next-line @typescript-eslint/no-empty-interface, @typescript-eslint/consistent-type-definitions
+export interface IVajraSpacingTokens {}
+
+export type TSpacingToken = keyof typeof spacingTokens | keyof IVajraSpacingTokens;

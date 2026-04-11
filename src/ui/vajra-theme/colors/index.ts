@@ -22,7 +22,17 @@ export const darkColorTokens = {
   transparent: 'transparent' as const,
 };
 
-export type TVajraColors = keyof typeof lightColorTokens;
+// Augment this interface in your app to add custom color tokens:
+// declare module '@devraj-labs/vajra-ui' {
+//   interface IVajraCustomColors {
+//     brandGold: string;
+//     surfaceAccent: string;
+//   }
+// }
+// eslint-disable-next-line @typescript-eslint/no-empty-interface, @typescript-eslint/consistent-type-definitions
+export interface IVajraCustomColors {}
+
+export type TVajraColors = keyof typeof lightColorTokens | keyof IVajraCustomColors;
 
 export const SEMANTIC_COLORS = [...Object.keys(brandLight), ...Object.keys(feedbackLight)].filter(
   k => !k.endsWith('Muted') && !k.endsWith('Subtle'),

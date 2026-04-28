@@ -1,7 +1,8 @@
 import React from 'react';
 
 import { TUiPressableProps } from '../../core/pressable/pressable-types';
-import { TIconButtonRecipeVariants } from './icon-button-variants';
+import { TVajraColors } from '../../vajra-theme/colors';
+import { TIconButtonSize, TIconButtonVariant } from './icon-button-variants';
 
 /**
  * Contract every icon component must satisfy to work with IconButton.
@@ -37,10 +38,12 @@ export type TIconButtonLoadingProps = {
   loader?: React.ReactNode;
 };
 
-export type TIconButtonProps = Omit<TUiPressableProps, 'disabled'> &
-  TIconButtonRecipeVariants & {
-    icon: TVajraIconComponent;
-    isDisabled?: boolean;
-    isLoading?: boolean;
-    loading?: TIconButtonLoadingProps;
-  };
+export type TIconButtonProps = Omit<TUiPressableProps, 'disabled'> & {
+  icon: TVajraIconComponent;
+  iconColor?: TVajraColors;
+  variant?: TIconButtonVariant;
+  size?: TIconButtonSize;
+  isDisabled?: boolean;
+  isLoading?: boolean;
+  loading?: TIconButtonLoadingProps;
+};

@@ -61,7 +61,14 @@ const AppBarHeaderSlotted = memo<TAppBarHeaderProps>(({ children, ...rest }) => 
       {isCentered && <Box flex={1} />}
 
       {/* Right */}
-      <Row align="center" justify="flex-end" style={{ minWidth: APP_BAR_SIDE_MIN_WIDTH }}>
+      <Row
+        align="center"
+        justify="flex-end"
+        style={{
+          minWidth: rightSlots.length ? APP_BAR_SIDE_MIN_WIDTH : screenPadding,
+          paddingRight: rightSlots.length ? screenPadding - 8 : 0,
+        }}
+      >
         {rightSlots}
       </Row>
     </AppBarHeader>

@@ -18,8 +18,8 @@
  * };
  */
 import { useTheme } from '../../theme';
-import { defaultVajraTheme } from './vajra-theme';
+import { TVajraThemeWithFonts, TFontFamilies } from './create-vajra-theme';
 
-export type TVajraTheme = typeof defaultVajraTheme.light;
+export type TVajraTheme = TVajraThemeWithFonts<TFontFamilies>;
 
 export const useVajraTheme = (): TVajraTheme => useTheme<TVajraTheme>();

@@ -14,6 +14,7 @@ const ButtonComponent: React.FC<TButtonProps> = ({
   isLoading = false,
   isPill = false,
   loading,
+  labelProps,
   ...rest
 }) => {
   const { variant: v, size: s } = buttonRecipe({ variant, size });
@@ -43,7 +44,7 @@ const ButtonComponent: React.FC<TButtonProps> = ({
       {...rest}
     >
       {isLoading && loadingPosition === 'start' && spinner}
-      <Text variant={labelStyle.fontVariant} color={labelStyle.color}>
+      <Text variant={labelStyle.fontVariant} color={labelStyle.color} {...labelProps}>
         {displayLabel}
       </Text>
       {isLoading && loadingPosition === 'end' && spinner}

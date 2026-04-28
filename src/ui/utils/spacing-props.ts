@@ -1,4 +1,4 @@
-import { TSpacingToken, spacingTokens } from '../vajra-theme/tokens/spacing-tokens';
+import { TSpacingToken } from '../vajra-theme/tokens/spacing-tokens';
 
 export type TSpacingProps = {
   m?: TSpacingToken;
@@ -36,20 +36,23 @@ type TSpacingValues = {
   gap?: number;
 };
 
-export const resolveSpacing = (props: TSpacingProps): TSpacingValues => ({
-  m: props.m !== undefined ? spacingTokens[props.m] : undefined,
-  mx: props.mx !== undefined ? spacingTokens[props.mx] : undefined,
-  my: props.my !== undefined ? spacingTokens[props.my] : undefined,
-  mt: props.mt !== undefined ? spacingTokens[props.mt] : undefined,
-  mb: props.mb !== undefined ? spacingTokens[props.mb] : undefined,
-  ml: props.ml !== undefined ? spacingTokens[props.ml] : undefined,
-  mr: props.mr !== undefined ? spacingTokens[props.mr] : undefined,
-  p: props.p !== undefined ? spacingTokens[props.p] : undefined,
-  px: props.px !== undefined ? spacingTokens[props.px] : undefined,
-  py: props.py !== undefined ? spacingTokens[props.py] : undefined,
-  pt: props.pt !== undefined ? spacingTokens[props.pt] : undefined,
-  pb: props.pb !== undefined ? spacingTokens[props.pb] : undefined,
-  pl: props.pl !== undefined ? spacingTokens[props.pl] : undefined,
-  pr: props.pr !== undefined ? spacingTokens[props.pr] : undefined,
-  gap: props.gap !== undefined ? spacingTokens[props.gap] : undefined,
+export const resolveSpacing = (
+  props: TSpacingProps,
+  spacing: Partial<Record<string, number>>,
+): TSpacingValues => ({
+  m: props.m !== undefined ? spacing[props.m] : undefined,
+  mx: props.mx !== undefined ? spacing[props.mx] : undefined,
+  my: props.my !== undefined ? spacing[props.my] : undefined,
+  mt: props.mt !== undefined ? spacing[props.mt] : undefined,
+  mb: props.mb !== undefined ? spacing[props.mb] : undefined,
+  ml: props.ml !== undefined ? spacing[props.ml] : undefined,
+  mr: props.mr !== undefined ? spacing[props.mr] : undefined,
+  p: props.p !== undefined ? spacing[props.p] : undefined,
+  px: props.px !== undefined ? spacing[props.px] : undefined,
+  py: props.py !== undefined ? spacing[props.py] : undefined,
+  pt: props.pt !== undefined ? spacing[props.pt] : undefined,
+  pb: props.pb !== undefined ? spacing[props.pb] : undefined,
+  pl: props.pl !== undefined ? spacing[props.pl] : undefined,
+  pr: props.pr !== undefined ? spacing[props.pr] : undefined,
+  gap: props.gap !== undefined ? spacing[props.gap] : undefined,
 });

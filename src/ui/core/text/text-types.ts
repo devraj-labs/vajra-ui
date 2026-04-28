@@ -12,6 +12,7 @@ export type TTextProps = Omit<
   Pick<TSpacingProps, 'm' | 'mx' | 'my' | 'mt' | 'mb' | 'ml' | 'mr'> & {
     variant?: TFontVariant;
     fontSize?: TFontSizeToken;
+    lineHeight?: number;
     color?: TVajraColors;
     font?: keyof IVajraFonts;
     fontWeight?: TFontWeightValue;

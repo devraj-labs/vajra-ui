@@ -33,8 +33,11 @@ const TextInputComponent = forwardRef<RNTextInput, TUiTextInputProps>(
     },
     ref,
   ) => {
-    const { colors, rounded: r } = useVajraTheme();
-    const spacing = resolveSpacing({ m, mx, my, mt, mb, ml, mr, p, px, py, pt, pb, pl, pr, gap });
+    const { colors, rounded: r, spacing: spacingTokens } = useVajraTheme();
+    const spacing = resolveSpacing(
+      { m, mx, my, mt, mb, ml, mr, p, px, py, pt, pb, pl, pr, gap },
+      spacingTokens,
+    );
 
     return (
       <CoreTextInput

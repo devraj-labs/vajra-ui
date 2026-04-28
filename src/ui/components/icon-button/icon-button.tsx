@@ -10,6 +10,7 @@ const IconButtonComponent: React.FC<TIconButtonProps> = ({
   variant = 'solid',
   size = 'md',
   icon: Icon,
+  iconColor,
   isDisabled = false,
   isLoading = false,
   loading,
@@ -20,7 +21,7 @@ const IconButtonComponent: React.FC<TIconButtonProps> = ({
   const container = { ...s.container, ...v.container };
   const label = { ...v.label };
 
-  const textColor = label.color ? colors[label.color] : colors.text;
+  const textColor = iconColor ? colors[iconColor] : label.color ? colors[label.color] : colors.text;
 
   const isInteractionDisabled = isDisabled || isLoading;
 
@@ -31,7 +32,7 @@ const IconButtonComponent: React.FC<TIconButtonProps> = ({
       disabled={isInteractionDisabled}
       bg={container.backgroundColor}
       rounded={container.rounded}
-      style={{ width: container.size, height: container.size, opacity: isDisabled ? 0.4 : 1 }}
+      style={[{ width: container.size, height: container.size, opacity: isDisabled ? 0.4 : 1 }]}
       align="center"
       justify="center"
       {...rest}

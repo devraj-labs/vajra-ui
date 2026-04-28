@@ -1,7 +1,7 @@
-import { TVajraColors } from './colors';
+import { TVajraColors, IVajraCustomColors, lightColorTokens } from './colors';
 import { defaultVajraTheme } from './vajra-theme';
 import { TRoundedToken } from './tokens/rounded-tokens';
-import { TSpacingToken } from './tokens/spacing-tokens';
+import { TSpacingToken, IVajraSpacingTokens } from './tokens/spacing-tokens';
 import { TFontVariant, TFontVariantProps } from './tokens/font-tokens/index';
 
 export type TFontWeightValue = '200' | '300' | '400' | '500' | '600' | '700' | '800';
@@ -19,10 +19,12 @@ export type TVajraTypographyOverrides = Partial<Record<TFontVariant, TFontVarian
 export type TVajraFontSizeOverrides = Record<string, number>;
 export type TVajraLineHeightOverrides = Record<string, number>;
 
-export type TVajraThemeWithFonts<F extends TFontFamilies> = (
-  | typeof defaultVajraTheme.light
-  | typeof defaultVajraTheme.dark
-) & {
+export type TVajraThemeWithFonts<F extends TFontFamilies> = Omit<
+  typeof defaultVajraTheme.light,
+  'colors' | 'spacing'
+> & {
+  colors: typeof lightColorTokens & IVajraCustomColors;
+  spacing: typeof defaultVajraTheme.light.spacing & IVajraSpacingTokens;
   fonts: F;
 };
 

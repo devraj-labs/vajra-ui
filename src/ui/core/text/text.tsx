@@ -9,6 +9,7 @@ export const Text = memo(
   ({
     variant = 'body',
     fontSize,
+    lineHeight,
     font,
     fontWeight = '400',
     color,
@@ -38,12 +39,15 @@ export const Text = memo(
       mb: marginB,
       ml: marginL,
       mr: marginR,
-    } = resolveSpacing({ m, mx, my, mt, mb, ml, mr });
+    } = resolveSpacing({ m, mx, my, mt, mb, ml, mr }, theme.spacing);
 
     return (
       <CoreText
         fontSize={fontSize != null ? theme.fontSizes[fontSize] : fontVariantStyle.fontSize}
-        lineHeight={fontSize != null ? theme.lineHeights[fontSize] : fontVariantStyle.lineHeight}
+        lineHeight={
+          lineHeight ??
+          (fontSize != null ? theme.lineHeights[fontSize] : fontVariantStyle.lineHeight)
+        }
         fontWeight={resolvedFontFamily != null ? undefined : fontVariantStyle.fontWeight}
         fontFamily={resolvedFontFamily}
         color={color !== undefined ? theme.colors[color] : theme.colors.text}

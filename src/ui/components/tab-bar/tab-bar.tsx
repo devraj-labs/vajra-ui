@@ -17,10 +17,11 @@ const TabBarComponent: React.FC<TTabBarProps> = ({
   indicatorRounded = 'r-full',
   activeColor = 'text',
   inactiveColor = 'textMuted',
+  labelProps,
   scrollable = false,
 }) => {
-  const { colors, rounded: r } = useVajraTheme();
-  const { p: pad } = resolveSpacing({ p: trackPadding });
+  const { colors, rounded: r, spacing: spacingTokens } = useVajraTheme();
+  const { p: pad } = resolveSpacing({ p: trackPadding }, spacingTokens);
   const padding = pad ?? 0;
 
   const [tabLayouts, setTabLayouts] = useState<Record<string, { x: number; width: number }>>({});
@@ -91,6 +92,7 @@ const TabBarComponent: React.FC<TTabBarProps> = ({
   const track = (
     <View
       style={{
+        flex: 1,
         backgroundColor: colors[trackBg],
         borderRadius: r[trackRounded],
         padding,
@@ -122,14 +124,15 @@ const TabBarComponent: React.FC<TTabBarProps> = ({
             onLayout={e => handleLayout(tab.value, e)}
             style={{
               flex: scrollable ? undefined : 1,
+              alignSelf: 'stretch',
               alignItems: 'center',
-              paddingVertical: 6,
+              justifyContent: 'center',
               paddingHorizontal: 12,
               zIndex: 1,
             }}
             activeOpacity={0.8}
           >
-            <Text variant="label" color={isActive ? activeColor : inactiveColor}>
+            <Text variant="label" color={isActive ? activeColor : inactiveColor} {...labelProps}>
               {tab.label}
             </Text>
           </TouchableOpacity>

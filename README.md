@@ -112,6 +112,39 @@ export function MyCard() {
 
 ## Theming
 
+### Text — italic fonts
+
+Pass `fontStyle="italic"` as a prop on `<Text>`. The component handles cross-platform rendering automatically — no `StyleSheet` workarounds needed.
+
+```tsx
+<Text font="newsreader9pt" fontSize="_f-36px" color="text" fontStyle="italic">
+  Templates
+</Text>
+```
+
+**How it works internally:**
+- When the font has a named italic variant registered (e.g. `Newsreader9pt-Italic`), the component resolves the PostScript font family name.
+- On **iOS** — also passes `fontStyle: 'italic'` in the style object (iOS requires it even with a named font).
+- On **Android** — suppresses `fontStyle` from the style object (the PostScript name alone is enough; passing `fontStyle` causes Android to apply synthetic skew on top, breaking the font).
+- If no named italic file exists, falls back to synthetic italic on both platforms.
+
+**Never duplicate `fontStyle: 'italic'` in a StyleSheet alongside the DS prop** — it overrides the internal platform logic and breaks Android:
+
+```tsx
+// BAD — breaks Android italic rendering
+const styles = StyleSheet.create({ title: { fontStyle: 'italic' } });
+<Text font="newsreader9pt" fontStyle="italic" style={styles.title}>...</Text>
+
+// GOOD
+<Text font="newsreader9pt" fontStyle="italic">...</Text>
+
+// GOOD — other styles alongside are fine, just not fontStyle
+const styles = StyleSheet.create({ title: { marginTop: 8 } });
+<Text font="newsreader9pt" fontStyle="italic" style={styles.title}>...</Text>
+```
+
+---
+
 ### Custom fonts
 
 ```ts

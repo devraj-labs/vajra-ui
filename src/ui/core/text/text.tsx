@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+import { Platform } from 'react-native';
 
 import { CoreText } from '@devraj-labs/vajra-ui-core';
 import { useVajraTheme } from '../../vajra-theme/use-vajra-theme';
@@ -28,6 +29,7 @@ export const Text = memo(
     const fontVariantStyle = theme.typography[variant];
     const fontsMap = (theme as unknown as { fonts: Record<string, Record<string, string>> }).fonts;
     const italicKey = `${fontWeight}i`;
+    const hasItalicFontFile = font != null && fontsMap?.[font]?.[italicKey] != null;
     const resolvedFontFamily =
       font != null
         ? fontStyle === 'italic' && fontsMap?.[font]?.[italicKey]
@@ -63,7 +65,11 @@ export const Text = memo(
             marginBottom: marginB,
             marginLeft: marginL,
             marginRight: marginR,
-            fontStyle,
+            fontStyle: hasItalicFontFile
+              ? Platform.OS === 'ios'
+                ? fontStyle
+                : undefined
+              : fontStyle,
           },
           ...(Array.isArray(style) ? style : style ? [style] : []),
         ]}

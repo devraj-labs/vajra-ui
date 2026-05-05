@@ -44,8 +44,6 @@ export const Text = memo(
       mr: marginR,
     } = resolveSpacing({ m, mx, my, mt, mb, ml, mr }, theme.spacing);
 
-    const hasItalicFontFile = font != null && fontsMap?.[font]?.[italicKey] != null;
-
     return (
       <CoreText
         fontSize={fontSize != null ? theme.fontSizes[fontSize] : fontVariantStyle.fontSize}
@@ -65,7 +63,7 @@ export const Text = memo(
             marginBottom: marginB,
             marginLeft: marginL,
             marginRight: marginR,
-            fontStyle: hasItalicFontFile ? undefined : fontStyle,
+            fontStyle,
           },
           ...(Array.isArray(style) ? style : style ? [style] : []),
         ]}

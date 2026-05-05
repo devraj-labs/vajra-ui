@@ -12,6 +12,7 @@ export const Text = memo(
     lineHeight,
     font,
     fontWeight = '400',
+    fontStyle,
     color,
     m,
     mx,
@@ -25,11 +26,13 @@ export const Text = memo(
   }: TTextProps) => {
     const theme = useVajraTheme();
     const fontVariantStyle = theme.typography[variant];
+    const fontsMap = (theme as unknown as { fonts: Record<string, Record<string, string>> }).fonts;
+    const italicKey = `${fontWeight}i`;
     const resolvedFontFamily =
       font != null
-        ? (theme as unknown as { fonts: Record<string, Record<string, string>> }).fonts?.[font]?.[
-            fontWeight
-          ]
+        ? fontStyle === 'italic' && fontsMap?.[font]?.[italicKey]
+          ? fontsMap[font][italicKey]
+          : fontsMap?.[font]?.[fontWeight]
         : undefined;
     const {
       m: margin,
@@ -40,6 +43,8 @@ export const Text = memo(
       ml: marginL,
       mr: marginR,
     } = resolveSpacing({ m, mx, my, mt, mb, ml, mr }, theme.spacing);
+
+    const hasItalicFontFile = font != null && fontsMap?.[font]?.[italicKey] != null;
 
     return (
       <CoreText
@@ -60,6 +65,7 @@ export const Text = memo(
             marginBottom: marginB,
             marginLeft: marginL,
             marginRight: marginR,
+            fontStyle: hasItalicFontFile ? undefined : fontStyle,
           },
           ...(Array.isArray(style) ? style : style ? [style] : []),
         ]}

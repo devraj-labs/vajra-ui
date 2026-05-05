@@ -5,7 +5,8 @@ import { TSpacingToken, IVajraSpacingTokens } from './tokens/spacing-tokens';
 import { TFontVariant, TFontVariantProps } from './tokens/font-tokens/index';
 
 export type TFontWeightValue = '200' | '300' | '400' | '500' | '600' | '700' | '800';
-export type TFontFamilyMap = Partial<Record<TFontWeightValue, string>>;
+export type TFontItalicWeightValue = '200i' | '300i' | '400i' | '500i' | '600i' | '700i' | '800i';
+export type TFontFamilyMap = Partial<Record<TFontWeightValue | TFontItalicWeightValue, string>>;
 export type TFontFamilies = Record<string, TFontFamilyMap>;
 
 // Augment this interface in your app to get font autocomplete on <Text font="..." />

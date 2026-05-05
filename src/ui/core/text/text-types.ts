@@ -16,4 +16,5 @@ export type TTextProps = Omit<
     color?: TVajraColors;
     font?: keyof IVajraFonts;
     fontWeight?: TFontWeightValue;
+    fontStyle?: 'normal' | 'italic';
   };

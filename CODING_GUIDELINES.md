@@ -164,3 +164,11 @@ Token prop types are key-based:
 | Components | `src/ui/components/` | Opinionated components with variants, constants, and optional hooks. Only imports from `src/ui/core` — never `@vajra-ui/core` directly. |
 | Theme | `src/theme/` | Generic `ThemeProvider` + `useTheme`. No vajra-specific tokens. |
 | Vajra Theme | `src/ui/vajra-theme/` | Default vajra tokens. `VajraProvider`, `useVajraTheme`, `defaultVajraTheme`. |
+
+### `src/theme` vs `src/ui/vajra-theme`
+
+These are not two competing theme systems — `src/theme` is the generic engine, `src/ui/vajra-theme` is Vajra's specific theme built on top of it.
+
+- **`src/theme/`** is a bare React context mechanism: `ThemeProvider`, `useTheme<T>()`, and an intentionally empty `VajraTheme` interface (`provider-types.ts`) meant to be filled in by whatever sits on top. It has no colors, spacing, or token knowledge of its own, and no consumer should reach for it directly — it's internal plumbing.
+- **`src/ui/vajra-theme/`** consumes `src/theme` internally: `VajraProvider` (`vajra-provider.tsx`) wraps the generic `ThemeProvider` and feeds it `defaultVajraTheme`/a `createVajraTheme(...)` result; `useVajraTheme()` (`use-vajra-theme.ts`) is a thin typed wrapper around the generic `useTheme()`. This is the layer components and consumers actually use.
+- **Rule:** only `src/ui/vajra-theme/**` may import from `src/theme/**`. Nothing else — not `src/ui/core`, not `src/ui/components` — should import `src/theme` directly; they go through `useVajraTheme`/`VajraProvider` instead.

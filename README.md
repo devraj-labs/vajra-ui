@@ -13,8 +13,8 @@
 
 
 
-> **⚠️ Work in Progress — First release coming June 2026**
-> This library is under active development. APIs are still evolving hold off on using it in production until the v1 release.
+> **⚠️ Work in Progress — pre-1.0**
+> This library is under active development. APIs are still evolving — hold off on using it in production until the v1.0 release. See [CHANGELOG.md](./CHANGELOG.md) for release history and the roadmap toward 1.0.
 
 </div>
 

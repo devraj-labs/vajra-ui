@@ -53,11 +53,17 @@ describe('IconSwitch', () => {
 
     render(
       <VajraProvider>
-        <IconSwitch value={false} onChange={onChange} offIcon={OffIcon} onIcon={OnIcon} />
+        <IconSwitch
+          testID="icon-switch"
+          value={false}
+          onChange={onChange}
+          offIcon={OffIcon}
+          onIcon={OnIcon}
+        />
       </VajraProvider>,
     );
 
-    fireEvent.press(screen.getByTestId('off-icon').parent!.parent!.parent!);
+    fireEvent.press(screen.getByTestId('icon-switch'));
     expect(onChange).toHaveBeenCalledWith(true);
   });
 
@@ -67,6 +73,7 @@ describe('IconSwitch', () => {
     render(
       <VajraProvider>
         <IconSwitch
+          testID="icon-switch"
           value={false}
           onChange={onChange}
           offIcon={OffIcon}
@@ -76,7 +83,7 @@ describe('IconSwitch', () => {
       </VajraProvider>,
     );
 
-    fireEvent.press(screen.getByTestId('off-icon').parent!.parent!.parent!);
+    fireEvent.press(screen.getByTestId('icon-switch'));
     expect(onChange).not.toHaveBeenCalled();
   });
 });

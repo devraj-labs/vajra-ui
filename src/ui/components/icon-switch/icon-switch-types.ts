@@ -26,4 +26,6 @@ export type TIconSwitchProps = {
   // size of each icon cell
   cellSize?: number;
   iconSize?: number;
+
+  testID?: string;
 };

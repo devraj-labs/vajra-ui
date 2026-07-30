@@ -20,6 +20,7 @@ const IconSwitchComponent: React.FC<TIconSwitchProps> = ({
   isDisabled = false,
   cellSize = 40,
   iconSize = 18,
+  testID,
 }) => {
   const { colors, rounded: r } = useVajraTheme();
   const selectorX = useRef(new Animated.Value(value ? cellSize : 0)).current;
@@ -36,6 +37,7 @@ const IconSwitchComponent: React.FC<TIconSwitchProps> = ({
 
   return (
     <TouchableOpacity
+      testID={testID}
       onPress={() => !isDisabled && onChange(!value)}
       activeOpacity={0.85}
       disabled={isDisabled}

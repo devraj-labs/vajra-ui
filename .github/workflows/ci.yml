@@ -31,6 +31,9 @@ jobs:
       - name: Build
         run: yarn build
 
+      - name: Verify built dist/ is importable
+        run: bash scripts/verify-dist.sh
+
   examples-app:
     name: Examples app (typecheck against local package)
     runs-on: ubuntu-latest

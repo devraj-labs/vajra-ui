@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  lib:
+    name: Library (build, lint, test)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: yarn
+
+      - run: yarn install --frozen-lockfile
+
+      - name: Typecheck
+        run: yarn tsc --noEmit
+
+      - name: Lint
+        run: yarn lint
+
+      - name: Test
+        run: yarn test
+
+      - name: Build
+        run: yarn build
+
+  examples-app:
+    name: Examples app (typecheck against local package)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: examples/app
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: examples/app/package-lock.json
+
+      - run: npm install
+
+      - name: Typecheck example app against local vajra-ui
+        run: npx tsc --noEmit

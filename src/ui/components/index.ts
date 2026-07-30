@@ -1,3 +1,4 @@
+export * from './alert';
 export * from './app-bar';
 export * from './avatar';
 export * from './badge';

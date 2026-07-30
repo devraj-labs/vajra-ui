@@ -77,6 +77,26 @@ module.exports = {
     ],
 
   },
+
+  overrides: [
+    {
+      // Layer boundary: components must go through core, never straight to vajra-ui-core
+      files: ['src/ui/components/**/*.{ts,tsx}'],
+      rules: {
+        'no-restricted-imports': [
+          'error',
+          {
+            paths: [
+              {
+                name: '@devraj-labs/vajra-ui-core',
+                message: 'components/* must not import @devraj-labs/vajra-ui-core directly — go through src/ui/core instead.',
+              },
+            ],
+          },
+        ],
+      },
+    },
+  ],
   env: {
     node: true,
   },

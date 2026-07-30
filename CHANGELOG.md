@@ -4,13 +4,25 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+Foundational work for the 0.6.0 "Foundation & Trust" release — testing, CI, and architecture hardening ahead of a broader component push.
+
 ### Added
 
 - ESLint rule enforcing the layer boundary described in the README: `src/ui/components/**` can no longer import `@devraj-labs/vajra-ui-core` directly and must go through `src/ui/core`.
+- Two more ESLint layer-boundary rules: `src/ui/core/**` can no longer import from `src/ui/components/**` (prevents layer inversion), and nothing outside `src/ui/vajra-theme/**` may import `src/theme/**` directly (it's internal plumbing — use `useVajraTheme`/`VajraProvider` instead).
+- Jest + React Native Testing Library at the root package, with 112 unit tests across 28 files covering all `src/ui/core/*` primitives, all `src/ui/components/*` (including compositional ones — Checkbox, Radio, Switch, Input, AppBar — tested through composed usage), and the `src/ui/vajra-theme` engine (override merging, light/dark structure, runtime theme switching).
+- CI (`.github/workflows/ci.yml`): typecheck/lint/test/build the library on every PR, plus a typecheck of `examples/app` against the local package to catch breaking API changes.
+- Documented the `src/theme` vs `src/ui/vajra-theme` relationship, a step-by-step component authoring scaffold (simple and compositional), and the optional-peer-dependency pattern for future motion-enhanced components (`react-native-reanimated`, `react-native-gesture-handler`) in `CODING_GUIDELINES.md`.
+- Docusaurus docs site skeleton in `website/` — intro/quick-start page, the existing theming and italic-fonts guides brought in as real docs pages, real branding in nav/footer/homepage.
 
 ### Fixed
 
 - `Button`'s barrel (`src/ui/components/button/index.ts`) re-exported `TButtonSize`/`TButtonVariant` from both `button-types` and `button-variants`, causing an `import/export` duplicate-export lint error. The barrel now re-exports those types only once, from `button-types`.
+- `check-file/filename-naming-convention` was rejecting every `*.test.tsx` file as invalid kebab-case (it read `.test` as part of the name to validate) — fixed with `ignoreMiddleExtensions: true`.
+
+### Removed
+
+- Deleted the stray, empty top-level `src/core/` directory, a leftover from when headless primitives were extracted into the separate `@devraj-labs/vajra-ui-core` package.
 
 ## [0.5.3] - 2026-05-06
 

@@ -14,6 +14,7 @@ export * from './input';
 export * from './list';
 export * from './menu';
 export * from './modal';
+export * from './progress-bar';
 export * from './radio';
 export * from './select';
 export * from './sheet';

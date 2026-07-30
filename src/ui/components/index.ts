@@ -8,6 +8,7 @@ export * from './icon-box';
 export * from './icon-button';
 export * from './icon-switch';
 export * from './input';
+export * from './list';
 export * from './modal';
 export * from './radio';
 export * from './select';

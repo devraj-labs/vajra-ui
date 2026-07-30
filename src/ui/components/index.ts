@@ -26,3 +26,4 @@ export * from './switch';
 export * from './tab-bar';
 export * from './tabs';
 export * from './toast';
+export * from './tooltip';

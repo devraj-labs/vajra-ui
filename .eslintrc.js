@@ -96,6 +96,46 @@ module.exports = {
         ],
       },
     },
+    {
+      // Layer boundary: core must not import from the opinionated components layer above it,
+      // and (like every other layer besides vajra-theme itself) must not reach into src/theme directly.
+      files: ['src/ui/core/**/*.{ts,tsx}'],
+      rules: {
+        'no-restricted-imports': [
+          'error',
+          {
+            patterns: [
+              {
+                group: ['**components**'],
+                message: 'src/ui/core must not import from src/ui/components — core sits below components in the layer stack.',
+              },
+              {
+                group: ['**/theme', '**/theme/**', '!**/vajra-theme/**'],
+                message: 'src/theme is internal to src/ui/vajra-theme — use useVajraTheme/VajraProvider instead of importing src/theme directly.',
+              },
+            ],
+          },
+        ],
+      },
+    },
+    {
+      // Layer boundary: the generic theme engine is internal plumbing for vajra-theme only
+      files: ['src/**/*.{ts,tsx}'],
+      excludedFiles: ['src/theme/**', 'src/ui/vajra-theme/**', 'src/ui/core/**', 'src/index.ts'],
+      rules: {
+        'no-restricted-imports': [
+          'error',
+          {
+            patterns: [
+              {
+                group: ['**/theme', '**/theme/**', '!**/vajra-theme/**'],
+                message: 'src/theme is internal to src/ui/vajra-theme — use useVajraTheme/VajraProvider instead of importing src/theme directly.',
+              },
+            ],
+          },
+        ],
+      },
+    },
   ],
   env: {
     node: true,

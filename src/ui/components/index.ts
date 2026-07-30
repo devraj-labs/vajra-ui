@@ -14,3 +14,4 @@ export * from './sheet';
 export * from './spinner';
 export * from './switch';
 export * from './tab-bar';
+export * from './toast';

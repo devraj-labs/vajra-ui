@@ -10,6 +10,7 @@ export * from './icon-switch';
 export * from './input';
 export * from './modal';
 export * from './radio';
+export * from './sheet';
 export * from './spinner';
 export * from './switch';
 export * from './tab-bar';

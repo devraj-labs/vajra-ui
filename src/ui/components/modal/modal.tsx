@@ -10,8 +10,10 @@ const ModalComponent: React.FC<TModalProps> = ({
   onClose,
   children,
   closeOnBackdropPress = true,
+  contentAlign = 'center',
   bg = 'surface',
   rounded = 'r-4',
+  roundedT,
   p = 's-4',
   backdropColor = 'overlay',
   testID,
@@ -41,7 +43,7 @@ const ModalComponent: React.FC<TModalProps> = ({
           backgroundColor: colors[backdropColor],
           opacity: backdropOpacity,
           alignItems: 'center',
-          justifyContent: 'center',
+          justifyContent: contentAlign === 'bottom' ? 'flex-end' : 'center',
         }}
       >
         <RNPressable
@@ -50,7 +52,14 @@ const ModalComponent: React.FC<TModalProps> = ({
           accessibilityLabel="Close"
           testID={testID ? `${testID}-backdrop` : undefined}
         />
-        <Box bg={bg} rounded={rounded} p={p} testID={testID ? `${testID}-content` : undefined}>
+        <Box
+          bg={bg}
+          rounded={roundedT === undefined ? rounded : undefined}
+          roundedT={roundedT}
+          p={p}
+          style={contentAlign === 'bottom' ? { width: '100%' } : undefined}
+          testID={testID ? `${testID}-content` : undefined}
+        >
           {children}
         </Box>
       </Animated.View>

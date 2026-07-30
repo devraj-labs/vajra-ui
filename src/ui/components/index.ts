@@ -21,6 +21,7 @@ export * from './sheet';
 export * from './skeleton';
 export * from './slider';
 export * from './spinner';
+export * from './stepper';
 export * from './switch';
 export * from './tab-bar';
 export * from './tabs';

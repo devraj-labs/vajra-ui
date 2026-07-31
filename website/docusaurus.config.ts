@@ -50,6 +50,8 @@ const config: Config = {
     ],
   ],
 
+  plugins: ['./plugins/react-native-web-webpack-plugin.ts'],
+
   themeConfig: {
     colorMode: {
       respectPrefersColorScheme: true,

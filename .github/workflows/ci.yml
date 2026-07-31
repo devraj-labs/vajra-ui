@@ -34,6 +34,34 @@ jobs:
       - name: Verify built dist/ is importable
         run: bash scripts/verify-dist.sh
 
+  website:
+    name: Docs site (typecheck, build)
+    runs-on: ubuntu-latest
+    needs: lib
+    defaults:
+      run:
+        working-directory: website
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: yarn
+          cache-dependency-path: website/yarn.lock
+
+      - name: Build the library website depends on
+        working-directory: .
+        run: yarn install --frozen-lockfile && yarn build
+
+      - run: yarn install --frozen-lockfile
+
+      - name: Typecheck
+        run: yarn typecheck
+
+      - name: Build
+        run: yarn build
+
   examples-app:
     name: Examples app (typecheck against local package)
     runs-on: ubuntu-latest

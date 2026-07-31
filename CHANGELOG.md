@@ -2,23 +2,49 @@
 
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+## [1.0.0] - 2026-07-31
 
-Foundational work for the 0.6.0 "Foundation & Trust" release — testing, CI, and architecture hardening ahead of a broader component push.
+First stable release. Two phases of work: hardening the foundation (testing, CI, architecture) so a breadth push could ship on solid ground, then the breadth push itself — 15 new components and a full documentation site with live, in-browser previews of every component.
 
-### Added
+### Added — Foundation & Trust
 
 - ESLint rule enforcing the layer boundary described in the README: `src/ui/components/**` can no longer import `@devraj-labs/vajra-ui-core` directly and must go through `src/ui/core`.
 - Two more ESLint layer-boundary rules: `src/ui/core/**` can no longer import from `src/ui/components/**` (prevents layer inversion), and nothing outside `src/ui/vajra-theme/**` may import `src/theme/**` directly (it's internal plumbing — use `useVajraTheme`/`VajraProvider` instead).
-- Jest + React Native Testing Library at the root package, with 112 unit tests across 28 files covering all `src/ui/core/*` primitives, all `src/ui/components/*` (including compositional ones — Checkbox, Radio, Switch, Input, AppBar — tested through composed usage), and the `src/ui/vajra-theme` engine (override merging, light/dark structure, runtime theme switching).
-- CI (`.github/workflows/ci.yml`): typecheck/lint/test/build the library on every PR, plus a typecheck of `examples/app` against the local package to catch breaking API changes.
-- Documented the `src/theme` vs `src/ui/vajra-theme` relationship, a step-by-step component authoring scaffold (simple and compositional), and the optional-peer-dependency pattern for future motion-enhanced components (`react-native-reanimated`, `react-native-gesture-handler`) in `CODING_GUIDELINES.md`.
-- Docusaurus docs site skeleton in `website/` — intro/quick-start page, the existing theming and italic-fonts guides brought in as real docs pages, real branding in nav/footer/homepage.
+- Jest + React Native Testing Library at the root package — the library itself had zero test coverage before this release.
+- CI (`.github/workflows/ci.yml`): typecheck/lint/test/build the library on every PR, a typecheck of `examples/app` against the local package to catch breaking API changes, and a verification that the built `dist/` output is actually importable the way a real consumer would (`scripts/verify-dist.sh` — packs the tarball, installs it fresh, typechecks a real import against it).
+- Documented the `src/theme` vs `src/ui/vajra-theme` relationship, a step-by-step component authoring scaffold (simple and compositional), and the optional-peer-dependency pattern for motion-enhanced components in `CODING_GUIDELINES.md`.
+
+### Added — Breadth & Reach
+
+Fifteen new components, closing the gap with other RN component libraries on real-app-screen coverage:
+
+- **Modal** — built on RN's native `Modal` for correct Android back-button/overlay behavior, token-driven backdrop and content.
+- **Sheet** — bottom sheet composing `Modal`, drag-to-dismiss via `PanResponder`/`Animated` (no reanimated/gesture-handler dependency needed).
+- **Toast** — provider + imperative `useToast().show()` API, queued with auto-dismiss, five feedback variants.
+- **Select** — trigger styled like `Input`, options presented in a `Sheet`.
+- **List** — thin token-aware `FlatList` wrapper with a default separator and empty-state slot.
+- **Skeleton** — pulsing placeholder box.
+- **Alert** — inline (non-toast) feedback banner, same five variants as Toast with subtler styling.
+- **Accordion** — `Root`/`Item` composition, animated height, single or multi-open.
+- **Menu** — action sheet built on `Sheet`, destructive/disabled action states.
+- **Tabs** — `Root`/`List`/`Content` composition with real content-switching, distinct from the existing `TabBar` (which is visual-only).
+- **Chip** — interactive selectable/removable pill, distinct from the static `Badge`.
+- **ProgressBar** — animated 0–1 fill with `accessibilityValue`.
+- **Slider** — drag-to-adjust via `PanResponder`, min/max/step.
+- **Stepper** — increment/decrement numeric input.
+- **Tooltip** — tap-to-toggle (mobile has no hover), positioned relative to its own wrapper.
+
+### Added — Documentation
+
+- Full component reference site (`website/`) with **live, in-browser previews** of every component (all 11 core primitives, all 29 opinionated components) rendered via a hand-rolled `react-native-web` webpack integration — not just static code snippets.
+- Real branding, intro/quick-start page, and the existing theming and italic-fonts guides brought in as proper docs pages.
+- CI now builds the docs site on every PR.
 
 ### Fixed
 
 - `Button`'s barrel (`src/ui/components/button/index.ts`) re-exported `TButtonSize`/`TButtonVariant` from both `button-types` and `button-variants`, causing an `import/export` duplicate-export lint error. The barrel now re-exports those types only once, from `button-types`.
 - `check-file/filename-naming-convention` was rejecting every `*.test.tsx` file as invalid kebab-case (it read `.test` as part of the name to validate) — fixed with `ignoreMiddleExtensions: true`.
+- `IconSwitch` had no `testID` pass-through, forcing a brittle multi-level DOM-traversal workaround in its test — added the prop and simplified the test.
 
 ### Removed
 
@@ -102,6 +128,6 @@ Initial tagged release. Project scaffolding, `CODING_GUIDELINES.md`, and README.
 
 ---
 
-### Note on the `v1.0.0` tag
+### Note on the original `v1.0.0` tag
 
-A `v1.0.0` git tag exists in history dated 2026-04-02, seven days *before* `v0.1.0` — it was an early, premature version bump made before real semver progression started and was reset back down almost immediately (`chore: Reset package version`). It does not represent a stable 1.0 release and predates nearly all of the current feature set (theming augmentation interfaces, most components, italic font handling, layer-boundary enforcement). The next release to genuinely earn `1.0.0` will be the one described in the project roadmap as "Breadth & Reach," once test coverage, CI, and a broader component surface are in place. The tag itself is left in git history rather than deleted, since it's a real point-in-time artifact — this note exists so it isn't mistaken for a real 1.0 release.
+An earlier `v1.0.0` git tag existed dated 2026-04-02, seven days *before* `v0.1.0` — an early, premature version bump made before real semver progression started and reset back down almost immediately (`chore: Reset package version`). It never represented a stable 1.0 release and predated nearly all of the current feature set. That tag was local-only (never pushed to origin) and has been removed and replaced by the real `v1.0.0` tag, which points at the [1.0.0] release described above.

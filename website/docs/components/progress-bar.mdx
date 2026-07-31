@@ -1,0 +1,54 @@
+---
+id: progress-bar
+title: Progress Bar
+sidebar_position: 33
+---
+
+import ComponentPreview from '@site/src/components/ComponentPreview';
+import { ProgressBar, Col } from 'vajra-ui';
+
+# Progress Bar
+
+A token-driven, animated horizontal progress indicator. Takes a `value` between 0 and 1 (values outside this range are clamped).
+
+## Basic usage
+
+<ComponentPreview>
+  <Col gap="s-4">
+    <ProgressBar value={0.25} />
+    <ProgressBar value={0.5} />
+    <ProgressBar value={0.9} />
+  </Col>
+</ComponentPreview>
+
+```tsx
+<ProgressBar value={0.25} />
+<ProgressBar value={0.5} />
+<ProgressBar value={0.9} />
+```
+
+## Custom colors & height
+
+<ComponentPreview>
+  <Col gap="s-4">
+    <ProgressBar value={0.6} height={4} trackColor="surfaceRaised" fillColor="success" />
+    <ProgressBar value={0.4} height={12} trackColor="surfaceRaised" fillColor="warning" rounded="r-2" />
+  </Col>
+</ComponentPreview>
+
+```tsx
+<ProgressBar value={0.6} height={4} trackColor="surfaceRaised" fillColor="success" />
+<ProgressBar value={0.4} height={12} trackColor="surfaceRaised" fillColor="warning" rounded="r-2" />
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `value` | `number` | — | Required. Progress from 0 to 1, clamped if out of range. |
+| `height` | `number` | `8` | Track height in pixels. |
+| `trackColor` | `TVajraColors` | `'surfaceRaised'` | Background track color. |
+| `fillColor` | `TVajraColors` | `'primary'` | Fill color. |
+| `rounded` | `TRoundedToken` | `'r-full'` | Corner radius token. |
+| `animated` | `boolean` | `true` | Animate width changes when `value` changes. |
+| `testID` | `string` | — | Test identifier. |

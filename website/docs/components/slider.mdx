@@ -1,0 +1,112 @@
+---
+id: slider
+title: Slider
+sidebar_position: 36
+---
+
+import React, { useState } from 'react';
+import ComponentPreview from '@site/src/components/ComponentPreview';
+import { Slider, Text, Col } from 'vajra-ui';
+
+# Slider
+
+A draggable, token-driven slider built with `PanResponder`. Fully controlled via `value` and `onChange`, with an optional `onSlidingComplete` callback fired when the drag gesture ends.
+
+## Basic usage
+
+<ComponentPreview>
+  {(() => {
+    function SliderDemo() {
+      const [value, setValue] = useState(40);
+
+      return (
+        <Col gap="s-2">
+          <Text variant="body">Value: {value}</Text>
+          <Slider value={value} onChange={setValue} min={0} max={100} step={1} />
+        </Col>
+      );
+    }
+
+    return <SliderDemo />;
+  })()}
+</ComponentPreview>
+
+```tsx
+function SliderDemo() {
+  const [value, setValue] = useState(40);
+
+  return (
+    <>
+      <Text variant="body">Value: {value}</Text>
+      <Slider value={value} onChange={setValue} min={0} max={100} step={1} />
+    </>
+  );
+}
+```
+
+## Custom range, step & colors
+
+<ComponentPreview>
+  {(() => {
+    function SliderRangeDemo() {
+      const [value, setValue] = useState(5);
+
+      return (
+        <Col gap="s-2">
+          <Text variant="body">Rating: {value}</Text>
+          <Slider
+            value={value}
+            onChange={setValue}
+            min={0}
+            max={10}
+            step={1}
+            fillColor="success"
+            thumbColor="success"
+          />
+        </Col>
+      );
+    }
+
+    return <SliderRangeDemo />;
+  })()}
+</ComponentPreview>
+
+```tsx
+<Slider
+  value={value}
+  onChange={setValue}
+  min={0}
+  max={10}
+  step={1}
+  fillColor="success"
+  thumbColor="success"
+/>
+```
+
+## Disabled
+
+<ComponentPreview>
+  <Slider value={30} onChange={() => {}} isDisabled />
+</ComponentPreview>
+
+```tsx
+<Slider value={30} onChange={() => {}} isDisabled />
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `value` | `number` | — | Required. Controlled value, between `min` and `max`. |
+| `onChange` | `(value: number) => void` | — | Required. Called continuously while dragging. |
+| `onSlidingComplete` | `(value: number) => void` | — | Called once when a drag gesture ends. |
+| `min` | `number` | `0` | Minimum value. |
+| `max` | `number` | `100` | Maximum value. |
+| `step` | `number` | `1` | Value increment snapped to while dragging. |
+| `isDisabled` | `boolean` | `false` | Disables interaction and dims opacity. |
+| `trackHeight` | `number` | `4` | Track height in pixels. |
+| `thumbSize` | `number` | `20` | Thumb diameter in pixels. |
+| `trackColor` | `TVajraColors` | `'surfaceRaised'` | Track background color. |
+| `fillColor` | `TVajraColors` | `'primary'` | Filled portion color. |
+| `thumbColor` | `TVajraColors` | `'primary'` | Thumb color. |
+| `testID` | `string` | — | Test identifier. |

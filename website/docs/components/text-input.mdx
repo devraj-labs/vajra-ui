@@ -1,0 +1,51 @@
+---
+id: text-input
+title: TextInput
+sidebar_position: 11
+---
+
+import ComponentPreview from '@site/src/components/ComponentPreview';
+import { TextInput } from 'vajra-ui';
+
+# TextInput
+
+A themeable, token-driven wrapper around React Native's `TextInput`.
+
+<ComponentPreview>
+  <TextInput
+    placeholder="Enter your name"
+    bg="surface"
+    borderColor="border"
+    borderWidth={1}
+    rounded="r-2"
+    px="s-3"
+    py="s-2"
+  />
+</ComponentPreview>
+
+```tsx
+<TextInput
+  placeholder="Enter your name"
+  bg="surface"
+  borderColor="border"
+  borderWidth={1}
+  rounded="r-2"
+  px="s-3"
+  py="s-2"
+/>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `bg` | `TVajraColors` | — | Background color token. |
+| `borderColor` | `TVajraColors` | — | Border color token. |
+| `rounded` | `TRoundedToken` | — | Corner radius token. |
+| `color` | `TVajraColors` | — | Text color token. |
+| `placeholderColor` | `TVajraColors` | — | Placeholder text color token. |
+| `m` / `mx` / `my` / `mt` / `mb` / `ml` / `mr` | `TSpacingToken` | — | Margin tokens. |
+| `p` / `px` / `py` / `pt` / `pb` / `pl` / `pr` | `TSpacingToken` | — | Padding tokens. |
+| `gap` | `TSpacingToken` | — | Gap token. |
+
+Also accepts standard React Native `TextInput` props (`placeholder`, `value`, `onChangeText`, `secureTextEntry`, `keyboardType`, etc.), plus `w`, `h`, `borderWidth`, and `fontSize`/`lineHeight`/`fontWeight`/`letterSpacing` as raw values.

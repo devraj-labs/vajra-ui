@@ -1,0 +1,32 @@
+---
+id: absolute-center
+title: AbsoluteCenter
+sidebar_position: 8
+---
+
+import ComponentPreview from '@site/src/components/ComponentPreview';
+import { AbsoluteCenter, Box } from 'vajra-ui';
+
+# AbsoluteCenter
+
+Positions its children centered and absolutely filling the nearest positioned ancestor. Useful for overlays and badges centered on top of other content.
+
+<ComponentPreview>
+  <Box bg="surface" w={120} h={80} rounded="r-3" style={{ position: 'relative' }}>
+    <AbsoluteCenter>
+      <Box bg="brand" w={32} h={32} rounded="r-2" />
+    </AbsoluteCenter>
+  </Box>
+</ComponentPreview>
+
+```tsx
+<Box bg="surface" w={120} h={80} rounded="r-3" style={{ position: 'relative' }}>
+  <AbsoluteCenter>
+    <Box bg="brand" w={32} h={32} rounded="r-2" />
+  </AbsoluteCenter>
+</Box>
+```
+
+## Props
+
+AbsoluteCenter accepts every Box prop except `style` (its `position: 'absolute'` inset styling is fixed internally). `align` and `justify` default to `'center'` but can be overridden. See Box's props for the full list, including `gap`, spacing (`m*`/`p*`), `bg`, and `rounded`.

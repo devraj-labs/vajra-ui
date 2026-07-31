@@ -1,0 +1,110 @@
+---
+id: radio
+title: Radio
+sidebar_position: 15
+---
+
+import ComponentPreview from '@site/src/components/ComponentPreview';
+import React, { useState } from 'react';
+import { Radio } from 'vajra-ui';
+
+# Radio
+
+A single-select group, controlled via `value`. Built from `Radio.Root` and `Radio.Item` (which internally composes `Radio.Indicator` and `Radio.Label`).
+
+## Basic usage
+
+<ComponentPreview>
+  {(() => {
+    const RadioExample = () => {
+      const [value, setValue] = useState('monthly');
+
+      return (
+        <Radio.Root value={value} onChange={setValue}>
+          <Radio.Item value="monthly" label="Monthly" />
+          <Radio.Item value="yearly" label="Yearly" />
+          <Radio.Item value="lifetime" label="Lifetime" />
+        </Radio.Root>
+      );
+    };
+
+    return <RadioExample />;
+  })()}
+</ComponentPreview>
+
+```tsx
+function RadioExample() {
+  const [value, setValue] = useState('monthly');
+
+  return (
+    <Radio.Root value={value} onChange={setValue}>
+      <Radio.Item value="monthly" label="Monthly" />
+      <Radio.Item value="yearly" label="Yearly" />
+      <Radio.Item value="lifetime" label="Lifetime" />
+    </Radio.Root>
+  );
+}
+```
+
+## Color and disabled state
+
+`color` on `Radio.Root` sets the selected dot/border token for every item. Set `isDisabled` on the root to disable the whole group, or on an individual `Radio.Item` to disable just that item.
+
+<ComponentPreview>
+  {(() => {
+    const RadioColorExample = () => {
+      const [value, setValue] = useState('a');
+
+      return (
+        <Radio.Root value={value} onChange={setValue} color="secondary">
+          <Radio.Item value="a" label="Enabled" />
+          <Radio.Item value="b" label="Disabled item" isDisabled />
+        </Radio.Root>
+      );
+    };
+
+    return <RadioColorExample />;
+  })()}
+</ComponentPreview>
+
+```tsx
+<Radio.Root value={value} onChange={setValue} color="secondary">
+  <Radio.Item value="a" label="Enabled" />
+  <Radio.Item value="b" label="Disabled item" isDisabled />
+</Radio.Root>
+```
+
+## Props
+
+### Radio.Root Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `value` | `string` | — | Required. The currently selected item value. Controlled. |
+| `onChange` | `(value: string) => void` | — | Required. Called with the pressed item's value. |
+| `color` | `TVajraColors` | `'primary'` | Selected dot/border color token, applied to every item's indicator. |
+| `isDisabled` | `boolean` | `false` | Disables all items unless individually overridden. |
+| `children` | `ReactNode` | — | Required. `Radio.Item` elements. |
+
+### Radio.Item Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `value` | `string` | — | Required. Unique identifier compared against the root's `value`. |
+| `label` | `string` | — | Optional label text rendered next to the indicator. |
+| `isDisabled` | `boolean` | — | Overrides the root's `isDisabled` for this item. |
+
+### Radio.Indicator Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `isSelected` | `boolean` | — | Required. Whether to render the filled dot. |
+| `isDisabled` | `boolean` | — | Required. Dims the indicator. |
+| `color` | `TVajraColors` | `'primary'` | Dot/border color token when selected. |
+
+### Radio.Label Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `label` | `string` | — | Required. Text to display. |
+| `isDisabled` | `boolean` | — | Required. Dims the label. |

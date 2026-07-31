@@ -1,0 +1,102 @@
+---
+id: list
+title: List
+sidebar_position: 32
+---
+
+import ComponentPreview from '@site/src/components/ComponentPreview';
+import { List, Box, Text } from 'vajra-ui';
+
+# List
+
+A token-driven wrapper around React Native's `FlatList`, with a default separator, empty state, and padding shorthands. It accepts all standard `FlatList` props (`data`, `renderItem`, `keyExtractor`, etc.) alongside a few extras.
+
+## Basic usage
+
+<ComponentPreview>
+  <Box style={{ height: 220 }}>
+    <List
+      data={[
+        { id: '1', name: 'Almond' },
+        { id: '2', name: 'Cashew' },
+        { id: '3', name: 'Pistachio' },
+        { id: '4', name: 'Walnut' },
+      ]}
+      keyExtractor={item => item.id}
+      renderItem={({ item }) => (
+        <Box py="s-2">
+          <Text variant="body">{item.name}</Text>
+        </Box>
+      )}
+    />
+  </Box>
+</ComponentPreview>
+
+```tsx
+<List
+  data={[
+    { id: '1', name: 'Almond' },
+    { id: '2', name: 'Cashew' },
+    { id: '3', name: 'Pistachio' },
+    { id: '4', name: 'Walnut' },
+  ]}
+  keyExtractor={item => item.id}
+  renderItem={({ item }) => (
+    <Box py="s-2">
+      <Text variant="body">{item.name}</Text>
+    </Box>
+  )}
+/>
+```
+
+## No separator & empty state
+
+<ComponentPreview>
+  <Box style={{ height: 120 }}>
+    <List
+      data={[]}
+      keyExtractor={(_, index) => String(index)}
+      renderItem={() => null}
+      showSeparator={false}
+      emptyState={
+        <Box py="s-4" align="center">
+          <Text variant="body" color="textMuted">
+            Nothing here yet
+          </Text>
+        </Box>
+      }
+    />
+  </Box>
+</ComponentPreview>
+
+```tsx
+<List
+  data={[]}
+  keyExtractor={(_, index) => String(index)}
+  renderItem={() => null}
+  showSeparator={false}
+  emptyState={
+    <Box py="s-4" align="center">
+      <Text variant="body" color="textMuted">
+        Nothing here yet
+      </Text>
+    </Box>
+  }
+/>
+```
+
+## Props
+
+`List` accepts all `FlatList<TItem>` props except `ItemSeparatorComponent`, `ListEmptyComponent`, and `contentContainerStyle`, plus:
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `showSeparator` | `boolean` | `true` | Show the default token-driven separator between items. |
+| `separatorColor` | `TVajraColors` | `'border'` | Color of the default separator. |
+| `emptyState` | `ReactNode` | — | Rendered in place of the list when `data` is empty. |
+| `p` | `TSpacingToken` | — | Content container padding. |
+| `px` | `TSpacingToken` | — | Content container horizontal padding. |
+| `py` | `TSpacingToken` | — | Content container vertical padding. |
+| `testID` | `string` | — | Test identifier. |
+
+Also accepts all `FlatList` props (`data`, `renderItem`, `keyExtractor`, `horizontal`, `onEndReached`, etc.).

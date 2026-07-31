@@ -1,0 +1,46 @@
+---
+id: spinner
+title: Spinner
+sidebar_position: 37
+---
+
+import ComponentPreview from '@site/src/components/ComponentPreview';
+import { Spinner, Row } from 'vajra-ui';
+
+# Spinner
+
+A thin, token-driven wrapper around React Native's `ActivityIndicator`.
+
+## Basic usage
+
+<ComponentPreview>
+  <Spinner />
+</ComponentPreview>
+
+```tsx
+<Spinner />
+```
+
+## Colors
+
+<ComponentPreview>
+  <Row gap="s-4" align="center">
+    <Spinner color="primary" />
+    <Spinner color="success" />
+    <Spinner color="error" />
+    <Spinner color="textMuted" />
+  </Row>
+</ComponentPreview>
+
+```tsx
+<Spinner color="primary" />
+<Spinner color="success" />
+<Spinner color="error" />
+<Spinner color="textMuted" />
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `color` | `TVajraColors` | `'primary'` | Spinner color. |

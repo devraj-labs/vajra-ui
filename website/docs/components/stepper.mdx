@@ -1,0 +1,95 @@
+---
+id: stepper
+title: Stepper
+sidebar_position: 38
+---
+
+import React, { useState } from 'react';
+import ComponentPreview from '@site/src/components/ComponentPreview';
+import { Stepper } from 'vajra-ui';
+
+# Stepper
+
+A numeric increment/decrement control with a `−`/`+` button pair. Fully controlled via `value` and `onChange`.
+
+## Basic usage
+
+<ComponentPreview>
+  {(() => {
+    function StepperDemo() {
+      const [value, setValue] = useState(1);
+
+      return <Stepper value={value} onChange={setValue} min={0} max={10} />;
+    }
+
+    return <StepperDemo />;
+  })()}
+</ComponentPreview>
+
+```tsx
+function StepperDemo() {
+  const [value, setValue] = useState(1);
+
+  return <Stepper value={value} onChange={setValue} min={0} max={10} />;
+}
+```
+
+## Custom step & colors
+
+<ComponentPreview>
+  {(() => {
+    function StepperStepDemo() {
+      const [value, setValue] = useState(0);
+
+      return (
+        <Stepper
+          value={value}
+          onChange={setValue}
+          min={0}
+          max={100}
+          step={5}
+          buttonBg="primarySubtle"
+          buttonColor="primary"
+        />
+      );
+    }
+
+    return <StepperStepDemo />;
+  })()}
+</ComponentPreview>
+
+```tsx
+<Stepper
+  value={value}
+  onChange={setValue}
+  min={0}
+  max={100}
+  step={5}
+  buttonBg="primarySubtle"
+  buttonColor="primary"
+/>
+```
+
+## Disabled
+
+<ComponentPreview>
+  <Stepper value={3} onChange={() => {}} isDisabled />
+</ComponentPreview>
+
+```tsx
+<Stepper value={3} onChange={() => {}} isDisabled />
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `value` | `number` | — | Required. Current value. |
+| `onChange` | `(value: number) => void` | — | Required. Called with the next value on increment/decrement. |
+| `min` | `number` | `0` | Minimum value; decrement disables below it. |
+| `max` | `number` | `Infinity` | Maximum value; increment disables above it. |
+| `step` | `number` | `1` | Amount added or subtracted per press. |
+| `isDisabled` | `boolean` | `false` | Disables both buttons. |
+| `buttonBg` | `TVajraColors` | `'surfaceRaised'` | Background color of the +/− buttons. |
+| `buttonColor` | `TVajraColors` | `'text'` | Color of the +/− glyphs. |
+| `testID` | `string` | — | Test identifier. |

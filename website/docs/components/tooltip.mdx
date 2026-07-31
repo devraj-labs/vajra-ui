@@ -1,0 +1,75 @@
+---
+id: tooltip
+title: Tooltip
+sidebar_position: 40
+---
+
+import ComponentPreview from '@site/src/components/ComponentPreview';
+import { Tooltip, Button, Row } from 'vajra-ui';
+
+# Tooltip
+
+Wraps a pressable child and toggles a small label bubble above or below it on press. Manages its own open/closed state internally — no controlled props required.
+
+## Basic usage
+
+<ComponentPreview>
+  <Row gap="s-6">
+    <Tooltip label="This is a tooltip">
+      <Button variant="outline" label="Press me" onPress={() => {}} />
+    </Tooltip>
+  </Row>
+</ComponentPreview>
+
+```tsx
+<Tooltip label="This is a tooltip">
+  <Button variant="outline" label="Press me" onPress={() => {}} />
+</Tooltip>
+```
+
+## Placement
+
+<ComponentPreview>
+  <Row gap="s-8">
+    <Tooltip label="Above the trigger" placement="top">
+      <Button variant="subtle" label="Top" onPress={() => {}} />
+    </Tooltip>
+    <Tooltip label="Below the trigger" placement="bottom">
+      <Button variant="subtle" label="Bottom" onPress={() => {}} />
+    </Tooltip>
+  </Row>
+</ComponentPreview>
+
+```tsx
+<Tooltip label="Above the trigger" placement="top">
+  <Button variant="subtle" label="Top" onPress={() => {}} />
+</Tooltip>
+<Tooltip label="Below the trigger" placement="bottom">
+  <Button variant="subtle" label="Bottom" onPress={() => {}} />
+</Tooltip>
+```
+
+## Custom colors
+
+<ComponentPreview>
+  <Tooltip label="Success message" bg="success" textColor="textInverse">
+    <Button variant="solid" label="Custom colors" onPress={() => {}} />
+  </Tooltip>
+</ComponentPreview>
+
+```tsx
+<Tooltip label="Success message" bg="success" textColor="textInverse">
+  <Button variant="solid" label="Custom colors" onPress={() => {}} />
+</Tooltip>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `label` | `string` | — | Required. Text shown inside the tooltip bubble. |
+| `children` | `ReactNode` | — | Required. Pressable trigger element. |
+| `placement` | `'top' \| 'bottom'` | `'top'` | Position of the bubble relative to the trigger. |
+| `bg` | `TVajraColors` | `'text'` | Bubble background color. |
+| `textColor` | `TVajraColors` | `'textInverse'` | Bubble text color. |
+| `testID` | `string` | — | Test identifier. |

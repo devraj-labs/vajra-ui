@@ -1,0 +1,110 @@
+---
+id: switch
+title: Switch
+sidebar_position: 16
+---
+
+import ComponentPreview from '@site/src/components/ComponentPreview';
+import React, { useState } from 'react';
+import { Switch } from 'vajra-ui';
+
+# Switch
+
+A single-select group of animated toggle rows, controlled via `value`. Built from `Switch.Root` and `Switch.Item` (which internally composes `Switch.Label` and `Switch.Indicator`).
+
+## Basic usage
+
+<ComponentPreview>
+  {(() => {
+    const SwitchExample = () => {
+      const [value, setValue] = useState('wifi');
+
+      return (
+        <Switch.Root value={value} onChange={setValue}>
+          <Switch.Item value="wifi" label="Wi-Fi" />
+          <Switch.Item value="bluetooth" label="Bluetooth" />
+          <Switch.Item value="airplane" label="Airplane mode" />
+        </Switch.Root>
+      );
+    };
+
+    return <SwitchExample />;
+  })()}
+</ComponentPreview>
+
+```tsx
+function SwitchExample() {
+  const [value, setValue] = useState('wifi');
+
+  return (
+    <Switch.Root value={value} onChange={setValue}>
+      <Switch.Item value="wifi" label="Wi-Fi" />
+      <Switch.Item value="bluetooth" label="Bluetooth" />
+      <Switch.Item value="airplane" label="Airplane mode" />
+    </Switch.Root>
+  );
+}
+```
+
+## Color and disabled state
+
+`color` on `Switch.Root` sets the "on" track color for every item. Set `isDisabled` on the root to disable the whole group, or on an individual `Switch.Item` to disable just that item.
+
+<ComponentPreview>
+  {(() => {
+    const SwitchColorExample = () => {
+      const [value, setValue] = useState('a');
+
+      return (
+        <Switch.Root value={value} onChange={setValue} color="warning">
+          <Switch.Item value="a" label="Enabled" />
+          <Switch.Item value="b" label="Disabled item" isDisabled />
+        </Switch.Root>
+      );
+    };
+
+    return <SwitchColorExample />;
+  })()}
+</ComponentPreview>
+
+```tsx
+<Switch.Root value={value} onChange={setValue} color="warning">
+  <Switch.Item value="a" label="Enabled" />
+  <Switch.Item value="b" label="Disabled item" isDisabled />
+</Switch.Root>
+```
+
+## Props
+
+### Switch.Root Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `value` | `string` | — | Required. The currently selected item value. Controlled. |
+| `onChange` | `(value: string) => void` | — | Required. Called with the pressed item's value. |
+| `color` | `TVajraColors` | `'primary'` | Track color token when an item is "on", applied to every item's indicator. |
+| `isDisabled` | `boolean` | `false` | Disables all items unless individually overridden. |
+| `children` | `ReactNode` | — | Required. `Switch.Item` elements. |
+
+### Switch.Item Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `value` | `string` | — | Required. Unique identifier compared against the root's `value`. |
+| `label` | `string` | — | Optional label text rendered before the track. |
+| `isDisabled` | `boolean` | — | Overrides the root's `isDisabled` for this item. |
+
+### Switch.Indicator Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `isSelected` | `boolean` | — | Required. Whether the track/thumb render in the "on" position. |
+| `isDisabled` | `boolean` | — | Required. Dims the track. |
+| `color` | `TVajraColors` | `'primary'` | Track color token when selected. |
+
+### Switch.Label Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `label` | `string` | — | Required. Text to display. |
+| `isDisabled` | `boolean` | — | Required. Dims the label. |

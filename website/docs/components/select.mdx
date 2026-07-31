@@ -1,0 +1,116 @@
+---
+id: select
+title: Select
+sidebar_position: 34
+---
+
+import React, { useState } from 'react';
+import ComponentPreview from '@site/src/components/ComponentPreview';
+import { Select } from 'vajra-ui';
+
+# Select
+
+A pressable field that opens a bottom sheet of options. Fully controlled via `value` and `onChange`.
+
+## Basic usage
+
+<ComponentPreview>
+  {(() => {
+    function SelectDemo() {
+      const [value, setValue] = useState('apple');
+
+      return (
+        <Select
+          label="Fruit"
+          placeholder="Choose a fruit…"
+          value={value}
+          onChange={setValue}
+          options={[
+            { label: 'Apple', value: 'apple' },
+            { label: 'Banana', value: 'banana' },
+            { label: 'Cherry', value: 'cherry' },
+          ]}
+        />
+      );
+    }
+
+    return <SelectDemo />;
+  })()}
+</ComponentPreview>
+
+```tsx
+function SelectDemo() {
+  const [value, setValue] = useState('apple');
+
+  return (
+    <Select
+      label="Fruit"
+      placeholder="Choose a fruit…"
+      value={value}
+      onChange={setValue}
+      options={[
+        { label: 'Apple', value: 'apple' },
+        { label: 'Banana', value: 'banana' },
+        { label: 'Cherry', value: 'cherry' },
+      ]}
+    />
+  );
+}
+```
+
+## Invalid & disabled
+
+<ComponentPreview>
+  {(() => {
+    function SelectStatesDemo() {
+      const [value, setValue] = useState(undefined);
+
+      return (
+        <Select
+          label="Country"
+          placeholder="Select a country…"
+          value={value}
+          onChange={setValue}
+          isInvalid
+          errorText="This field is required"
+          options={[
+            { label: 'India', value: 'in' },
+            { label: 'USA', value: 'us' },
+          ]}
+        />
+      );
+    }
+
+    return <SelectStatesDemo />;
+  })()}
+</ComponentPreview>
+
+```tsx
+<Select
+  label="Country"
+  placeholder="Select a country…"
+  value={value}
+  onChange={setValue}
+  isInvalid
+  errorText="This field is required"
+  options={[
+    { label: 'India', value: 'in' },
+    { label: 'USA', value: 'us' },
+  ]}
+/>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `options` | `{ label: string; value: TValue }[]` | — | Required. List of selectable options. |
+| `value` | `TValue` | — | Currently selected value. |
+| `onChange` | `(value: TValue) => void` | — | Required. Called when an option is selected. |
+| `placeholder` | `string` | `'Select…'` | Text shown when nothing is selected. |
+| `label` | `string` | — | Label rendered above the field. |
+| `errorText` | `string` | — | Helper text shown below the field when `isInvalid`. |
+| `isInvalid` | `boolean` | `false` | Renders the field with an error border and shows `errorText`. |
+| `isDisabled` | `boolean` | `false` | Disables interaction and dims opacity. |
+| `selectedColor` | `TVajraColors` | `'primary'` | Highlight color for the selected option in the sheet. |
+| `testID` | `string` | — | Test identifier. |

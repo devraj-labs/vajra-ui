@@ -1,0 +1,81 @@
+---
+id: card
+title: Card
+sidebar_position: 27
+---
+
+import ComponentPreview from '@site/src/components/ComponentPreview';
+import { Card, Text, Col } from 'vajra-ui';
+
+# Card
+
+A token-driven surface container built on `Box`, with sensible defaults for padding, background, and corner radius.
+
+## Basic usage
+
+<ComponentPreview>
+  <Card>
+    <Text variant="bodyMedium">This is a card.</Text>
+  </Card>
+</ComponentPreview>
+
+```tsx
+<Card>
+  <Text variant="bodyMedium">This is a card.</Text>
+</Card>
+```
+
+## Composed content
+
+<ComponentPreview>
+  <Card>
+    <Col gap="s-2">
+      <Text variant="bodyMedium">Card title</Text>
+      <Text variant="bodySmall" color="textMuted">
+        Supporting description text that explains the card content in more detail.
+      </Text>
+    </Col>
+  </Card>
+</ComponentPreview>
+
+```tsx
+<Card>
+  <Col gap="s-2">
+    <Text variant="bodyMedium">Card title</Text>
+    <Text variant="bodySmall" color="textMuted">
+      Supporting description text that explains the card content in more detail.
+    </Text>
+  </Col>
+</Card>
+```
+
+## Overriding tokens
+
+<ComponentPreview>
+  <Card bg="primary" rounded="r-1" p="s-2">
+    <Text variant="bodyMedium" color="textInverse">
+      Customized card
+    </Text>
+  </Card>
+</ComponentPreview>
+
+```tsx
+<Card bg="primary" rounded="r-1" p="s-2">
+  <Text variant="bodyMedium" color="textInverse">
+    Customized card
+  </Text>
+</Card>
+```
+
+## Props
+
+Card accepts all `Box` props (`TUiBoxProps`) — spacing, color, rounded, flex, position, etc. — with these defaults:
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `p` | `TSpacingToken` | `'s-4'` | Padding applied to the container. |
+| `rounded` | `TRoundedToken` | `'r-3'` | Corner radius. |
+| `bg` | `TVajraColors` | `'surface'` | Background color. |
+| `children` | `React.ReactNode` | — | Card content. |
+
+Any other `Box` prop (`w`, `h`, `borderColor`, `borderWidth`, `flex`, `justify`, `align`, `direction`, spacing shorthands, etc.) can be passed through and will override the defaults above.

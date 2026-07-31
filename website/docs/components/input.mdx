@@ -1,0 +1,90 @@
+---
+id: input
+title: Input
+sidebar_position: 19
+---
+
+import ComponentPreview from '@site/src/components/ComponentPreview';
+import { Input, Col } from 'vajra-ui';
+
+# Input
+
+A labeled text field with four visual variants — `Input.Outline`, `Input.Filled`, `Input.Flushed`, `Input.Floating` — plus shared label, helper text, and error states.
+
+## Variants
+
+<ComponentPreview>
+  <Col gap="s-4">
+    <Input.Outline label="Outline" placeholder="Type here" />
+    <Input.Filled label="Filled" placeholder="Type here" />
+    <Input.Flushed label="Flushed" placeholder="Type here" />
+    <Input.Floating label="Floating" />
+  </Col>
+</ComponentPreview>
+
+```tsx
+<Input.Outline label="Outline" placeholder="Type here" />
+<Input.Filled label="Filled" placeholder="Type here" />
+<Input.Flushed label="Flushed" placeholder="Type here" />
+<Input.Floating label="Floating" />
+```
+
+## Sizes
+
+<ComponentPreview>
+  <Col gap="s-4">
+    <Input.Outline size="xs" label="Extra small" placeholder="xs" />
+    <Input.Outline size="sm" label="Small" placeholder="sm" />
+    <Input.Outline size="md" label="Medium" placeholder="md" />
+    <Input.Outline size="lg" label="Large" placeholder="lg" />
+  </Col>
+</ComponentPreview>
+
+```tsx
+<Input.Outline size="xs" label="Extra small" placeholder="xs" />
+<Input.Outline size="sm" label="Small" placeholder="sm" />
+<Input.Outline size="md" label="Medium" placeholder="md" />
+<Input.Outline size="lg" label="Large" placeholder="lg" />
+```
+
+## Helper text, error, and disabled
+
+<ComponentPreview>
+  <Col gap="s-4">
+    <Input.Outline label="Email" placeholder="you@example.com" helperText="We'll never share your email." />
+    <Input.Outline label="Username" placeholder="Username" isInvalid errorText="Username is already taken." />
+    <Input.Outline label="Locked field" placeholder="Can't edit" isDisabled />
+  </Col>
+</ComponentPreview>
+
+```tsx
+<Input.Outline label="Email" placeholder="you@example.com" helperText="We'll never share your email." />
+<Input.Outline label="Username" placeholder="Username" isInvalid errorText="Username is already taken." />
+<Input.Outline label="Locked field" placeholder="Can't edit" isDisabled />
+```
+
+## Props
+
+All four variants (`Input.Outline`, `Input.Filled`, `Input.Flushed`, `Input.Floating`) share this prop set.
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg'` | — | Field height and font scale. |
+| `rounded` | `boolean` | — | Fully rounded corners (not used by `Input.Flushed`). |
+| `label` | `string` | — | Field label rendered above the input. |
+| `helperText` | `string` | — | Helper copy rendered below the input. |
+| `errorText` | `string` | — | Error copy rendered below the input; also shown when `isInvalid` is set. |
+| `isInvalid` | `boolean` | — | Marks the field as invalid, switching border/label color to the error token. |
+| `isDisabled` | `boolean` | — | Disables the field and dims it. |
+| `isReadOnly` | `boolean` | — | Marks the field as read-only. |
+| `startElement` | `ReactNode` | — | Content rendered before the text input (e.g. an icon). |
+| `endElement` | `ReactNode` | — | Content rendered after the text input (e.g. an icon). |
+| `ref` | `React.Ref<TextInput>` | — | Ref forwarded to the underlying `TextInput`. |
+
+Also accepts the standard React Native `TextInput` props (`value`, `defaultValue`, `onChangeText`, `placeholder`, `keyboardType`, etc.) except `bg`, `borderColor`, `rounded`, `p`, `px`, `py`, which are reserved for the variant's own layout.
+
+`Input.Floating` additionally accepts:
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `variant` | `'outline' \| 'filled' \| 'flushed'` | `'outline'` | Underlying container style the floating label animates on top of. |

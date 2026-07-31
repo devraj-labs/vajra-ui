@@ -1,0 +1,68 @@
+---
+id: avatar
+title: Avatar
+sidebar_position: 25
+---
+
+import ComponentPreview from '@site/src/components/ComponentPreview';
+import { Avatar, Row } from 'vajra-ui';
+
+# Avatar
+
+A circular user image with automatic fallback to colored initials when no `src` is given or the image fails to load.
+
+## Initials
+
+<ComponentPreview>
+  <Row gap="s-2" align="center">
+    <Avatar initials="JD" />
+    <Avatar initials="AK" />
+    <Avatar initials="RS" />
+    <Avatar initials="MP" />
+  </Row>
+</ComponentPreview>
+
+```tsx
+<Avatar initials="JD" />
+<Avatar initials="AK" />
+```
+
+## Sizes
+
+<ComponentPreview>
+  <Row gap="s-2" align="center">
+    <Avatar initials="XS" width={24} height={24} />
+    <Avatar initials="SM" width={32} height={32} />
+    <Avatar initials="MD" width={40} height={40} />
+    <Avatar initials="LG" width={56} height={56} />
+    <Avatar initials="XL" width={72} height={72} />
+  </Row>
+</ComponentPreview>
+
+```tsx
+<Avatar initials="SM" width={32} height={32} />
+<Avatar initials="LG" width={56} height={56} />
+```
+
+## Image with fallback
+
+<ComponentPreview>
+  <Row gap="s-2" align="center">
+    <Avatar src="https://i.pravatar.cc/150?img=12" initials="JD" />
+    <Avatar src="https://broken-url.example/avatar.png" initials="AK" />
+  </Row>
+</ComponentPreview>
+
+```tsx
+<Avatar src="https://i.pravatar.cc/150?img=12" initials="JD" />
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `initials` | `string` | — | Required. Fallback text shown when there is no image or it fails to load; only the first two characters are used, uppercased. |
+| `src` | `string` | — | URI of the network image to display. |
+| `width` | `number` | `40` | Width of the avatar in pixels. |
+| `height` | `number` | `40` | Height of the avatar in pixels. |
+| `imageProps` | `Omit<ImageProps, 'source' \| 'style'>` | — | Additional props forwarded to the underlying `Image`. |

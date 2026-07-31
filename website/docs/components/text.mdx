@@ -1,0 +1,43 @@
+---
+id: text
+title: Text
+sidebar_position: 2
+---
+
+import ComponentPreview from '@site/src/components/ComponentPreview';
+import { Text, Col } from 'vajra-ui';
+
+# Text
+
+Typography primitive driven by theme font variants and tokens.
+
+<ComponentPreview>
+  <Col gap="s-1">
+    <Text variant="h2">Heading</Text>
+    <Text variant="body" color="textMuted">
+      Body copy that reads from the theme's typography scale.
+    </Text>
+  </Col>
+</ComponentPreview>
+
+```tsx
+<Text variant="h2">Heading</Text>
+<Text variant="body" color="textMuted">
+  Body copy that reads from the theme's typography scale.
+</Text>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `variant` | `TFontVariant` (e.g. `'label' \| 'body' \| 'bodyMedium' \| 'button' \| 'h1' \| 'h2' \| 'h3' \| 'display' \| ...`) | `'body'` | Applies the theme's font size, line height, and weight for that variant. |
+| `fontSize` | `TFontSizeToken` | — | Overrides the variant's font size (and line height, unless `lineHeight` is set). |
+| `lineHeight` | `number` | — | Overrides the resolved line height. |
+| `color` | `TVajraColors` | theme `text` color | Text color token. |
+| `font` | `keyof IVajraFonts` | — | Custom font family key registered on the theme. |
+| `fontWeight` | `TFontWeightValue` | `'400'` | Font weight; used to resolve the correct font file when `font` is set. |
+| `fontStyle` | `'normal' \| 'italic'` | — | Italic styling. On iOS this is applied even without an italic font file; on Android it's only applied if no dedicated italic font file exists for the weight. |
+| `m` / `mx` / `my` / `mt` / `mb` / `ml` / `mr` | `TSpacingToken` | — | Margin tokens. |
+
+Also accepts the underlying React Native `Text` props (e.g. `numberOfLines`, `onPress`, `children`).

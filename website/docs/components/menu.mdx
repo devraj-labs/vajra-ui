@@ -1,0 +1,81 @@
+---
+id: menu
+title: Menu
+sidebar_position: 20
+---
+
+import ComponentPreview from '@site/src/components/ComponentPreview';
+import { Menu, Button } from 'vajra-ui';
+import React from 'react';
+
+# Menu
+
+An action sheet listing selectable actions. It renders on top of Sheet, so it opens from the bottom and supports drag-to-dismiss. Pass `isVisible`/`onClose` and a flat `actions` array.
+
+export const MenuDemo = () => {
+  const [isVisible, setIsVisible] = React.useState(false);
+
+  return (
+    <>
+      <Button label="Open menu" onPress={() => setIsVisible(true)} />
+      <Menu
+        isVisible={isVisible}
+        onClose={() => setIsVisible(false)}
+        title="Post options"
+        actions={[
+          { label: 'Edit', onPress: () => {} },
+          { label: 'Share', onPress: () => {} },
+          { label: 'Delete', onPress: () => {}, isDestructive: true },
+          { label: 'Archive', onPress: () => {}, isDisabled: true },
+        ]}
+      />
+    </>
+  );
+};
+
+<ComponentPreview>
+  <MenuDemo />
+</ComponentPreview>
+
+```tsx
+function PostMenu() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  return (
+    <>
+      <Button label="Open menu" onPress={() => setIsVisible(true)} />
+      <Menu
+        isVisible={isVisible}
+        onClose={() => setIsVisible(false)}
+        title="Post options"
+        actions={[
+          { label: 'Edit', onPress: () => {} },
+          { label: 'Share', onPress: () => {} },
+          { label: 'Delete', onPress: () => {}, isDestructive: true },
+          { label: 'Archive', onPress: () => {}, isDisabled: true },
+        ]}
+      />
+    </>
+  );
+}
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `isVisible` | `boolean` | — | Required. Controls whether the menu sheet is shown. |
+| `onClose` | `() => void` | — | Required. Called when the backdrop is pressed, the sheet is dragged down, or an action is pressed. |
+| `actions` | `TMenuAction[]` | — | Required. The list of actions rendered as menu items. |
+| `title` | `string` | — | Optional heading rendered above the actions. |
+| `testID` | `string` | — | Base test ID; propagated to each action as `` `${testID}-action-${index}` ``. |
+
+### TMenuAction
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `label` | `string` | — | Required. Action text. |
+| `onPress` | `() => void` | — | Required. Called when the action is pressed, immediately followed by `onClose`. |
+| `icon` | `ReactNode` | — | Optional leading icon. |
+| `isDestructive` | `boolean` | `false` | Styles the label in the destructive (error) color. |
+| `isDisabled` | `boolean` | `false` | Disables the action and dims it. |

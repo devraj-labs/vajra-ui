@@ -1,0 +1,35 @@
+---
+id: separator
+title: Separator
+sidebar_position: 9
+---
+
+import ComponentPreview from '@site/src/components/ComponentPreview';
+import { Separator, Col, Text } from 'vajra-ui';
+
+# Separator
+
+A thin dividing line, horizontal or vertical.
+
+<ComponentPreview>
+  <Col gap="s-3">
+    <Text variant="body">Above</Text>
+    <Separator />
+    <Text variant="body">Below</Text>
+  </Col>
+</ComponentPreview>
+
+```tsx
+<Text variant="body">Above</Text>
+<Separator />
+<Text variant="body">Below</Text>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `orientation` | `'horizontal' \| 'vertical'` | `'horizontal'` | Direction of the line. |
+| `thickness` | `number` | — | Line thickness in px. |
+| `color` | `TVajraColors` | `'border'` | Line color token. |
+| `variant` | `'solid' \| 'dashed' \| 'dotted'` | — | Line style. |

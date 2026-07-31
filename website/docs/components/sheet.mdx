@@ -1,0 +1,105 @@
+---
+id: sheet
+title: Sheet
+sidebar_position: 21
+---
+
+import ComponentPreview from '@site/src/components/ComponentPreview';
+import { Sheet, Button, Text } from 'vajra-ui';
+import React from 'react';
+
+# Sheet
+
+A bottom-anchored panel built on Modal. It supports drag-to-dismiss and tap-outside-to-close, and is the base Menu is built on.
+
+export const SheetDemo = () => {
+  const [isVisible, setIsVisible] = React.useState(false);
+
+  return (
+    <>
+      <Button label="Open sheet" onPress={() => setIsVisible(true)} />
+      <Sheet isVisible={isVisible} onClose={() => setIsVisible(false)}>
+        <Text variant="subheading" mb="s-2">
+          Sheet title
+        </Text>
+        <Text color="textMuted" mb="s-4">
+          Drag down, tap outside, or press the button below to dismiss.
+        </Text>
+        <Button label="Close" onPress={() => setIsVisible(false)} />
+      </Sheet>
+    </>
+  );
+};
+
+<ComponentPreview>
+  <SheetDemo />
+</ComponentPreview>
+
+```tsx
+function ExampleSheet() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  return (
+    <>
+      <Button label="Open sheet" onPress={() => setIsVisible(true)} />
+      <Sheet isVisible={isVisible} onClose={() => setIsVisible(false)}>
+        <Text variant="subheading" mb="s-2">
+          Sheet title
+        </Text>
+        <Text color="textMuted" mb="s-4">
+          Drag down, tap outside, or press the button below to dismiss.
+        </Text>
+        <Button label="Close" onPress={() => setIsVisible(false)} />
+      </Sheet>
+    </>
+  );
+}
+```
+
+## No drag dismiss
+
+<ComponentPreview>
+  {(() => {
+    const NoDragSheetDemo = () => {
+      const [isVisible, setIsVisible] = React.useState(false);
+
+      return (
+        <>
+          <Button label="Open sheet" onPress={() => setIsVisible(true)} />
+          <Sheet isVisible={isVisible} onClose={() => setIsVisible(false)} dismissOnDrag={false}>
+            <Text variant="subheading" mb="s-2">
+              Can't drag this one
+            </Text>
+            <Button label="Close" onPress={() => setIsVisible(false)} />
+          </Sheet>
+        </>
+      );
+    };
+
+    return <NoDragSheetDemo />;
+  })()}
+</ComponentPreview>
+
+```tsx
+<Sheet isVisible={isVisible} onClose={() => setIsVisible(false)} dismissOnDrag={false}>
+  <Text variant="subheading" mb="s-2">
+    Can't drag this one
+  </Text>
+  <Button label="Close" onPress={() => setIsVisible(false)} />
+</Sheet>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `isVisible` | `boolean` | — | Required. Controls whether the sheet is shown. |
+| `onClose` | `() => void` | — | Required. Called on backdrop press or drag-dismiss. |
+| `children` | `ReactNode` | — | Required. Sheet content. |
+| `closeOnBackdropPress` | `boolean` | `true` | Whether tapping the backdrop calls `onClose`. |
+| `dismissOnDrag` | `boolean` | `true` | Whether dragging the sheet down calls `onClose`. |
+| `bg` | `TVajraColors` | `'surface'` | Background color token. |
+| `roundedT` | `TRoundedToken` | `'r-4'` | Top-corner radius token (Sheet is always bottom-anchored and full-width). |
+| `p` | `TSpacingToken` | `'s-4'` | Padding token applied to the content container. |
+| `backdropColor` | `TVajraColors` | `'overlay'` | Backdrop color token. |
+| `testID` | `string` | — | Base test ID; also applied to the backdrop and content as `` `${testID}-backdrop` `` / `` `${testID}-content` ``. |

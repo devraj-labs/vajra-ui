@@ -1,0 +1,66 @@
+---
+id: badge
+title: Badge
+sidebar_position: 26
+---
+
+import ComponentPreview from '@site/src/components/ComponentPreview';
+import React from 'react';
+import { View } from 'react-native';
+import { Badge, Row } from 'vajra-ui';
+
+# Badge
+
+A small, non-interactive label built on `Box`, typically used for counts, statuses, or tags. Accepts an optional leading icon.
+
+export const DotIcon = ({ size, color }) => (
+  <View style={{ width: size, height: size, borderRadius: size / 2, backgroundColor: color }} />
+);
+
+## Basic usage
+
+<ComponentPreview>
+  <Row gap="s-2" wrap="wrap">
+    <Badge label="New" />
+    <Badge label="3" bg="error" />
+    <Badge label="Beta" bg="warning" />
+  </Row>
+</ComponentPreview>
+
+```tsx
+<Badge label="New" />
+<Badge label="3" bg="error" />
+<Badge label="Beta" bg="warning" />
+```
+
+## With icon
+
+<ComponentPreview>
+  <Row gap="s-2" wrap="wrap">
+    <Badge label="Live" icon={DotIcon} bg="success" />
+  </Row>
+</ComponentPreview>
+
+```tsx
+const DotIcon = ({ size, color }) => (
+  <View style={{ width: size, height: size, borderRadius: size / 2, backgroundColor: color }} />
+);
+
+<Badge label="Live" icon={DotIcon} bg="success" />
+```
+
+## Props
+
+Badge accepts all `Box` props (`TUiBoxProps`) in addition to:
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `label` | `string` | — | Required. Badge text. |
+| `textProps` | `Omit<TTextProps, 'children'>` | — | Extra props forwarded to the internal `Text`. |
+| `icon` | `TVajraIconComponent` | — | Optional icon component rendered before the label; receives `size` and `color`. |
+| `iconSize` | `number` | `12` | Size passed to the icon. |
+| `iconColor` | `TVajraColors` | `'textInverse'` | Color passed to the icon. |
+| `rounded` | `TRoundedToken` | `'r-full'` | Corner radius (inherited from `Box`). |
+| `bg` | `TVajraColors` | `'primary'` | Background color (inherited from `Box`). |
+| `px` | `TSpacingToken` | `'s-2'` | Horizontal padding (inherited from `Box`). |
+| `py` | `TSpacingToken` | `'s-1'` | Vertical padding (inherited from `Box`). |

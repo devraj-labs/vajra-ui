@@ -1,0 +1,28 @@
+---
+id: center
+title: Center
+sidebar_position: 7
+---
+
+import ComponentPreview from '@site/src/components/ComponentPreview';
+import { Center, Box } from 'vajra-ui';
+
+# Center
+
+A Box preset with `align="center"` and `justify="center"`. Centers its children both horizontally and vertically within its own bounds.
+
+<ComponentPreview>
+  <Center bg="surface" w={120} h={80} rounded="r-3">
+    <Box bg="brand" w={32} h={32} rounded="r-2" />
+  </Center>
+</ComponentPreview>
+
+```tsx
+<Center bg="surface" w={120} h={80} rounded="r-3">
+  <Box bg="brand" w={32} h={32} rounded="r-2" />
+</Center>
+```
+
+## Props
+
+Center accepts every Box prop except `align` and `justify` default to `'center'` (they can still be overridden). See Box's props for the full list, including `gap`, spacing (`m*`/`p*`), `bg`, `rounded`, and dimension props.

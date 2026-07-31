@@ -1,0 +1,32 @@
+---
+id: col
+title: Col
+sidebar_position: 5
+---
+
+import ComponentPreview from '@site/src/components/ComponentPreview';
+import { Col, Box } from 'vajra-ui';
+
+# Col
+
+A Box preset with `direction="column"`. Use it to lay out children vertically.
+
+<ComponentPreview>
+  <Col gap="s-2">
+    <Box bg="brand" w={64} h={24} rounded="r-2" />
+    <Box bg="brand" w={64} h={24} rounded="r-2" />
+    <Box bg="brand" w={64} h={24} rounded="r-2" />
+  </Col>
+</ComponentPreview>
+
+```tsx
+<Col gap="s-2">
+  <Box bg="brand" w={64} h={24} rounded="r-2" />
+  <Box bg="brand" w={64} h={24} rounded="r-2" />
+  <Box bg="brand" w={64} h={24} rounded="r-2" />
+</Col>
+```
+
+## Props
+
+Col accepts every Box prop except `direction` is fixed to `'column'` (it can still be overridden). See Box's props for the full list, including `justify`, `align`, `wrap`, `gap`, spacing (`m*`/`p*`), `bg`, `rounded`, and dimension props.

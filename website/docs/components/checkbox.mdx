@@ -1,0 +1,110 @@
+---
+id: checkbox
+title: Checkbox
+sidebar_position: 14
+---
+
+import ComponentPreview from '@site/src/components/ComponentPreview';
+import React, { useState } from 'react';
+import { Checkbox } from 'vajra-ui';
+
+# Checkbox
+
+A multi-select group, controlled via `values`. Built from `Checkbox.Root` and `Checkbox.Item` (which internally composes `Checkbox.Indicator` and `Checkbox.Label`).
+
+## Basic usage
+
+<ComponentPreview>
+  {(() => {
+    const CheckboxExample = () => {
+      const [values, setValues] = useState(['react-native']);
+
+      return (
+        <Checkbox.Root values={values} onChange={setValues}>
+          <Checkbox.Item value="react-native" label="React Native" />
+          <Checkbox.Item value="typescript" label="TypeScript" />
+          <Checkbox.Item value="expo" label="Expo" />
+        </Checkbox.Root>
+      );
+    };
+
+    return <CheckboxExample />;
+  })()}
+</ComponentPreview>
+
+```tsx
+function CheckboxExample() {
+  const [values, setValues] = useState<string[]>(['react-native']);
+
+  return (
+    <Checkbox.Root values={values} onChange={setValues}>
+      <Checkbox.Item value="react-native" label="React Native" />
+      <Checkbox.Item value="typescript" label="TypeScript" />
+      <Checkbox.Item value="expo" label="Expo" />
+    </Checkbox.Root>
+  );
+}
+```
+
+## Color and disabled state
+
+`color` on `Checkbox.Root` sets the selected fill/border token for every item. Set `isDisabled` on the root to disable the whole group, or on an individual `Checkbox.Item` to disable just that item.
+
+<ComponentPreview>
+  {(() => {
+    const CheckboxColorExample = () => {
+      const [values, setValues] = useState(['a']);
+
+      return (
+        <Checkbox.Root values={values} onChange={setValues} color="success">
+          <Checkbox.Item value="a" label="Enabled" />
+          <Checkbox.Item value="b" label="Disabled item" isDisabled />
+        </Checkbox.Root>
+      );
+    };
+
+    return <CheckboxColorExample />;
+  })()}
+</ComponentPreview>
+
+```tsx
+<Checkbox.Root values={values} onChange={setValues} color="success">
+  <Checkbox.Item value="a" label="Enabled" />
+  <Checkbox.Item value="b" label="Disabled item" isDisabled />
+</Checkbox.Root>
+```
+
+## Props
+
+### Checkbox.Root Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `values` | `string[]` | — | Required. Currently selected item values. Controlled. |
+| `onChange` | `(values: string[]) => void` | — | Required. Called with the next selected values when an item is pressed. |
+| `color` | `TVajraColors` | `'primary'` | Selected fill/border color token, applied to every item's indicator. |
+| `isDisabled` | `boolean` | `false` | Disables all items unless individually overridden. |
+| `children` | `ReactNode` | — | Required. `Checkbox.Item` elements. |
+
+### Checkbox.Item Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `value` | `string` | — | Required. Unique identifier matched against `values`. |
+| `label` | `string` | — | Optional label text rendered next to the indicator. |
+| `isDisabled` | `boolean` | — | Overrides the root's `isDisabled` for this item. |
+
+### Checkbox.Indicator Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `isSelected` | `boolean` | — | Required. Whether to render the filled/checked state. |
+| `isDisabled` | `boolean` | — | Required. Dims the indicator. |
+| `color` | `TVajraColors` | `'primary'` | Fill/border color token when selected. |
+
+### Checkbox.Label Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `label` | `string` | — | Required. Text to display. |
+| `isDisabled` | `boolean` | — | Required. Dims the label. |

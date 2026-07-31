@@ -1,0 +1,63 @@
+---
+id: alert
+title: Alert
+sidebar_position: 24
+---
+
+import ComponentPreview from '@site/src/components/ComponentPreview';
+import { Alert, Col } from 'vajra-ui';
+
+# Alert
+
+An inline banner for surfacing status messages, with five semantic variants and an optional dismiss action.
+
+## Variants
+
+<ComponentPreview>
+  <Col gap="s-2">
+    <Alert variant="default" message="This is a default alert message." />
+    <Alert variant="success" title="Success" message="Your changes have been saved." />
+    <Alert variant="error" title="Error" message="Something went wrong. Please try again." />
+    <Alert variant="warning" title="Warning" message="This action cannot be undone." />
+    <Alert variant="info" title="Info" message="A new version is available." />
+  </Col>
+</ComponentPreview>
+
+```tsx
+<Alert variant="default" message="This is a default alert message." />
+<Alert variant="success" title="Success" message="Your changes have been saved." />
+<Alert variant="error" title="Error" message="Something went wrong. Please try again." />
+<Alert variant="warning" title="Warning" message="This action cannot be undone." />
+<Alert variant="info" title="Info" message="A new version is available." />
+```
+
+## Dismissible
+
+<ComponentPreview>
+  <Alert
+    variant="info"
+    title="Update available"
+    message="Restart the app to apply the update."
+    onDismiss={() => {}}
+  />
+</ComponentPreview>
+
+```tsx
+<Alert
+  variant="info"
+  title="Update available"
+  message="Restart the app to apply the update."
+  onDismiss={() => {}}
+/>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `message` | `string` | — | Required. Body text of the alert. |
+| `title` | `string` | — | Optional heading rendered above the message. |
+| `variant` | `'default' \| 'success' \| 'error' \| 'warning' \| 'info'` | `'default'` | Semantic color scheme for background, border, and text. |
+| `onDismiss` | `() => void` | — | When provided, renders a dismiss (✕) button. |
+| `icon` | `React.ReactNode` | — | Optional leading icon element rendered before the text. |
+| `testID` | `string` | — | Test identifier forwarded to the root container. |

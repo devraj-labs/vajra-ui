@@ -1,0 +1,118 @@
+---
+id: app-bar
+title: App Bar
+sidebar_position: 18
+---
+
+import ComponentPreview from '@site/src/components/ComponentPreview';
+import { AppBar } from 'vajra-ui';
+import { View } from 'react-native';
+
+# App Bar
+
+A screen header built from composable slots — `AppBar.Header`, `AppBar.Title`, `AppBar.BackAction`, and `AppBar.IconButton`. Left, center, and right content are detected automatically from the children you pass in.
+
+export const DotIcon = ({ size, color }) => (
+  <View style={{ width: size, height: size, borderRadius: size / 2, backgroundColor: color }} />
+);
+
+export const ChevronIcon = ({ size, color }) => (
+  <View
+    style={{
+      width: size * 0.5,
+      height: size * 0.5,
+      borderLeftWidth: 2,
+      borderBottomWidth: 2,
+      borderColor: color,
+      transform: [{ rotate: '45deg' }],
+    }}
+  />
+);
+
+## Basic title
+
+<ComponentPreview>
+  <AppBar.Header>
+    <AppBar.Title>Screen Title</AppBar.Title>
+  </AppBar.Header>
+</ComponentPreview>
+
+```tsx
+<AppBar.Header>
+  <AppBar.Title>Screen Title</AppBar.Title>
+</AppBar.Header>
+```
+
+## With back action and trailing icon
+
+<ComponentPreview>
+  <AppBar.Header>
+    <AppBar.BackAction icon={ChevronIcon} onPress={() => {}} />
+    <AppBar.Title>Profile</AppBar.Title>
+    <AppBar.IconButton icon={DotIcon} onPress={() => {}} accessibilityLabel="More" />
+  </AppBar.Header>
+</ComponentPreview>
+
+```tsx
+<AppBar.Header>
+  <AppBar.BackAction icon={ChevronIcon} onPress={() => {}} />
+  <AppBar.Title>Profile</AppBar.Title>
+  <AppBar.IconButton icon={DotIcon} onPress={() => {}} accessibilityLabel="More" />
+</AppBar.Header>
+```
+
+## Centered title
+
+When `centered` is set on `AppBar.Title`, it's positioned absolutely so it stays centered regardless of side content width.
+
+<ComponentPreview>
+  <AppBar.Header>
+    <AppBar.BackAction icon={ChevronIcon} onPress={() => {}} />
+    <AppBar.Title centered>Centered</AppBar.Title>
+    <AppBar.IconButton icon={DotIcon} onPress={() => {}} accessibilityLabel="More" />
+  </AppBar.Header>
+</ComponentPreview>
+
+```tsx
+<AppBar.Header>
+  <AppBar.BackAction icon={ChevronIcon} onPress={() => {}} />
+  <AppBar.Title centered>Centered</AppBar.Title>
+  <AppBar.IconButton icon={DotIcon} onPress={() => {}} accessibilityLabel="More" />
+</AppBar.Header>
+```
+
+## Props
+
+### AppBar.Header
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `children` | `ReactNode` | — | Required. Detects `AppBar.BackAction` (left), `AppBar.IconButton` (right), and `AppBar.Title` (center) automatically. |
+| `style` | `ViewStyle` | — | Style applied to the outer container. |
+| `contentStyle` | `ViewStyle` | — | Style applied to the inner row that holds the slots. |
+| `height` | `number` | `56` | Height of the content row. |
+| `useSafeArea` | `boolean` | `true` | Adds top safe-area inset padding. |
+| `bg` | `TVajraColors` | `'primary'` | Background color token. |
+| `tint` | `TVajraColors` | `'textInverse'` | Color applied to the title text and icon buttons. |
+
+### AppBar.Title
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `children` | `ReactNode` | — | Required. Title text/content. |
+| `centered` | `boolean` | `false` | Absolutely centers the title, ignoring side slot widths. |
+
+### AppBar.BackAction
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `icon` | `TVajraIconComponent` | — | Required. Icon component receiving `size`, `width`, `height`, `color`. |
+| `onPress` | `() => void` | Falls back to the navigation back behaviour | Press handler. |
+
+### AppBar.IconButton
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `icon` | `TVajraIconComponent` | — | Required. Icon component receiving `size`, `width`, `height`, `color`. |
+| `onPress` | `() => void` | — | Press handler. |
+| `accessibilityLabel` | `string` | `'Action'` | Accessibility label for the pressable. |

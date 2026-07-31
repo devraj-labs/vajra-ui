@@ -1,0 +1,122 @@
+---
+id: accordion
+title: Accordion
+sidebar_position: 13
+---
+
+import ComponentPreview from '@site/src/components/ComponentPreview';
+import React, { useState } from 'react';
+import { Accordion, Text } from 'vajra-ui';
+
+# Accordion
+
+A collapsible list of sections, controlled via `openValues`. Built from `Accordion.Root` and `Accordion.Item`.
+
+## Basic usage
+
+<ComponentPreview>
+  {(() => {
+    const AccordionExample = () => {
+      const [openValues, setOpenValues] = useState(['a']);
+
+      return (
+        <Accordion.Root openValues={openValues} onChange={setOpenValues}>
+          <Accordion.Item value="a" title="What is vajra-ui?">
+            <Text variant="body">A token-driven React Native component library.</Text>
+          </Accordion.Item>
+          <Accordion.Item value="b" title="Does it support theming?">
+            <Text variant="body">Yes, via VajraProvider and design tokens.</Text>
+          </Accordion.Item>
+          <Accordion.Item value="c" title="Is it accessible?">
+            <Text variant="body">Items expose accessibilityRole and accessibilityState.</Text>
+          </Accordion.Item>
+        </Accordion.Root>
+      );
+    };
+
+    return <AccordionExample />;
+  })()}
+</ComponentPreview>
+
+```tsx
+function AccordionExample() {
+  const [openValues, setOpenValues] = useState<string[]>(['a']);
+
+  return (
+    <Accordion.Root openValues={openValues} onChange={setOpenValues}>
+      <Accordion.Item value="a" title="What is vajra-ui?">
+        <Text variant="body">A token-driven React Native component library.</Text>
+      </Accordion.Item>
+      <Accordion.Item value="b" title="Does it support theming?">
+        <Text variant="body">Yes, via VajraProvider and design tokens.</Text>
+      </Accordion.Item>
+      <Accordion.Item value="c" title="Is it accessible?">
+        <Text variant="body">Items expose accessibilityRole and accessibilityState.</Text>
+      </Accordion.Item>
+    </Accordion.Root>
+  );
+}
+```
+
+## Multiple open items
+
+By default only one item can be open at a time. Pass `allowMultiple` to let several sections stay open simultaneously.
+
+<ComponentPreview>
+  {(() => {
+    const AccordionMultipleExample = () => {
+      const [openValues, setOpenValues] = useState(['a', 'b']);
+
+      return (
+        <Accordion.Root openValues={openValues} onChange={setOpenValues} allowMultiple>
+          <Accordion.Item value="a" title="Section A">
+            <Text variant="body">Content A</Text>
+          </Accordion.Item>
+          <Accordion.Item value="b" title="Section B">
+            <Text variant="body">Content B</Text>
+          </Accordion.Item>
+          <Accordion.Item value="c" title="Section C (disabled)" isDisabled>
+            <Text variant="body">Content C</Text>
+          </Accordion.Item>
+        </Accordion.Root>
+      );
+    };
+
+    return <AccordionMultipleExample />;
+  })()}
+</ComponentPreview>
+
+```tsx
+<Accordion.Root openValues={openValues} onChange={setOpenValues} allowMultiple>
+  <Accordion.Item value="a" title="Section A">
+    <Text variant="body">Content A</Text>
+  </Accordion.Item>
+  <Accordion.Item value="b" title="Section B">
+    <Text variant="body">Content B</Text>
+  </Accordion.Item>
+  <Accordion.Item value="c" title="Section C (disabled)" isDisabled>
+    <Text variant="body">Content C</Text>
+  </Accordion.Item>
+</Accordion.Root>
+```
+
+## Props
+
+### Accordion.Root Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `openValues` | `string[]` | — | Required. Which item values are currently open. Controlled. |
+| `onChange` | `(openValues: string[]) => void` | — | Required. Called with the next open values when an item is toggled. |
+| `allowMultiple` | `boolean` | `false` | Allow more than one item open at once. |
+| `children` | `ReactNode` | — | Required. `Accordion.Item` elements. |
+
+### Accordion.Item Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `value` | `string` | — | Required. Unique identifier matched against `openValues`. |
+| `title` | `string` | — | Required. Header text shown in the pressable trigger row. |
+| `children` | `ReactNode` | — | Required. Collapsible content, height-animated on open/close. |
+| `isDisabled` | `boolean` | `false` | Prevents toggling and dims the trigger. |
+| `testID` | `string` | — | Forwarded to the trigger `Pressable`. |

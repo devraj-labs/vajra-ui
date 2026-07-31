@@ -1,0 +1,167 @@
+---
+id: tabs
+title: Tabs
+sidebar_position: 17
+---
+
+import ComponentPreview from '@site/src/components/ComponentPreview';
+import React, { useState } from 'react';
+import { Tabs, Text } from 'vajra-ui';
+
+# Tabs
+
+A single-select tab bar with associated panels, controlled via `value`. Built from `Tabs.Root`, `Tabs.List`, and `Tabs.Content`.
+
+## Basic usage
+
+<ComponentPreview>
+  {(() => {
+    const tabsData = [
+      { value: 'account', label: 'Account' },
+      { value: 'billing', label: 'Billing' },
+      { value: 'notifications', label: 'Notifications' },
+    ];
+
+    const TabsExample = () => {
+      const [value, setValue] = useState('account');
+
+      return (
+        <Tabs.Root value={value} onChange={setValue}>
+          <Tabs.List tabs={tabsData} />
+          <Tabs.Content value="account">
+            <Text variant="body">Account settings</Text>
+          </Tabs.Content>
+          <Tabs.Content value="billing">
+            <Text variant="body">Billing details</Text>
+          </Tabs.Content>
+          <Tabs.Content value="notifications">
+            <Text variant="body">Notification preferences</Text>
+          </Tabs.Content>
+        </Tabs.Root>
+      );
+    };
+
+    return <TabsExample />;
+  })()}
+</ComponentPreview>
+
+```tsx
+const tabsData = [
+  { value: 'account', label: 'Account' },
+  { value: 'billing', label: 'Billing' },
+  { value: 'notifications', label: 'Notifications' },
+];
+
+function TabsExample() {
+  const [value, setValue] = useState('account');
+
+  return (
+    <Tabs.Root value={value} onChange={setValue}>
+      <Tabs.List tabs={tabsData} />
+      <Tabs.Content value="account">
+        <Text variant="body">Account settings</Text>
+      </Tabs.Content>
+      <Tabs.Content value="billing">
+        <Text variant="body">Billing details</Text>
+      </Tabs.Content>
+      <Tabs.Content value="notifications">
+        <Text variant="body">Notification preferences</Text>
+      </Tabs.Content>
+    </Tabs.Root>
+  );
+}
+```
+
+## Custom colors
+
+`Tabs.List` accepts styling props for the track, sliding indicator, and label colors.
+
+<ComponentPreview>
+  {(() => {
+    const tabsData = [
+      { value: 'day', label: 'Day' },
+      { value: 'week', label: 'Week' },
+      { value: 'month', label: 'Month' },
+    ];
+
+    const TabsColorExample = () => {
+      const [value, setValue] = useState('week');
+
+      return (
+        <Tabs.Root value={value} onChange={setValue}>
+          <Tabs.List
+            tabs={tabsData}
+            indicatorBg="primary"
+            activeColor="textInverse"
+            inactiveColor="textMuted"
+          />
+          <Tabs.Content value="day">
+            <Text variant="body">Daily view</Text>
+          </Tabs.Content>
+          <Tabs.Content value="week">
+            <Text variant="body">Weekly view</Text>
+          </Tabs.Content>
+          <Tabs.Content value="month">
+            <Text variant="body">Monthly view</Text>
+          </Tabs.Content>
+        </Tabs.Root>
+      );
+    };
+
+    return <TabsColorExample />;
+  })()}
+</ComponentPreview>
+
+```tsx
+<Tabs.Root value={value} onChange={setValue}>
+  <Tabs.List
+    tabs={tabsData}
+    indicatorBg="primary"
+    activeColor="textInverse"
+    inactiveColor="textMuted"
+  />
+  <Tabs.Content value="day">
+    <Text variant="body">Daily view</Text>
+  </Tabs.Content>
+  <Tabs.Content value="week">
+    <Text variant="body">Weekly view</Text>
+  </Tabs.Content>
+  <Tabs.Content value="month">
+    <Text variant="body">Monthly view</Text>
+  </Tabs.Content>
+</Tabs.Root>
+```
+
+## Props
+
+### Tabs.Root Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `value` | `string` | — | Required. The currently active tab value. Controlled. |
+| `onChange` | `(value: string) => void` | — | Required. Called with the pressed tab's value. |
+| `children` | `ReactNode` | — | Required. `Tabs.List` and `Tabs.Content` elements. |
+
+### Tabs.List Props
+
+`Tabs.List` renders the underlying `TabBar` and reads `value`/`onChange` from `Tabs.Root` context automatically.
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `tabs` | `{ value: string; label: string }[]` | — | Required. Ordered list of tabs to render. |
+| `trackBg` | `TVajraColors` | `'surfaceRaised'` | Background color of the tab track. |
+| `trackRounded` | `TRoundedToken` | `'r-full'` | Corner radius of the tab track. |
+| `trackPadding` | `TSpacingToken` | `'s-1'` | Inner padding of the tab track. |
+| `indicatorBg` | `TVajraColors` | `'surface'` | Background color of the sliding active indicator. |
+| `indicatorRounded` | `TRoundedToken` | `'r-full'` | Corner radius of the sliding active indicator. |
+| `activeColor` | `TVajraColors` | `'text'` | Label color for the active tab. |
+| `inactiveColor` | `TVajraColors` | `'textMuted'` | Label color for inactive tabs. |
+| `labelProps` | `Omit<TTextProps, 'color'>` | — | Extra props passed to each tab's label `Text`. |
+| `scrollable` | `boolean` | `false` | Renders tabs in a horizontal `ScrollView` instead of equal-width flex items. |
+
+### Tabs.Content Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `value` | `string` | — | Required. Matched against the root's active `value`; renders `children` only when equal. |
+| `children` | `ReactNode` | — | Required. Panel content shown when this tab is active. |

@@ -1,0 +1,32 @@
+---
+id: row
+title: Row
+sidebar_position: 4
+---
+
+import ComponentPreview from '@site/src/components/ComponentPreview';
+import { Row, Box } from 'vajra-ui';
+
+# Row
+
+A Box preset with `direction="row"`. Use it to lay out children horizontally.
+
+<ComponentPreview>
+  <Row gap="s-2" align="center">
+    <Box bg="brand" w={32} h={32} rounded="r-2" />
+    <Box bg="brand" w={32} h={32} rounded="r-2" />
+    <Box bg="brand" w={32} h={32} rounded="r-2" />
+  </Row>
+</ComponentPreview>
+
+```tsx
+<Row gap="s-2" align="center">
+  <Box bg="brand" w={32} h={32} rounded="r-2" />
+  <Box bg="brand" w={32} h={32} rounded="r-2" />
+  <Box bg="brand" w={32} h={32} rounded="r-2" />
+</Row>
+```
+
+## Props
+
+Row accepts every Box prop except `direction` is fixed to `'row'` (it can still be overridden). See Box's props for the full list, including `justify`, `align`, `wrap`, `gap`, spacing (`m*`/`p*`), `bg`, `rounded`, and dimension props.

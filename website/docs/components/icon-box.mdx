@@ -1,0 +1,67 @@
+---
+id: icon-box
+title: IconBox
+sidebar_position: 29
+---
+
+import ComponentPreview from '@site/src/components/ComponentPreview';
+import React from 'react';
+import { View } from 'react-native';
+import { IconBox, Row } from 'vajra-ui';
+
+# IconBox
+
+A fixed-size, token-driven container for displaying a single icon, typically used as a leading visual in list rows or feature callouts.
+
+export const DotIcon = ({ size, color }) => (
+  <View style={{ width: size, height: size, borderRadius: size / 2, backgroundColor: color }} />
+);
+
+## Basic usage
+
+<ComponentPreview>
+  <Row gap="s-2" wrap="wrap">
+    <IconBox icon={DotIcon} />
+    <IconBox icon={DotIcon} bg="successSubtle" iconColor="success" />
+    <IconBox icon={DotIcon} bg="errorSubtle" iconColor="error" />
+  </Row>
+</ComponentPreview>
+
+```tsx
+const DotIcon = ({ size, color }) => (
+  <View style={{ width: size, height: size, borderRadius: size / 2, backgroundColor: color }} />
+);
+
+<IconBox icon={DotIcon} />
+<IconBox icon={DotIcon} bg="successSubtle" iconColor="success" />
+<IconBox icon={DotIcon} bg="errorSubtle" iconColor="error" />
+```
+
+## Custom size
+
+<ComponentPreview>
+  <Row gap="s-2" align="center" wrap="wrap">
+    <IconBox icon={DotIcon} w={32} h={32} iconSize={14} />
+    <IconBox icon={DotIcon} w={44} h={44} iconSize={20} />
+    <IconBox icon={DotIcon} w={64} h={64} iconSize={28} rounded="r-4" />
+  </Row>
+</ComponentPreview>
+
+```tsx
+<IconBox icon={DotIcon} w={32} h={32} iconSize={14} />
+<IconBox icon={DotIcon} w={64} h={64} iconSize={28} rounded="r-4" />
+```
+
+## Props
+
+IconBox accepts all `Box` props (`TUiBoxProps`, excluding `children`) in addition to:
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `icon` | `TVajraIconComponent` | — | Required. Icon component to render; receives `size`, `width`, `height`, and `color`. |
+| `iconSize` | `number` | `20` | Size passed to the icon. |
+| `iconColor` | `TVajraColors` | `'primary'` | Color passed to the icon. |
+| `bg` | `TVajraColors` | `'primarySubtle'` | Background color (inherited from `Box`). |
+| `rounded` | `TRoundedToken` | `'r-3'` | Corner radius (inherited from `Box`). |
+| `w` | `DimensionValue` | `44` | Width of the container. |
+| `h` | `DimensionValue` | `44` | Height of the container. |

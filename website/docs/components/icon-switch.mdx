@@ -1,0 +1,106 @@
+---
+id: icon-switch
+title: IconSwitch
+sidebar_position: 31
+---
+
+import ComponentPreview from '@site/src/components/ComponentPreview';
+import React, { useState } from 'react';
+import { View } from 'react-native';
+import { IconSwitch, Row } from 'vajra-ui';
+
+# IconSwitch
+
+A two-state sliding switch that shows a distinct icon in each of its "off" and "on" positions.
+
+export const SunIcon = ({ size, color }) => (
+  <View style={{ width: size, height: size, borderRadius: size / 2, backgroundColor: color }} />
+);
+export const MoonIcon = ({ size, color }) => (
+  <View
+    style={{
+      width: size,
+      height: size,
+      borderRadius: 2,
+      backgroundColor: color,
+    }}
+  />
+);
+
+## Basic usage
+
+export const BasicIconSwitchDemo = () => {
+  const [value, setValue] = useState(false);
+  return <IconSwitch value={value} onChange={setValue} offIcon={SunIcon} onIcon={MoonIcon} />;
+};
+
+<ComponentPreview>
+  <BasicIconSwitchDemo />
+</ComponentPreview>
+
+```tsx
+function ThemeSwitch() {
+  const [value, setValue] = useState(false);
+  return <IconSwitch value={value} onChange={setValue} offIcon={SunIcon} onIcon={MoonIcon} />;
+}
+```
+
+## Disabled
+
+<ComponentPreview>
+  <Row gap="s-3" wrap="wrap">
+    <IconSwitch value={false} onChange={() => {}} offIcon={SunIcon} onIcon={MoonIcon} isDisabled />
+    <IconSwitch value={true} onChange={() => {}} offIcon={SunIcon} onIcon={MoonIcon} isDisabled />
+  </Row>
+</ComponentPreview>
+
+```tsx
+<IconSwitch value={false} onChange={() => {}} offIcon={SunIcon} onIcon={MoonIcon} isDisabled />
+```
+
+## Custom sizing & colors
+
+<ComponentPreview>
+  <IconSwitch
+    value={true}
+    onChange={() => {}}
+    offIcon={SunIcon}
+    onIcon={MoonIcon}
+    cellSize={32}
+    iconSize={14}
+    activeIconColor="primary"
+    inactiveIconColor="textMuted"
+  />
+</ComponentPreview>
+
+```tsx
+<IconSwitch
+  value={true}
+  onChange={() => {}}
+  offIcon={SunIcon}
+  onIcon={MoonIcon}
+  cellSize={32}
+  iconSize={14}
+  activeIconColor="primary"
+  inactiveIconColor="textMuted"
+/>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `value` | `boolean` | — | Required. Current state; `false` selects the off cell, `true` selects the on cell. |
+| `onChange` | `(value: boolean) => void` | — | Required. Called with the toggled value on press. |
+| `offIcon` | `TVajraIconComponent` | — | Required. Icon rendered in the off (left) cell. |
+| `onIcon` | `TVajraIconComponent` | — | Required. Icon rendered in the on (right) cell. |
+| `trackBg` | `TVajraColors` | `'surfaceRaised'` | Background color of the track. |
+| `trackRounded` | `TRoundedToken` | `'r-3'` | Corner radius of the track. |
+| `selectorBg` | `TVajraColors` | `'surface'` | Background color of the sliding selector box. |
+| `selectorRounded` | `TRoundedToken` | `'r-2'` | Corner radius of the sliding selector box. |
+| `activeIconColor` | `TVajraColors` | `'text'` | Color of whichever icon is currently active. |
+| `inactiveIconColor` | `TVajraColors` | `'textMuted'` | Color of whichever icon is currently inactive. |
+| `isDisabled` | `boolean` | `false` | Disables interaction and dims opacity. |
+| `cellSize` | `number` | `40` | Size of each icon cell (and the selector box). |
+| `iconSize` | `number` | `18` | Size passed to both icons. |
+| `testID` | `string` | — | Test identifier forwarded to the root pressable. |

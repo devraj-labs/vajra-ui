@@ -1,0 +1,81 @@
+---
+id: chip
+title: Chip
+sidebar_position: 28
+---
+
+import ComponentPreview from '@site/src/components/ComponentPreview';
+import { Chip, Row } from 'vajra-ui';
+
+# Chip
+
+A compact, pressable label used for selection, filtering, or tagging, with optional selected state and remove action.
+
+## Selectable
+
+<ComponentPreview>
+  <Row gap="s-2" wrap="wrap">
+    <Chip label="Selected" isSelected onPress={() => {}} />
+    <Chip label="Unselected" onPress={() => {}} />
+    <Chip label="Disabled" isDisabled onPress={() => {}} />
+  </Row>
+</ComponentPreview>
+
+```tsx
+<Chip label="Selected" isSelected onPress={() => {}} />
+<Chip label="Unselected" onPress={() => {}} />
+<Chip label="Disabled" isDisabled onPress={() => {}} />
+```
+
+## Removable
+
+<ComponentPreview>
+  <Row gap="s-2" wrap="wrap">
+    <Chip label="React" isSelected onRemove={() => {}} />
+    <Chip label="TypeScript" isSelected onRemove={() => {}} />
+  </Row>
+</ComponentPreview>
+
+```tsx
+<Chip label="React" isSelected onRemove={() => {}} />
+<Chip label="TypeScript" isSelected onRemove={() => {}} />
+```
+
+## Custom colors
+
+<ComponentPreview>
+  <Row gap="s-2" wrap="wrap">
+    <Chip
+      label="Custom"
+      isSelected
+      selectedBg="success"
+      selectedColor="textInverse"
+      onPress={() => {}}
+    />
+  </Row>
+</ComponentPreview>
+
+```tsx
+<Chip
+  label="Custom"
+  isSelected
+  selectedBg="success"
+  selectedColor="textInverse"
+  onPress={() => {}}
+/>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `label` | `string` | — | Required. Chip text. |
+| `isSelected` | `boolean` | `false` | Toggles between selected and unselected color scheme. |
+| `onPress` | `() => void` | — | When provided, makes the chip pressable. |
+| `onRemove` | `() => void` | — | When provided, renders a remove (✕) button. |
+| `isDisabled` | `boolean` | `false` | Disables press interactions and dims opacity. |
+| `selectedBg` | `TVajraColors` | `'primary'` | Background color when selected. |
+| `selectedColor` | `TVajraColors` | `'textInverse'` | Text/icon color when selected. |
+| `unselectedBg` | `TVajraColors` | `'surfaceRaised'` | Background color when not selected. |
+| `unselectedColor` | `TVajraColors` | `'text'` | Text/icon color when not selected. |
+| `testID` | `string` | — | Test identifier forwarded to the root container. |

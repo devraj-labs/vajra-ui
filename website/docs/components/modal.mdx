@@ -1,0 +1,117 @@
+---
+id: modal
+title: Modal
+sidebar_position: 22
+---
+
+import ComponentPreview from '@site/src/components/ComponentPreview';
+import { Modal, Button, Text, Row } from 'vajra-ui';
+import React from 'react';
+
+# Modal
+
+A centered (or bottom-anchored) dialog rendered in a React Native `Modal`, with a fading backdrop. Sheet is built on top of this component using `contentAlign="bottom"`.
+
+export const ModalDemo = () => {
+  const [isVisible, setIsVisible] = React.useState(false);
+
+  return (
+    <>
+      <Button label="Open modal" onPress={() => setIsVisible(true)} />
+      <Modal isVisible={isVisible} onClose={() => setIsVisible(false)}>
+        <Text variant="subheading" mb="s-2">
+          Delete item?
+        </Text>
+        <Text color="textMuted" mb="s-4">
+          This action cannot be undone.
+        </Text>
+        <Row gap="s-2" justify="flex-end">
+          <Button variant="ghost" label="Cancel" onPress={() => setIsVisible(false)} />
+          <Button variant="solid" label="Delete" onPress={() => setIsVisible(false)} />
+        </Row>
+      </Modal>
+    </>
+  );
+};
+
+<ComponentPreview>
+  <ModalDemo />
+</ComponentPreview>
+
+```tsx
+function ConfirmModal() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  return (
+    <>
+      <Button label="Open modal" onPress={() => setIsVisible(true)} />
+      <Modal isVisible={isVisible} onClose={() => setIsVisible(false)}>
+        <Text variant="subheading" mb="s-2">
+          Delete item?
+        </Text>
+        <Text color="textMuted" mb="s-4">
+          This action cannot be undone.
+        </Text>
+        <Row gap="s-2" justify="flex-end">
+          <Button variant="ghost" label="Cancel" onPress={() => setIsVisible(false)} />
+          <Button variant="solid" label="Delete" onPress={() => setIsVisible(false)} />
+        </Row>
+      </Modal>
+    </>
+  );
+}
+```
+
+## Bottom-anchored
+
+<ComponentPreview>
+  {(() => {
+    const BottomModalDemo = () => {
+      const [isVisible, setIsVisible] = React.useState(false);
+
+      return (
+        <>
+          <Button label="Open bottom modal" onPress={() => setIsVisible(true)} />
+          <Modal
+            isVisible={isVisible}
+            onClose={() => setIsVisible(false)}
+            contentAlign="bottom"
+            roundedT="r-4"
+          >
+            <Text variant="subheading" mb="s-2">
+              Bottom-anchored content
+            </Text>
+            <Button label="Close" onPress={() => setIsVisible(false)} />
+          </Modal>
+        </>
+      );
+    };
+
+    return <BottomModalDemo />;
+  })()}
+</ComponentPreview>
+
+```tsx
+<Modal isVisible={isVisible} onClose={() => setIsVisible(false)} contentAlign="bottom" roundedT="r-4">
+  <Text variant="subheading" mb="s-2">
+    Bottom-anchored content
+  </Text>
+  <Button label="Close" onPress={() => setIsVisible(false)} />
+</Modal>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `isVisible` | `boolean` | — | Required. Controls whether the modal is shown. |
+| `onClose` | `() => void` | — | Required. Called on backdrop press and Android hardware back. |
+| `children` | `ReactNode` | — | Required. Modal content. |
+| `closeOnBackdropPress` | `boolean` | `true` | Whether tapping the backdrop calls `onClose`. |
+| `contentAlign` | `'center' \| 'bottom'` | `'center'` | Where the content sits within the backdrop. |
+| `bg` | `TVajraColors` | `'surface'` | Background color token. |
+| `rounded` | `TRoundedToken` | `'r-4'` | Uniform corner radius; ignored if `roundedT` is set. |
+| `roundedT` | `TRoundedToken` | — | Top-corners-only radius, useful for bottom-anchored content. |
+| `p` | `TSpacingToken` | `'s-4'` | Padding token applied to the content container. |
+| `backdropColor` | `TVajraColors` | `'overlay'` | Backdrop color token. |
+| `testID` | `string` | — | Base test ID; also applied to the backdrop and content as `` `${testID}-backdrop` `` / `` `${testID}-content` ``. |

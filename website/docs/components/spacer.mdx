@@ -1,0 +1,35 @@
+---
+id: spacer
+title: Spacer
+sidebar_position: 10
+---
+
+import ComponentPreview from '@site/src/components/ComponentPreview';
+import { Spacer, Row, Box } from 'vajra-ui';
+
+# Spacer
+
+A fixed-size empty box, useful for manual gaps when `gap` isn't convenient (e.g. only one side needs spacing).
+
+<ComponentPreview>
+  <Row align="center">
+    <Box bg="brand" w={32} h={32} rounded="r-2" />
+    <Spacer w="s-4" />
+    <Box bg="brand" w={32} h={32} rounded="r-2" />
+  </Row>
+</ComponentPreview>
+
+```tsx
+<Row align="center">
+  <Box bg="brand" w={32} h={32} rounded="r-2" />
+  <Spacer w="s-4" />
+  <Box bg="brand" w={32} h={32} rounded="r-2" />
+</Row>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `w` | `TSpacingToken` | — | Width, resolved from the spacing scale. |
+| `h` | `TSpacingToken` | — | Height, resolved from the spacing scale. |

@@ -1,0 +1,74 @@
+---
+id: button
+title: Button
+sidebar_position: 1
+---
+
+import ComponentPreview from '@site/src/components/ComponentPreview';
+import { Button, Row } from 'vajra-ui';
+
+# Button
+
+A pressable button with six visual variants and five sizes, all token-driven.
+
+## Variants
+
+<ComponentPreview>
+  <Row gap="s-2" wrap="wrap">
+    <Button variant="solid" label="Solid" onPress={() => {}} />
+    <Button variant="subtle" label="Subtle" onPress={() => {}} />
+    <Button variant="surface" label="Surface" onPress={() => {}} />
+    <Button variant="outline" label="Outline" onPress={() => {}} />
+    <Button variant="ghost" label="Ghost" onPress={() => {}} />
+    <Button variant="plain" label="Plain" onPress={() => {}} />
+  </Row>
+</ComponentPreview>
+
+```tsx
+<Button variant="solid" label="Solid" onPress={() => {}} />
+<Button variant="outline" label="Outline" onPress={() => {}} />
+```
+
+## Sizes
+
+<ComponentPreview>
+  <Row gap="s-2" align="center" wrap="wrap">
+    <Button size="xs" label="XS" onPress={() => {}} />
+    <Button size="sm" label="Small" onPress={() => {}} />
+    <Button size="md" label="Medium" onPress={() => {}} />
+    <Button size="lg" label="Large" onPress={() => {}} />
+    <Button size="xl" label="XL" onPress={() => {}} />
+  </Row>
+</ComponentPreview>
+
+## Loading & disabled
+
+<ComponentPreview>
+  <Row gap="s-2" wrap="wrap">
+    <Button label="Loading" isLoading onPress={() => {}} />
+    <Button label="Disabled" isDisabled onPress={() => {}} />
+    <Button variant="outline" isPill label="Pill" onPress={() => {}} />
+  </Row>
+</ComponentPreview>
+
+```tsx
+<Button label="Loading" isLoading onPress={() => {}} />
+<Button label="Disabled" isDisabled onPress={() => {}} />
+<Button isPill label="Pill" onPress={() => {}} />
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `label` | `string` | — | Required. Button text. |
+| `onPress` | `() => void` | — | Press handler (inherited from Pressable). |
+| `variant` | `'solid' \| 'subtle' \| 'surface' \| 'outline' \| 'ghost' \| 'plain'` | `'solid'` | Visual style. |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'` | `'md'` | Padding, radius, and label font scale. |
+| `isDisabled` | `boolean` | `false` | Disables interaction and dims opacity. |
+| `isLoading` | `boolean` | `false` | Shows a spinner in place of (or alongside) the label. |
+| `isPill` | `boolean` | `false` | Forces fully rounded corners regardless of size. |
+| `loading` | `{ position?: 'start' \| 'end'; label?: string; loader?: ReactNode }` | — | Customize the loading state. |
+| `labelProps` | `Omit<TTextProps, 'color' \| 'variant'>` | — | Extra props passed to the internal label `Text`. |
+
+Also accepts all `Pressable` props (`bg`, `borderColor`, spacing, etc.) except `disabled` — use `isDisabled` instead.

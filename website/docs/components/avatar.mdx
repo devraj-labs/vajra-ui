@@ -5,6 +5,7 @@ sidebar_position: 25
 ---
 
 import ComponentPreview from '@site/src/components/ComponentPreview';
+import PreviewPair from '@site/src/components/PreviewPair';
 import { Avatar, Row } from 'vajra-ui';
 
 # Avatar
@@ -13,6 +14,7 @@ A circular user image with automatic fallback to colored initials when no `src` 
 
 ## Initials
 
+<PreviewPair>
 <ComponentPreview>
   <Row gap="s-2" align="center">
     <Avatar initials="JD" />
@@ -26,9 +28,11 @@ A circular user image with automatic fallback to colored initials when no `src` 
 <Avatar initials="JD" />
 <Avatar initials="AK" />
 ```
+</PreviewPair>
 
 ## Sizes
 
+<PreviewPair>
 <ComponentPreview>
   <Row gap="s-2" align="center">
     <Avatar initials="XS" width={24} height={24} />
@@ -43,9 +47,11 @@ A circular user image with automatic fallback to colored initials when no `src` 
 <Avatar initials="SM" width={32} height={32} />
 <Avatar initials="LG" width={56} height={56} />
 ```
+</PreviewPair>
 
 ## Image with fallback
 
+<PreviewPair>
 <ComponentPreview>
   <Row gap="s-2" align="center">
     <Avatar src="https://i.pravatar.cc/150?img=12" initials="JD" />
@@ -56,6 +62,7 @@ A circular user image with automatic fallback to colored initials when no `src` 
 ```tsx
 <Avatar src="https://i.pravatar.cc/150?img=12" initials="JD" />
 ```
+</PreviewPair>
 
 ## Props
 

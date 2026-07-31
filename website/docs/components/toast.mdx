@@ -5,6 +5,7 @@ sidebar_position: 23
 ---
 
 import ComponentPreview from '@site/src/components/ComponentPreview';
+import PreviewPair from '@site/src/components/PreviewPair';
 import { ToastProvider, useToast, Button, Row } from 'vajra-ui';
 import React from 'react';
 
@@ -37,6 +38,7 @@ export const ToastDemo = () => {
   );
 };
 
+<PreviewPair>
 <ComponentPreview>
   <ToastProvider>
     <ToastDemo />
@@ -77,9 +79,11 @@ function App() {
   );
 }
 ```
+</PreviewPair>
 
 ## Top-anchored
 
+<PreviewPair>
 <ComponentPreview>
   {(() => {
     const TopToastDemo = () => {
@@ -101,6 +105,7 @@ function App() {
   <TopToastDemo />
 </ToastProvider>
 ```
+</PreviewPair>
 
 ## Props
 

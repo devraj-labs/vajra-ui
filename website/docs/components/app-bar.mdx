@@ -5,6 +5,7 @@ sidebar_position: 18
 ---
 
 import ComponentPreview from '@site/src/components/ComponentPreview';
+import PreviewPair from '@site/src/components/PreviewPair';
 import { AppBar } from 'vajra-ui';
 import { View } from 'react-native';
 
@@ -31,6 +32,7 @@ export const ChevronIcon = ({ size, color }) => (
 
 ## Basic title
 
+<PreviewPair>
 <ComponentPreview>
   <AppBar.Header>
     <AppBar.Title>Screen Title</AppBar.Title>
@@ -42,9 +44,11 @@ export const ChevronIcon = ({ size, color }) => (
   <AppBar.Title>Screen Title</AppBar.Title>
 </AppBar.Header>
 ```
+</PreviewPair>
 
 ## With back action and trailing icon
 
+<PreviewPair>
 <ComponentPreview>
   <AppBar.Header>
     <AppBar.BackAction icon={ChevronIcon} onPress={() => {}} />
@@ -60,11 +64,13 @@ export const ChevronIcon = ({ size, color }) => (
   <AppBar.IconButton icon={DotIcon} onPress={() => {}} accessibilityLabel="More" />
 </AppBar.Header>
 ```
+</PreviewPair>
 
 ## Centered title
 
 When `centered` is set on `AppBar.Title`, it's positioned absolutely so it stays centered regardless of side content width.
 
+<PreviewPair>
 <ComponentPreview>
   <AppBar.Header>
     <AppBar.BackAction icon={ChevronIcon} onPress={() => {}} />
@@ -80,6 +86,7 @@ When `centered` is set on `AppBar.Title`, it's positioned absolutely so it stays
   <AppBar.IconButton icon={DotIcon} onPress={() => {}} accessibilityLabel="More" />
 </AppBar.Header>
 ```
+</PreviewPair>
 
 ## Props
 

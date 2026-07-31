@@ -5,6 +5,7 @@ sidebar_position: 21
 ---
 
 import ComponentPreview from '@site/src/components/ComponentPreview';
+import PreviewPair from '@site/src/components/PreviewPair';
 import { Sheet, Button, Text } from 'vajra-ui';
 import React from 'react';
 
@@ -31,6 +32,7 @@ export const SheetDemo = () => {
   );
 };
 
+<PreviewPair>
 <ComponentPreview>
   <SheetDemo />
 </ComponentPreview>
@@ -55,9 +57,11 @@ function ExampleSheet() {
   );
 }
 ```
+</PreviewPair>
 
 ## No drag dismiss
 
+<PreviewPair>
 <ComponentPreview>
   {(() => {
     const NoDragSheetDemo = () => {
@@ -88,6 +92,7 @@ function ExampleSheet() {
   <Button label="Close" onPress={() => setIsVisible(false)} />
 </Sheet>
 ```
+</PreviewPair>
 
 ## Props
 

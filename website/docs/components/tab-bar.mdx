@@ -6,6 +6,7 @@ sidebar_position: 39
 
 import React, { useState } from 'react';
 import ComponentPreview from '@site/src/components/ComponentPreview';
+import PreviewPair from '@site/src/components/PreviewPair';
 import { TabBar } from 'vajra-ui';
 
 # Tab Bar
@@ -14,6 +15,7 @@ A segmented-control style tab bar with an animated sliding indicator. Fully cont
 
 ## Basic usage
 
+<PreviewPair>
 <ComponentPreview>
   {(() => {
     function TabBarDemo() {
@@ -53,9 +55,11 @@ function TabBarDemo() {
   );
 }
 ```
+</PreviewPair>
 
 ## Scrollable, with custom colors
 
+<PreviewPair>
 <ComponentPreview>
   {(() => {
     function TabBarScrollableDemo() {
@@ -97,6 +101,7 @@ function TabBarDemo() {
   activeColor="textInverse"
 />
 ```
+</PreviewPair>
 
 ## Props
 

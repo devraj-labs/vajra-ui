@@ -5,6 +5,7 @@ sidebar_position: 13
 ---
 
 import ComponentPreview from '@site/src/components/ComponentPreview';
+import PreviewPair from '@site/src/components/PreviewPair';
 import React, { useState } from 'react';
 import { Accordion, Text } from 'vajra-ui';
 
@@ -14,6 +15,7 @@ A collapsible list of sections, controlled via `openValues`. Built from `Accordi
 
 ## Basic usage
 
+<PreviewPair>
 <ComponentPreview>
   {(() => {
     const AccordionExample = () => {
@@ -57,11 +59,13 @@ function AccordionExample() {
   );
 }
 ```
+</PreviewPair>
 
 ## Multiple open items
 
 By default only one item can be open at a time. Pass `allowMultiple` to let several sections stay open simultaneously.
 
+<PreviewPair>
 <ComponentPreview>
   {(() => {
     const AccordionMultipleExample = () => {
@@ -99,6 +103,7 @@ By default only one item can be open at a time. Pass `allowMultiple` to let seve
   </Accordion.Item>
 </Accordion.Root>
 ```
+</PreviewPair>
 
 ## Props
 

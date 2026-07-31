@@ -5,6 +5,7 @@ sidebar_position: 12
 ---
 
 import ComponentPreview from '@site/src/components/ComponentPreview';
+import PreviewPair from '@site/src/components/PreviewPair';
 import { Button, Row } from 'vajra-ui';
 
 # Button
@@ -13,6 +14,7 @@ A pressable button with six visual variants and five sizes, all token-driven.
 
 ## Variants
 
+<PreviewPair>
 <ComponentPreview>
   <Row gap="s-2" wrap="wrap">
     <Button variant="solid" label="Solid" onPress={() => {}} />
@@ -28,9 +30,11 @@ A pressable button with six visual variants and five sizes, all token-driven.
 <Button variant="solid" label="Solid" onPress={() => {}} />
 <Button variant="outline" label="Outline" onPress={() => {}} />
 ```
+</PreviewPair>
 
 ## Sizes
 
+<PreviewPair>
 <ComponentPreview>
   <Row gap="s-2" align="center" wrap="wrap">
     <Button size="xs" label="XS" onPress={() => {}} />
@@ -56,6 +60,7 @@ A pressable button with six visual variants and five sizes, all token-driven.
 <Button label="Disabled" isDisabled onPress={() => {}} />
 <Button isPill label="Pill" onPress={() => {}} />
 ```
+</PreviewPair>
 
 ## Props
 

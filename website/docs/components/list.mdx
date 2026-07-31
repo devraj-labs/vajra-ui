@@ -5,6 +5,7 @@ sidebar_position: 32
 ---
 
 import ComponentPreview from '@site/src/components/ComponentPreview';
+import PreviewPair from '@site/src/components/PreviewPair';
 import { List, Box, Text } from 'vajra-ui';
 
 # List
@@ -13,6 +14,7 @@ A token-driven wrapper around React Native's `FlatList`, with a default separato
 
 ## Basic usage
 
+<PreviewPair>
 <ComponentPreview>
   <Box style={{ height: 220 }}>
     <List
@@ -48,9 +50,11 @@ A token-driven wrapper around React Native's `FlatList`, with a default separato
   )}
 />
 ```
+</PreviewPair>
 
 ## No separator & empty state
 
+<PreviewPair>
 <ComponentPreview>
   <Box style={{ height: 120 }}>
     <List
@@ -84,6 +88,7 @@ A token-driven wrapper around React Native's `FlatList`, with a default separato
   }
 />
 ```
+</PreviewPair>
 
 ## Props
 

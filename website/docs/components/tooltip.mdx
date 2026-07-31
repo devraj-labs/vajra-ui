@@ -5,6 +5,7 @@ sidebar_position: 40
 ---
 
 import ComponentPreview from '@site/src/components/ComponentPreview';
+import PreviewPair from '@site/src/components/PreviewPair';
 import { Tooltip, Button, Row } from 'vajra-ui';
 
 # Tooltip
@@ -13,6 +14,7 @@ Wraps a pressable child and toggles a small label bubble above or below it on pr
 
 ## Basic usage
 
+<PreviewPair>
 <ComponentPreview>
   <Row gap="s-6">
     <Tooltip label="This is a tooltip">
@@ -26,9 +28,11 @@ Wraps a pressable child and toggles a small label bubble above or below it on pr
   <Button variant="outline" label="Press me" onPress={() => {}} />
 </Tooltip>
 ```
+</PreviewPair>
 
 ## Placement
 
+<PreviewPair>
 <ComponentPreview>
   <Row gap="s-8">
     <Tooltip label="Above the trigger" placement="top">
@@ -48,9 +52,11 @@ Wraps a pressable child and toggles a small label bubble above or below it on pr
   <Button variant="subtle" label="Bottom" onPress={() => {}} />
 </Tooltip>
 ```
+</PreviewPair>
 
 ## Custom colors
 
+<PreviewPair>
 <ComponentPreview>
   <Tooltip label="Success message" bg="success" textColor="textInverse">
     <Button variant="solid" label="Custom colors" onPress={() => {}} />
@@ -62,6 +68,7 @@ Wraps a pressable child and toggles a small label bubble above or below it on pr
   <Button variant="solid" label="Custom colors" onPress={() => {}} />
 </Tooltip>
 ```
+</PreviewPair>
 
 ## Props
 

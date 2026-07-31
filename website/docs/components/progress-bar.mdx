@@ -5,6 +5,7 @@ sidebar_position: 33
 ---
 
 import ComponentPreview from '@site/src/components/ComponentPreview';
+import PreviewPair from '@site/src/components/PreviewPair';
 import { ProgressBar, Col } from 'vajra-ui';
 
 # Progress Bar
@@ -13,6 +14,7 @@ A token-driven, animated horizontal progress indicator. Takes a `value` between 
 
 ## Basic usage
 
+<PreviewPair>
 <ComponentPreview>
   <Col gap="s-4">
     <ProgressBar value={0.25} />
@@ -26,9 +28,11 @@ A token-driven, animated horizontal progress indicator. Takes a `value` between 
 <ProgressBar value={0.5} />
 <ProgressBar value={0.9} />
 ```
+</PreviewPair>
 
 ## Custom colors & height
 
+<PreviewPair>
 <ComponentPreview>
   <Col gap="s-4">
     <ProgressBar value={0.6} height={4} trackColor="surfaceRaised" fillColor="success" />
@@ -40,6 +44,7 @@ A token-driven, animated horizontal progress indicator. Takes a `value` between 
 <ProgressBar value={0.6} height={4} trackColor="surfaceRaised" fillColor="success" />
 <ProgressBar value={0.4} height={12} trackColor="surfaceRaised" fillColor="warning" rounded="r-2" />
 ```
+</PreviewPair>
 
 ## Props
 

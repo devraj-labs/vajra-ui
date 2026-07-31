@@ -5,12 +5,14 @@ sidebar_position: 8
 ---
 
 import ComponentPreview from '@site/src/components/ComponentPreview';
+import PreviewPair from '@site/src/components/PreviewPair';
 import { AbsoluteCenter, Box } from 'vajra-ui';
 
 # AbsoluteCenter
 
 Positions its children centered and absolutely filling the nearest positioned ancestor. Useful for overlays and badges centered on top of other content.
 
+<PreviewPair>
 <ComponentPreview>
   <Box bg="surface" w={120} h={80} rounded="r-3" style={{ position: 'relative' }}>
     <AbsoluteCenter>
@@ -26,6 +28,7 @@ Positions its children centered and absolutely filling the nearest positioned an
   </AbsoluteCenter>
 </Box>
 ```
+</PreviewPair>
 
 ## Props
 

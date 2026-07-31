@@ -5,6 +5,7 @@ sidebar_position: 17
 ---
 
 import ComponentPreview from '@site/src/components/ComponentPreview';
+import PreviewPair from '@site/src/components/PreviewPair';
 import React, { useState } from 'react';
 import { Tabs, Text } from 'vajra-ui';
 
@@ -14,6 +15,7 @@ A single-select tab bar with associated panels, controlled via `value`. Built fr
 
 ## Basic usage
 
+<PreviewPair>
 <ComponentPreview>
   {(() => {
     const tabsData = [
@@ -71,11 +73,13 @@ function TabsExample() {
   );
 }
 ```
+</PreviewPair>
 
 ## Custom colors
 
 `Tabs.List` accepts styling props for the track, sliding indicator, and label colors.
 
+<PreviewPair>
 <ComponentPreview>
   {(() => {
     const tabsData = [
@@ -131,6 +135,7 @@ function TabsExample() {
   </Tabs.Content>
 </Tabs.Root>
 ```
+</PreviewPair>
 
 ## Props
 

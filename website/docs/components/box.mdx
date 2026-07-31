@@ -5,12 +5,14 @@ sidebar_position: 1
 ---
 
 import ComponentPreview from '@site/src/components/ComponentPreview';
+import PreviewPair from '@site/src/components/PreviewPair';
 import { Box } from 'vajra-ui';
 
 # Box
 
 The foundational layout primitive. Every other layout component (Row, Col, Center, Grid, ...) is built on top of Box.
 
+<PreviewPair>
 <ComponentPreview>
   <Box bg="surface" p="s-4" rounded="r-3" borderWidth={1} borderColor="border">
     <Box bg="brand" w={40} h={40} rounded="r-2" />
@@ -22,6 +24,7 @@ The foundational layout primitive. Every other layout component (Row, Col, Cente
   <Box bg="brand" w={40} h={40} rounded="r-2" />
 </Box>
 ```
+</PreviewPair>
 
 ## Props
 

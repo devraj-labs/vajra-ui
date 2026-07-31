@@ -1,0 +1,54 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 1.5rem 0;
+}
+
+.mockupOuter {
+  position: relative;
+}
+
+.statusBarOverlay {
+  position: absolute;
+  top: 9px;
+  left: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.95rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--ifm-font-color-base);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.statusIcons {
+  font-size: 0.5rem;
+  letter-spacing: 0.15em;
+}
+
+.screen {
+  width: 100%;
+  min-height: 100%;
+  background: var(--vajra-preview-bg);
+  padding-left: 1.1rem;
+  padding-right: 1.1rem;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.homeIndicator {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 108px;
+  height: 4px;
+  border-radius: 4px;
+  background: var(--ifm-font-color-base);
+  opacity: 0.35;
+  z-index: 1;
+  pointer-events: none;
+}

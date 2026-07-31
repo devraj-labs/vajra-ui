@@ -5,12 +5,14 @@ sidebar_position: 7
 ---
 
 import ComponentPreview from '@site/src/components/ComponentPreview';
+import PreviewPair from '@site/src/components/PreviewPair';
 import { Center, Box } from 'vajra-ui';
 
 # Center
 
 A Box preset with `align="center"` and `justify="center"`. Centers its children both horizontally and vertically within its own bounds.
 
+<PreviewPair>
 <ComponentPreview>
   <Center bg="surface" w={120} h={80} rounded="r-3">
     <Box bg="brand" w={32} h={32} rounded="r-2" />
@@ -22,6 +24,7 @@ A Box preset with `align="center"` and `justify="center"`. Centers its children 
   <Box bg="brand" w={32} h={32} rounded="r-2" />
 </Center>
 ```
+</PreviewPair>
 
 ## Props
 

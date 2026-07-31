@@ -5,6 +5,7 @@ sidebar_position: 29
 ---
 
 import ComponentPreview from '@site/src/components/ComponentPreview';
+import PreviewPair from '@site/src/components/PreviewPair';
 import React from 'react';
 import { View } from 'react-native';
 import { IconBox, Row } from 'vajra-ui';
@@ -19,6 +20,7 @@ export const DotIcon = ({ size, color }) => (
 
 ## Basic usage
 
+<PreviewPair>
 <ComponentPreview>
   <Row gap="s-2" wrap="wrap">
     <IconBox icon={DotIcon} />
@@ -36,9 +38,11 @@ const DotIcon = ({ size, color }) => (
 <IconBox icon={DotIcon} bg="successSubtle" iconColor="success" />
 <IconBox icon={DotIcon} bg="errorSubtle" iconColor="error" />
 ```
+</PreviewPair>
 
 ## Custom size
 
+<PreviewPair>
 <ComponentPreview>
   <Row gap="s-2" align="center" wrap="wrap">
     <IconBox icon={DotIcon} w={32} h={32} iconSize={14} />
@@ -51,6 +55,7 @@ const DotIcon = ({ size, color }) => (
 <IconBox icon={DotIcon} w={32} h={32} iconSize={14} />
 <IconBox icon={DotIcon} w={64} h={64} iconSize={28} rounded="r-4" />
 ```
+</PreviewPair>
 
 ## Props
 

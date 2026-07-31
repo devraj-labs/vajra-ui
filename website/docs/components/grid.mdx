@@ -5,12 +5,14 @@ sidebar_position: 6
 ---
 
 import ComponentPreview from '@site/src/components/ComponentPreview';
+import PreviewPair from '@site/src/components/PreviewPair';
 import { Grid, Box } from 'vajra-ui';
 
 # Grid
 
 A compound component for building responsive column grids. `Grid.Root` wraps children in a wrapping row; `Grid.Item` computes its own width from the number of `columns` and the `span` it should occupy.
 
+<PreviewPair>
 <ComponentPreview>
   <Grid.Root gap="s-2">
     <Grid.Item span={1} columns={2} colGap={8}>
@@ -32,6 +34,7 @@ A compound component for building responsive column grids. `Grid.Root` wraps chi
   </Grid.Item>
 </Grid.Root>
 ```
+</PreviewPair>
 
 ## Props
 

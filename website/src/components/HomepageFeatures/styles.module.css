@@ -1,11 +1,37 @@
 .features {
   display: flex;
   align-items: center;
-  padding: 2rem 0;
+  padding: 4rem 0 5rem;
   width: 100%;
 }
 
-.featureSvg {
-  height: 200px;
-  width: 200px;
+.card {
+  height: 100%;
+  padding: 1.75rem;
+  border-radius: 14px;
+  border: 1px solid var(--ifm-toc-border-color);
+  background: var(--ifm-background-surface-color, var(--ifm-color-emphasis-0));
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 8px 24px rgba(20, 184, 166, 0.12);
+}
+
+.icon {
+  font-size: 1.75rem;
+  margin-bottom: 0.75rem;
+  display: inline-block;
+}
+
+.cardTitle {
+  margin-bottom: 0.5rem;
+}
+
+.cardBody {
+  opacity: 0.85;
+  font-size: 0.95rem;
+  line-height: 1.6;
 }

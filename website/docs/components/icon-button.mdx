@@ -5,6 +5,7 @@ sidebar_position: 30
 ---
 
 import ComponentPreview from '@site/src/components/ComponentPreview';
+import PreviewPair from '@site/src/components/PreviewPair';
 import React from 'react';
 import { View } from 'react-native';
 import { IconButton, Row } from 'vajra-ui';
@@ -19,6 +20,7 @@ export const DotIcon = ({ size, color }) => (
 
 ## Variants
 
+<PreviewPair>
 <ComponentPreview>
   <Row gap="s-2" wrap="wrap">
     <IconButton variant="solid" icon={DotIcon} onPress={() => {}} />
@@ -34,9 +36,11 @@ export const DotIcon = ({ size, color }) => (
 <IconButton variant="solid" icon={DotIcon} onPress={() => {}} />
 <IconButton variant="outline" icon={DotIcon} onPress={() => {}} />
 ```
+</PreviewPair>
 
 ## Sizes
 
+<PreviewPair>
 <ComponentPreview>
   <Row gap="s-2" align="center" wrap="wrap">
     <IconButton size="xs" icon={DotIcon} onPress={() => {}} />
@@ -60,6 +64,7 @@ export const DotIcon = ({ size, color }) => (
 <IconButton icon={DotIcon} isLoading onPress={() => {}} />
 <IconButton icon={DotIcon} isDisabled onPress={() => {}} />
 ```
+</PreviewPair>
 
 ## Props
 

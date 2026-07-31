@@ -5,6 +5,7 @@ sidebar_position: 28
 ---
 
 import ComponentPreview from '@site/src/components/ComponentPreview';
+import PreviewPair from '@site/src/components/PreviewPair';
 import { Chip, Row } from 'vajra-ui';
 
 # Chip
@@ -13,6 +14,7 @@ A compact, pressable label used for selection, filtering, or tagging, with optio
 
 ## Selectable
 
+<PreviewPair>
 <ComponentPreview>
   <Row gap="s-2" wrap="wrap">
     <Chip label="Selected" isSelected onPress={() => {}} />
@@ -26,9 +28,11 @@ A compact, pressable label used for selection, filtering, or tagging, with optio
 <Chip label="Unselected" onPress={() => {}} />
 <Chip label="Disabled" isDisabled onPress={() => {}} />
 ```
+</PreviewPair>
 
 ## Removable
 
+<PreviewPair>
 <ComponentPreview>
   <Row gap="s-2" wrap="wrap">
     <Chip label="React" isSelected onRemove={() => {}} />
@@ -40,9 +44,11 @@ A compact, pressable label used for selection, filtering, or tagging, with optio
 <Chip label="React" isSelected onRemove={() => {}} />
 <Chip label="TypeScript" isSelected onRemove={() => {}} />
 ```
+</PreviewPair>
 
 ## Custom colors
 
+<PreviewPair>
 <ComponentPreview>
   <Row gap="s-2" wrap="wrap">
     <Chip
@@ -64,6 +70,7 @@ A compact, pressable label used for selection, filtering, or tagging, with optio
   onPress={() => {}}
 />
 ```
+</PreviewPair>
 
 ## Props
 

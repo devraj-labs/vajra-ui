@@ -5,6 +5,7 @@ sidebar_position: 26
 ---
 
 import ComponentPreview from '@site/src/components/ComponentPreview';
+import PreviewPair from '@site/src/components/PreviewPair';
 import React from 'react';
 import { View } from 'react-native';
 import { Badge, Row } from 'vajra-ui';
@@ -19,6 +20,7 @@ export const DotIcon = ({ size, color }) => (
 
 ## Basic usage
 
+<PreviewPair>
 <ComponentPreview>
   <Row gap="s-2" wrap="wrap">
     <Badge label="New" />
@@ -32,9 +34,11 @@ export const DotIcon = ({ size, color }) => (
 <Badge label="3" bg="error" />
 <Badge label="Beta" bg="warning" />
 ```
+</PreviewPair>
 
 ## With icon
 
+<PreviewPair>
 <ComponentPreview>
   <Row gap="s-2" wrap="wrap">
     <Badge label="Live" icon={DotIcon} bg="success" />
@@ -48,6 +52,7 @@ const DotIcon = ({ size, color }) => (
 
 <Badge label="Live" icon={DotIcon} bg="success" />
 ```
+</PreviewPair>
 
 ## Props
 

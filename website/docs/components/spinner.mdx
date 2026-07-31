@@ -5,6 +5,7 @@ sidebar_position: 37
 ---
 
 import ComponentPreview from '@site/src/components/ComponentPreview';
+import PreviewPair from '@site/src/components/PreviewPair';
 import { Spinner, Row } from 'vajra-ui';
 
 # Spinner
@@ -13,6 +14,7 @@ A thin, token-driven wrapper around React Native's `ActivityIndicator`.
 
 ## Basic usage
 
+<PreviewPair>
 <ComponentPreview>
   <Spinner />
 </ComponentPreview>
@@ -20,9 +22,11 @@ A thin, token-driven wrapper around React Native's `ActivityIndicator`.
 ```tsx
 <Spinner />
 ```
+</PreviewPair>
 
 ## Colors
 
+<PreviewPair>
 <ComponentPreview>
   <Row gap="s-4" align="center">
     <Spinner color="primary" />
@@ -38,6 +42,7 @@ A thin, token-driven wrapper around React Native's `ActivityIndicator`.
 <Spinner color="error" />
 <Spinner color="textMuted" />
 ```
+</PreviewPair>
 
 ## Props
 

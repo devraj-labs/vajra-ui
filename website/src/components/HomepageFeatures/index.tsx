@@ -1,15 +1,16 @@
 import type {ReactNode} from 'react';
-import clsx from 'clsx';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
 
 type FeatureItem = {
+  icon: string;
   title: string;
   description: ReactNode;
 };
 
 const FeatureList: FeatureItem[] = [
   {
+    icon: '🎯',
     title: 'Token-first',
     description: (
       <>
@@ -20,6 +21,7 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
+    icon: '🎨',
     title: 'Themeable',
     description: (
       <>
@@ -30,6 +32,7 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
+    icon: '🧬',
     title: 'Headless core',
     description: (
       <>
@@ -39,14 +42,50 @@ const FeatureList: FeatureItem[] = [
       </>
     ),
   },
+  {
+    icon: '📦',
+    title: '40 components',
+    description: (
+      <>
+        Layout, forms, navigation, overlays, and feedback — Modal, Sheet,
+        Toast, Select, Tabs, Accordion, and more, covering what a real app
+        screen actually needs.
+      </>
+    ),
+  },
+  {
+    icon: '⚡',
+    title: 'Live previews',
+    description: (
+      <>
+        Every component in these docs renders for real, in the browser, via
+        react-native-web — not a static screenshot or a code snippet you have
+        to imagine.
+      </>
+    ),
+  },
+  {
+    icon: '✅',
+    title: 'Tested & typed',
+    description: (
+      <>
+        Full test coverage with Jest and React Native Testing Library, typed
+        end-to-end token unions, and CI that verifies the published package
+        is actually importable.
+      </>
+    ),
+  },
 ];
 
-function Feature({title, description}: FeatureItem) {
+function Feature({icon, title, description}: FeatureItem) {
   return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
+    <div className="col col--4 margin-bottom--lg">
+      <div className={styles.card}>
+        <span className={styles.icon}>{icon}</span>
+        <Heading as="h3" className={styles.cardTitle}>
+          {title}
+        </Heading>
+        <p className={styles.cardBody}>{description}</p>
       </div>
     </div>
   );

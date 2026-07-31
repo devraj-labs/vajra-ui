@@ -5,6 +5,7 @@ sidebar_position: 19
 ---
 
 import ComponentPreview from '@site/src/components/ComponentPreview';
+import PreviewPair from '@site/src/components/PreviewPair';
 import { Input, Col } from 'vajra-ui';
 
 # Input
@@ -13,6 +14,7 @@ A labeled text field with four visual variants — `Input.Outline`, `Input.Fille
 
 ## Variants
 
+<PreviewPair>
 <ComponentPreview>
   <Col gap="s-4">
     <Input.Outline label="Outline" placeholder="Type here" />
@@ -28,9 +30,11 @@ A labeled text field with four visual variants — `Input.Outline`, `Input.Fille
 <Input.Flushed label="Flushed" placeholder="Type here" />
 <Input.Floating label="Floating" />
 ```
+</PreviewPair>
 
 ## Sizes
 
+<PreviewPair>
 <ComponentPreview>
   <Col gap="s-4">
     <Input.Outline size="xs" label="Extra small" placeholder="xs" />
@@ -46,9 +50,11 @@ A labeled text field with four visual variants — `Input.Outline`, `Input.Fille
 <Input.Outline size="md" label="Medium" placeholder="md" />
 <Input.Outline size="lg" label="Large" placeholder="lg" />
 ```
+</PreviewPair>
 
 ## Helper text, error, and disabled
 
+<PreviewPair>
 <ComponentPreview>
   <Col gap="s-4">
     <Input.Outline label="Email" placeholder="you@example.com" helperText="We'll never share your email." />
@@ -62,6 +68,7 @@ A labeled text field with four visual variants — `Input.Outline`, `Input.Fille
 <Input.Outline label="Username" placeholder="Username" isInvalid errorText="Username is already taken." />
 <Input.Outline label="Locked field" placeholder="Can't edit" isDisabled />
 ```
+</PreviewPair>
 
 ## Props
 

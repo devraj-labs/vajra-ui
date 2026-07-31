@@ -8165,6 +8165,11 @@ rc@1.2.8:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-device-mockup@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-device-mockup/-/react-device-mockup-1.0.0.tgz#c17f0ffd07c28a2c4100cecd7f54d04aec15b19b"
+  integrity sha512-rtLHqMdzs7FsnvYO7yCLbqvJYw8BmHEk6XsMHDQe4sBRU/SXPB3nofpjjXT3Me+MR2ZE3qsa1bVtASLRZwQO9g==
+
 react-dom@19:
   version "19.2.8"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-19.2.8.tgz#3b46b9eeda877cdff2cf13d2770fff4ae36c2ec2"

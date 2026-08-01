@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { render, screen, fireEvent } from '@testing-library/react-native';
-import { Animated } from 'react-native';
+import { Animated, View } from 'react-native';
 
 import { VajraProvider, defaultVajraTheme } from '../../vajra-theme';
 import { Select } from './select';
@@ -93,6 +93,34 @@ describe('Select', () => {
     fireEvent.press(screen.getByTestId('color-select'));
 
     expect(screen.queryByText('Red')).toBeNull();
+  });
+
+  it('renders a custom trigger icon instead of the default ▲/▼ glyph when provided', () => {
+    const TriggerIcon = () => <View testID="custom-trigger-icon" />;
+
+    render(
+      <VajraProvider>
+        <ControlledSelect icon={TriggerIcon} />
+      </VajraProvider>,
+    );
+
+    expect(screen.getByTestId('custom-trigger-icon')).toBeTruthy();
+    expect(screen.queryByText('▼')).toBeNull();
+  });
+
+  it('renders a custom check icon on the selected option instead of the default ✓ glyph when provided', () => {
+    const CheckIcon = () => <View testID="custom-check-icon" />;
+
+    render(
+      <VajraProvider>
+        <ControlledSelect value="green" checkIcon={CheckIcon} />
+      </VajraProvider>,
+    );
+
+    fireEvent.press(screen.getByTestId('color-select'));
+
+    expect(screen.getByTestId('custom-check-icon')).toBeTruthy();
+    expect(screen.queryByText('✓')).toBeNull();
   });
 
   it('shows the error text and resolves the border to the error color when invalid', () => {

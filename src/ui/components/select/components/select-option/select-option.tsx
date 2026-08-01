@@ -3,6 +3,7 @@ import React, { memo } from 'react';
 import { Pressable } from '../../../../core/pressable';
 import { Row } from '../../../../core/row';
 import { Text } from '../../../../core/text';
+import { useVajraTheme } from '../../../../vajra-theme/use-vajra-theme';
 import { TSelectOptionProps } from './select-option-types';
 
 const SelectOptionComponent: React.FC<TSelectOptionProps> = ({
@@ -10,8 +11,11 @@ const SelectOptionComponent: React.FC<TSelectOptionProps> = ({
   isSelected,
   onPress,
   selectedColor = 'primary',
+  checkIcon: CheckIcon,
   testID,
 }) => {
+  const { colors } = useVajraTheme();
+
   return (
     <Pressable
       onPress={onPress}
@@ -25,11 +29,14 @@ const SelectOptionComponent: React.FC<TSelectOptionProps> = ({
         <Text variant="body" color={isSelected ? selectedColor : 'text'}>
           {label}
         </Text>
-        {isSelected && (
-          <Text variant="label" color={selectedColor}>
-            ✓
-          </Text>
-        )}
+        {isSelected &&
+          (CheckIcon ? (
+            <CheckIcon size={16} width={16} height={16} color={colors[selectedColor]} />
+          ) : (
+            <Text variant="label" color={selectedColor}>
+              ✓
+            </Text>
+          ))}
       </Row>
     </Pressable>
   );

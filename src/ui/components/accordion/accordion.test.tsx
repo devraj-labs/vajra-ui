@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { render, screen, fireEvent } from '@testing-library/react-native';
-import { Animated, Text as RNText } from 'react-native';
+import { Animated, Text as RNText, View } from 'react-native';
 
 import { VajraProvider } from '../../vajra-theme';
 import { Accordion } from './accordion';
@@ -102,6 +102,31 @@ describe('Accordion', () => {
 
     fireEvent.press(itemA);
     expect(itemA.props.accessibilityState.expanded).toBe(false);
+  });
+
+  it('renders a custom icon instead of the default ▲/▼ glyph when provided', () => {
+    const CustomIcon = () => <View testID="custom-accordion-icon" />;
+
+    const WithIcon = () => {
+      const [openValues, setOpenValues] = useState<string[]>([]);
+
+      return (
+        <Accordion.Root openValues={openValues} onChange={setOpenValues}>
+          <Accordion.Item value="a" title="Section A" testID="item-a" icon={CustomIcon}>
+            <RNText>Content A</RNText>
+          </Accordion.Item>
+        </Accordion.Root>
+      );
+    };
+
+    render(
+      <VajraProvider>
+        <WithIcon />
+      </VajraProvider>,
+    );
+
+    expect(screen.getByTestId('custom-accordion-icon')).toBeTruthy();
+    expect(screen.queryByText('▼')).toBeNull();
   });
 
   it('does not toggle when disabled', () => {

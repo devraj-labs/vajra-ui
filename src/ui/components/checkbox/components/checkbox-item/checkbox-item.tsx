@@ -7,7 +7,7 @@ import { CheckboxLabel } from '../checkbox-label';
 import { TCheckboxItemProps } from './checkbox-item-types';
 
 const CheckboxItemComponent: React.FC<TCheckboxItemProps> = ({ value, label, isDisabled }) => {
-  const { selectedValues, onChange, color, isDisabled: rootDisabled } = useCheckboxContext();
+  const { selectedValues, onChange, color, isDisabled: rootDisabled, icon } = useCheckboxContext();
   const disabled = isDisabled ?? rootDisabled;
   const isSelected = selectedValues.includes(value);
 
@@ -19,7 +19,7 @@ const CheckboxItemComponent: React.FC<TCheckboxItemProps> = ({ value, label, isD
       align="center"
       gap="s-2"
     >
-      <CheckboxIndicator isSelected={isSelected} isDisabled={disabled} color={color} />
+      <CheckboxIndicator isSelected={isSelected} isDisabled={disabled} color={color} icon={icon} />
       {label && <CheckboxLabel label={label} isDisabled={disabled} />}
     </Pressable>
   );

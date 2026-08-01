@@ -3,6 +3,7 @@ import React, { memo } from 'react';
 import { Box } from '../../core/box';
 import { Pressable } from '../../core/pressable';
 import { Text } from '../../core/text';
+import { useVajraTheme } from '../../vajra-theme/use-vajra-theme';
 import { TChipProps } from './chip-types';
 
 const ChipComponent: React.FC<TChipProps> = ({
@@ -15,8 +16,10 @@ const ChipComponent: React.FC<TChipProps> = ({
   selectedColor = 'textInverse',
   unselectedBg = 'surfaceRaised',
   unselectedColor = 'text',
+  removeIcon: RemoveIcon,
   testID,
 }) => {
+  const { colors } = useVajraTheme();
   const bg = isSelected ? selectedBg : unselectedBg;
   const color = isSelected ? selectedColor : unselectedColor;
 
@@ -42,9 +45,13 @@ const ChipComponent: React.FC<TChipProps> = ({
           accessibilityLabel={`Remove ${label}`}
           testID={testID ? `${testID}-remove` : undefined}
         >
-          <Text variant="label" color={color}>
-            ✕
-          </Text>
+          {RemoveIcon ? (
+            <RemoveIcon size={14} width={14} height={14} color={colors[color]} />
+          ) : (
+            <Text variant="label" color={color}>
+              ✕
+            </Text>
+          )}
         </Pressable>
       )}
     </Box>

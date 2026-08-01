@@ -5,6 +5,7 @@ import { Col } from '../../core/col';
 import { Pressable } from '../../core/pressable';
 import { Row } from '../../core/row';
 import { Text } from '../../core/text';
+import { useVajraTheme } from '../../vajra-theme/use-vajra-theme';
 import { ALERT_VARIANT_COLORS } from './alert-constants';
 import { TAlertProps } from './alert-types';
 
@@ -14,8 +15,10 @@ const AlertComponent: React.FC<TAlertProps> = ({
   variant = 'default',
   onDismiss,
   icon,
+  dismissIcon: DismissIcon,
   testID,
 }) => {
+  const { colors } = useVajraTheme();
   const { bg, border, text } = ALERT_VARIANT_COLORS[variant];
 
   return (
@@ -47,9 +50,13 @@ const AlertComponent: React.FC<TAlertProps> = ({
             accessibilityLabel="Dismiss"
             testID={testID ? `${testID}-dismiss` : undefined}
           >
-            <Text variant="label" color={text}>
-              ✕
-            </Text>
+            {DismissIcon ? (
+              <DismissIcon size={14} width={14} height={14} color={colors[text]} />
+            ) : (
+              <Text variant="label" color={text}>
+                ✕
+              </Text>
+            )}
           </Pressable>
         )}
       </Row>

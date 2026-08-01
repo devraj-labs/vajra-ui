@@ -1,5 +1,6 @@
 import { createContext, useContext } from 'react';
 
+import { TVajraIconComponent } from '../icon-button/icon-button-types';
 import { TVajraColors } from '../../vajra-theme/colors';
 
 type TCheckboxContext = {
@@ -7,6 +8,7 @@ type TCheckboxContext = {
   onChange: (value: string) => void;
   color?: TVajraColors;
   isDisabled: boolean;
+  icon?: TVajraIconComponent;
 };
 
 const CheckboxContext = createContext<TCheckboxContext | null>(null);

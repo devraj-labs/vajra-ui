@@ -72,6 +72,28 @@ describe('Checkbox', () => {
     expect(screen.getByText('✓')).toBeTruthy();
   });
 
+  it('renders a custom icon instead of the default checkmark when provided', () => {
+    const CustomIcon = ({
+      color,
+    }: {
+      size: number;
+      width: number;
+      height: number;
+      color: string;
+    }) => <View testID="custom-check-icon" style={{ backgroundColor: color }} />;
+
+    render(
+      <VajraProvider>
+        <Checkbox.Root values={['a']} onChange={() => {}} icon={CustomIcon}>
+          <Checkbox.Item value="a" label="Option A" />
+        </Checkbox.Root>
+      </VajraProvider>,
+    );
+
+    expect(screen.getByTestId('custom-check-icon')).toBeTruthy();
+    expect(screen.queryByText('✓')).toBeNull();
+  });
+
   it('does not call onChange when the root is disabled', () => {
     const onChange = jest.fn();
 

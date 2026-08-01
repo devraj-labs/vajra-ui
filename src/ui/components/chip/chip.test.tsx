@@ -1,5 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react-native';
+import { View } from 'react-native';
 
 import { VajraProvider, defaultVajraTheme } from '../../vajra-theme';
 import { Chip } from './chip';
@@ -84,6 +85,19 @@ describe('Chip', () => {
 
     expect(onRemove).toHaveBeenCalledTimes(1);
     expect(onPress).not.toHaveBeenCalled();
+  });
+
+  it('renders a custom remove icon instead of the default ✕ glyph when provided', () => {
+    const RemoveIcon = () => <View testID="custom-remove-icon" />;
+
+    render(
+      <VajraProvider>
+        <Chip label="Filter" onRemove={() => {}} removeIcon={RemoveIcon} testID="chip" />
+      </VajraProvider>,
+    );
+
+    expect(screen.getByTestId('custom-remove-icon')).toBeTruthy();
+    expect(screen.queryByText('✕')).toBeNull();
   });
 
   it('does not call onPress or onRemove when disabled', () => {

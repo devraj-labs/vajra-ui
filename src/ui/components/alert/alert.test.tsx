@@ -1,5 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react-native';
+import { View } from 'react-native';
 
 import { VajraProvider, defaultVajraTheme } from '../../vajra-theme';
 import { Alert } from './alert';
@@ -54,6 +55,25 @@ describe('Alert', () => {
 
     fireEvent.press(screen.getByTestId('alert-dismiss'));
     expect(onDismiss).toHaveBeenCalledTimes(1);
+  });
+
+  it('renders a custom dismiss icon instead of the default ✕ glyph when provided', () => {
+    const onDismiss = jest.fn();
+    const DismissIcon = () => <View testID="custom-dismiss-icon" />;
+
+    render(
+      <VajraProvider>
+        <Alert
+          message="Something happened"
+          onDismiss={onDismiss}
+          dismissIcon={DismissIcon}
+          testID="alert"
+        />
+      </VajraProvider>,
+    );
+
+    expect(screen.getByTestId('custom-dismiss-icon')).toBeTruthy();
+    expect(screen.queryByText('✕')).toBeNull();
   });
 
   it('resolves the error variant to the theme errorSubtle background and error border', () => {

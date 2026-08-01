@@ -4,6 +4,7 @@ import { Box } from '../../core/box';
 import { Pressable } from '../../core/pressable';
 import { Row } from '../../core/row';
 import { Text } from '../../core/text';
+import { useVajraTheme } from '../../vajra-theme/use-vajra-theme';
 import { Sheet } from '../sheet';
 import { SelectOption } from './components/select-option';
 import { TSelectOption, TSelectProps } from './select-types';
@@ -18,8 +19,11 @@ const SelectComponent = <TValue extends string = string>({
   isInvalid = false,
   isDisabled = false,
   selectedColor = 'primary',
+  icon: Icon,
+  checkIcon,
   testID,
 }: TSelectProps<TValue>) => {
+  const { colors } = useVajraTheme();
   const [isOpen, setIsOpen] = useState(false);
   const selected = options.find(option => option.value === value);
 
@@ -53,9 +57,15 @@ const SelectComponent = <TValue extends string = string>({
           <Text variant="body" color={selected ? 'text' : 'textMuted'}>
             {selected?.label ?? placeholder}
           </Text>
-          <Text variant="label" color="textMuted">
-            {isOpen ? '▲' : '▼'}
-          </Text>
+          {Icon ? (
+            <Row style={{ transform: [{ rotate: isOpen ? '180deg' : '0deg' }] }}>
+              <Icon size={16} width={16} height={16} color={colors.textMuted} />
+            </Row>
+          ) : (
+            <Text variant="label" color="textMuted">
+              {isOpen ? '▲' : '▼'}
+            </Text>
+          )}
         </Row>
       </Pressable>
 
@@ -77,6 +87,7 @@ const SelectComponent = <TValue extends string = string>({
             isSelected={option.value === value}
             onPress={() => handleSelect(option)}
             selectedColor={selectedColor}
+            checkIcon={checkIcon}
             testID={testID ? `${testID}-option-${option.value}` : undefined}
           />
         ))}

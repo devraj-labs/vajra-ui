@@ -24,6 +24,35 @@ const SliderComponent: React.FC<TSliderProps> = ({
   const { colors } = useVajraTheme();
   const [trackWidth, setTrackWidth] = useState(0);
   const valueRef = useRef(value);
+  const gestureStartXRef = useRef(0);
+
+  // PanResponder.create's config closure is captured once (see the useRef
+  // below) and never recreated, so its callbacks must read current props via
+  // refs rather than closing over them directly — otherwise they'd keep
+  // using whatever trackWidth/min/max/etc. were in scope on first render
+  // (trackWidth is 0 until onLayout fires), silently breaking all the drag
+  // math no matter how correct it looks in isolation.
+  const configRef = useRef({
+    min,
+    max,
+    step,
+    thumbSize,
+    trackWidth,
+    isDisabled,
+    onChange,
+    onSlidingComplete,
+  });
+
+  configRef.current = {
+    min,
+    max,
+    step,
+    thumbSize,
+    trackWidth,
+    isDisabled,
+    onChange,
+    onSlidingComplete,
+  };
 
   valueRef.current = value;
 
@@ -32,26 +61,42 @@ const SliderComponent: React.FC<TSliderProps> = ({
   };
 
   const positionToValue = (locationX: number) => {
-    const usableWidth = Math.max(1, trackWidth - thumbSize);
+    const {
+      min: curMin,
+      max: curMax,
+      step: curStep,
+      thumbSize: curThumbSize,
+      trackWidth: curTrackWidth,
+    } = configRef.current;
+    const usableWidth = Math.max(1, curTrackWidth - curThumbSize);
     const ratio = clamp(locationX / usableWidth, 0, 1);
 
-    return clamp(snapToStep(min + ratio * (max - min), min, step), min, max);
+    return clamp(snapToStep(curMin + ratio * (curMax - curMin), curMin, curStep), curMin, curMax);
   };
 
   const panResponder = useRef(
     PanResponder.create({
-      onStartShouldSetPanResponder: () => !isDisabled,
-      onMoveShouldSetPanResponder: () => !isDisabled,
-      onPanResponderMove: (event, gesture) => {
-        const usableWidth = Math.max(1, trackWidth - thumbSize);
-        const currentRatio = (valueRef.current - min) / (max - min);
-        const startX = currentRatio * usableWidth;
-        const nextValue = positionToValue(startX + gesture.dx);
+      onStartShouldSetPanResponder: () => !configRef.current.isDisabled,
+      onMoveShouldSetPanResponder: () => !configRef.current.isDisabled,
+      onPanResponderGrant: () => {
+        const {
+          min: curMin,
+          max: curMax,
+          thumbSize: curThumbSize,
+          trackWidth: curTrackWidth,
+        } = configRef.current;
+        const usableWidth = Math.max(1, curTrackWidth - curThumbSize);
+        const currentRatio = (valueRef.current - curMin) / (curMax - curMin);
 
-        onChange(nextValue);
+        gestureStartXRef.current = currentRatio * usableWidth;
+      },
+      onPanResponderMove: (event, gesture) => {
+        const nextValue = positionToValue(gestureStartXRef.current + gesture.dx);
+
+        configRef.current.onChange(nextValue);
       },
       onPanResponderRelease: () => {
-        onSlidingComplete?.(valueRef.current);
+        configRef.current.onSlidingComplete?.(valueRef.current);
       },
     }),
   ).current;

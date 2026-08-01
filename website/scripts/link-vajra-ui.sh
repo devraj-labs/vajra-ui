@@ -21,9 +21,27 @@ TARGET="../.."
 mkdir -p "$WEBSITE_DIR/node_modules"
 
 if [ -L "$LINK_PATH" ] && [ "$(readlink "$LINK_PATH")" = "$TARGET" ]; then
-  exit 0
+  :
+else
+  rm -rf "$LINK_PATH"
+  ln -s "$TARGET" "$LINK_PATH"
+  echo "Linked website/node_modules/vajra-ui -> repo root"
 fi
 
-rm -rf "$LINK_PATH"
-ln -s "$TARGET" "$LINK_PATH"
-echo "Linked website/node_modules/vajra-ui -> repo root"
+# vajra-ui-core is a separately published package, normally installed from
+# npm (see package.json). While iterating locally before a publish, link it
+# to the sibling vajra-ui-core checkout instead so fixes there are visible
+# in the docs site without needing a real npm publish first. Safe to symlink
+# directly (not the relative-path trick above) since vajra-ui-core lives
+# outside this repo — no self-nesting risk.
+CORE_LINK_PATH="$WEBSITE_DIR/node_modules/@devraj-labs/vajra-ui-core"
+CORE_TARGET="/Users/rishavjha/Desktop/vajra-ui-core"
+
+if [ -d "$CORE_TARGET" ]; then
+  mkdir -p "$WEBSITE_DIR/node_modules/@devraj-labs"
+  if [ ! -L "$CORE_LINK_PATH" ] || [ "$(readlink "$CORE_LINK_PATH")" != "$CORE_TARGET" ]; then
+    rm -rf "$CORE_LINK_PATH"
+    ln -s "$CORE_TARGET" "$CORE_LINK_PATH"
+    echo "Linked website/node_modules/@devraj-labs/vajra-ui-core -> $CORE_TARGET"
+  fi
+fi

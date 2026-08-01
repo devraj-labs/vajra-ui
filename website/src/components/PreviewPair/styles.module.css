@@ -5,10 +5,6 @@
   margin-bottom: 1rem;
 }
 
-.pair > :first-child {
-  align-self: center;
-}
-
 .pair > :last-child {
   width: 100%;
   margin: 0;

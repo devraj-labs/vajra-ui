@@ -35,6 +35,16 @@ export default function reactNativeWebPlugin(): Plugin {
               __dirname,
               '../node_modules/react-native-safe-area-context',
             ),
+            // vajra-ui's own node_modules also has @devraj-labs/vajra-ui-core
+            // installed (it's vajra-ui's peer dependency too) — resolution
+            // from files under the symlink walks up and finds THAT copy
+            // first, shadowing website's own (possibly locally-linked, see
+            // scripts/link-vajra-ui.sh) copy. Force everything to the one
+            // physical install website itself depends on.
+            '@devraj-labs/vajra-ui-core$': path.resolve(
+              __dirname,
+              '../node_modules/@devraj-labs/vajra-ui-core',
+            ),
           },
           // .web.js/.web.tsx first so packages that ship a browser-safe
           // variant (react-native-safe-area-context's

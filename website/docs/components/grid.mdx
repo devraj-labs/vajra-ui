@@ -6,22 +6,18 @@ sidebar_position: 6
 
 import ComponentPreview from '@site/src/components/ComponentPreview';
 import PreviewPair from '@site/src/components/PreviewPair';
-import { Grid, Box } from 'vajra-ui';
+import { Grid, Row, Box } from 'vajra-ui';
 
 # Grid
 
-A compound component for building responsive column grids. `Grid.Root` wraps children in a wrapping row; `Grid.Item` computes its own width from the number of `columns` and the `span` it should occupy.
+A compound component for building responsive column grids. `Grid.Root` wraps children in a wrapping row; `Grid.Item` computes its own width from `Dimensions.get('window')`, the number of `columns`, and the `span` it should occupy — this assumes the grid fills the device's full screen width, which holds in a real app but not inside this docs page's preview card, so the live preview below uses a plain `Row` instead. The code sample is the real, correct `Grid.Item` usage.
 
 <PreviewPair>
 <ComponentPreview>
-  <Grid.Root gap="s-2">
-    <Grid.Item span={1} columns={2} colGap={8}>
-      <Box bg="primary" h={48} rounded="r-2" />
-    </Grid.Item>
-    <Grid.Item span={1} columns={2} colGap={8}>
-      <Box bg="primary" h={48} rounded="r-2" />
-    </Grid.Item>
-  </Grid.Root>
+  <Row gap="s-2">
+    <Box bg="primary" h={48} w="47%" rounded="r-2" />
+    <Box bg="primary" h={48} w="47%" rounded="r-2" />
+  </Row>
 </ComponentPreview>
 
 ```tsx

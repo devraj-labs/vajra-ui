@@ -6,27 +6,13 @@ sidebar_position: 31
 
 import ComponentPreview from '@site/src/components/ComponentPreview';
 import PreviewPair from '@site/src/components/PreviewPair';
-import React, { useState } from 'react';
-import { View } from 'react-native';
+import { useState } from 'react';
 import { IconSwitch, Row } from 'vajra-ui';
+import { SunIcon, MoonIcon } from 'vajra-ui-icons';
 
 # IconSwitch
 
-A two-state sliding switch that shows a distinct icon in each of its "off" and "on" positions.
-
-export const SunIcon = ({ size, color }) => (
-  <View style={{ width: size, height: size, borderRadius: size / 2, backgroundColor: color }} />
-);
-export const MoonIcon = ({ size, color }) => (
-  <View
-    style={{
-      width: size,
-      height: size,
-      borderRadius: 2,
-      backgroundColor: color,
-    }}
-  />
-);
+A two-state sliding switch that shows a distinct icon in each of its "off" and "on" positions. Vajra UI ships no bundled icons — `offIcon`/`onIcon` accept any component matching `TVajraIconComponent`. The examples below use [`vajra-ui-icons`](https://github.com/devraj-labs/vajra-ui-icons), a small set of Lucide icons pre-adapted to that contract.
 
 ## Basic usage
 

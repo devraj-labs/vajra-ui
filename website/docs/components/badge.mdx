@@ -6,17 +6,12 @@ sidebar_position: 26
 
 import ComponentPreview from '@site/src/components/ComponentPreview';
 import PreviewPair from '@site/src/components/PreviewPair';
-import React from 'react';
-import { View } from 'react-native';
 import { Badge, Row } from 'vajra-ui';
+import { CircleIcon } from 'vajra-ui-icons';
 
 # Badge
 
-A small, non-interactive label built on `Box`, typically used for counts, statuses, or tags. Accepts an optional leading icon.
-
-export const DotIcon = ({ size, color }) => (
-  <View style={{ width: size, height: size, borderRadius: size / 2, backgroundColor: color }} />
-);
+A small, non-interactive label built on `Box`, typically used for counts, statuses, or tags. Accepts an optional leading icon — any component matching `TVajraIconComponent`. The example below uses [`vajra-ui-icons`](https://github.com/devraj-labs/vajra-ui-icons), a small set of Lucide icons pre-adapted to that contract.
 
 ## Basic usage
 
@@ -41,16 +36,14 @@ export const DotIcon = ({ size, color }) => (
 <PreviewPair>
 <ComponentPreview>
   <Row gap="s-2" wrap="wrap">
-    <Badge label="Live" icon={DotIcon} bg="success" />
+    <Badge label="Live" icon={CircleIcon} bg="success" />
   </Row>
 </ComponentPreview>
 
 ```tsx
-const DotIcon = ({ size, color }) => (
-  <View style={{ width: size, height: size, borderRadius: size / 2, backgroundColor: color }} />
-);
+import { CircleIcon } from 'vajra-ui-icons';
 
-<Badge label="Live" icon={DotIcon} bg="success" />
+<Badge label="Live" icon={CircleIcon} bg="success" />
 ```
 </PreviewPair>
 

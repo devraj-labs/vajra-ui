@@ -6,35 +6,32 @@ sidebar_position: 30
 
 import ComponentPreview from '@site/src/components/ComponentPreview';
 import PreviewPair from '@site/src/components/PreviewPair';
-import React from 'react';
-import { View } from 'react-native';
 import { IconButton, Row } from 'vajra-ui';
+import { BellIcon } from 'vajra-ui-icons';
 
 # IconButton
 
-A pressable, icon-only button with six visual variants and five sizes, mirroring Button's token-driven styling.
-
-export const DotIcon = ({ size, color }) => (
-  <View style={{ width: size, height: size, borderRadius: size / 2, backgroundColor: color }} />
-);
+A pressable, icon-only button with six visual variants and five sizes, mirroring Button's token-driven styling. Vajra UI ships no bundled icons — `icon` accepts any component matching `TVajraIconComponent`. The examples below use [`vajra-ui-icons`](https://github.com/devraj-labs/vajra-ui-icons), a small set of Lucide icons pre-adapted to that contract.
 
 ## Variants
 
 <PreviewPair>
 <ComponentPreview>
   <Row gap="s-2" wrap="wrap">
-    <IconButton variant="solid" icon={DotIcon} onPress={() => {}} />
-    <IconButton variant="subtle" icon={DotIcon} onPress={() => {}} />
-    <IconButton variant="surface" icon={DotIcon} onPress={() => {}} />
-    <IconButton variant="outline" icon={DotIcon} onPress={() => {}} />
-    <IconButton variant="ghost" icon={DotIcon} onPress={() => {}} />
-    <IconButton variant="plain" icon={DotIcon} onPress={() => {}} />
+    <IconButton variant="solid" icon={BellIcon} onPress={() => {}} />
+    <IconButton variant="subtle" icon={BellIcon} onPress={() => {}} />
+    <IconButton variant="surface" icon={BellIcon} onPress={() => {}} />
+    <IconButton variant="outline" icon={BellIcon} onPress={() => {}} />
+    <IconButton variant="ghost" icon={BellIcon} onPress={() => {}} />
+    <IconButton variant="plain" icon={BellIcon} onPress={() => {}} />
   </Row>
 </ComponentPreview>
 
 ```tsx
-<IconButton variant="solid" icon={DotIcon} onPress={() => {}} />
-<IconButton variant="outline" icon={DotIcon} onPress={() => {}} />
+import { BellIcon } from 'vajra-ui-icons';
+
+<IconButton variant="solid" icon={BellIcon} onPress={() => {}} />
+<IconButton variant="outline" icon={BellIcon} onPress={() => {}} />
 ```
 </PreviewPair>
 
@@ -43,11 +40,11 @@ export const DotIcon = ({ size, color }) => (
 <PreviewPair>
 <ComponentPreview>
   <Row gap="s-2" align="center" wrap="wrap">
-    <IconButton size="xs" icon={DotIcon} onPress={() => {}} />
-    <IconButton size="sm" icon={DotIcon} onPress={() => {}} />
-    <IconButton size="md" icon={DotIcon} onPress={() => {}} />
-    <IconButton size="lg" icon={DotIcon} onPress={() => {}} />
-    <IconButton size="xl" icon={DotIcon} onPress={() => {}} />
+    <IconButton size="xs" icon={BellIcon} onPress={() => {}} />
+    <IconButton size="sm" icon={BellIcon} onPress={() => {}} />
+    <IconButton size="md" icon={BellIcon} onPress={() => {}} />
+    <IconButton size="lg" icon={BellIcon} onPress={() => {}} />
+    <IconButton size="xl" icon={BellIcon} onPress={() => {}} />
   </Row>
 </ComponentPreview>
 
@@ -55,14 +52,14 @@ export const DotIcon = ({ size, color }) => (
 
 <ComponentPreview>
   <Row gap="s-2" wrap="wrap">
-    <IconButton icon={DotIcon} isLoading onPress={() => {}} />
-    <IconButton icon={DotIcon} isDisabled onPress={() => {}} />
+    <IconButton icon={BellIcon} isLoading onPress={() => {}} />
+    <IconButton icon={BellIcon} isDisabled onPress={() => {}} />
   </Row>
 </ComponentPreview>
 
 ```tsx
-<IconButton icon={DotIcon} isLoading onPress={() => {}} />
-<IconButton icon={DotIcon} isDisabled onPress={() => {}} />
+<IconButton icon={BellIcon} isLoading onPress={() => {}} />
+<IconButton icon={BellIcon} isDisabled onPress={() => {}} />
 ```
 </PreviewPair>
 

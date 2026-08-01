@@ -7,6 +7,7 @@ sidebar_position: 24
 import ComponentPreview from '@site/src/components/ComponentPreview';
 import PreviewPair from '@site/src/components/PreviewPair';
 import { Alert, Col } from 'vajra-ui';
+import { InfoIcon, XIcon } from 'vajra-ui-icons';
 
 # Alert
 
@@ -56,6 +57,36 @@ An inline banner for surfacing status messages, with five semantic variants and 
 ```
 </PreviewPair>
 
+## With leading and dismiss icons
+
+`icon` renders any element before the text — pass a `TVajraIconComponent` from `vajra-ui-icons` (or your own). `dismissIcon` replaces the default ✕ glyph on the dismiss button.
+
+<PreviewPair>
+<ComponentPreview>
+  <Alert
+    variant="info"
+    title="Update available"
+    message="Restart the app to apply the update."
+    icon={<InfoIcon size={20} width={20} height={20} color="#3b82f6" />}
+    onDismiss={() => {}}
+    dismissIcon={XIcon}
+  />
+</ComponentPreview>
+
+```tsx
+import { InfoIcon, XIcon } from 'vajra-ui-icons';
+
+<Alert
+  variant="info"
+  title="Update available"
+  message="Restart the app to apply the update."
+  icon={<InfoIcon size={20} width={20} height={20} color="#3b82f6" />}
+  onDismiss={() => {}}
+  dismissIcon={XIcon}
+/>
+```
+</PreviewPair>
+
 ## Props
 
 | Prop | Type | Default | Description |
@@ -65,4 +96,5 @@ An inline banner for surfacing status messages, with five semantic variants and 
 | `variant` | `'default' \| 'success' \| 'error' \| 'warning' \| 'info'` | `'default'` | Semantic color scheme for background, border, and text. |
 | `onDismiss` | `() => void` | — | When provided, renders a dismiss (✕) button. |
 | `icon` | `React.ReactNode` | — | Optional leading icon element rendered before the text. |
+| `dismissIcon` | `TVajraIconComponent` | — | Icon shown in the dismiss button, when `onDismiss` is set. Defaults to a plain ✕ glyph. |
 | `testID` | `string` | — | Test identifier forwarded to the root container. |

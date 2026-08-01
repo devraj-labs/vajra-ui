@@ -8,6 +8,7 @@ import ComponentPreview from '@site/src/components/ComponentPreview';
 import PreviewPair from '@site/src/components/PreviewPair';
 import React, { useState } from 'react';
 import { Accordion, Text } from 'vajra-ui';
+import { ChevronDownIcon } from 'vajra-ui-icons';
 
 # Accordion
 
@@ -105,6 +106,38 @@ By default only one item can be open at a time. Pass `allowMultiple` to let seve
 ```
 </PreviewPair>
 
+## Custom icon
+
+By default the trigger row shows a plain ▲/▼ glyph. Pass `icon` on `Accordion.Item` to use a real icon instead — any component matching `TVajraIconComponent`, rotated 180° between open/closed state.
+
+<PreviewPair>
+<ComponentPreview>
+  {(() => {
+    const AccordionIconExample = () => {
+      const [openValues, setOpenValues] = useState(['a']);
+
+      return (
+        <Accordion.Root openValues={openValues} onChange={setOpenValues}>
+          <Accordion.Item value="a" title="What is vajra-ui?" icon={ChevronDownIcon}>
+            <Text variant="body">A token-driven React Native component library.</Text>
+          </Accordion.Item>
+        </Accordion.Root>
+      );
+    };
+
+    return <AccordionIconExample />;
+  })()}
+</ComponentPreview>
+
+```tsx
+import { ChevronDownIcon } from 'vajra-ui-icons';
+
+<Accordion.Item value="a" title="What is vajra-ui?" icon={ChevronDownIcon}>
+  <Text variant="body">A token-driven React Native component library.</Text>
+</Accordion.Item>
+```
+</PreviewPair>
+
 ## Props
 
 ### Accordion.Root Props
@@ -124,4 +157,5 @@ By default only one item can be open at a time. Pass `allowMultiple` to let seve
 | `title` | `string` | — | Required. Header text shown in the pressable trigger row. |
 | `children` | `ReactNode` | — | Required. Collapsible content, height-animated on open/close. |
 | `isDisabled` | `boolean` | `false` | Prevents toggling and dims the trigger. |
+| `icon` | `TVajraIconComponent` | — | Icon shown at the trailing edge, rotated between open/closed state. Defaults to a plain ▲/▼ glyph. |
 | `testID` | `string` | — | Forwarded to the trigger `Pressable`. |

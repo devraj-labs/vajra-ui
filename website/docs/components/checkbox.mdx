@@ -8,6 +8,7 @@ import ComponentPreview from '@site/src/components/ComponentPreview';
 import PreviewPair from '@site/src/components/PreviewPair';
 import React, { useState } from 'react';
 import { Checkbox } from 'vajra-ui';
+import { CheckIcon } from 'vajra-ui-icons';
 
 # Checkbox
 
@@ -79,6 +80,26 @@ function CheckboxExample() {
 ```
 </PreviewPair>
 
+## Custom icon
+
+By default a selected checkbox shows a plain ✓ glyph. Pass `icon` on `Checkbox.Root` to use a real icon instead — any component matching `TVajraIconComponent`, applied to every item.
+
+<PreviewPair>
+<ComponentPreview>
+  <Checkbox.Root values={['a']} onChange={() => {}} icon={CheckIcon}>
+    <Checkbox.Item value="a" label="React Native" />
+  </Checkbox.Root>
+</ComponentPreview>
+
+```tsx
+import { CheckIcon } from 'vajra-ui-icons';
+
+<Checkbox.Root values={values} onChange={setValues} icon={CheckIcon}>
+  <Checkbox.Item value="a" label="React Native" />
+</Checkbox.Root>
+```
+</PreviewPair>
+
 ## Props
 
 ### Checkbox.Root Props
@@ -89,6 +110,7 @@ function CheckboxExample() {
 | `onChange` | `(values: string[]) => void` | — | Required. Called with the next selected values when an item is pressed. |
 | `color` | `TVajraColors` | `'primary'` | Selected fill/border color token, applied to every item's indicator. |
 | `isDisabled` | `boolean` | `false` | Disables all items unless individually overridden. |
+| `icon` | `TVajraIconComponent` | — | Icon shown in a selected checkbox. Defaults to a plain ✓ glyph. |
 | `children` | `ReactNode` | — | Required. `Checkbox.Item` elements. |
 
 ### Checkbox.Item Props
@@ -106,6 +128,7 @@ function CheckboxExample() {
 | `isSelected` | `boolean` | — | Required. Whether to render the filled/checked state. |
 | `isDisabled` | `boolean` | — | Required. Dims the indicator. |
 | `color` | `TVajraColors` | `'primary'` | Fill/border color token when selected. |
+| `icon` | `TVajraIconComponent` | — | Icon shown when selected. Defaults to a plain ✓ glyph. |
 
 ### Checkbox.Label Props
 

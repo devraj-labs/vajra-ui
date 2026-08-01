@@ -8,6 +8,7 @@ import React, { useState } from 'react';
 import ComponentPreview from '@site/src/components/ComponentPreview';
 import PreviewPair from '@site/src/components/PreviewPair';
 import { Select } from 'vajra-ui';
+import { ChevronDownIcon, CheckIcon } from 'vajra-ui-icons';
 
 # Select
 
@@ -105,6 +106,49 @@ function SelectDemo() {
 ```
 </PreviewPair>
 
+## Custom icons
+
+By default the trigger shows a plain ▲/▼ glyph and the selected option shows a plain ✓ glyph. Pass `icon` and `checkIcon` to use real icons instead — either accepts any component matching `TVajraIconComponent`.
+
+<PreviewPair>
+<ComponentPreview>
+  {(() => {
+    function SelectIconDemo() {
+      const [value, setValue] = useState('apple');
+
+      return (
+        <Select
+          label="Fruit"
+          value={value}
+          onChange={setValue}
+          icon={ChevronDownIcon}
+          checkIcon={CheckIcon}
+          options={[
+            { label: 'Apple', value: 'apple' },
+            { label: 'Banana', value: 'banana' },
+          ]}
+        />
+      );
+    }
+
+    return <SelectIconDemo />;
+  })()}
+</ComponentPreview>
+
+```tsx
+import { ChevronDownIcon, CheckIcon } from 'vajra-ui-icons';
+
+<Select
+  label="Fruit"
+  value={value}
+  onChange={setValue}
+  icon={ChevronDownIcon}
+  checkIcon={CheckIcon}
+  options={options}
+/>
+```
+</PreviewPair>
+
 ## Props
 
 | Prop | Type | Default | Description |
@@ -118,4 +162,6 @@ function SelectDemo() {
 | `isInvalid` | `boolean` | `false` | Renders the field with an error border and shows `errorText`. |
 | `isDisabled` | `boolean` | `false` | Disables interaction and dims opacity. |
 | `selectedColor` | `TVajraColors` | `'primary'` | Highlight color for the selected option in the sheet. |
+| `icon` | `TVajraIconComponent` | — | Icon shown at the trailing edge of the trigger, rotated between open/closed state. Defaults to a plain ▲/▼ glyph. |
+| `checkIcon` | `TVajraIconComponent` | — | Icon shown next to the selected option in the sheet. Defaults to a plain ✓ glyph. |
 | `testID` | `string` | — | Test identifier. |

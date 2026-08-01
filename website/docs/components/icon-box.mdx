@@ -6,37 +6,30 @@ sidebar_position: 29
 
 import ComponentPreview from '@site/src/components/ComponentPreview';
 import PreviewPair from '@site/src/components/PreviewPair';
-import React from 'react';
-import { View } from 'react-native';
 import { IconBox, Row } from 'vajra-ui';
+import { StarIcon, CheckCircleIcon, AlertCircleIcon } from 'vajra-ui-icons';
 
 # IconBox
 
-A fixed-size, token-driven container for displaying a single icon, typically used as a leading visual in list rows or feature callouts.
-
-export const DotIcon = ({ size, color }) => (
-  <View style={{ width: size, height: size, borderRadius: size / 2, backgroundColor: color }} />
-);
+A fixed-size, token-driven container for displaying a single icon, typically used as a leading visual in list rows or feature callouts. Vajra UI ships no bundled icons — `icon` accepts any component matching `TVajraIconComponent`. The examples below use [`vajra-ui-icons`](https://github.com/devraj-labs/vajra-ui-icons), a small set of Lucide icons pre-adapted to that contract.
 
 ## Basic usage
 
 <PreviewPair>
 <ComponentPreview>
   <Row gap="s-2" wrap="wrap">
-    <IconBox icon={DotIcon} />
-    <IconBox icon={DotIcon} bg="successSubtle" iconColor="success" />
-    <IconBox icon={DotIcon} bg="errorSubtle" iconColor="error" />
+    <IconBox icon={StarIcon} />
+    <IconBox icon={CheckCircleIcon} bg="successSubtle" iconColor="success" />
+    <IconBox icon={AlertCircleIcon} bg="errorSubtle" iconColor="error" />
   </Row>
 </ComponentPreview>
 
 ```tsx
-const DotIcon = ({ size, color }) => (
-  <View style={{ width: size, height: size, borderRadius: size / 2, backgroundColor: color }} />
-);
+import { StarIcon, CheckCircleIcon, AlertCircleIcon } from 'vajra-ui-icons';
 
-<IconBox icon={DotIcon} />
-<IconBox icon={DotIcon} bg="successSubtle" iconColor="success" />
-<IconBox icon={DotIcon} bg="errorSubtle" iconColor="error" />
+<IconBox icon={StarIcon} />
+<IconBox icon={CheckCircleIcon} bg="successSubtle" iconColor="success" />
+<IconBox icon={AlertCircleIcon} bg="errorSubtle" iconColor="error" />
 ```
 </PreviewPair>
 
@@ -45,15 +38,15 @@ const DotIcon = ({ size, color }) => (
 <PreviewPair>
 <ComponentPreview>
   <Row gap="s-2" align="center" wrap="wrap">
-    <IconBox icon={DotIcon} w={32} h={32} iconSize={14} />
-    <IconBox icon={DotIcon} w={44} h={44} iconSize={20} />
-    <IconBox icon={DotIcon} w={64} h={64} iconSize={28} rounded="r-4" />
+    <IconBox icon={StarIcon} w={32} h={32} iconSize={14} />
+    <IconBox icon={StarIcon} w={44} h={44} iconSize={20} />
+    <IconBox icon={StarIcon} w={64} h={64} iconSize={28} rounded="r-4" />
   </Row>
 </ComponentPreview>
 
 ```tsx
-<IconBox icon={DotIcon} w={32} h={32} iconSize={14} />
-<IconBox icon={DotIcon} w={64} h={64} iconSize={28} rounded="r-4" />
+<IconBox icon={StarIcon} w={32} h={32} iconSize={14} />
+<IconBox icon={StarIcon} w={64} h={64} iconSize={28} rounded="r-4" />
 ```
 </PreviewPair>
 

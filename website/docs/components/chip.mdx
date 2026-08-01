@@ -7,6 +7,7 @@ sidebar_position: 28
 import ComponentPreview from '@site/src/components/ComponentPreview';
 import PreviewPair from '@site/src/components/PreviewPair';
 import { Chip, Row } from 'vajra-ui';
+import { XIcon } from 'vajra-ui-icons';
 
 # Chip
 
@@ -46,6 +47,24 @@ A compact, pressable label used for selection, filtering, or tagging, with optio
 ```
 </PreviewPair>
 
+## Custom remove icon
+
+By default the remove button shows a plain ✕ glyph. Pass `removeIcon` to use a real icon instead — any component matching `TVajraIconComponent`.
+
+<PreviewPair>
+<ComponentPreview>
+  <Row gap="s-2" wrap="wrap">
+    <Chip label="React" isSelected onRemove={() => {}} removeIcon={XIcon} />
+  </Row>
+</ComponentPreview>
+
+```tsx
+import { XIcon } from 'vajra-ui-icons';
+
+<Chip label="React" isSelected onRemove={() => {}} removeIcon={XIcon} />
+```
+</PreviewPair>
+
 ## Custom colors
 
 <PreviewPair>
@@ -80,6 +99,7 @@ A compact, pressable label used for selection, filtering, or tagging, with optio
 | `isSelected` | `boolean` | `false` | Toggles between selected and unselected color scheme. |
 | `onPress` | `() => void` | — | When provided, makes the chip pressable. |
 | `onRemove` | `() => void` | — | When provided, renders a remove (✕) button. |
+| `removeIcon` | `TVajraIconComponent` | — | Icon shown in the remove button, when `onRemove` is set. Defaults to a plain ✕ glyph. |
 | `isDisabled` | `boolean` | `false` | Disables press interactions and dims opacity. |
 | `selectedBg` | `TVajraColors` | `'primary'` | Background color when selected. |
 | `selectedColor` | `TVajraColors` | `'textInverse'` | Text/icon color when selected. |

@@ -59,7 +59,7 @@ An inline banner for surfacing status messages, with five semantic variants and 
 
 ## With leading and dismiss icons
 
-`icon` renders any element before the text — pass a `TVajraIconComponent` from `vajra-ui-icons` (or your own). `dismissIcon` replaces the default ✕ glyph on the dismiss button.
+`icon` renders any element before the text: pass a `TVajraIconComponent` from `vajra-ui-icons` (or your own). `dismissIcon` replaces the default ✕ glyph on the dismiss button.
 
 <PreviewPair>
 <ComponentPreview>
@@ -91,10 +91,10 @@ import { InfoIcon, XIcon } from 'vajra-ui-icons';
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `message` | `string` | — | Required. Body text of the alert. |
-| `title` | `string` | — | Optional heading rendered above the message. |
+| `message` | `string` | | Required. Body text of the alert. |
+| `title` | `string` | | Optional heading rendered above the message. |
 | `variant` | `'default' \| 'success' \| 'error' \| 'warning' \| 'info'` | `'default'` | Semantic color scheme for background, border, and text. |
-| `onDismiss` | `() => void` | — | When provided, renders a dismiss (✕) button. |
-| `icon` | `React.ReactNode` | — | Optional leading icon element rendered before the text. |
-| `dismissIcon` | `TVajraIconComponent` | — | Icon shown in the dismiss button, when `onDismiss` is set. Defaults to a plain ✕ glyph. |
-| `testID` | `string` | — | Test identifier forwarded to the root container. |
+| `onDismiss` | `() => void` | | When provided, renders a dismiss (✕) button. |
+| `icon` | `React.ReactNode` | | Optional leading icon element rendered before the text. |
+| `dismissIcon` | `TVajraIconComponent` | | Icon shown in the dismiss button, when `onDismiss` is set. Defaults to a plain ✕ glyph. |
+| `testID` | `string` | | Test identifier forwarded to the root container. |

@@ -10,7 +10,7 @@ import { Tooltip, Button, Row } from 'vajra-ui';
 
 # Tooltip
 
-Wraps a pressable child and toggles a small label bubble above or below it on press. Manages its own open/closed state internally — no controlled props required.
+Wraps a pressable child and toggles a small label bubble above or below it on press. Manages its own open/closed state internally, no controlled props required.
 
 ## Basic usage
 
@@ -74,9 +74,9 @@ Wraps a pressable child and toggles a small label bubble above or below it on pr
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `label` | `string` | — | Required. Text shown inside the tooltip bubble. |
-| `children` | `ReactNode` | — | Required. Pressable trigger element. |
+| `label` | `string` | | Required. Text shown inside the tooltip bubble. |
+| `children` | `ReactNode` | | Required. Pressable trigger element. |
 | `placement` | `'top' \| 'bottom'` | `'top'` | Position of the bubble relative to the trigger. |
 | `bg` | `TVajraColors` | `'text'` | Bubble background color. |
 | `textColor` | `TVajraColors` | `'textInverse'` | Bubble text color. |
-| `testID` | `string` | — | Test identifier. |
+| `testID` | `string` | | Test identifier. |

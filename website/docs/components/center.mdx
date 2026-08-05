@@ -6,22 +6,26 @@ sidebar_position: 7
 
 import ComponentPreview from '@site/src/components/ComponentPreview';
 import PreviewPair from '@site/src/components/PreviewPair';
-import { Center, Box } from 'vajra-ui';
+import { Center, Text } from 'vajra-ui';
 
 # Center
 
-A Box preset with `align="center"` and `justify="center"`. Centers its children both horizontally and vertically within its own bounds.
+A Box preset with `align="center"` and `justify="center"`. Centers its children both horizontally and vertically within its own bounds. Useful for empty states, single-icon placeholders, or any content that should sit in the middle of a fixed-size area regardless of its own size.
 
 <PreviewPair>
 <ComponentPreview>
-  <Center bg="surface" w={120} h={80} rounded="r-3">
-    <Box bg="primary" w={32} h={32} rounded="r-2" />
+  <Center bg="surface" borderColor="border" borderWidth={1} w={240} h={140} rounded="r-3">
+    <Text variant="bodySmall" color="textMuted">
+      No results found
+    </Text>
   </Center>
 </ComponentPreview>
 
 ```tsx
-<Center bg="surface" w={120} h={80} rounded="r-3">
-  <Box bg="primary" w={32} h={32} rounded="r-2" />
+<Center bg="surface" borderColor="border" borderWidth={1} w={240} h={140} rounded="r-3">
+  <Text variant="bodySmall" color="textMuted">
+    No results found
+  </Text>
 </Center>
 ```
 </PreviewPair>

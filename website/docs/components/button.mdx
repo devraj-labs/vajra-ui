@@ -66,14 +66,14 @@ A pressable button with six visual variants and five sizes, all token-driven.
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `label` | `string` | — | Required. Button text. |
-| `onPress` | `() => void` | — | Press handler (inherited from Pressable). |
+| `label` | `string` | | Required. Button text. |
+| `onPress` | `() => void` | | Press handler (inherited from Pressable). |
 | `variant` | `'solid' \| 'subtle' \| 'surface' \| 'outline' \| 'ghost' \| 'plain'` | `'solid'` | Visual style. |
 | `size` | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'` | `'md'` | Padding, radius, and label font scale. |
 | `isDisabled` | `boolean` | `false` | Disables interaction and dims opacity. |
 | `isLoading` | `boolean` | `false` | Shows a spinner in place of (or alongside) the label. |
 | `isPill` | `boolean` | `false` | Forces fully rounded corners regardless of size. |
-| `loading` | `{ position?: 'start' \| 'end'; label?: string; loader?: ReactNode }` | — | Customize the loading state. |
-| `labelProps` | `Omit<TTextProps, 'color' \| 'variant'>` | — | Extra props passed to the internal label `Text`. |
+| `loading` | `{ position?: 'start' \| 'end'; label?: string; loader?: ReactNode }` | | Customize the loading state. |
+| `labelProps` | `Omit<TTextProps, 'color' \| 'variant'>` | | Extra props passed to the internal label `Text`. |
 
-Also accepts all `Pressable` props (`bg`, `borderColor`, spacing, etc.) except `disabled` — use `isDisabled` instead.
+Also accepts all `Pressable` props (`bg`, `borderColor`, spacing, etc.) except `disabled`; use `isDisabled` instead.

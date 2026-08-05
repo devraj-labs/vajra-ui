@@ -76,13 +76,13 @@ A token-driven surface container built on `Box`, with sensible defaults for padd
 
 ## Props
 
-Card accepts all `Box` props (`TUiBoxProps`) — spacing, color, rounded, flex, position, etc. — with these defaults:
+Card accepts all `Box` props (`TUiBoxProps`), including spacing, color, rounded, flex, and position, with these defaults:
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
 | `p` | `TSpacingToken` | `'s-4'` | Padding applied to the container. |
 | `rounded` | `TRoundedToken` | `'r-3'` | Corner radius. |
 | `bg` | `TVajraColors` | `'surface'` | Background color. |
-| `children` | `React.ReactNode` | — | Card content. |
+| `children` | `React.ReactNode` | | Card content. |
 
 Any other `Box` prop (`w`, `h`, `borderColor`, `borderWidth`, `flex`, `justify`, `align`, `direction`, spacing shorthands, etc.) can be passed through and will override the defaults above.

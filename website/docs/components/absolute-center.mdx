@@ -6,25 +6,29 @@ sidebar_position: 8
 
 import ComponentPreview from '@site/src/components/ComponentPreview';
 import PreviewPair from '@site/src/components/PreviewPair';
-import { AbsoluteCenter, Box, Spinner } from 'vajra-ui';
+import { AbsoluteCenter, Box, Text } from 'vajra-ui';
 
 # AbsoluteCenter
 
-Positions its children centered and absolutely filling the nearest positioned ancestor. Useful for a loading state or empty state centered on top of other content — e.g. a spinner over a card while it loads, or a modal's content centered on its scrim.
+Positions its children centered and absolutely filling the nearest positioned ancestor. Useful for a loading state or empty state centered on top of other content, e.g. a status message over a card while it loads, or a modal's content centered on its scrim. For positioning content at a corner or edge instead of dead-center, see [AbsoluteView](./absolute-view).
 
 <PreviewPair>
 <ComponentPreview>
-  <Box bg="surface" w={160} h={100} rounded="r-3" style={{ position: 'relative' }}>
+  <Box bg="surface" borderColor="border" borderWidth={1} w={160} h={100} rounded="r-3" style={{ position: 'relative' }}>
     <AbsoluteCenter>
-      <Spinner />
+      <Text variant="bodySmall" color="textMuted">
+        Loading…
+      </Text>
     </AbsoluteCenter>
   </Box>
 </ComponentPreview>
 
 ```tsx
-<Box bg="surface" w={160} h={100} rounded="r-3" style={{ position: 'relative' }}>
+<Box bg="surface" borderColor="border" borderWidth={1} w={160} h={100} rounded="r-3" style={{ position: 'relative' }}>
   <AbsoluteCenter>
-    <Spinner />
+    <Text variant="bodySmall" color="textMuted">
+      Loading…
+    </Text>
   </AbsoluteCenter>
 </Box>
 ```

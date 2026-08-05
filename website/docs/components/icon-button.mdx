@@ -11,7 +11,7 @@ import { BellIcon } from 'vajra-ui-icons';
 
 # IconButton
 
-A pressable, icon-only button with six visual variants and five sizes, mirroring Button's token-driven styling. Vajra UI ships no bundled icons — `icon` accepts any component matching `TVajraIconComponent`. The examples below use [`vajra-ui-icons`](https://github.com/devraj-labs/vajra-ui-icons), a small set of Lucide icons pre-adapted to that contract.
+A pressable, icon-only button with six visual variants and five sizes, mirroring Button's token-driven styling. Vajra UI ships no bundled icons: `icon` accepts any component matching `TVajraIconComponent`. The examples below use [`vajra-ui-icons`](https://github.com/devraj-labs/vajra-ui-icons), a small set of Lucide icons pre-adapted to that contract.
 
 ## Variants
 
@@ -67,12 +67,12 @@ import { BellIcon } from 'vajra-ui-icons';
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `icon` | `TVajraIconComponent` | — | Required. Icon component to render; `size` and `color` are injected automatically. |
-| `iconColor` | `TVajraColors` | — | Overrides the color resolved from `variant`. |
+| `icon` | `TVajraIconComponent` | | Required. Icon component to render; `size` and `color` are injected automatically. |
+| `iconColor` | `TVajraColors` | | Overrides the color resolved from `variant`. |
 | `variant` | `'solid' \| 'subtle' \| 'surface' \| 'outline' \| 'ghost' \| 'plain'` | `'solid'` | Visual style. |
 | `size` | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'` | `'md'` | Container and icon size. |
 | `isDisabled` | `boolean` | `false` | Disables interaction and dims opacity. |
 | `isLoading` | `boolean` | `false` | Shows a spinner in place of the icon. |
-| `loading` | `{ loader?: ReactNode }` | — | Customize the loading spinner. |
+| `loading` | `{ loader?: ReactNode }` | | Customize the loading spinner. |
 
-Also accepts all `Pressable` props (`bg`, `borderColor`, spacing, etc.) except `disabled` — use `isDisabled` instead.
+Also accepts all `Pressable` props (`bg`, `borderColor`, spacing, etc.) except `disabled`; use `isDisabled` instead.

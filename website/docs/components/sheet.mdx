@@ -98,13 +98,13 @@ function ExampleSheet() {
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `isVisible` | `boolean` | — | Required. Controls whether the sheet is shown. |
-| `onClose` | `() => void` | — | Required. Called on backdrop press or drag-dismiss. |
-| `children` | `ReactNode` | — | Required. Sheet content. |
+| `isVisible` | `boolean` | | Required. Controls whether the sheet is shown. |
+| `onClose` | `() => void` | | Required. Called on backdrop press or drag-dismiss. |
+| `children` | `ReactNode` | | Required. Sheet content. |
 | `closeOnBackdropPress` | `boolean` | `true` | Whether tapping the backdrop calls `onClose`. |
 | `dismissOnDrag` | `boolean` | `true` | Whether dragging the sheet down calls `onClose`. |
 | `bg` | `TVajraColors` | `'surface'` | Background color token. |
 | `roundedT` | `TRoundedToken` | `'r-4'` | Top-corner radius token (Sheet is always bottom-anchored and full-width). |
 | `p` | `TSpacingToken` | `'s-4'` | Padding token applied to the content container. |
 | `backdropColor` | `TVajraColors` | `'overlay'` | Backdrop color token. |
-| `testID` | `string` | — | Base test ID; also applied to the backdrop and content as `` `${testID}-backdrop` `` / `` `${testID}-content` ``. |
+| `testID` | `string` | | Base test ID; also applied to the backdrop and content as `` `${testID}-backdrop` `` / `` `${testID}-content` ``. |

@@ -85,31 +85,31 @@ function RadioExample() {
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `value` | `string` | — | Required. The currently selected item value. Controlled. |
-| `onChange` | `(value: string) => void` | — | Required. Called with the pressed item's value. |
+| `value` | `string` | | Required. The currently selected item value. Controlled. |
+| `onChange` | `(value: string) => void` | | Required. Called with the pressed item's value. |
 | `color` | `TVajraColors` | `'primary'` | Selected dot/border color token, applied to every item's indicator. |
 | `isDisabled` | `boolean` | `false` | Disables all items unless individually overridden. |
-| `children` | `ReactNode` | — | Required. `Radio.Item` elements. |
+| `children` | `ReactNode` | | Required. `Radio.Item` elements. |
 
 ### Radio.Item Props
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `value` | `string` | — | Required. Unique identifier compared against the root's `value`. |
-| `label` | `string` | — | Optional label text rendered next to the indicator. |
-| `isDisabled` | `boolean` | — | Overrides the root's `isDisabled` for this item. |
+| `value` | `string` | | Required. Unique identifier compared against the root's `value`. |
+| `label` | `string` | | Optional label text rendered next to the indicator. |
+| `isDisabled` | `boolean` | | Overrides the root's `isDisabled` for this item. |
 
 ### Radio.Indicator Props
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `isSelected` | `boolean` | — | Required. Whether to render the filled dot. |
-| `isDisabled` | `boolean` | — | Required. Dims the indicator. |
+| `isSelected` | `boolean` | | Required. Whether to render the filled dot. |
+| `isDisabled` | `boolean` | | Required. Dims the indicator. |
 | `color` | `TVajraColors` | `'primary'` | Dot/border color token when selected. |
 
 ### Radio.Label Props
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `label` | `string` | — | Required. Text to display. |
-| `isDisabled` | `boolean` | — | Required. Dims the label. |
+| `label` | `string` | | Required. Text to display. |
+| `isDisabled` | `boolean` | | Required. Dims the label. |

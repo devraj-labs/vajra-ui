@@ -85,31 +85,31 @@ function SwitchExample() {
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `value` | `string` | — | Required. The currently selected item value. Controlled. |
-| `onChange` | `(value: string) => void` | — | Required. Called with the pressed item's value. |
+| `value` | `string` | | Required. The currently selected item value. Controlled. |
+| `onChange` | `(value: string) => void` | | Required. Called with the pressed item's value. |
 | `color` | `TVajraColors` | `'primary'` | Track color token when an item is "on", applied to every item's indicator. |
 | `isDisabled` | `boolean` | `false` | Disables all items unless individually overridden. |
-| `children` | `ReactNode` | — | Required. `Switch.Item` elements. |
+| `children` | `ReactNode` | | Required. `Switch.Item` elements. |
 
 ### Switch.Item Props
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `value` | `string` | — | Required. Unique identifier compared against the root's `value`. |
-| `label` | `string` | — | Optional label text rendered before the track. |
-| `isDisabled` | `boolean` | — | Overrides the root's `isDisabled` for this item. |
+| `value` | `string` | | Required. Unique identifier compared against the root's `value`. |
+| `label` | `string` | | Optional label text rendered before the track. |
+| `isDisabled` | `boolean` | | Overrides the root's `isDisabled` for this item. |
 
 ### Switch.Indicator Props
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `isSelected` | `boolean` | — | Required. Whether the track/thumb render in the "on" position. |
-| `isDisabled` | `boolean` | — | Required. Dims the track. |
+| `isSelected` | `boolean` | | Required. Whether the track/thumb render in the "on" position. |
+| `isDisabled` | `boolean` | | Required. Dims the track. |
 | `color` | `TVajraColors` | `'primary'` | Track color token when selected. |
 
 ### Switch.Label Props
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `label` | `string` | — | Required. Text to display. |
-| `isDisabled` | `boolean` | — | Required. Dims the label. |
+| `label` | `string` | | Required. Text to display. |
+| `isDisabled` | `boolean` | | Required. Dims the label. |

@@ -21,13 +21,13 @@ A touchable Box. It accepts every Box styling prop plus touch handlers, and is t
     rounded="r-2"
     onPress={() => {}}
   >
-    <Text color="onBrand">Press me</Text>
+    <Text color="textInverse">Press me</Text>
   </Pressable>
 </ComponentPreview>
 
 ```tsx
 <Pressable bg="primary" px="s-4" py="s-3" rounded="r-2" onPress={() => {}}>
-  <Text color="onBrand">Press me</Text>
+  <Text color="textInverse">Press me</Text>
 </Pressable>
 ```
 </PreviewPair>
@@ -36,15 +36,15 @@ A touchable Box. It accepts every Box styling prop plus touch handlers, and is t
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `bg` | `TVajraColors` | — | Background color token. |
-| `borderColor` | `TVajraColors` | — | Border color token. |
-| `rounded` / `roundedT` / `roundedB` / `roundedL` / `roundedR` | `TRoundedToken` | — | Corner radius token. |
-| `m` / `mx` / `my` / `mt` / `mb` / `ml` / `mr` | `TSpacingToken` | — | Margin tokens. |
-| `p` / `px` / `py` / `pt` / `pb` / `pl` / `pr` | `TSpacingToken` | — | Padding tokens. |
-| `gap` | `TSpacingToken` | — | Gap token. |
-| `opacity` | `number` | — | Opacity. |
-| `activeOpacity` | `number` | — | Opacity while pressed. |
-| `onPress` | `() => void` | — | Press handler. |
-| `disabled` | `boolean` | — | Disables interaction. |
+| `bg` | `TVajraColors` | | Background color token. |
+| `borderColor` | `TVajraColors` | | Border color token. |
+| `rounded` / `roundedT` / `roundedB` / `roundedL` / `roundedR` | `TRoundedToken` | | Corner radius token. |
+| `m` / `mx` / `my` / `mt` / `mb` / `ml` / `mr` | `TSpacingToken` | | Margin tokens. |
+| `p` / `px` / `py` / `pt` / `pb` / `pl` / `pr` | `TSpacingToken` | | Padding tokens. |
+| `gap` | `TSpacingToken` | | Gap token. |
+| `opacity` | `number` | | Opacity. |
+| `activeOpacity` | `number` | | Opacity while pressed. |
+| `onPress` | `() => void` | | Press handler. |
+| `disabled` | `boolean` | | Disables interaction. |
 
 Also accepts all remaining Box layout props (`w`, `h`, `flex`, `justify`, `align`, `direction`, `position`, etc.) and standard React Native `TouchableOpacity` props.

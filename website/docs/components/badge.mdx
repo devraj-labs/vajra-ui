@@ -11,7 +11,7 @@ import { CircleIcon } from 'vajra-ui-icons';
 
 # Badge
 
-A small, non-interactive label built on `Box`, typically used for counts, statuses, or tags. Accepts an optional leading icon — any component matching `TVajraIconComponent`. The example below uses [`vajra-ui-icons`](https://github.com/devraj-labs/vajra-ui-icons), a small set of Lucide icons pre-adapted to that contract.
+A small, non-interactive label built on `Box`, typically used for counts, statuses, or tags. Accepts an optional leading icon: any component matching `TVajraIconComponent`. The example below uses [`vajra-ui-icons`](https://github.com/devraj-labs/vajra-ui-icons), a small set of Lucide icons pre-adapted to that contract.
 
 ## Basic usage
 
@@ -53,9 +53,9 @@ Badge accepts all `Box` props (`TUiBoxProps`) in addition to:
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `label` | `string` | — | Required. Badge text. |
-| `textProps` | `Omit<TTextProps, 'children'>` | — | Extra props forwarded to the internal `Text`. |
-| `icon` | `TVajraIconComponent` | — | Optional icon component rendered before the label; receives `size` and `color`. |
+| `label` | `string` | | Required. Badge text. |
+| `textProps` | `Omit<TTextProps, 'children'>` | | Extra props forwarded to the internal `Text`. |
+| `icon` | `TVajraIconComponent` | | Optional icon component rendered before the label; receives `size` and `color`. |
 | `iconSize` | `number` | `12` | Size passed to the icon. |
 | `iconColor` | `TVajraColors` | `'textInverse'` | Color passed to the icon. |
 | `rounded` | `TRoundedToken` | `'r-full'` | Corner radius (inherited from `Box`). |

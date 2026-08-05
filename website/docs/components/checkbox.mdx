@@ -82,7 +82,7 @@ function CheckboxExample() {
 
 ## Custom icon
 
-By default a selected checkbox shows a plain ✓ glyph. Pass `icon` on `Checkbox.Root` to use a real icon instead — any component matching `TVajraIconComponent`, applied to every item.
+By default a selected checkbox shows a plain ✓ glyph. Pass `icon` on `Checkbox.Root` to use a real icon instead: any component matching `TVajraIconComponent`, applied to every item.
 
 <PreviewPair>
 <ComponentPreview>
@@ -106,33 +106,33 @@ import { CheckIcon } from 'vajra-ui-icons';
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `values` | `string[]` | — | Required. Currently selected item values. Controlled. |
-| `onChange` | `(values: string[]) => void` | — | Required. Called with the next selected values when an item is pressed. |
+| `values` | `string[]` | | Required. Currently selected item values. Controlled. |
+| `onChange` | `(values: string[]) => void` | | Required. Called with the next selected values when an item is pressed. |
 | `color` | `TVajraColors` | `'primary'` | Selected fill/border color token, applied to every item's indicator. |
 | `isDisabled` | `boolean` | `false` | Disables all items unless individually overridden. |
-| `icon` | `TVajraIconComponent` | — | Icon shown in a selected checkbox. Defaults to a plain ✓ glyph. |
-| `children` | `ReactNode` | — | Required. `Checkbox.Item` elements. |
+| `icon` | `TVajraIconComponent` | | Icon shown in a selected checkbox. Defaults to a plain ✓ glyph. |
+| `children` | `ReactNode` | | Required. `Checkbox.Item` elements. |
 
 ### Checkbox.Item Props
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `value` | `string` | — | Required. Unique identifier matched against `values`. |
-| `label` | `string` | — | Optional label text rendered next to the indicator. |
-| `isDisabled` | `boolean` | — | Overrides the root's `isDisabled` for this item. |
+| `value` | `string` | | Required. Unique identifier matched against `values`. |
+| `label` | `string` | | Optional label text rendered next to the indicator. |
+| `isDisabled` | `boolean` | | Overrides the root's `isDisabled` for this item. |
 
 ### Checkbox.Indicator Props
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `isSelected` | `boolean` | — | Required. Whether to render the filled/checked state. |
-| `isDisabled` | `boolean` | — | Required. Dims the indicator. |
+| `isSelected` | `boolean` | | Required. Whether to render the filled/checked state. |
+| `isDisabled` | `boolean` | | Required. Dims the indicator. |
 | `color` | `TVajraColors` | `'primary'` | Fill/border color token when selected. |
-| `icon` | `TVajraIconComponent` | — | Icon shown when selected. Defaults to a plain ✓ glyph. |
+| `icon` | `TVajraIconComponent` | | Icon shown when selected. Defaults to a plain ✓ glyph. |
 
 ### Checkbox.Label Props
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `label` | `string` | — | Required. Text to display. |
-| `isDisabled` | `boolean` | — | Required. Dims the label. |
+| `label` | `string` | | Required. Text to display. |
+| `isDisabled` | `boolean` | | Required. Dims the label. |

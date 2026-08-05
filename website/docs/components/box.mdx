@@ -30,23 +30,23 @@ The foundational layout primitive. Every other layout component (Row, Col, Cente
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `bg` | `TVajraColors` | — | Background color token. |
-| `borderColor` | `TVajraColors` | — | Border color token. |
-| `borderWidth` / `borderTopWidth` / `borderBottomWidth` / `borderLeftWidth` / `borderRightWidth` | `number` | — | Raw border widths. |
-| `rounded` / `roundedT` / `roundedB` / `roundedL` / `roundedR` | `TRoundedToken` | — | Corner radius token. |
-| `w` / `h` / `minW` / `maxW` / `minH` / `maxH` | `DimensionValue` | — | Raw dimension values (no token). |
-| `flex` | `number` | — | Flex grow/shrink shorthand. |
-| `justify` | `ViewStyle['justifyContent']` | — | Maps to `justifyContent`. |
-| `align` | `ViewStyle['alignItems']` | — | Maps to `alignItems`. |
-| `direction` | `ViewStyle['flexDirection']` | — | Maps to `flexDirection`. |
-| `wrap` | `ViewStyle['flexWrap']` | — | Maps to `flexWrap`. |
-| `position` | `ViewStyle['position']` | — | `'relative' \| 'absolute'`. |
-| `top` / `bottom` / `left` / `right` | `DimensionValue` | — | Offsets, used with `position`. |
-| `overflow` | `ViewStyle['overflow']` | — | Overflow behavior. |
-| `opacity` | `number` | — | Opacity. |
-| `m` / `mx` / `my` / `mt` / `mb` / `ml` / `mr` | `TSpacingToken` | — | Margin tokens. |
-| `p` / `px` / `py` / `pt` / `pb` / `pl` / `pr` | `TSpacingToken` | — | Padding tokens. |
-| `gap` | `TSpacingToken` | — | Gap token. |
-| `style` | `ViewStyle \| ViewStyle[]` | — | Extra style, merged in. |
+| `bg` | `TVajraColors` | | Background color token. |
+| `borderColor` | `TVajraColors` | | Border color token. |
+| `borderWidth` / `borderTopWidth` / `borderBottomWidth` / `borderLeftWidth` / `borderRightWidth` | `number` | | Raw border widths. |
+| `rounded` / `roundedT` / `roundedB` / `roundedL` / `roundedR` | `TRoundedToken` | | Corner radius token. |
+| `w` / `h` / `minW` / `maxW` / `minH` / `maxH` | `DimensionValue` | | Raw dimension values (no token). |
+| `flex` | `number` | | Flex grow/shrink shorthand. |
+| `justify` | `ViewStyle['justifyContent']` | | Maps to `justifyContent`. |
+| `align` | `ViewStyle['alignItems']` | | Maps to `alignItems`. |
+| `direction` | `ViewStyle['flexDirection']` | | Maps to `flexDirection`. |
+| `wrap` | `ViewStyle['flexWrap']` | | Maps to `flexWrap`. |
+| `position` | `ViewStyle['position']` | | `'relative' \| 'absolute'`. |
+| `top` / `bottom` / `left` / `right` | `DimensionValue` | | Offsets, used with `position`. |
+| `overflow` | `ViewStyle['overflow']` | | Overflow behavior. |
+| `opacity` | `number` | | Opacity. |
+| `m` / `mx` / `my` / `mt` / `mb` / `ml` / `mr` | `TSpacingToken` | | Margin tokens. |
+| `p` / `px` / `py` / `pt` / `pb` / `pl` / `pr` | `TSpacingToken` | | Padding tokens. |
+| `gap` | `TSpacingToken` | | Gap token. |
+| `style` | `ViewStyle \| ViewStyle[]` | | Extra style, merged in. |
 
 Also accepts all standard React Native `ViewProps` (except `style`, which is typed above).

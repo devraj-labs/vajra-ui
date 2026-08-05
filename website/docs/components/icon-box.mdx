@@ -11,7 +11,7 @@ import { StarIcon, CheckCircleIcon, AlertCircleIcon } from 'vajra-ui-icons';
 
 # IconBox
 
-A fixed-size, token-driven container for displaying a single icon, typically used as a leading visual in list rows or feature callouts. Vajra UI ships no bundled icons — `icon` accepts any component matching `TVajraIconComponent`. The examples below use [`vajra-ui-icons`](https://github.com/devraj-labs/vajra-ui-icons), a small set of Lucide icons pre-adapted to that contract.
+A fixed-size, token-driven container for displaying a single icon, typically used as a leading visual in list rows or feature callouts. Vajra UI ships no bundled icons: `icon` accepts any component matching `TVajraIconComponent`. The examples below use [`vajra-ui-icons`](https://github.com/devraj-labs/vajra-ui-icons), a small set of Lucide icons pre-adapted to that contract.
 
 ## Basic usage
 
@@ -56,7 +56,7 @@ IconBox accepts all `Box` props (`TUiBoxProps`, excluding `children`) in additio
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `icon` | `TVajraIconComponent` | — | Required. Icon component to render; receives `size`, `width`, `height`, and `color`. |
+| `icon` | `TVajraIconComponent` | | Required. Icon component to render; receives `size`, `width`, `height`, and `color`. |
 | `iconSize` | `number` | `20` | Size passed to the icon. |
 | `iconColor` | `TVajraColors` | `'primary'` | Color passed to the icon. |
 | `bg` | `TVajraColors` | `'primarySubtle'` | Background color (inherited from `Box`). |

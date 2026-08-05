@@ -68,8 +68,8 @@ A circular user image with automatic fallback to colored initials when no `src` 
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `initials` | `string` | — | Required. Fallback text shown when there is no image or it fails to load; only the first two characters are used, uppercased. |
-| `src` | `string` | — | URI of the network image to display. |
+| `initials` | `string` | | Required. Fallback text shown when there is no image or it fails to load; only the first two characters are used, uppercased. |
+| `src` | `string` | | URI of the network image to display. |
 | `width` | `number` | `40` | Width of the avatar in pixels. |
 | `height` | `number` | `40` | Height of the avatar in pixels. |
-| `imageProps` | `Omit<ImageProps, 'source' \| 'style'>` | — | Additional props forwarded to the underlying `Image`. |
+| `imageProps` | `Omit<ImageProps, 'source' \| 'style'>` | | Additional props forwarded to the underlying `Image`. |

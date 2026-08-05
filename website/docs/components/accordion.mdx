@@ -108,7 +108,7 @@ By default only one item can be open at a time. Pass `allowMultiple` to let seve
 
 ## Custom icon
 
-By default the trigger row shows a plain ▲/▼ glyph. Pass `icon` on `Accordion.Item` to use a real icon instead — any component matching `TVajraIconComponent`, rotated 180° between open/closed state.
+By default the trigger row shows a plain ▲/▼ glyph. Pass `icon` on `Accordion.Item` to use a real icon instead: any component matching `TVajraIconComponent`, rotated 180° between open/closed state.
 
 <PreviewPair>
 <ComponentPreview>
@@ -144,18 +144,18 @@ import { ChevronDownIcon } from 'vajra-ui-icons';
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `openValues` | `string[]` | — | Required. Which item values are currently open. Controlled. |
-| `onChange` | `(openValues: string[]) => void` | — | Required. Called with the next open values when an item is toggled. |
+| `openValues` | `string[]` | | Required. Which item values are currently open. Controlled. |
+| `onChange` | `(openValues: string[]) => void` | | Required. Called with the next open values when an item is toggled. |
 | `allowMultiple` | `boolean` | `false` | Allow more than one item open at once. |
-| `children` | `ReactNode` | — | Required. `Accordion.Item` elements. |
+| `children` | `ReactNode` | | Required. `Accordion.Item` elements. |
 
 ### Accordion.Item Props
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `value` | `string` | — | Required. Unique identifier matched against `openValues`. |
-| `title` | `string` | — | Required. Header text shown in the pressable trigger row. |
-| `children` | `ReactNode` | — | Required. Collapsible content, height-animated on open/close. |
+| `value` | `string` | | Required. Unique identifier matched against `openValues`. |
+| `title` | `string` | | Required. Header text shown in the pressable trigger row. |
+| `children` | `ReactNode` | | Required. Collapsible content, height-animated on open/close. |
 | `isDisabled` | `boolean` | `false` | Prevents toggling and dims the trigger. |
-| `icon` | `TVajraIconComponent` | — | Icon shown at the trailing edge, rotated between open/closed state. Defaults to a plain ▲/▼ glyph. |
-| `testID` | `string` | — | Forwarded to the trigger `Pressable`. |
+| `icon` | `TVajraIconComponent` | | Icon shown at the trailing edge, rotated between open/closed state. Defaults to a plain ▲/▼ glyph. |
+| `testID` | `string` | | Forwarded to the trigger `Pressable`. |

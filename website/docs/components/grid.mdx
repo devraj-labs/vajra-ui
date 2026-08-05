@@ -10,23 +10,36 @@ import { Grid, Row, Box } from 'vajra-ui';
 
 # Grid
 
-A compound component for building responsive column grids. `Grid.Root` wraps children in a wrapping row; `Grid.Item` computes its own width from `Dimensions.get('window')`, the number of `columns`, and the `span` it should occupy — this assumes the grid fills the device's full screen width, which holds in a real app but not inside this docs page's preview card, so the live preview below uses a plain `Row` instead. The code sample is the real, correct `Grid.Item` usage.
+A compound component for building responsive column grids. `Grid.Root` wraps children in a wrapping row; `Grid.Item` computes its own width from `Dimensions.get('window')`, the number of `columns`, and the `span` it should occupy. This assumes the grid fills the device's full screen width, which holds in a real app but not inside this docs page's preview card, so the live preview below uses a plain `Row` instead. The code sample is the real, correct `Grid.Item` usage.
 
 <PreviewPair>
 <ComponentPreview>
-  <Row gap="s-2">
-    <Box bg="primary" h={48} w="47%" rounded="r-2" />
-    <Box bg="primary" h={48} w="47%" rounded="r-2" />
+  <Row gap="s-2" wrap="wrap">
+    <Box bg="primary" h={48} w="64%" rounded="r-2" />
+    <Box bg="primarySubtle" h={48} w="32%" rounded="r-2" />
+    <Box bg="secondary" h={48} w="30%" rounded="r-2" />
+    <Box bg="secondary" h={48} w="30%" rounded="r-2" />
+    <Box bg="secondary" h={48} w="30%" rounded="r-2" />
   </Row>
 </ComponentPreview>
 
 ```tsx
 <Grid.Root gap="s-2">
-  <Grid.Item span={1} columns={2} colGap={8}>
+  <Grid.Item span={8} columns={12} colGap={8}>
     <Box bg="primary" h={48} rounded="r-2" />
   </Grid.Item>
-  <Grid.Item span={1} columns={2} colGap={8}>
-    <Box bg="primary" h={48} rounded="r-2" />
+  <Grid.Item span={4} columns={12} colGap={8}>
+    <Box bg="primarySubtle" h={48} rounded="r-2" />
+  </Grid.Item>
+
+  <Grid.Item span={4} columns={12} colGap={8}>
+    <Box bg="secondary" h={48} rounded="r-2" />
+  </Grid.Item>
+  <Grid.Item span={4} columns={12} colGap={8}>
+    <Box bg="secondary" h={48} rounded="r-2" />
+  </Grid.Item>
+  <Grid.Item span={4} columns={12} colGap={8}>
+    <Box bg="secondary" h={48} rounded="r-2" />
   </Grid.Item>
 </Grid.Root>
 ```
@@ -45,4 +58,4 @@ A compound component for building responsive column grids. `Grid.Root` wraps chi
 | `colGap` | `number` | `0` | Gap (in px) between columns, subtracted from the computed width. |
 | `screenPadding` | `number` | `0` | Horizontal screen padding to subtract before computing column width. |
 
-`Grid.Item` also accepts all other Box props (`bg`, spacing, `rounded`, etc.) — its computed `w` is applied internally.
+`Grid.Item` also accepts all other Box props (`bg`, spacing, `rounded`, etc.); its computed `w` is applied internally.

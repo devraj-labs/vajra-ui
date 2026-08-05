@@ -108,7 +108,7 @@ function SelectDemo() {
 
 ## Custom icons
 
-By default the trigger shows a plain ▲/▼ glyph and the selected option shows a plain ✓ glyph. Pass `icon` and `checkIcon` to use real icons instead — either accepts any component matching `TVajraIconComponent`.
+By default the trigger shows a plain ▲/▼ glyph and the selected option shows a plain ✓ glyph. Pass `icon` and `checkIcon` to use real icons instead: either accepts any component matching `TVajraIconComponent`.
 
 <PreviewPair>
 <ComponentPreview>
@@ -153,15 +153,15 @@ import { ChevronDownIcon, CheckIcon } from 'vajra-ui-icons';
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `options` | `{ label: string; value: TValue }[]` | — | Required. List of selectable options. |
-| `value` | `TValue` | — | Currently selected value. |
-| `onChange` | `(value: TValue) => void` | — | Required. Called when an option is selected. |
+| `options` | `{ label: string; value: TValue }[]` | | Required. List of selectable options. |
+| `value` | `TValue` | | Currently selected value. |
+| `onChange` | `(value: TValue) => void` | | Required. Called when an option is selected. |
 | `placeholder` | `string` | `'Select…'` | Text shown when nothing is selected. |
-| `label` | `string` | — | Label rendered above the field. |
-| `errorText` | `string` | — | Helper text shown below the field when `isInvalid`. |
+| `label` | `string` | | Label rendered above the field. |
+| `errorText` | `string` | | Helper text shown below the field when `isInvalid`. |
 | `isInvalid` | `boolean` | `false` | Renders the field with an error border and shows `errorText`. |
 | `isDisabled` | `boolean` | `false` | Disables interaction and dims opacity. |
 | `selectedColor` | `TVajraColors` | `'primary'` | Highlight color for the selected option in the sheet. |
-| `icon` | `TVajraIconComponent` | — | Icon shown at the trailing edge of the trigger, rotated between open/closed state. Defaults to a plain ▲/▼ glyph. |
-| `checkIcon` | `TVajraIconComponent` | — | Icon shown next to the selected option in the sheet. Defaults to a plain ✓ glyph. |
-| `testID` | `string` | — | Test identifier. |
+| `icon` | `TVajraIconComponent` | | Icon shown at the trailing edge of the trigger, rotated between open/closed state. Defaults to a plain ▲/▼ glyph. |
+| `checkIcon` | `TVajraIconComponent` | | Icon shown next to the selected option in the sheet. Defaults to a plain ✓ glyph. |
+| `testID` | `string` | | Test identifier. |

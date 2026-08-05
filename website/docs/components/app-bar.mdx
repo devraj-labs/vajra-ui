@@ -7,11 +7,11 @@ sidebar_position: 18
 import ComponentPreview from '@site/src/components/ComponentPreview';
 import PreviewPair from '@site/src/components/PreviewPair';
 import { AppBar } from 'vajra-ui';
-import { ChevronLeftIcon, SettingsIcon } from 'vajra-ui-icons';
+import { ChevronLeftIcon, SettingsIcon, SearchIcon, HeartIcon } from 'vajra-ui-icons';
 
 # App Bar
 
-A screen header built from composable slots — `AppBar.Header`, `AppBar.Title`, `AppBar.BackAction`, and `AppBar.IconButton`. Left, center, and right content are detected automatically from the children you pass in. Both icon slots accept any component matching `TVajraIconComponent`; the examples below use [`vajra-ui-icons`](https://github.com/devraj-labs/vajra-ui-icons), a small set of Lucide icons pre-adapted to that contract.
+A screen header built from composable slots: `AppBar.Header`, `AppBar.Title`, `AppBar.BackAction`, and `AppBar.IconButton`. Left, center, and right content are detected automatically from the children you pass in. Both icon slots accept any component matching `TVajraIconComponent`; the examples below use [`vajra-ui-icons`](https://github.com/devraj-labs/vajra-ui-icons), a small set of Lucide icons pre-adapted to that contract.
 
 ## Basic title
 
@@ -71,15 +71,61 @@ When `centered` is set on `AppBar.Title`, it's positioned absolutely so it stays
 ```
 </PreviewPair>
 
+## Multiple trailing actions
+
+`AppBar.IconButton` can be used more than once; every instance is collected into the right-hand slot, in order.
+
+<PreviewPair>
+<ComponentPreview>
+  <AppBar.Header>
+    <AppBar.BackAction icon={ChevronLeftIcon} onPress={() => {}} />
+    <AppBar.Title>Recipe</AppBar.Title>
+    <AppBar.IconButton icon={SearchIcon} onPress={() => {}} accessibilityLabel="Search" />
+    <AppBar.IconButton icon={HeartIcon} onPress={() => {}} accessibilityLabel="Save" />
+  </AppBar.Header>
+</ComponentPreview>
+
+```tsx
+<AppBar.Header>
+  <AppBar.BackAction icon={ChevronLeftIcon} onPress={() => {}} />
+  <AppBar.Title>Recipe</AppBar.Title>
+  <AppBar.IconButton icon={SearchIcon} onPress={() => {}} accessibilityLabel="Search" />
+  <AppBar.IconButton icon={HeartIcon} onPress={() => {}} accessibilityLabel="Save" />
+</AppBar.Header>
+```
+</PreviewPair>
+
+## Custom colors
+
+`bg` and `tint` aren't limited to the default `primary`/`textInverse` pairing: any theme color token works, so a bar can match a `surface` header instead of standing out as a colored band.
+
+<PreviewPair>
+<ComponentPreview>
+  <AppBar.Header bg="surface" tint="text">
+    <AppBar.BackAction icon={ChevronLeftIcon} onPress={() => {}} />
+    <AppBar.Title>Settings</AppBar.Title>
+    <AppBar.IconButton icon={SettingsIcon} onPress={() => {}} accessibilityLabel="More" />
+  </AppBar.Header>
+</ComponentPreview>
+
+```tsx
+<AppBar.Header bg="surface" tint="text">
+  <AppBar.BackAction icon={ChevronLeftIcon} onPress={() => {}} />
+  <AppBar.Title>Settings</AppBar.Title>
+  <AppBar.IconButton icon={SettingsIcon} onPress={() => {}} accessibilityLabel="More" />
+</AppBar.Header>
+```
+</PreviewPair>
+
 ## Props
 
 ### AppBar.Header
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `children` | `ReactNode` | — | Required. Detects `AppBar.BackAction` (left), `AppBar.IconButton` (right), and `AppBar.Title` (center) automatically. |
-| `style` | `ViewStyle` | — | Style applied to the outer container. |
-| `contentStyle` | `ViewStyle` | — | Style applied to the inner row that holds the slots. |
+| `children` | `ReactNode` | | Required. Detects `AppBar.BackAction` (left), `AppBar.IconButton` (right), and `AppBar.Title` (center) automatically. |
+| `style` | `ViewStyle` | | Style applied to the outer container. |
+| `contentStyle` | `ViewStyle` | | Style applied to the inner row that holds the slots. |
 | `height` | `number` | `56` | Height of the content row. |
 | `useSafeArea` | `boolean` | `true` | Adds top safe-area inset padding. |
 | `bg` | `TVajraColors` | `'primary'` | Background color token. |
@@ -89,20 +135,20 @@ When `centered` is set on `AppBar.Title`, it's positioned absolutely so it stays
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `children` | `ReactNode` | — | Required. Title text/content. |
+| `children` | `ReactNode` | | Required. Title text/content. |
 | `centered` | `boolean` | `false` | Absolutely centers the title, ignoring side slot widths. |
 
 ### AppBar.BackAction
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `icon` | `TVajraIconComponent` | — | Required. Icon component receiving `size`, `width`, `height`, `color`. |
+| `icon` | `TVajraIconComponent` | | Required. Icon component receiving `size`, `width`, `height`, `color`. |
 | `onPress` | `() => void` | Falls back to the navigation back behaviour | Press handler. |
 
 ### AppBar.IconButton
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `icon` | `TVajraIconComponent` | — | Required. Icon component receiving `size`, `width`, `height`, `color`. |
-| `onPress` | `() => void` | — | Press handler. |
+| `icon` | `TVajraIconComponent` | | Required. Icon component receiving `size`, `width`, `height`, `color`. |
+| `onPress` | `() => void` | | Press handler. |
 | `accessibilityLabel` | `string` | `'Action'` | Accessibility label for the pressable. |

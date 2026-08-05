@@ -49,7 +49,7 @@ A compact, pressable label used for selection, filtering, or tagging, with optio
 
 ## Custom remove icon
 
-By default the remove button shows a plain ✕ glyph. Pass `removeIcon` to use a real icon instead — any component matching `TVajraIconComponent`.
+By default the remove button shows a plain ✕ glyph. Pass `removeIcon` to use a real icon instead: any component matching `TVajraIconComponent`.
 
 <PreviewPair>
 <ComponentPreview>
@@ -95,14 +95,14 @@ import { XIcon } from 'vajra-ui-icons';
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `label` | `string` | — | Required. Chip text. |
+| `label` | `string` | | Required. Chip text. |
 | `isSelected` | `boolean` | `false` | Toggles between selected and unselected color scheme. |
-| `onPress` | `() => void` | — | When provided, makes the chip pressable. |
-| `onRemove` | `() => void` | — | When provided, renders a remove (✕) button. |
-| `removeIcon` | `TVajraIconComponent` | — | Icon shown in the remove button, when `onRemove` is set. Defaults to a plain ✕ glyph. |
+| `onPress` | `() => void` | | When provided, makes the chip pressable. |
+| `onRemove` | `() => void` | | When provided, renders a remove (✕) button. |
+| `removeIcon` | `TVajraIconComponent` | | Icon shown in the remove button, when `onRemove` is set. Defaults to a plain ✕ glyph. |
 | `isDisabled` | `boolean` | `false` | Disables press interactions and dims opacity. |
 | `selectedBg` | `TVajraColors` | `'primary'` | Background color when selected. |
 | `selectedColor` | `TVajraColors` | `'textInverse'` | Text/icon color when selected. |
 | `unselectedBg` | `TVajraColors` | `'surfaceRaised'` | Background color when not selected. |
 | `unselectedColor` | `TVajraColors` | `'text'` | Text/icon color when not selected. |
-| `testID` | `string` | — | Test identifier forwarded to the root container. |
+| `testID` | `string` | | Test identifier forwarded to the root container. |

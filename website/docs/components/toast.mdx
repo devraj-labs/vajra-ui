@@ -113,7 +113,7 @@ function App() {
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `children` | `ReactNode` | — | Required. Subtree that gets access to `useToast()`. |
+| `children` | `ReactNode` | | Required. Subtree that gets access to `useToast()`. |
 | `position` | `'top' \| 'bottom'` | `'bottom'` | Where the toast is anchored on screen. |
 
 ### useToast()
@@ -127,7 +127,7 @@ function App() {
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `message` | `string` | — | Required. Toast text. |
+| `message` | `string` | | Required. Toast text. |
 | `variant` | `'default' \| 'success' \| 'error' \| 'warning' \| 'info'` | `'default'` | Visual style. |
 | `duration` | `number` | `3000` | Milliseconds before auto-dismiss. Pass `0` to disable auto-dismiss. |
 

@@ -109,14 +109,14 @@ function ConfirmModal() {
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `isVisible` | `boolean` | — | Required. Controls whether the modal is shown. |
-| `onClose` | `() => void` | — | Required. Called on backdrop press and Android hardware back. |
-| `children` | `ReactNode` | — | Required. Modal content. |
+| `isVisible` | `boolean` | | Required. Controls whether the modal is shown. |
+| `onClose` | `() => void` | | Required. Called on backdrop press and Android hardware back. |
+| `children` | `ReactNode` | | Required. Modal content. |
 | `closeOnBackdropPress` | `boolean` | `true` | Whether tapping the backdrop calls `onClose`. |
 | `contentAlign` | `'center' \| 'bottom'` | `'center'` | Where the content sits within the backdrop. |
 | `bg` | `TVajraColors` | `'surface'` | Background color token. |
 | `rounded` | `TRoundedToken` | `'r-4'` | Uniform corner radius; ignored if `roundedT` is set. |
-| `roundedT` | `TRoundedToken` | — | Top-corners-only radius, useful for bottom-anchored content. |
+| `roundedT` | `TRoundedToken` | | Top-corners-only radius, useful for bottom-anchored content. |
 | `p` | `TSpacingToken` | `'s-4'` | Padding token applied to the content container. |
 | `backdropColor` | `TVajraColors` | `'overlay'` | Backdrop color token. |
-| `testID` | `string` | — | Base test ID; also applied to the backdrop and content as `` `${testID}-backdrop` `` / `` `${testID}-content` ``. |
+| `testID` | `string` | | Base test ID; also applied to the backdrop and content as `` `${testID}-backdrop` `` / `` `${testID}-content` ``. |

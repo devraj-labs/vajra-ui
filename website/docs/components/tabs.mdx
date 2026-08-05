@@ -143,9 +143,9 @@ function TabsExample() {
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `value` | `string` | — | Required. The currently active tab value. Controlled. |
-| `onChange` | `(value: string) => void` | — | Required. Called with the pressed tab's value. |
-| `children` | `ReactNode` | — | Required. `Tabs.List` and `Tabs.Content` elements. |
+| `value` | `string` | | Required. The currently active tab value. Controlled. |
+| `onChange` | `(value: string) => void` | | Required. Called with the pressed tab's value. |
+| `children` | `ReactNode` | | Required. `Tabs.List` and `Tabs.Content` elements. |
 
 ### Tabs.List Props
 
@@ -153,7 +153,7 @@ function TabsExample() {
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `tabs` | `{ value: string; label: string }[]` | — | Required. Ordered list of tabs to render. |
+| `tabs` | `{ value: string; label: string }[]` | | Required. Ordered list of tabs to render. |
 | `trackBg` | `TVajraColors` | `'surfaceRaised'` | Background color of the tab track. |
 | `trackRounded` | `TRoundedToken` | `'r-full'` | Corner radius of the tab track. |
 | `trackPadding` | `TSpacingToken` | `'s-1'` | Inner padding of the tab track. |
@@ -161,12 +161,12 @@ function TabsExample() {
 | `indicatorRounded` | `TRoundedToken` | `'r-full'` | Corner radius of the sliding active indicator. |
 | `activeColor` | `TVajraColors` | `'text'` | Label color for the active tab. |
 | `inactiveColor` | `TVajraColors` | `'textMuted'` | Label color for inactive tabs. |
-| `labelProps` | `Omit<TTextProps, 'color'>` | — | Extra props passed to each tab's label `Text`. |
+| `labelProps` | `Omit<TTextProps, 'color'>` | | Extra props passed to each tab's label `Text`. |
 | `scrollable` | `boolean` | `false` | Renders tabs in a horizontal `ScrollView` instead of equal-width flex items. |
 
 ### Tabs.Content Props
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
-| `value` | `string` | — | Required. Matched against the root's active `value`; renders `children` only when equal. |
-| `children` | `ReactNode` | — | Required. Panel content shown when this tab is active. |
+| `value` | `string` | | Required. Matched against the root's active `value`; renders `children` only when equal. |
+| `children` | `ReactNode` | | Required. Panel content shown when this tab is active. |

@@ -30,17 +30,55 @@ Typography primitive driven by theme font variants and tokens.
 ```
 </PreviewPair>
 
+## All variants
+
+Every `variant` value, from largest to smallest. Each theme ships these by default; use TypeScript module augmentation on `IVajraFontVariants` to add your own.
+
+<PreviewPair>
+<ComponentPreview>
+  <Col gap="s-3">
+    <Text variant="display">display</Text>
+    <Text variant="h1">h1</Text>
+    <Text variant="h2">h2</Text>
+    <Text variant="h3">h3</Text>
+    <Text variant="subheading">subheading</Text>
+    <Text variant="button">button</Text>
+    <Text variant="bodyMedium">bodyMedium</Text>
+    <Text variant="body">body</Text>
+    <Text variant="bodySmall">bodySmall</Text>
+    <Text variant="caption">caption</Text>
+    <Text variant="labelMedium">labelMedium</Text>
+    <Text variant="label">label</Text>
+  </Col>
+</ComponentPreview>
+
+```tsx
+<Text variant="display">display</Text>
+<Text variant="h1">h1</Text>
+<Text variant="h2">h2</Text>
+<Text variant="h3">h3</Text>
+<Text variant="subheading">subheading</Text>
+<Text variant="button">button</Text>
+<Text variant="bodyMedium">bodyMedium</Text>
+<Text variant="body">body</Text>
+<Text variant="bodySmall">bodySmall</Text>
+<Text variant="caption">caption</Text>
+<Text variant="labelMedium">labelMedium</Text>
+<Text variant="label">label</Text>
+```
+</PreviewPair>
+
 ## Props
 
 | Prop | Type | Default | Description |
 |---|---|---|---|
 | `variant` | `TFontVariant` (e.g. `'label' \| 'body' \| 'bodyMedium' \| 'button' \| 'h1' \| 'h2' \| 'h3' \| 'display' \| ...`) | `'body'` | Applies the theme's font size, line height, and weight for that variant. |
-| `fontSize` | `TFontSizeToken` | — | Overrides the variant's font size (and line height, unless `lineHeight` is set). |
-| `lineHeight` | `number` | — | Overrides the resolved line height. |
+| `fontSize` | `TFontSizeToken` | | Overrides the variant's font size (and line height, unless `lineHeight` is set). |
+| `lineHeight` | `number` | | Overrides the resolved line height. |
 | `color` | `TVajraColors` | theme `text` color | Text color token. |
-| `font` | `keyof IVajraFonts` | — | Custom font family key registered on the theme. |
+| `font` | `keyof IVajraFonts` | | Custom font family key registered on the theme. |
 | `fontWeight` | `TFontWeightValue` | `'400'` | Font weight; used to resolve the correct font file when `font` is set. |
-| `fontStyle` | `'normal' \| 'italic'` | — | Italic styling. On iOS this is applied even without an italic font file; on Android it's only applied if no dedicated italic font file exists for the weight. |
-| `m` / `mx` / `my` / `mt` / `mb` / `ml` / `mr` | `TSpacingToken` | — | Margin tokens. |
+| `fontStyle` | `'normal' \| 'italic'` | | Italic styling. On iOS this is applied even without an italic font file; on Android it's only applied if no dedicated italic font file exists for the weight. |
+| `m` / `mx` / `my` / `mt` / `mb` / `ml` / `mr` | `TSpacingToken` | | Margin tokens. |
 
 Also accepts the underlying React Native `Text` props (e.g. `numberOfLines`, `onPress`, `children`).

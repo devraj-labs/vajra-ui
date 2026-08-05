@@ -33,13 +33,14 @@ const sidebars: SidebarsConfig = {
         'components/absolute-view',
         'components/separator',
         'components/spacer',
+        'components/pressable',
       ],
     },
     {
       type: 'category',
       label: 'Typography',
-      link: {type: 'generated-index', title: 'Typography', description: 'Text rendering and interaction primitives.'},
-      items: ['components/text', 'components/pressable'],
+      link: {type: 'generated-index', title: 'Typography', description: 'Text rendering primitives.'},
+      items: ['components/text'],
     },
     {
       type: 'category',

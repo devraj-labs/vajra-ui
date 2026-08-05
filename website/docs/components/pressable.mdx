@@ -6,28 +6,149 @@ sidebar_position: 3
 
 import ComponentPreview from '@site/src/components/ComponentPreview';
 import PreviewPair from '@site/src/components/PreviewPair';
-import { Pressable, Text } from 'vajra-ui';
+import { Pressable, Text, Row, Col, Avatar } from 'vajra-ui';
+import { ChevronRightIcon, HeartIcon, XIcon } from 'vajra-ui-icons';
 
 # Pressable
 
-A touchable Box. It accepts every Box styling prop plus touch handlers, and is the building block Button is composed from.
+A touchable Box. It accepts every Box styling prop plus touch handlers, so it can wrap anything, an icon, a card, a row of content, and make it tappable. It's the building block Button and IconButton are composed from.
+
+## List row
 
 <PreviewPair>
 <ComponentPreview>
   <Pressable
-    bg="primary"
-    px="s-4"
-    py="s-3"
-    rounded="r-2"
+    bg="surface"
+    rounded="r-3"
+    p="s-4"
     onPress={() => {}}
   >
-    <Text color="textInverse">Press me</Text>
+    <Row justify="space-between" align="center">
+      <Col gap="s-1">
+        <Text variant="bodyMedium">Notifications</Text>
+        <Text variant="bodySmall" color="textMuted">
+          Manage how you're notified
+        </Text>
+      </Col>
+      <ChevronRightIcon size={20} />
+    </Row>
   </Pressable>
 </ComponentPreview>
 
 ```tsx
-<Pressable bg="primary" px="s-4" py="s-3" rounded="r-2" onPress={() => {}}>
-  <Text color="textInverse">Press me</Text>
+import { ChevronRightIcon } from 'vajra-ui-icons';
+
+<Pressable bg="surface" rounded="r-3" p="s-4" onPress={() => {}}>
+  <Row justify="space-between" align="center">
+    <Col gap="s-1">
+      <Text variant="bodyMedium">Notifications</Text>
+      <Text variant="bodySmall" color="textMuted">
+        Manage how you're notified
+      </Text>
+    </Col>
+    <ChevronRightIcon size={20} />
+  </Row>
+</Pressable>
+```
+</PreviewPair>
+
+## Icon-only
+
+Wrapping a bare icon, sized and centered, is how `IconButton` is built internally.
+
+<PreviewPair>
+<ComponentPreview>
+  <Pressable
+    w={40}
+    h={40}
+    rounded="r-2"
+    align="center"
+    justify="center"
+    onPress={() => {}}
+  >
+    <XIcon size={18} />
+  </Pressable>
+</ComponentPreview>
+
+```tsx
+import { XIcon } from 'vajra-ui-icons';
+
+<Pressable w={40} h={40} rounded="r-2" align="center" justify="center" onPress={() => {}}>
+  <XIcon size={18} />
+</Pressable>
+```
+</PreviewPair>
+
+## Avatar with caption
+
+<PreviewPair>
+<ComponentPreview>
+  <Pressable onPress={() => {}}>
+    <Col gap="s-2" align="center">
+      <Avatar src="https://i.pravatar.cc/150?img=12" initials="JD" />
+      <Text variant="bodySmall">yourstory</Text>
+    </Col>
+  </Pressable>
+</ComponentPreview>
+
+```tsx
+<Pressable onPress={() => {}}>
+  <Col gap="s-2" align="center">
+    <Avatar src="https://i.pravatar.cc/150?img=12" initials="JD" />
+    <Text variant="bodySmall">yourstory</Text>
+  </Col>
+</Pressable>
+```
+</PreviewPair>
+
+## Inline action (like/reply)
+
+Two independent Pressables inside one row, each with its own hit area.
+
+<PreviewPair>
+<ComponentPreview>
+  <Row gap="s-4" align="center">
+    <Pressable onPress={() => {}}>
+      <Row gap="s-1" align="center">
+        <HeartIcon size={16} />
+        <Text variant="bodySmall">128</Text>
+      </Row>
+    </Pressable>
+    <Pressable onPress={() => {}}>
+      <Text variant="bodySmall" color="textMuted">Reply</Text>
+    </Pressable>
+  </Row>
+</ComponentPreview>
+
+```tsx
+import { HeartIcon } from 'vajra-ui-icons';
+
+<Row gap="s-4" align="center">
+  <Pressable onPress={() => {}}>
+    <Row gap="s-1" align="center">
+      <HeartIcon size={16} />
+      <Text variant="bodySmall">128</Text>
+    </Row>
+  </Pressable>
+  <Pressable onPress={() => {}}>
+    <Text variant="bodySmall" color="textMuted">Reply</Text>
+  </Pressable>
+</Row>
+```
+</PreviewPair>
+
+## Disabled
+
+<PreviewPair>
+<ComponentPreview>
+  <Pressable bg="surface" rounded="r-3" p="s-4" disabled onPress={() => {}}>
+    <Text variant="bodyMedium" color="textMuted">Unavailable</Text>
+  </Pressable>
+</ComponentPreview>
+
+```tsx
+<Pressable bg="surface" rounded="r-3" p="s-4" disabled onPress={() => {}}>
+  <Text variant="bodyMedium" color="textMuted">Unavailable</Text>
 </Pressable>
 ```
 </PreviewPair>
@@ -48,3 +169,5 @@ A touchable Box. It accepts every Box styling prop plus touch handlers, and is t
 | `disabled` | `boolean` | | Disables interaction. |
 
 Also accepts all remaining Box layout props (`w`, `h`, `flex`, `justify`, `align`, `direction`, `position`, etc.) and standard React Native `TouchableOpacity` props.
+
+Need pre-styled, semantic tappable elements instead? See [Button](./button) or [IconButton](./icon-button).

@@ -15,7 +15,9 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
 const sidebars: SidebarsConfig = {
   tutorialSidebar: [
     'intro',
+    'installation',
     'theming',
+    'custom-theme',
     'text-italic-fonts',
     {
       type: 'category',

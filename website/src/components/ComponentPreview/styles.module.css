@@ -12,3 +12,12 @@
   background: var(--vajra-preview-bg);
   box-sizing: border-box;
 }
+
+/* react-native-web renders Text as a <p>, which inherits Infima's global
+   paragraph margin-bottom (1.25rem / 20px) — invisible for loosely-spaced
+   examples, but catastrophic for anything centered inside a small fixed-size
+   box (e.g. a notification dot), where it silently pushes content outside
+   its own container. Previews are isolated component demos, not prose. */
+.card :global(p) {
+  margin: 0;
+}

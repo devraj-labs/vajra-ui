@@ -1,0 +1,15 @@
+.wrapper {
+  width: 100%;
+  padding: 1.5rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-code-border-radius);
+  background: var(--vajra-preview-bg);
+  box-sizing: border-box;
+}
+
+/* Same fix as ComponentPreview: react-native-web renders Text as a <p>,
+   which inherits Infima's global paragraph margin-bottom and would push
+   each swatch's label text out of alignment. */
+.wrapper :global(p) {
+  margin: 0;
+}

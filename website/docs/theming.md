@@ -1,279 +1,33 @@
 ---
 id: theming
 title: Theming
-sidebar_position: 2
+sidebar_position: 3
 ---
+
+import ColorSwatches from '@site/src/components/ColorSwatches';
 
 # Theming
 
-Vajra UI's theme system is built around semantic design tokens. You can override any token, add your own, switch themes at runtime, and bring custom fonts — all fully typed.
-
----
+Vajra UI's theme system is built around semantic design tokens: colors, spacing, border radius, and typography. Every component prop reads from these tokens instead of raw values, so the whole library reflects one consistent theme. This page shows the default theme as it actually renders. To override tokens, add your own, or switch themes at runtime, see [Custom Theme](./custom-theme).
 
 ## createVajraTheme
 
-The main entry point for setting up your theme.
+The entry point for setting up your theme. Wrap your app in `VajraProvider` with the result.
 
 ```ts
 import { createVajraTheme } from '@devraj-labs/vajra-ui';
 
 export const theme = createVajraTheme({
-  colorScheme: 'light',    // 'light' | 'dark' — defaults to 'light'
+  colorScheme: 'light',    // 'light' | 'dark', defaults to 'light'
   fonts: myFonts,          // required
-  colors: { ... },         // optional — override existing or add custom color tokens
-  spacing: { ... },        // optional — override existing or add custom spacing tokens
-  rounded: { ... },        // optional — override existing or add custom border radius tokens
-  typography: { ... },     // optional — override existing or add custom text variants
-  fontSizes: { ... },      // optional — override existing or add custom font size tokens
-  lineHeights: { ... },    // optional — override existing or add custom line height tokens
 });
 ```
-
-Pass the result to `VajraProvider`:
 
 ```tsx
 <VajraProvider theme={theme}>
   <YourApp />
 </VajraProvider>
 ```
-
----
-
-## Overriding existing tokens
-
-Pass partial maps — only the keys you provide are overridden, everything else falls back to Vajra defaults.
-
-```ts
-export const theme = createVajraTheme({
-  fonts: myFonts,
-  colorScheme: 'light',
-  colors: {
-    primary: '#8B5CF6',
-    primaryMuted: '#9D68F0',
-    primarySubtle: '#F5F3FF',
-  },
-  spacing: {
-    's-4': 20,  // bump the base padding unit
-  },
-  rounded: {
-    'r-2': 10,  // slightly rounder cards
-  },
-});
-```
-
----
-
-## Adding your own tokens
-
-All token systems support module augmentation. Declare the interface in your app, provide values in `createVajraTheme`, and your tokens are typed end-to-end — autocomplete in props, `useVajraTheme()`, and `createVajraTheme`.
-
-**The pattern is always the same:**
-1. Declare the interface (for TypeScript autocomplete)
-2. Provide values in `createVajraTheme` (for runtime resolution)
-3. Use them in components
-
----
-
-### Custom color tokens
-
-```ts
-// theme.ts
-declare module '@devraj-labs/vajra-ui' {
-  interface IVajraCustomColors {
-    brandGold: string;
-    surfaceAccent: string;
-  }
-}
-
-export const theme = createVajraTheme({
-  fonts: myFonts,
-  colors: {
-    primary: '#8B5CF6',       // override existing
-    brandGold: '#D4A017',     // new custom token
-    surfaceAccent: '#F0E6FF', // new custom token
-  },
-});
-```
-
-```tsx
-<Box bg="brandGold" borderColor="surfaceAccent" />
-<Text color="brandGold" />
-
-const { colors } = useVajraTheme();
-colors.brandGold     // ✅ typed, autocompletes
-colors.surfaceAccent // ✅ typed, autocompletes
-```
-
----
-
-### Custom spacing tokens
-
-```ts
-declare module '@devraj-labs/vajra-ui' {
-  interface IVajraSpacingTokens {
-    's-20': number;
-    's-24': number;
-  }
-}
-
-export const theme = createVajraTheme({
-  fonts: myFonts,
-  spacing: {
-    's-20': 80,
-    's-24': 96,
-  },
-});
-```
-
-```tsx
-<Box p="s-20" gap="s-24" /> // ✅ typed, autocompletes
-```
-
----
-
-### Custom border radius tokens
-
-```ts
-declare module '@devraj-labs/vajra-ui' {
-  interface IVajraRoundedTokens {
-    'r-12': number;
-    'r-16': number;
-  }
-}
-
-export const theme = createVajraTheme({
-  fonts: myFonts,
-  rounded: {
-    'r-12': 48,
-    'r-16': 64,
-  },
-});
-```
-
-```tsx
-<Box rounded="r-12" />   // ✅ typed, autocompletes
-<Box roundedT="r-16" />  // ✅ typed, autocompletes
-```
-
----
-
-### Custom font size tokens
-
-```ts
-declare module '@devraj-labs/vajra-ui' {
-  interface IVajraFontSizeTokens {
-    'f-2.5': number;
-  }
-}
-
-export const theme = createVajraTheme({
-  fonts: myFonts,
-  fontSizes: { 'f-2.5': 18 },
-  lineHeights: { 'f-2.5': 24 },
-});
-```
-
-```tsx
-<Text fontSize="f-2.5" /> // ✅ typed, autocompletes, resolves to 18px
-```
-
----
-
-### Custom typography variants
-
-```ts
-import { TFontVariantProps } from '@devraj-labs/vajra-ui';
-
-declare module '@devraj-labs/vajra-ui' {
-  interface IVajraFontVariants {
-    displayLarge: TFontVariantProps;
-    eyebrow: TFontVariantProps;
-  }
-}
-
-export const theme = createVajraTheme({
-  fonts: myFonts,
-  typography: {
-    displayLarge: { fontSize: 48, lineHeight: 56, fontWeight: '700' },
-    eyebrow: { fontSize: 11, lineHeight: 16, fontWeight: '600' },
-  },
-});
-```
-
-```tsx
-<Text variant="displayLarge">Hero</Text>  // ✅ typed, autocompletes
-<Text variant="eyebrow">Section</Text>    // ✅ typed, autocompletes
-```
-
----
-
-## Custom fonts
-
-```ts
-const myFonts = {
-  inter: {
-    '400': 'Inter-Regular',
-    '500': 'Inter-Medium',
-    '700': 'Inter-Bold',
-  },
-};
-
-export const theme = createVajraTheme({ fonts: myFonts });
-```
-
-Augment `IVajraFonts` to get autocomplete on `<Text font="..." />`:
-
-```ts
-declare module '@devraj-labs/vajra-ui' {
-  interface IVajraFonts {
-    inter: true;
-  }
-}
-```
-
-```tsx
-<Text font="inter" fontWeight="700">Bold Inter text</Text> // ✅
-```
-
----
-
-## Runtime theme switching
-
-Hold theme state at the app root, rebuild with `createVajraTheme` on change, pass the result to `VajraProvider`.
-
-```tsx
-import { useState } from 'react';
-import { VajraProvider, createVajraTheme } from '@devraj-labs/vajra-ui';
-
-type TColorScheme = 'light' | 'dark';
-
-const presets = {
-  default: {},
-  purple: { primary: '#8B5CF6', primaryMuted: '#9D68F0', primarySubtle: '#F5F3FF' },
-  orange: { primary: '#F97316', primaryMuted: '#FB923C', primarySubtle: '#FFF7ED' },
-};
-
-type TPreset = keyof typeof presets;
-
-export function AppWithTheme({ children }: { children: React.ReactNode }) {
-  const [preset, setPreset] = useState<TPreset>('default');
-  const [colorScheme, setColorScheme] = useState<TColorScheme>('light');
-
-  const theme = createVajraTheme({
-    fonts: myFonts,
-    colorScheme,
-    colors: presets[preset],
-  });
-
-  return (
-    <VajraProvider theme={theme}>
-      {children}
-    </VajraProvider>
-  );
-}
-```
-
----
 
 ## useVajraTheme
 
@@ -295,28 +49,37 @@ const { colors, spacing, rounded, typography, fontSizes, lineHeights, fonts } = 
 | `lineHeights` | `Record<string, number>` | All line height tokens, resolved to numbers |
 | `fonts` | your font map | Custom font families |
 
----
+## Colors
 
-## Token reference
+The default theme's brand, text, surface, border, and feedback scales, rendered with their live resolved hex values. Switch the site's color mode to see the dark theme's values.
 
-### Colors — `TVajraColors`
+### Brand
 
-| Token | Description |
-|-------|-------------|
-| `primary` / `primaryMuted` / `primarySubtle` | Brand primary scale |
-| `secondary` / `secondaryMuted` / `secondarySubtle` | Brand secondary scale |
-| `text` / `textMuted` / `textInverse` / `textDisabled` | Text scale |
-| `background` | Screen background |
-| `surfaceSunken` / `surface` / `surfaceRaised` / `surfaceOverlay` | Surface scale |
-| `overlay` | Semi-transparent scrim |
-| `border` / `borderStrong` / `borderFocus` | Border scale |
-| `error` / `errorMuted` / `errorSubtle` | Error feedback |
-| `success` / `successMuted` / `successSubtle` | Success feedback |
-| `warning` / `warningMuted` / `warningSubtle` | Warning feedback |
-| `info` / `infoMuted` / `infoSubtle` | Info feedback |
-| `transparent` | Transparent |
+<ColorSwatches tokens={['primary', 'primaryEmphasis', 'primaryMuted', 'primarySubtle', 'secondary', 'secondaryEmphasis', 'secondaryMuted', 'secondarySubtle']} />
 
-### Spacing — `TSpacingToken`
+### Text
+
+<ColorSwatches tokens={['text', 'textSubtle', 'textMuted', 'textDisabled', 'textInverse', 'textInverseMuted']} />
+
+### Background & surface
+
+<ColorSwatches tokens={['background', 'backgroundSunken', 'backgroundRaised', 'surface', 'surfaceSunken', 'surfaceRaised', 'surfaceOverlay']} />
+
+### Border
+
+<ColorSwatches tokens={['border', 'borderSubtle', 'borderStrong', 'borderFocus']} />
+
+### Feedback
+
+<ColorSwatches tokens={['error', 'errorMuted', 'errorSubtle', 'success', 'successMuted', 'successSubtle', 'warning', 'warningMuted', 'warningSubtle', 'info', 'infoMuted', 'infoSubtle']} />
+
+### Overlay
+
+<ColorSwatches tokens={['overlayLight', 'overlay', 'overlayStrong']} />
+
+Plus `transparent`, resolving to CSS `transparent`.
+
+## Spacing, `TSpacingToken`
 
 | Token | Value (px) |
 |-------|-----------|
@@ -332,7 +95,7 @@ const { colors, spacing, rounded, typography, fontSizes, lineHeights, fonts } = 
 | `s-12` | 48 |
 | `s-16` | 64 |
 
-### Border Radius — `TRoundedToken`
+## Border Radius, `TRoundedToken`
 
 | Token | Value (px) |
 |-------|-----------|
@@ -349,7 +112,7 @@ const { colors, spacing, rounded, typography, fontSizes, lineHeights, fonts } = 
 | `r-10` | 40 |
 | `r-full` | 9999 |
 
-### Font Sizes — `TFontSizeToken`
+## Font Sizes, `TFontSizeToken`
 
 | Token | Value (px) |
 |-------|-----------|
@@ -362,7 +125,7 @@ const { colors, spacing, rounded, typography, fontSizes, lineHeights, fonts } = 
 | `f-5` | 28 |
 | `f-6` | 32 |
 
-### Typography — `TFontVariant`
+## Typography, `TFontVariant`
 
 | Variant | Font Size | Line Height | Weight | Use |
 |---------|-----------|-------------|--------|-----|

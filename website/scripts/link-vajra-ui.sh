@@ -45,3 +45,18 @@ if [ -d "$CORE_TARGET" ]; then
     echo "Linked website/node_modules/@devraj-labs/vajra-ui-core -> $CORE_TARGET"
   fi
 fi
+
+# Same local-iteration reasoning as vajra-ui-core above: link the sibling
+# vajra-ui-icons checkout instead of the npm-published copy so fixes there
+# (e.g. its package.json "exports" map) are visible here without needing a
+# real npm publish first.
+ICONS_LINK_PATH="$WEBSITE_DIR/node_modules/vajra-ui-icons"
+ICONS_TARGET="/Users/rishavjha/Desktop/vajra-ui-icons"
+
+if [ -d "$ICONS_TARGET" ]; then
+  if [ ! -L "$ICONS_LINK_PATH" ] || [ "$(readlink "$ICONS_LINK_PATH")" != "$ICONS_TARGET" ]; then
+    rm -rf "$ICONS_LINK_PATH"
+    ln -s "$ICONS_TARGET" "$ICONS_LINK_PATH"
+    echo "Linked website/node_modules/vajra-ui-icons -> $ICONS_TARGET"
+  fi
+fi

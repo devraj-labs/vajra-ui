@@ -1,0 +1,64 @@
+---
+id: absolute-view
+title: AbsoluteView
+sidebar_position: 8.5
+---
+
+import ComponentPreview from '@site/src/components/ComponentPreview';
+import PreviewPair from '@site/src/components/PreviewPair';
+import { AbsoluteView, Box, Text, IconButton } from 'vajra-ui';
+import { BellIcon } from 'vajra-ui-icons';
+
+# AbsoluteView
+
+A Box preset with `position: 'absolute'` already applied, for positioning content at a specific corner or edge of the nearest positioned ancestor via `top`/`bottom`/`left`/`right`. For centering content over the entire parent instead of pinning it to an edge, see [AbsoluteCenter](./absolute-center).
+
+## Notification dot on an icon button
+
+<PreviewPair>
+<ComponentPreview>
+  <Box style={{ position: 'relative', alignSelf: 'flex-start' }}>
+    <IconButton icon={BellIcon} onPress={() => {}} />
+    <AbsoluteView
+      top={-4}
+      right={-4}
+      bg="error"
+      rounded="r-full"
+      w={18}
+      h={18}
+      align="center"
+      justify="center"
+      overflow="hidden"
+    >
+      <Text variant="label" color="textInverse">
+        3
+      </Text>
+    </AbsoluteView>
+  </Box>
+</ComponentPreview>
+
+```tsx
+<Box style={{ position: 'relative', alignSelf: 'flex-start' }}>
+  <IconButton icon={BellIcon} onPress={() => {}} />
+  <AbsoluteView
+    top={-4}
+    right={-4}
+    bg="error"
+    rounded="r-full"
+    w={18}
+    h={18}
+    align="center"
+    justify="center"
+    overflow="hidden"
+  >
+    <Text variant="label" color="textInverse">
+      3
+    </Text>
+  </AbsoluteView>
+</Box>
+```
+</PreviewPair>
+
+## Props
+
+AbsoluteView accepts every Box prop except `position` (fixed to `'absolute'` internally) and `style`. Use `top`, `bottom`, `left`, and `right` to pin it to an edge or corner of its nearest positioned ancestor, and `align`/`justify` to center its own children within it (as in the example above; unlike `AbsoluteCenter`, it doesn't center by default). See Box's props for the full list, including `gap`, spacing (`m*`/`p*`), `bg`, and `rounded`.

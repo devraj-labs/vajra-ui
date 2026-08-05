@@ -28,6 +28,7 @@ const sidebars: SidebarsConfig = {
         'components/grid',
         'components/center',
         'components/absolute-center',
+        'components/absolute-view',
         'components/separator',
         'components/spacer',
       ],

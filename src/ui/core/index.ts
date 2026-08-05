@@ -1,4 +1,5 @@
 export * from './absolute-center';
+export * from './absolute-view';
 export * from './box';
 export * from './center';
 export * from './col';

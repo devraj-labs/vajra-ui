@@ -370,6 +370,10 @@ For the full theming guide including runtime switching, spacing/radius overrides
 
 **Layer rule:** `core` imports from `vajra-ui-core`. `components` imports from `core`. Nothing imports across layers.
 
+Wondering whether wrapping `vajra-ui-core` twice costs anything at render time? See
+[docs/PERFORMANCE.md](./docs/PERFORMANCE.md) — short answer: ~10µs/node, doesn't compound,
+and skipped entirely on memoized re-renders.
+
 ---
 
 ## Contributing

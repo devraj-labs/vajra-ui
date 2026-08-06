@@ -1490,6 +1490,11 @@
   resolved "https://registry.yarnpkg.com/@devraj-labs/vajra-ui-core/-/vajra-ui-core-2.2.0.tgz#6ca3750d69eb53161360d9813c494600f47ed183"
   integrity sha512-+ky8iLI3LMZpSqJOJ+6a7tjYmsoQXqJGjc/w1tMNKbBJFL2Mv/ZhS+b3zV5JvWIZjQBIeGWb1vLko2WmbuJAnQ==
 
+"@devraj-labs/vajra-ui-icons@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@devraj-labs/vajra-ui-icons/-/vajra-ui-icons-0.2.0.tgz#8bb20f7a48413ef7a0a79edc1d806fd29306f140"
+  integrity sha512-ct4skMW2bZd7g2SneHLAPiL9/GSxPp48KyYvvmfYL/cfQ0TjId8pszLGdNmROrjKdY6SG06h1zt4q3KF76q3aA==
+
 "@discoveryjs/json-ext@0.5.7":
   version "0.5.7"
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.7.tgz#1d572bfbbe14b7704e0ba0f39b74815b84870d70"
@@ -9468,9 +9473,6 @@ uuid@^8.3.2:
   version "8.3.2"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.3.2.tgz#80d5b5ced271bb9af6c445f21a1a04c606cefbe2"
   integrity sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==
-
-"vajra-ui-icons@file:../../vajra-ui-icons":
-  version "0.1.0"
 
 value-equal@^1.0.1:
   version "1.0.1"

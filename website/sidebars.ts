@@ -98,6 +98,9 @@ const sidebars: SidebarsConfig = {
         'components/accordion',
       ],
     },
+    'performance',
+    'contributing',
+    'changelog',
   ],
 };
 

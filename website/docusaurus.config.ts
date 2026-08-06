@@ -95,6 +95,14 @@ const config: Config = {
               label: 'Theming',
               to: '/docs/theming',
             },
+            {
+              label: 'Performance',
+              to: '/docs/performance',
+            },
+            {
+              label: 'Contributing',
+              to: '/docs/contributing',
+            },
           ],
         },
         {
@@ -110,7 +118,7 @@ const config: Config = {
             },
             {
               label: 'Changelog',
-              href: 'https://github.com/devraj-labs/vajra-ui/blob/main/CHANGELOG.md',
+              to: '/docs/changelog',
             },
           ],
         },

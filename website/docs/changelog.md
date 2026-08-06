@@ -1,3 +1,8 @@
+---
+id: changelog
+title: Changelog
+---
+
 # Changelog
 
 All notable changes to this project will be documented in this file.
@@ -12,7 +17,7 @@ First stable release. Two phases of work: hardening the foundation (testing, CI,
 - Two more ESLint layer-boundary rules: `src/ui/core/**` can no longer import from `src/ui/components/**` (prevents layer inversion), and nothing outside `src/ui/vajra-theme/**` may import `src/theme/**` directly (it's internal plumbing — use `useVajraTheme`/`VajraProvider` instead).
 - Jest + React Native Testing Library at the root package — the library itself had zero test coverage before this release.
 - CI (`.github/workflows/ci.yml`): typecheck/lint/test/build the library on every PR, a typecheck of `examples/app` against the local package to catch breaking API changes, and a verification that the built `dist/` output is actually importable the way a real consumer would (`scripts/verify-dist.sh` — packs the tarball, installs it fresh, typechecks a real import against it).
-- Documented the `src/theme` vs `src/ui/vajra-theme` relationship, a step-by-step component authoring scaffold (simple and compositional), and the optional-peer-dependency pattern for motion-enhanced components in `CODING_GUIDELINES.md`.
+- Documented the `src/theme` vs `src/ui/vajra-theme` relationship, a step-by-step component authoring scaffold (simple and compositional), and the optional-peer-dependency pattern for motion-enhanced components in [Contributing](./contributing).
 
 ### Added — Breadth & Reach
 
@@ -78,7 +83,7 @@ Fifteen new components, closing the gap with other RN component libraries on rea
 
 ### Changed
 
-- `docs/theming.md` rewritten to accurately document the "Bring Your Own Theme" (BYOT) model and all augmentation interfaces.
+- [Theming](./theming) rewritten to accurately document the "Bring Your Own Theme" (BYOT) model and all augmentation interfaces.
 
 ## [0.4.0] - 2026-04-11
 
@@ -124,4 +129,4 @@ Fifteen new components, closing the gap with other RN component libraries on rea
 
 ## [0.1.0] - 2026-04-09
 
-Initial tagged release. Project scaffolding, `CODING_GUIDELINES.md`, and README.
+Initial tagged release. Project scaffolding, [Contributing](./contributing) guidelines, and README.

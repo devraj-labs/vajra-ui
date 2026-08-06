@@ -15,3 +15,5 @@ A minimal, token-driven React Native component library. Bring your own brand: ov
 - **Headless core**: unstyled primitives in `@devraj-labs/vajra-ui-core` if you want full control.
 
 See [Installation & Setup](./installation) to get started, or [Theming](./theming) for the full token and customization guide.
+
+Curious what the headless/styled split costs at render time? See [Performance](./performance).

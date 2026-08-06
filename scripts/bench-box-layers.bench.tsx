@@ -3,7 +3,7 @@
  * @devraj-labs/vajra-ui-core's Box) against the headless CoreBox it wraps and
  * a raw React Native View, at scale.
  *
- * Run with: npx jest --config jest.config.js --testMatch '**/scripts/*.bench.tsx' --verbose
+ * Run with: npx jest --config jest.config.js --testMatch '<rootDir>/scripts/*.bench.tsx' --verbose
  * Results feed docs/PERFORMANCE.md — regenerate that table if this file or
  * the underlying Box implementations change.
  */
@@ -15,7 +15,12 @@ import { Box as CoreBox } from '@devraj-labs/vajra-ui-core';
 import { Box } from '../src/ui/core/box/box';
 import { VajraProvider } from '../src/ui/vajra-theme';
 
-const COUNTS = [100, 1000, 5000];
+// Capped at 10k: a screen with 10,000 simultaneous sibling nodes is already
+// an unrealistic stress case (a long scrollable form or dense list is a few
+// hundred to low thousands). Sizes beyond this land in a GC-pressure regime
+// where a single Node process mounting/unmounting huge trees repeatedly
+// produces noisy, non-representative numbers — not a real per-node cost.
+const COUNTS = [100, 1000, 5000, 10000];
 const RUNS = 20;
 
 const median = (values: number[]): number => {
@@ -111,5 +116,5 @@ describe('Box layering benchmark', () => {
     // eslint-disable-next-line no-console
     console.log('\n' + rows.join('\n') + '\n');
     expect(rows.length).toBe(COUNTS.length + 2);
-  });
+  }, 120000);
 });

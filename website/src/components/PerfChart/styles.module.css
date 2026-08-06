@@ -1,0 +1,135 @@
+.wrapper {
+  --series-view: #2a78d6;
+  --series-core-box: #eb6834;
+  --series-box: #1baf7a;
+  --chart-grid: #e5e7eb;
+  --chart-axis: #9ca3af;
+  --chart-text: #52514e;
+  --chart-text-strong: #0b0b0b;
+
+  width: 100%;
+  padding: 1.5rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-code-border-radius);
+  background: var(--vajra-preview-bg);
+  box-sizing: border-box;
+}
+
+[data-theme='dark'] .wrapper {
+  --series-view: #3987e5;
+  --series-core-box: #d95926;
+  --series-box: #199e70;
+  --chart-grid: #374151;
+  --chart-axis: #6b7280;
+  --chart-text: #c3c2b7;
+  --chart-text-strong: #ffffff;
+}
+
+.chartTitle {
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--chart-text-strong);
+}
+
+.chartTitle:not(:first-child) {
+  margin-top: 2rem;
+}
+
+.legend {
+  display: flex;
+  gap: 1.25rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.legendSwatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.legendSwatch.view {
+  background: var(--series-view);
+}
+
+.legendSwatch.coreBox {
+  background: var(--series-core-box);
+}
+
+.legendSwatch.box {
+  background: var(--series-box);
+}
+
+.legendLabel {
+  font-size: 0.85rem;
+  color: var(--chart-text);
+}
+
+.svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.gridline {
+  stroke: var(--chart-grid);
+  stroke-width: 1;
+}
+
+.axisLine {
+  stroke: var(--chart-axis);
+  stroke-width: 1;
+}
+
+.axisLabel {
+  fill: var(--chart-text);
+  font-size: 11px;
+  font-family: var(--ifm-font-family-base);
+}
+
+.barGroup {
+  cursor: pointer;
+  outline: none;
+}
+
+.bar {
+  transition: opacity 0.12s ease;
+}
+
+.bar.view {
+  fill: var(--series-view);
+}
+
+.bar.coreBox {
+  fill: var(--series-core-box);
+}
+
+.bar.box {
+  fill: var(--series-box);
+}
+
+.barHovered {
+  opacity: 0.75;
+}
+
+.valueLabel {
+  fill: var(--chart-text-strong);
+  font-size: 12px;
+  font-weight: 600;
+  font-family: var(--ifm-font-family-base);
+}
+
+.caption {
+  margin: 0.75rem 0 0;
+  font-size: 0.8rem;
+  color: var(--chart-text);
+  text-align: center;
+}

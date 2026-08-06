@@ -10,6 +10,8 @@
 [![license](https://img.shields.io/npm/l/@devraj-labs/vajra-ui)](./LICENSE)
 [![platform](https://img.shields.io/badge/platform-iOS%20%7C%20Android-lightgrey)](https://reactnative.dev)
 
+<p><a href="https://devraj-labs.github.io/vajra-ui/"><strong>Documentation</strong></a></p>
+
 
 
 

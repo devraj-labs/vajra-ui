@@ -1,4 +1,5 @@
 .card {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,6 +12,18 @@
   border-radius: var(--ifm-code-border-radius);
   background: var(--vajra-preview-bg);
   box-sizing: border-box;
+}
+
+/* Toast renders its own absolutely-positioned overlay 16-32px off the card's
+   own edges. The default card is barely taller than its trigger buttons, so
+   the overlay lands right on top of them instead of in clear space. Stay
+   position: relative (so the overlay stays contained and predictable) but
+   grow the box and let content stack top-to-bottom with room to breathe. */
+.card.tall {
+  min-height: 320px;
+  align-items: stretch;
+  justify-content: flex-start;
+  padding-top: 2.5rem;
 }
 
 /* react-native-web renders Text as a <p>, which inherits Infima's global

@@ -1,6 +1,12 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react-native';
 import { View } from 'react-native';
+import {
+  AlertCircleIcon,
+  AlertTriangleIcon,
+  CheckCircleIcon,
+  InfoIcon,
+} from '@devraj-labs/vajra-ui-icons';
 
 import { VajraProvider, defaultVajraTheme } from '../../vajra-theme';
 import { Alert } from './alert';
@@ -57,7 +63,7 @@ describe('Alert', () => {
     expect(onDismiss).toHaveBeenCalledTimes(1);
   });
 
-  it('renders a custom dismiss icon instead of the default ✕ glyph when provided', () => {
+  it('renders a custom dismiss icon instead of the default XIcon when provided', () => {
     const onDismiss = jest.fn();
     const DismissIcon = () => <View testID="custom-dismiss-icon" />;
 
@@ -73,7 +79,49 @@ describe('Alert', () => {
     );
 
     expect(screen.getByTestId('custom-dismiss-icon')).toBeTruthy();
-    expect(screen.queryByText('✕')).toBeNull();
+  });
+
+  it('renders the default XIcon dismiss button when onDismiss is set without a custom dismissIcon', () => {
+    render(
+      <VajraProvider>
+        <Alert message="Something happened" onDismiss={() => {}} testID="alert" />
+      </VajraProvider>,
+    );
+
+    expect(screen.getByTestId('alert-dismiss')).toBeTruthy();
+  });
+
+  it('renders a default icon per variant without an explicit icon prop', () => {
+    render(
+      <VajraProvider>
+        <Alert message="Saved" variant="success" testID="alert-success" />
+      </VajraProvider>,
+    );
+
+    expect(screen.UNSAFE_queryAllByType(CheckCircleIcon).length).toBe(1);
+  });
+
+  it('renders no icon for the default variant', () => {
+    render(
+      <VajraProvider>
+        <Alert message="Plain" testID="alert-plain" />
+      </VajraProvider>,
+    );
+
+    expect(screen.UNSAFE_queryAllByType(CheckCircleIcon).length).toBe(0);
+    expect(screen.UNSAFE_queryAllByType(AlertCircleIcon).length).toBe(0);
+    expect(screen.UNSAFE_queryAllByType(AlertTriangleIcon).length).toBe(0);
+    expect(screen.UNSAFE_queryAllByType(InfoIcon).length).toBe(0);
+  });
+
+  it('suppresses the icon when icon={null} is passed', () => {
+    render(
+      <VajraProvider>
+        <Alert message="Saved" variant="success" icon={null} testID="alert-success" />
+      </VajraProvider>,
+    );
+
+    expect(screen.UNSAFE_queryAllByType(CheckCircleIcon).length).toBe(0);
   });
 
   it('resolves the error variant to the theme errorSubtle background and error border', () => {

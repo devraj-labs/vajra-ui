@@ -4,13 +4,9 @@ import { Animated, Button as RNButton } from 'react-native';
 import { CheckCircleIcon } from '@devraj-labs/vajra-ui-icons';
 
 import { VajraProvider, defaultVajraTheme } from '../../vajra-theme';
-import { ToastProvider } from './toast-provider';
-import { useToast } from './toast-context';
+import { AlertProvider } from './alert-provider';
+import { useAlert } from './alert-context';
 
-// ToastProvider fades its container via Animated.timing with
-// useNativeDriver: true, which this test environment's react-native /
-// react-test-renderer combo can't connect to. Stub it, same pattern used
-// elsewhere in this repo's test suite (icon-switch, modal, sheet).
 jest.spyOn(Animated, 'timing').mockReturnValue({
   start: () => {},
   stop: () => {},
@@ -34,12 +30,12 @@ const ShowButton = ({
   variant?: 'default' | 'success' | 'error' | 'warning' | 'info';
   duration?: number;
 }) => {
-  const { show } = useToast();
+  const { show } = useAlert();
 
   return <RNButton title="show" onPress={() => show({ message, variant, duration })} />;
 };
 
-describe('ToastProvider / useToast', () => {
+describe('AlertProvider / useAlert', () => {
   beforeEach(() => {
     jest.useFakeTimers();
   });
@@ -48,24 +44,24 @@ describe('ToastProvider / useToast', () => {
     jest.useRealTimers();
   });
 
-  it('renders no toast initially', () => {
+  it('renders no alert initially', () => {
     render(
       <VajraProvider>
-        <ToastProvider>
+        <AlertProvider>
           <ShowButton message="Saved" />
-        </ToastProvider>
+        </AlertProvider>
       </VajraProvider>,
     );
 
     expect(screen.queryByText('Saved')).toBeNull();
   });
 
-  it('shows a toast when show() is called', () => {
+  it('shows an alert when show() is called', () => {
     render(
       <VajraProvider>
-        <ToastProvider>
+        <AlertProvider>
           <ShowButton message="Saved" />
-        </ToastProvider>
+        </AlertProvider>
       </VajraProvider>,
     );
 
@@ -76,12 +72,32 @@ describe('ToastProvider / useToast', () => {
     expect(screen.getByText('Saved')).toBeTruthy();
   });
 
-  it('auto-dismisses after the given duration', () => {
+  it('stays visible indefinitely by default (no auto-dismiss)', () => {
     render(
       <VajraProvider>
-        <ToastProvider>
+        <AlertProvider>
+          <ShowButton message="Saved" />
+        </AlertProvider>
+      </VajraProvider>,
+    );
+
+    act(() => {
+      fireEvent.press(screen.getByText('show'));
+    });
+
+    act(() => {
+      jest.advanceTimersByTime(60_000);
+    });
+
+    expect(screen.getByText('Saved')).toBeTruthy();
+  });
+
+  it('auto-dismisses after the given duration when set', () => {
+    render(
+      <VajraProvider>
+        <AlertProvider>
           <ShowButton message="Saved" duration={1000} />
-        </ToastProvider>
+        </AlertProvider>
       </VajraProvider>,
     );
 
@@ -96,16 +112,16 @@ describe('ToastProvider / useToast', () => {
     expect(screen.queryByText('Saved')).toBeNull();
   });
 
-  it('stacks a second toast alongside the first instead of queuing behind it', () => {
+  it('stacks a second alert alongside the first instead of queuing behind it', () => {
     const ShowTwo = () => {
-      const { show } = useToast();
+      const { show } = useAlert();
 
       return (
         <RNButton
           title="show-two"
           onPress={() => {
-            show({ message: 'First', duration: 500 });
-            show({ message: 'Second', duration: 500 });
+            show({ message: 'First' });
+            show({ message: 'Second' });
           }}
         />
       );
@@ -113,9 +129,9 @@ describe('ToastProvider / useToast', () => {
 
     render(
       <VajraProvider>
-        <ToastProvider>
+        <AlertProvider>
           <ShowTwo />
-        </ToastProvider>
+        </AlertProvider>
       </VajraProvider>,
     );
 
@@ -125,27 +141,20 @@ describe('ToastProvider / useToast', () => {
 
     expect(screen.getByText('First')).toBeTruthy();
     expect(screen.getByText('Second')).toBeTruthy();
-
-    act(() => {
-      jest.advanceTimersByTime(500);
-    });
-
-    expect(screen.queryByText('First')).toBeNull();
-    expect(screen.queryByText('Second')).toBeNull();
   });
 
-  it('defaults to showing at most 3 toasts at once, queuing the rest', () => {
+  it('defaults to showing at most 3 alerts at once, queuing the rest', () => {
     const ShowFour = () => {
-      const { show } = useToast();
+      const { show } = useAlert();
 
       return (
         <RNButton
           title="show-four"
           onPress={() => {
-            show({ message: 'One', duration: 0 });
-            show({ message: 'Two', duration: 0 });
-            show({ message: 'Three', duration: 0 });
-            show({ message: 'Four', duration: 0 });
+            show({ message: 'One' });
+            show({ message: 'Two' });
+            show({ message: 'Three' });
+            show({ message: 'Four' });
           }}
         />
       );
@@ -153,9 +162,9 @@ describe('ToastProvider / useToast', () => {
 
     render(
       <VajraProvider>
-        <ToastProvider>
+        <AlertProvider>
           <ShowFour />
-        </ToastProvider>
+        </AlertProvider>
       </VajraProvider>,
     );
 
@@ -169,19 +178,19 @@ describe('ToastProvider / useToast', () => {
     expect(screen.queryByText('Four')).toBeNull();
   });
 
-  it('promotes the next queued toast once a visible one is dismissed past maxVisible', () => {
+  it('promotes the next queued alert once a visible one is dismissed past maxVisible', () => {
     const ShowFourThenHideFirst = () => {
-      const { show, hide } = useToast();
+      const { show, hide } = useAlert();
 
       return (
         <RNButton
           title="show-four"
           onPress={() => {
-            const firstId = show({ message: 'One', duration: 0 });
+            const firstId = show({ message: 'One' });
 
-            show({ message: 'Two', duration: 0 });
-            show({ message: 'Three', duration: 0 });
-            show({ message: 'Four', duration: 0 });
+            show({ message: 'Two' });
+            show({ message: 'Three' });
+            show({ message: 'Four' });
             hide(firstId);
           }}
         />
@@ -190,9 +199,9 @@ describe('ToastProvider / useToast', () => {
 
     render(
       <VajraProvider>
-        <ToastProvider>
+        <AlertProvider>
           <ShowFourThenHideFirst />
-        </ToastProvider>
+        </AlertProvider>
       </VajraProvider>,
     );
 
@@ -206,15 +215,15 @@ describe('ToastProvider / useToast', () => {
 
   it('respects a custom maxVisible prop', () => {
     const ShowThree = () => {
-      const { show } = useToast();
+      const { show } = useAlert();
 
       return (
         <RNButton
           title="show-three"
           onPress={() => {
-            show({ message: 'One', duration: 0 });
-            show({ message: 'Two', duration: 0 });
-            show({ message: 'Three', duration: 0 });
+            show({ message: 'One' });
+            show({ message: 'Two' });
+            show({ message: 'Three' });
           }}
         />
       );
@@ -222,9 +231,9 @@ describe('ToastProvider / useToast', () => {
 
     render(
       <VajraProvider>
-        <ToastProvider maxVisible={1}>
+        <AlertProvider maxVisible={1}>
           <ShowThree />
-        </ToastProvider>
+        </AlertProvider>
       </VajraProvider>,
     );
 
@@ -237,12 +246,12 @@ describe('ToastProvider / useToast', () => {
     expect(screen.queryByText('Three')).toBeNull();
   });
 
-  it('resolves the error variant to the theme error color', () => {
+  it('resolves the error variant to the theme errorSubtle background', () => {
     render(
       <VajraProvider>
-        <ToastProvider>
+        <AlertProvider>
           <ShowButton message="Failed" variant="error" />
-        </ToastProvider>
+        </AlertProvider>
       </VajraProvider>,
     );
 
@@ -250,17 +259,17 @@ describe('ToastProvider / useToast', () => {
       fireEvent.press(screen.getByText('show'));
     });
 
-    const style = flattenStyle(screen.getByTestId(/^toast-toast-/).props.style);
+    const style = flattenStyle(screen.getByTestId(/^alert-alert-[^-]+$/).props.style);
 
-    expect(style.backgroundColor).toBe(defaultVajraTheme.light.colors.error);
+    expect(style.backgroundColor).toBe(defaultVajraTheme.light.colors.errorSubtle);
   });
 
   it('renders the default variant icon without an explicit icon option', () => {
     render(
       <VajraProvider>
-        <ToastProvider>
+        <AlertProvider>
           <ShowButton message="Saved" variant="success" />
-        </ToastProvider>
+        </AlertProvider>
       </VajraProvider>,
     );
 
@@ -271,39 +280,12 @@ describe('ToastProvider / useToast', () => {
     expect(screen.UNSAFE_queryAllByType(CheckCircleIcon).length).toBe(1);
   });
 
-  it('does not render a dismiss button when dismissible is not set', () => {
-    render(
-      <VajraProvider>
-        <ToastProvider>
-          <ShowButton message="Saved" />
-        </ToastProvider>
-      </VajraProvider>,
-    );
-
-    act(() => {
-      fireEvent.press(screen.getByText('show'));
-    });
-
-    expect(screen.queryByTestId(/^toast-toast-.+-dismiss$/)).toBeNull();
-  });
-
   it('dismisses immediately when the dismiss button is pressed', () => {
-    const ShowDismissible = () => {
-      const { show } = useToast();
-
-      return (
-        <RNButton
-          title="show"
-          onPress={() => show({ message: 'Saved', duration: 0, dismissible: true })}
-        />
-      );
-    };
-
     render(
       <VajraProvider>
-        <ToastProvider>
-          <ShowDismissible />
-        </ToastProvider>
+        <AlertProvider>
+          <ShowButton message="Saved" />
+        </AlertProvider>
       </VajraProvider>,
     );
 
@@ -313,20 +295,20 @@ describe('ToastProvider / useToast', () => {
     expect(screen.getByText('Saved')).toBeTruthy();
 
     act(() => {
-      fireEvent.press(screen.getByTestId(/^toast-toast-.+-dismiss$/));
+      fireEvent.press(screen.getByTestId(/^alert-alert-.+-dismiss$/));
     });
     expect(screen.queryByText('Saved')).toBeNull();
   });
 
-  it('hide() dismisses a toast by id immediately', () => {
+  it('hide() dismisses an alert by id immediately', () => {
     const ShowAndHide = () => {
-      const { show, hide } = useToast();
+      const { show, hide } = useAlert();
 
       return (
         <RNButton
           title="show-and-hide"
           onPress={() => {
-            const id = show({ message: 'Saved', duration: 0 });
+            const id = show({ message: 'Saved' });
 
             hide(id);
           }}
@@ -336,9 +318,9 @@ describe('ToastProvider / useToast', () => {
 
     render(
       <VajraProvider>
-        <ToastProvider>
+        <AlertProvider>
           <ShowAndHide />
-        </ToastProvider>
+        </AlertProvider>
       </VajraProvider>,
     );
 
@@ -347,5 +329,25 @@ describe('ToastProvider / useToast', () => {
     });
 
     expect(screen.queryByText('Saved')).toBeNull();
+  });
+
+  it('throws when useAlert is used outside an AlertProvider', () => {
+    const Bare = () => {
+      useAlert();
+
+      return null;
+    };
+
+    const consoleError = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    expect(() =>
+      render(
+        <VajraProvider>
+          <Bare />
+        </VajraProvider>,
+      ),
+    ).toThrow('useAlert must be used within an AlertProvider');
+
+    consoleError.mockRestore();
   });
 });

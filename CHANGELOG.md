@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.0] - 2026-08-11
+
+### Added
+
+- `AlertProvider` / `useAlert()` — a global, stacked notification-list provider for `Alert`, mirroring `ToastProvider`'s API (`show()`/`hide()`, queued overflow, top/bottom anchoring). Alerts stay visible until dismissed by default (no auto-dismiss timer), unlike Toast.
+- `ToastProvider` now stacks up to `maxVisible` toasts on screen simultaneously (previously only one toast was ever visible at a time, with the rest queued behind it) — each toast animates and auto-dismisses independently.
+- `maxVisible` prop on `ToastProvider` and `AlertProvider`, and a matching `toast.maxVisible` / `alert.maxVisible` theme default (3) in `defaultVajraTheme`, overridable via `createVajraTheme({ toast: { maxVisible }, alert: { maxVisible } })`.
+- `Toast` and `Alert` now show a default icon per variant (`success`/`error`/`warning`/`info`) from `@devraj-labs/vajra-ui-icons` automatically — pass `icon` to override it, or `null` to render none.
+- `Toast` gained an optional `dismissible` flag (and `Alert`'s existing `onDismiss` dismiss button now defaults to `XIcon`) rendering a proper dismiss button with a real touch target (`hitSlop` + padding), replacing the old plain "✕" text glyph.
+- `@devraj-labs/vajra-ui-icons` added as a dependency — the first consumer of the sibling icons package.
+
+### Fixed
+
+- `ToastProvider`'s overlay used `pointerEvents="none"`, which silently blocked presses on the new dismiss button; changed to `pointerEvents="box-none"` so the container stays click-through while its children remain interactive.
+- Docs site (`website/docs/components/toast.mdx`, `alert.mdx`): the live preview card had no `position: relative`, so a triggered Toast rendered outside/above the demo card instead of inside it.
+
 ## [1.0.0] - 2026-07-31
 
 First stable release. Two phases of work: hardening the foundation (testing, CI, architecture) so a breadth push could ship on solid ground, then the breadth push itself — 15 new components and a full documentation site with live, in-browser previews of every component.

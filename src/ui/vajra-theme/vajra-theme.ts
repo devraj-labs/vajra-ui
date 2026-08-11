@@ -5,6 +5,7 @@ import { fontVariants } from './tokens/font-tokens/index';
 import { fontSizeTokens } from './tokens/font-tokens/font-size-tokens';
 import { lineHeightTokens } from './tokens/font-tokens/line-height-tokens';
 import { layoutTokens } from './tokens/layout-tokens';
+import { notificationTokens } from './tokens/notification-tokens';
 
 const staticTokens = {
   spacing: spacingTokens,
@@ -13,6 +14,8 @@ const staticTokens = {
   fontSizes: fontSizeTokens as Record<string, number>,
   lineHeights: lineHeightTokens as Record<string, number>,
   layout: layoutTokens,
+  toast: notificationTokens.toast,
+  alert: notificationTokens.alert,
 };
 
 export const defaultVajraTheme = {

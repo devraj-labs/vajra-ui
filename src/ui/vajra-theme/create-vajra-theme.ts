@@ -19,6 +19,8 @@ export type TVajraRoundedOverrides = Partial<Record<TRoundedToken, number>>;
 export type TVajraTypographyOverrides = Partial<Record<TFontVariant, TFontVariantProps>>;
 export type TVajraFontSizeOverrides = Record<string, number>;
 export type TVajraLineHeightOverrides = Record<string, number>;
+export type TVajraToastOverrides = Partial<{ maxVisible: number }>;
+export type TVajraAlertOverrides = Partial<{ maxVisible: number }>;
 
 export type TVajraThemeWithFonts<F extends TFontFamilies> = Omit<
   typeof defaultVajraTheme.light,
@@ -38,6 +40,8 @@ export const createVajraTheme = <F extends TFontFamilies>(config: {
   typography?: TVajraTypographyOverrides;
   fontSizes?: TVajraFontSizeOverrides;
   lineHeights?: TVajraLineHeightOverrides;
+  toast?: TVajraToastOverrides;
+  alert?: TVajraAlertOverrides;
 }): TVajraThemeWithFonts<F> => {
   const base = defaultVajraTheme[config.colorScheme ?? 'light'];
 
@@ -49,6 +53,8 @@ export const createVajraTheme = <F extends TFontFamilies>(config: {
     typography: { ...base.typography, ...config.typography },
     fontSizes: { ...base.fontSizes, ...config.fontSizes },
     lineHeights: { ...base.lineHeights, ...config.lineHeights },
+    toast: { ...base.toast, ...config.toast },
+    alert: { ...base.alert, ...config.alert },
     fonts: config.fonts,
   } as TVajraThemeWithFonts<F>;
 };

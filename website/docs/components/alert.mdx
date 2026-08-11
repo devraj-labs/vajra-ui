@@ -6,12 +6,14 @@ sidebar_position: 24
 
 import ComponentPreview from '@site/src/components/ComponentPreview';
 import PreviewPair from '@site/src/components/PreviewPair';
-import { Alert, Col } from 'vajra-ui';
+import { Alert, AlertProvider, useAlert, Col, Button } from 'vajra-ui';
 import { InfoIcon, XIcon } from '@devraj-labs/vajra-ui-icons';
 
 # Alert
 
-An inline banner for surfacing status messages, with five semantic variants and an optional dismiss action.
+An inline banner for surfacing status messages, with five semantic variants and an optional dismiss action. Each variant (`success`/`error`/`warning`/`info`) shows a default icon from `@devraj-labs/vajra-ui-icons` automatically — pass `icon` to override it, or `null` to hide it.
+
+Use the bare `<Alert />` component to render a single banner inline wherever you place it. For a global, stacked notification list (e.g. showing several alerts triggered from anywhere in the app), wrap your app in `AlertProvider` and call `useAlert().show(...)` instead — see [Stacked alerts](#stacked-alerts) below.
 
 ## Variants
 
@@ -57,9 +59,9 @@ An inline banner for surfacing status messages, with five semantic variants and 
 ```
 </PreviewPair>
 
-## With leading and dismiss icons
+## Overriding icons
 
-`icon` renders any element before the text: pass a `TVajraIconComponent` from `@devraj-labs/vajra-ui-icons` (or your own). `dismissIcon` replaces the default ✕ glyph on the dismiss button.
+`icon` overrides the variant's default icon — pass any element, or `null` to hide it entirely. `dismissIcon` overrides the default `XIcon` shown on the dismiss button.
 
 <PreviewPair>
 <ComponentPreview>
@@ -87,6 +89,92 @@ import { InfoIcon, XIcon } from '@devraj-labs/vajra-ui-icons';
 ```
 </PreviewPair>
 
+## Stacked alerts
+
+Wrap your app (or the preview) in `AlertProvider`, then call `useAlert().show(...)` from anywhere inside it to push a dismissible alert onto a global, top-anchored stack. Up to `maxVisible` alerts (default **3**, set via the theme's `alert.maxVisible` or the `maxVisible` prop) stack on screen at once, newest closest to the anchored edge — extra `show()` calls stay queued and appear as visible ones are dismissed. Unlike a bare `<Alert />`, a stacked alert only auto-dismisses if you pass `duration`; it otherwise stays until dismissed.
+
+<PreviewPair>
+<ComponentPreview tall>
+  {(() => {
+    const StackedAlertDemo = () => {
+      const { show } = useAlert();
+
+      return (
+        <Button
+          label="Show 4 alerts"
+          onPress={() => {
+            show({ title: 'Info', message: 'First', variant: 'info' });
+            show({ title: 'Success', message: 'Second', variant: 'success' });
+            show({ title: 'Warning', message: 'Third', variant: 'warning' });
+            show({ title: 'Error', message: 'Fourth (queued)', variant: 'error' });
+          }}
+        />
+      );
+    };
+
+    return (
+      <AlertProvider>
+        <StackedAlertDemo />
+      </AlertProvider>
+    );
+  })()}
+</ComponentPreview>
+
+```tsx
+function App() {
+  return (
+    <AlertProvider maxVisible={3}>
+      <StackButton />
+    </AlertProvider>
+  );
+}
+
+function StackButton() {
+  const { show } = useAlert();
+
+  return (
+    <Button
+      label="Show 4 alerts"
+      onPress={() => {
+        show({ title: 'Info', message: 'First', variant: 'info' });
+        show({ title: 'Success', message: 'Second', variant: 'success' });
+        show({ title: 'Warning', message: 'Third', variant: 'warning' });
+        show({ title: 'Error', message: 'Fourth (queued)', variant: 'error' });
+      }}
+    />
+  );
+}
+```
+</PreviewPair>
+
+### AlertProvider
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `children` | `ReactNode` | | Required. Subtree that gets access to `useAlert()`. |
+| `position` | `'top' \| 'bottom'` | `'top'` | Where the alert stack is anchored on screen. |
+| `maxVisible` | `number` | theme's `alert.maxVisible` (3) | Maximum number of alerts stacked on screen at once. Extra `show()` calls stay queued. |
+
+### useAlert()
+
+| Return | Type | Description |
+|---|---|---|
+| `show` | `(options: TAlertOptions \| string) => string` | Pushes an alert onto the stack. Accepts a plain message string or a `TAlertOptions` object. Returns the generated alert id. |
+| `hide` | `(id: string) => void` | Removes a queued/visible alert by id. |
+
+### TAlertOptions
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `message` | `string` | | Required. Alert text. |
+| `title` | `string` | | Optional heading rendered above the message. |
+| `variant` | `'default' \| 'success' \| 'error' \| 'warning' \| 'info'` | `'default'` | Visual style. Also selects the default icon. |
+| `duration` | `number` | `0` (stays until dismissed) | Milliseconds before auto-dismiss. |
+| `icon` | `ReactNode` | variant default | Overrides the variant's default icon. Pass `null` to render no icon. |
+| `dismissIcon` | `TVajraIconComponent` | `XIcon` | Icon shown in the dismiss button. |
+
+Set the default `maxVisible` globally via `createVajraTheme({ alert: { maxVisible: 5 }, ... })`, or override it per-provider with the `maxVisible` prop. `useAlert` throws if called outside an `AlertProvider`.
+
 ## Props
 
 | Prop | Type | Default | Description |
@@ -94,7 +182,7 @@ import { InfoIcon, XIcon } from '@devraj-labs/vajra-ui-icons';
 | `message` | `string` | | Required. Body text of the alert. |
 | `title` | `string` | | Optional heading rendered above the message. |
 | `variant` | `'default' \| 'success' \| 'error' \| 'warning' \| 'info'` | `'default'` | Semantic color scheme for background, border, and text. |
-| `onDismiss` | `() => void` | | When provided, renders a dismiss (✕) button. |
-| `icon` | `React.ReactNode` | | Optional leading icon element rendered before the text. |
-| `dismissIcon` | `TVajraIconComponent` | | Icon shown in the dismiss button, when `onDismiss` is set. Defaults to a plain ✕ glyph. |
+| `onDismiss` | `() => void` | | When provided, renders a dismiss button. |
+| `icon` | `React.ReactNode` | variant default | Overrides the variant's default leading icon. Pass `null` to render no icon. |
+| `dismissIcon` | `TVajraIconComponent` | `XIcon` | Icon shown in the dismiss button, when `onDismiss` is set. |
 | `testID` | `string` | | Test identifier forwarded to the root container. |

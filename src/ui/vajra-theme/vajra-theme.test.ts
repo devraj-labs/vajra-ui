@@ -13,13 +13,24 @@ describe('defaultVajraTheme', () => {
       expect(theme.fontSizes).toBeTruthy();
       expect(theme.lineHeights).toBeTruthy();
       expect(theme.layout).toBeTruthy();
+      expect(theme.toast).toBeTruthy();
+      expect(theme.alert).toBeTruthy();
     },
   );
+
+  it('defaults toast and alert maxVisible to 3', () => {
+    expect(defaultVajraTheme.light.toast.maxVisible).toBe(3);
+    expect(defaultVajraTheme.light.alert.maxVisible).toBe(3);
+    expect(defaultVajraTheme.dark.toast.maxVisible).toBe(3);
+    expect(defaultVajraTheme.dark.alert.maxVisible).toBe(3);
+  });
 
   it('light and dark share the same static (non-color) tokens by reference', () => {
     expect(defaultVajraTheme.light.spacing).toBe(defaultVajraTheme.dark.spacing);
     expect(defaultVajraTheme.light.rounded).toBe(defaultVajraTheme.dark.rounded);
     expect(defaultVajraTheme.light.typography).toBe(defaultVajraTheme.dark.typography);
+    expect(defaultVajraTheme.light.toast).toBe(defaultVajraTheme.dark.toast);
+    expect(defaultVajraTheme.light.alert).toBe(defaultVajraTheme.dark.alert);
   });
 
   it('light and dark expose the same set of color token keys', () => {

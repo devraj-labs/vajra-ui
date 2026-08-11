@@ -6,90 +6,105 @@ sidebar_position: 23
 
 import ComponentPreview from '@site/src/components/ComponentPreview';
 import PreviewPair from '@site/src/components/PreviewPair';
-import { ToastProvider, useToast, Button, Row } from 'vajra-ui';
+import { ToastProvider, useToast } from 'vajra-ui';
 import React from 'react';
 
 # Toast
 
-A queued, auto-dismissing message anchored to the top or bottom of the screen. Wrap your app (or the preview) in `ToastProvider`, then call `useToast().show(...)` from anywhere inside it.
+A stacked, auto-dismissing message anchored to the top or bottom of the screen. Wrap your app in `ToastProvider`, then call `useToast().show(...)` from anywhere inside it. Each variant (`success`/`error`/`warning`/`info`) shows a default icon from `@devraj-labs/vajra-ui-icons` automatically — pass `icon` to override it, or `null` to hide it. Pass `dismissible: true` to show a close button.
+
+Up to `maxVisible` toasts (default **3**, set via the theme's `toast.maxVisible` or the `maxVisible` prop) stack on screen at once, newest closest to the anchored edge. Extra `show()` calls stay queued and appear automatically as visible toasts are dismissed.
 
 export const ToastDemo = () => {
   const { show } = useToast();
 
-  return (
-    <Row gap="s-2" wrap="wrap">
-      <Button label="Default" onPress={() => show('Saved successfully.')} />
-      <Button
-        variant="solid"
-        label="Success"
-        onPress={() => show({ message: 'Profile updated.', variant: 'success' })}
-      />
-      <Button
-        variant="outline"
-        label="Error"
-        onPress={() => show({ message: 'Something went wrong.', variant: 'error' })}
-      />
-      <Button
-        variant="subtle"
-        label="Persistent"
-        onPress={() => show({ message: 'This stays until dismissed.', duration: 0 })}
-      />
-    </Row>
-  );
+  React.useEffect(() => {
+    show({ message: 'Saved successfully.', duration: 0, dismissible: true });
+    show({ message: 'Profile updated.', variant: 'success', duration: 0, dismissible: true });
+    show({ message: 'Something went wrong.', variant: 'error', duration: 0, dismissible: true });
+  }, []);
+
+  return null;
 };
 
 <PreviewPair>
-<ComponentPreview>
+<ComponentPreview tall>
   <ToastProvider>
     <ToastDemo />
   </ToastProvider>
 </ComponentPreview>
 
 ```tsx
-function ToastButtons() {
+function ToastDemo() {
   const { show } = useToast();
 
-  return (
-    <Row gap="s-2" wrap="wrap">
-      <Button label="Default" onPress={() => show('Saved successfully.')} />
-      <Button
-        variant="solid"
-        label="Success"
-        onPress={() => show({ message: 'Profile updated.', variant: 'success' })}
-      />
-      <Button
-        variant="outline"
-        label="Error"
-        onPress={() => show({ message: 'Something went wrong.', variant: 'error' })}
-      />
-      <Button
-        variant="subtle"
-        label="Persistent"
-        onPress={() => show({ message: 'This stays until dismissed.', duration: 0 })}
-      />
-    </Row>
-  );
+  useEffect(() => {
+    show({ message: 'Saved successfully.', duration: 0, dismissible: true });
+    show({ message: 'Profile updated.', variant: 'success', duration: 0, dismissible: true });
+    show({ message: 'Something went wrong.', variant: 'error', duration: 0, dismissible: true });
+  }, []);
+
+  return null;
 }
 
 function App() {
   return (
     <ToastProvider>
-      <ToastButtons />
+      <ToastDemo />
     </ToastProvider>
   );
 }
 ```
 </PreviewPair>
 
+## Stacking
+
+Calling `show()` multiple times stacks the toasts instead of queuing them behind a single visible one. By default up to 3 stack at once; a 4th `show()` call stays queued until one of the visible toasts is dismissed — the fourth here never appears until you dismiss one of the first three.
+
+<PreviewPair>
+<ComponentPreview tall>
+  {(() => {
+    const StackDemo = () => {
+      const { show } = useToast();
+
+      React.useEffect(() => {
+        show({ message: 'First', variant: 'info', duration: 0, dismissible: true });
+        show({ message: 'Second', variant: 'success', duration: 0, dismissible: true });
+        show({ message: 'Third', variant: 'warning', duration: 0, dismissible: true });
+        show({ message: 'Fourth (queued)', variant: 'error', duration: 0, dismissible: true });
+      }, []);
+
+      return null;
+    };
+
+    return (
+      <ToastProvider maxVisible={3}>
+        <StackDemo />
+      </ToastProvider>
+    );
+  })()}
+</ComponentPreview>
+
+```tsx
+<ToastProvider maxVisible={3}>
+  <StackDemo />
+</ToastProvider>
+```
+</PreviewPair>
+
 ## Top-anchored
 
 <PreviewPair>
-<ComponentPreview>
+<ComponentPreview tall>
   {(() => {
     const TopToastDemo = () => {
       const { show } = useToast();
 
-      return <Button label="Show top toast" onPress={() => show({ message: 'Anchored to the top.', variant: 'info' })} />;
+      React.useEffect(() => {
+        show({ message: 'Anchored to the top.', variant: 'info', duration: 0, dismissible: true });
+      }, []);
+
+      return null;
     };
 
     return (
@@ -114,7 +129,8 @@ function App() {
 | Prop | Type | Default | Description |
 |---|---|---|---|
 | `children` | `ReactNode` | | Required. Subtree that gets access to `useToast()`. |
-| `position` | `'top' \| 'bottom'` | `'bottom'` | Where the toast is anchored on screen. |
+| `position` | `'top' \| 'bottom'` | `'bottom'` | Where the toast stack is anchored on screen. |
+| `maxVisible` | `number` | theme's `toast.maxVisible` (3) | Maximum number of toasts stacked on screen at once. Extra `show()` calls stay queued. |
 
 ### useToast()
 
@@ -128,7 +144,11 @@ function App() {
 | Prop | Type | Default | Description |
 |---|---|---|---|
 | `message` | `string` | | Required. Toast text. |
-| `variant` | `'default' \| 'success' \| 'error' \| 'warning' \| 'info'` | `'default'` | Visual style. |
+| `variant` | `'default' \| 'success' \| 'error' \| 'warning' \| 'info'` | `'default'` | Visual style. Also selects the default icon. |
 | `duration` | `number` | `3000` | Milliseconds before auto-dismiss. Pass `0` to disable auto-dismiss. |
+| `icon` | `ReactNode` | variant default | Overrides the variant's default icon. Pass `null` to render no icon. |
+| `dismissible` | `boolean` | `false` | Shows a dismiss (✕) button that closes the toast on press. |
 
-Only one toast is shown at a time; additional calls to `show` are queued and displayed in order. `useToast` throws if called outside a `ToastProvider`.
+Up to `maxVisible` toasts stack at once; additional calls to `show` are queued and displayed in order as visible toasts are dismissed. `useToast` throws if called outside a `ToastProvider`.
+
+Set the default globally via `createVajraTheme({ toast: { maxVisible: 5 }, ... })`, or override it per-provider with the `maxVisible` prop.

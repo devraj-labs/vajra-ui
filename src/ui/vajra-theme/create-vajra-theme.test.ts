@@ -67,4 +67,18 @@ describe('createVajraTheme', () => {
 
     expect(theme.fonts).toBe(fonts);
   });
+
+  it('defaults toast and alert maxVisible to the base theme values when omitted', () => {
+    const theme = createVajraTheme({ fonts });
+
+    expect(theme.toast.maxVisible).toBe(defaultVajraTheme.light.toast.maxVisible);
+    expect(theme.alert.maxVisible).toBe(defaultVajraTheme.light.alert.maxVisible);
+  });
+
+  it('merges partial toast and alert overrides, leaving the other intact', () => {
+    const theme = createVajraTheme({ fonts, toast: { maxVisible: 5 } });
+
+    expect(theme.toast.maxVisible).toBe(5);
+    expect(theme.alert.maxVisible).toBe(defaultVajraTheme.light.alert.maxVisible);
+  });
 });
